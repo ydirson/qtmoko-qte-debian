@@ -1,0 +1,7 @@
+?package(libqt4):\
+	needs=x11\
+	section="Apps/System"\
+	title="QtConfig"\
+	longtitle="Qt Configuration Utility"\
+	hints="Qt4 config tool"\
+	command=/usr/bin/qtconfig

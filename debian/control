@@ -1,0 +1,128 @@
+Source: qt4-x11
+Section: libs
+Priority: optional
+Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Uploaders: Brian Nelson <pyro@debian.org>
+Build-Depends: debhelper (>= 4.1.26), xlibs-static-dev (>= 4.3.0.dfsg.1-4), libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x-dev (>= 4.3.0.dfsg.1-4), libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libjpeg62-dev, libjpeg62-dev, zlib1g-dev, libmng-dev (>= 1.0.3), libpng12-dev, libfreetype6-dev, libmysqlclient12-dev | libmysqlclient-dev, flex, libpq-dev, libaudio-dev, libcupsys2-dev, xlibmesa-gl-dev | libgl-dev, xlibmesa-glu-dev | libglu1-mesa-dev | libglu-dev , libxft-dev, libxrender-dev, libxcursor-dev, cdbs (>= 0.4.0), dpatch, libsqlite0-dev
+Standards-Version: 3.6.2
+
+Package: libqt4-dev
+Architecture: any
+Section: libdevel
+Depends: libqt4-core (= ${Source-Version}), xlibs-dev (>= 4.2.1), libmng-dev (>= 1.0.3), libpng12-0-dev, libjpeg62-dev, zlib1g-dev, libfreetype6-dev, libc6-dev, xlibmesa-gl-dev | libgl-dev, xlibmesa-glu-dev | libglu1-mesa-dev | libglu-dev, libxft-dev, libxrender-dev, libxcursor-dev, libaudio-dev, xlibs-pic
+Conflicts: qt3-dev-tools (<= 3:3.3.4-3)
+Recommends: libqt4-gui (= ${Source-Version}), qt4-dev-tools
+Suggests: libqt4-sql (= ${Source-Version}), libqt4-qt3support (= ${Source-Version}), qt4-doc, libqt4-debug
+Description: Qt 4 development files
+ Qt is a cross-platform C++ application framework.  Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This packages contains the header files and programs used for building
+ Qt applications.
+ .
+  Homepage: http://www.trolltech.com
+
+Package: libqt4-core
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt 4 core non-GUI functionality runtime library
+ Qt is a cross-platform C++ application framework.  Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This packages contains the core non-GUI shared library.
+ .
+  Homepage: http://www.trolltech.com
+
+Package: libqt4-gui
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}, ${misc:Depends}, fontconfig
+Conflicts: qt3-qtconfig (<= 3:3.3.4-3)
+Description: Qt 4 core GUI functionality runtime library
+ Qt is a cross-platform C++ application framework.  Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This packages contains the core GUI shared library.
+ .
+  Homepage: http://www.trolltech.com
+
+Package: libqt4-sql
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt 4 SQL database module
+ Qt is a cross-platform C++ application framework.  Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This package contains the SQL module for Qt.  It includes support for
+ PostgreSQL, MySQL, and SQLite databases.
+ .
+  Homepage: http://www.trolltech.com
+
+Package: libqt4-qt3support
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt 3 compatibility library for Qt 4
+ Qt is a cross-platform C++ application framework.  Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This packages contains the Qt 3 compatibility library for Qt 4.  It
+ allows applications designed to use deprecated Qt 3 classes and
+ functions to work with Qt 4, with help from the qt3to4 porting tool
+ found in the libqt4-dev package.
+ .
+  Homepage: http://www.trolltech.com
+
+Package: libqt4-designer
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt 4 Designer libraries
+ Qt is a cross-platform C++ application framework.  Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This packages contains the Qt Designer runtime libraries and plugins.
+ .
+  Homepage: http://www.trolltech.com
+
+Package: libqt4-debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt 4 debugging runtime libraries
+ Qt is a cross-platform C++ application framework.  Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This packages contains the debugging libraries for Qt 4.
+ .
+  Homepage: http://www.trolltech.com
+
+Package: qt4-dev-tools
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Conflicts: qt3-assistant (<= 3:3.3.4-3), qt3-designer (<= 3:3.3.4-3), qt3-linguist (<= 3:3.3.4-3)
+Recommends: libqt4-dev
+Description: Qt 4 development tools
+ Qt is a cross-platform C++ application framework.  Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This packages contains tools used to assist in Qt 4 development,
+ including the Qt Designer, Assistant, and Linguist applications.
+ .
+  Homepage: http://www.trolltech.com
+
+Package: qt4-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}
+Suggests: w3m | www-browser, libqt4-dev, qt4-dev-tools
+Description: Qt 4 API documentation
+ Qt is a cross-platform C++ application framework.  Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This package contains the complete Qt 4 API documentation.  Examples to
+ coding are in qt4-examples. The documentation is provided in HTML and
+ manpage format; the HTML version can be viewed in conjunction with the
+ Qt Assistant found in the qt4-dev-tools package.

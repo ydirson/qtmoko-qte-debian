@@ -1,0 +1,5 @@
+qt4-x11 (4.0.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #306694)
+
+ -- Brian Nelson <pyro@debian.org>  Tue,  5 Jul 2005 19:42:18 -0700

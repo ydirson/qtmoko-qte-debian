@@ -1,0 +1,19 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 06_disable_rpath.dpatch by Brian Nelson <pyro@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+diff -urNad qt-x11-opensource-4.0.0-b2/mkspecs/linux-g++/qmake.conf /home/nelson/tmp/dpep.Ill3hj/qt-x11-opensource-4.0.0-b2/mkspecs/linux-g++/qmake.conf
+--- qt-x11-opensource-4.0.0-b2/mkspecs/linux-g++/qmake.conf	2005-04-06 08:09:50.000000000 -0700
++++ /home/nelson/tmp/dpep.Ill3hj/qt-x11-opensource-4.0.0-b2/mkspecs/linux-g++/qmake.conf	2005-04-26 20:39:18.000000000 -0700
+@@ -57,7 +57,7 @@
+ QMAKE_LFLAGS_PLUGIN	= $$QMAKE_LFLAGS_SHLIB
+ QMAKE_LFLAGS_SONAME	= -Wl,-soname,
+ QMAKE_LFLAGS_THREAD	=
+-QMAKE_RPATH		= -Wl,-rpath,
++QMAKE_RPATH		= 
+ 
+ QMAKE_LIBS		=
+ QMAKE_LIBS_DYNLOAD	= -ldl
