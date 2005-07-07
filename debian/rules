@@ -27,6 +27,7 @@ common-configure-arch::
 	            -translationdir "/usr/share/qt4/translations" \
 	            -sysconfdir "/etc/qt4" \
 	            -platform linux-g++ \
+		    -debug-and-release \
 	            -fast \
 	            -no-rpath \
 	            -system-zlib \
