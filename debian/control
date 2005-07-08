@@ -51,12 +51,15 @@ Package: libqt4-sql
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: libpq-dev, libmysqlclient12-dev | libmysqlclient-dev
 Description: Qt 4 SQL database module
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
  This package contains the SQL module for Qt.  It includes support for
- PostgreSQL, MySQL, and SQLite databases.
+ PostgreSQL, MySQL, and SQLite databases.  If you wish to to use the SQL
+ module for development, you should install the libpq-dev and/or
+ libmysqlclient-dev packages.
  .
   Homepage: http://www.trolltech.com
 
