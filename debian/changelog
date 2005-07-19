@@ -1,3 +1,13 @@
+qt4-x11 (4.0.0-2) unstable; urgency=low
+
+  * libqt4-dev: added /usr/bin/uic3 (Closes: #318451)
+
+  * Transition to the new X.org packages:
+    + (Build-)depend on libglu1-xorg-dev instead of xlibmesa-gl-dev
+    + (Build-)depend on libxinerama-dev (Closes: #318682)
+
+ --
+
 qt4-x11 (4.0.0-1) unstable; urgency=low
 
   * Initial release (Closes: #306694)
