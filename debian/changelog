@@ -6,7 +6,7 @@ qt4-x11 (4.0.0-2) unstable; urgency=low
     + (Build-)depend on libglu1-xorg-dev instead of xlibmesa-gl-dev
     + (Build-)depend on libxinerama-dev (Closes: #318682)
 
- --
+ -- Brian Nelson <pyro@debian.org>  Tue, 19 Jul 2005 21:28:19 -0700
 
 qt4-x11 (4.0.0-1) unstable; urgency=low
 
