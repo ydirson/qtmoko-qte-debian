@@ -1,3 +1,10 @@
+qt4-x11 (4.0.0-3) unstable; urgency=low
+
+  * debian/control: changed the xlibs-pic dependency to xlibs-static-pic
+    for the X.org transition (Closes: #319586)
+
+ --
+
 qt4-x11 (4.0.0-2) unstable; urgency=low
 
   * libqt4-dev: added /usr/bin/uic3 (Closes: #318451)
