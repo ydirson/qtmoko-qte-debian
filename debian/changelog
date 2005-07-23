@@ -3,6 +3,12 @@ qt4-x11 (4.0.0-3) unstable; urgency=low
   * debian/control: changed the xlibs-pic dependency to xlibs-static-pic
     for the X.org transition (Closes: #319586)
 
+  * Added manpages for lrelease, lupdate, moc, qtconfig, and uic, stolen
+    from the Qt3 upstream tarball, and wrote a manpage for qmake from
+    scratch.  Since now manpages are included for all executables using
+    the alternatives, the symlinks to them no longer dangle.
+    (Closes: #319456)
+
  --
 
 qt4-x11 (4.0.0-2) unstable; urgency=low
