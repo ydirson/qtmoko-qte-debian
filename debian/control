@@ -30,7 +30,8 @@ Description: Qt 4 core non-GUI functionality runtime library
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
- This packages contains the core non-GUI shared library.
+ This packages contains the core non-GUI shared library, and the Network
+ and XML modules.
  .
   Homepage: http://www.trolltech.com
 
@@ -43,7 +44,8 @@ Description: Qt 4 core GUI functionality runtime library
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
- This packages contains the core GUI shared library.
+ This packages contains the core GUI shared library and the OpenGL
+ module.
  .
   Homepage: http://www.trolltech.com
 

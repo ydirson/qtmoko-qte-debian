@@ -9,7 +9,24 @@ qt4-x11 (4.0.0-3) unstable; urgency=low
     the alternatives, the symlinks to them no longer dangle.
     (Closes: #319456)
 
- --
+  * debian/libqt4-core.install: added
+    usr/lib/qt4/plugins/imageformats/libqjpeg.so to include the jpeg
+    plugin (Closes: #321582)
+
+  * debian/libqt4-debug.install: added the libqjpeg_debug.so plugin
+  
+  * debian/rules: don't hardcode the /usr/include/postgresql/8.0 path,
+    instead of the output of `pg_config --includedir`, stolen from Qt3
+    packages
+
+  * debian/libqt4-gui.install: added the OpenGL module library so that it
+    actually gets included in a package (Closes: #321874)
+
+  * debian/control: updated the package descriptions to note that the
+    Network and XML modules are included in the libqt4-core package, and
+    the OpenGL module is included in the libqt4-gui package
+
+ -- Brian Nelson <pyro@debian.org>  Mon,  8 Aug 2005 08:58:10 -0700
 
 qt4-x11 (4.0.0-2) unstable; urgency=low
 

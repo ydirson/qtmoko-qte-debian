@@ -1,2 +1,3 @@
 usr/lib/libQtGui.so.*
+usr/lib/libQtOpenGL.so.*
 usr/bin/qtconfig-qt4

@@ -39,7 +39,7 @@ common-configure-arch::
 		    -qt-sql-sqlite \
 	            -I/usr/include/mysql \
 	            -I/usr/include/freetype2 \
-	            -I/usr/include/postgresql/8.0 \
+	            -I`pg_config --includedir` \
 	            -lfontconfig \
 	            -cups
 
