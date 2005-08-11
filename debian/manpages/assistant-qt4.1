@@ -1,0 +1,44 @@
+.TH "ASSISTANT-QT4" 1 "4.0.0" "Trolltech AS" \" -*- nroff -*-
+.SH NAME
+assistant-qt4 \- on\-line documentation browser for Qt4
+.SH SYNOPSIS
+.B assistant [options]
+.SH DESCRIPTION
+This page documents the
+.B Qt Assistant
+for the Qt application framework, which is typically used to display the
+Qt Reference Documentation.
+.SH OPTIONS
+.TP
+.I "\-file Filename"
+assistant opens the specified file
+.TP
+.I \-server
+reads commands from a socket after assistant has started
+.TP
+.I "\-profile fileName"
+starts assistant and displays the profile specified in the file
+.I fileName
+.TP
+.I "\-addContentFile file"
+adds the content file 
+.I file
+to the set of documentation available by default
+.TP
+.I "\-removeContentFile file"
+removes the content file
+.I file
+from the documentation available by default
+.TP
+.I "\-hideSidebar"
+assistant will hide the sidebar
+.TP
+.I "-help"
+outputs some help text
+.SH "SEE ALSO"
+.BR /usr/share/qt4/doc/html/assistant-manual.html,
+.BR http://doc.trolltech.com
+.SH AUTHOR
+This manual page was written by Brian Nelson <pyro@debian.org> based on
+the output of
+.B "assistant -help".

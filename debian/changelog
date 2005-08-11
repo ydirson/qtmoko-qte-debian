@@ -1,3 +1,19 @@
+qt4-x11 (4.0.0-4) UNRELEASED; urgency=low
+
+  * debian/manpages/assistant-qt4.1: new manpage written from scratch
+    based on the output of "assistant -help"
+
+  * debian/manpages/designer-qt4.1, debian/manpages/linguist-qt4.1:
+    manpages stolen from the Qt3 packages and trivially adapted for Qt4
+    (Closes: #322403)
+
+  * debian/manpages/moc-qt4.1: escape some '-' characters
+
+  * debian/qt4-dev-tools.manpages: install the new assistant-qt4.1,
+    designer-qt4.1, and linguist-qt4.1 manpages
+
+ -- Brian Nelson <pyro@debian.org>  Thu, 11 Aug 2005 13:37:00 -0700
+
 qt4-x11 (4.0.0-3) unstable; urgency=low
 
   * debian/control: changed the xlibs-pic dependency to xlibs-static-pic
