@@ -12,7 +12,10 @@ qt4-x11 (4.0.0-4) UNRELEASED; urgency=low
   * debian/qt4-dev-tools.manpages: install the new assistant-qt4.1,
     designer-qt4.1, and linguist-qt4.1 manpages
 
- -- Brian Nelson <pyro@debian.org>  Thu, 11 Aug 2005 13:37:00 -0700
+  * debian/control: made qt4-dev-tools recommend qt4-doc, since assisant
+    needs it to be useful (Closes: #323251)
+
+ -- Brian Nelson <pyro@debian.org>  Mon, 15 Aug 2005 12:58:01 -0700
 
 qt4-x11 (4.0.0-3) unstable; urgency=low
 
