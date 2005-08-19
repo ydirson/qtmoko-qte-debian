@@ -1,5 +1,9 @@
-qt4-x11 (4.0.0-4) UNRELEASED; urgency=low
+qt4-x11 (4.0.1-1) UNRELEASED; urgency=low
 
+  * New upstream release
+
+  * Install changes-4.0.1 as upstream changelog
+  
   * debian/manpages/assistant-qt4.1: new manpage written from scratch
     based on the output of "assistant -help"
 
@@ -15,7 +19,7 @@ qt4-x11 (4.0.0-4) UNRELEASED; urgency=low
   * debian/control: made qt4-dev-tools recommend qt4-doc, since assisant
     needs it to be useful (Closes: #323251)
 
- -- Brian Nelson <pyro@debian.org>  Mon, 15 Aug 2005 12:58:01 -0700
+ -- Brian Nelson <pyro@debian.org>  Fri, 19 Aug 2005 16:10:25 -0700
 
 qt4-x11 (4.0.0-3) unstable; urgency=low
 
