@@ -19,7 +19,10 @@ qt4-x11 (4.0.1-1) UNRELEASED; urgency=low
   * debian/control: made qt4-dev-tools recommend qt4-doc, since assisant
     needs it to be useful (Closes: #323251)
 
- -- Brian Nelson <pyro@debian.org>  Fri, 19 Aug 2005 16:10:25 -0700
+  * Removed the FAQ from qt4-doc.docs, since it's no longer included in
+    4.0.1, and was useless anyway
+
+ -- Brian Nelson <pyro@debian.org>  Tue, 23 Aug 2005 12:46:22 -0700
 
 qt4-x11 (4.0.0-3) unstable; urgency=low
 
