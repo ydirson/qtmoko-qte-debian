@@ -2,7 +2,7 @@ usr/include/qt4/*
 usr/lib/*.la
 usr/lib/*.prl
 usr/lib/*.so
-usr/lib/pkgconfig
+usr/lib/*.pc usr/lib/pkgconfig/
 usr/share/qt4/q3porting.xml
 usr/share/qt4/mkspecs/*
 usr/bin/qmake-qt4
