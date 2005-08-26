@@ -1,4 +1,4 @@
-qt4-x11 (4.0.1-1) UNRELEASED; urgency=low
+qt4-x11 (4.0.1-1) unstable; urgency=low
 
   * New upstream release
 
@@ -29,7 +29,7 @@ qt4-x11 (4.0.1-1) UNRELEASED; urgency=low
     this release so that the pkgconfig files are installed in
     /usr/lib/pkgconfig instead of directly in /usr/lib.  Grrrr.
 
- -- Brian Nelson <pyro@debian.org>  Tue, 23 Aug 2005 21:24:44 -0700
+ -- Brian Nelson <pyro@debian.org>  Thu, 25 Aug 2005 19:28:35 -0700
 
 qt4-x11 (4.0.0-3) unstable; urgency=low
 
