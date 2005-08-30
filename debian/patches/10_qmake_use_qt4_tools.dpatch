@@ -1,0 +1,21 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 10_qmake_use_qt4_tools.dpatch by Brian Nelson <pyro@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Ensures qmake generates Makefiles that use the -qt4 tools.
+
+@DPATCH@
+diff -urNad --exclude=CVS --exclude=.svn ./mkspecs/linux-g++/qmake.conf /home/nelson/tmp/dpep-work.OgCbL2/qt4-x11-4.0.1/mkspecs/linux-g++/qmake.conf
+--- ./mkspecs/linux-g++/qmake.conf	2005-08-16 01:41:05.000000000 -0700
++++ /home/nelson/tmp/dpep-work.OgCbL2/qt4-x11-4.0.1/mkspecs/linux-g++/qmake.conf	2005-08-30 15:17:58.000000000 -0700
+@@ -68,8 +68,8 @@
+ QMAKE_LIBS_OPENGL_QT	= -lGL
+ QMAKE_LIBS_THREAD	= -lpthread
+ 
+-QMAKE_MOC		= $$[QT_INSTALL_BINS]/moc
+-QMAKE_UIC		= $$[QT_INSTALL_BINS]/uic
++QMAKE_MOC		= $$[QT_INSTALL_BINS]/moc-qt4
++QMAKE_UIC		= $$[QT_INSTALL_BINS]/uic-qt4
+ 
+ QMAKE_AR		= ar cqs
+ QMAKE_RANLIB		=

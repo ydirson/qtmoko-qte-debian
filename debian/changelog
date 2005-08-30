@@ -1,3 +1,12 @@
+qt4-x11 (4.0.1-2) UNRELEASED; urgency=low
+
+  * debian/patches/10_qmake_use_qt4_tools.dpatch: new patch that modifies
+    qmake.conf so that qmake generates Makefiles that use the -qt4 tools.
+    This way, it can cope with systems that have alternatives set to use
+    the -qt3 versions.
+
+ -- Brian Nelson <pyro@debian.org>  Tue, 30 Aug 2005 15:22:22 -0700
+
 qt4-x11 (4.0.1-1) unstable; urgency=low
 
   * New upstream release
