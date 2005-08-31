@@ -10,7 +10,7 @@ Package: libqt4-dev
 Architecture: any
 Section: libdevel
 Depends: libqt4-core (= ${Source-Version}), xlibs-dev (>= 4.2.1), libmng-dev (>= 1.0.3), libpng12-0-dev, libjpeg62-dev, zlib1g-dev, libfreetype6-dev, libc6-dev, xlibmesa-gl-dev | libgl-dev, libglu1-xorg-dev | libglu1-mesa-dev | libglu-dev, libxft-dev, libxrender-dev, libxcursor-dev, libaudio-dev, xlibs-static-pic, libxinerama-dev
-Conflicts: qt3-dev-tools (<= 3:3.3.4-3)
+Conflicts: qt3-dev-tools (<= 3:3.3.4-7)
 Recommends: libqt4-gui (= ${Source-Version}), qt4-dev-tools
 Suggests: libqt4-sql (= ${Source-Version}), libqt4-qt3support (= ${Source-Version}), qt4-doc, libqt4-debug
 Description: Qt 4 development files
@@ -39,7 +39,7 @@ Package: libqt4-gui
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}, fontconfig
-Conflicts: qt3-qtconfig (<= 3:3.3.4-3)
+Conflicts: qt3-qtconfig (<= 3:3.3.4-7)
 Description: Qt 4 core GUI functionality runtime library
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -107,7 +107,7 @@ Package: qt4-dev-tools
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: qt3-assistant (<= 3:3.3.4-3), qt3-designer (<= 3:3.3.4-3), qt3-linguist (<= 3:3.3.4-3)
+Conflicts: qt3-assistant (<= 3:3.3.4-7), qt3-designer (<= 3:3.3.4-7), qt3-linguist (<= 3:3.3.4-7)
 Recommends: libqt4-dev, qt4-doc
 Description: Qt 4 development tools
  Qt is a cross-platform C++ application framework.  Qt's primary feature
