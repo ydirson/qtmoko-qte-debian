@@ -11,7 +11,11 @@ qt4-x11 (4.0.1-2) UNRELEASED; urgency=low
   
   * debian/libqt4-core.install: added /usr/lib/qt4/plugins/codecs
 
- -- Brian Nelson <pyro@debian.org>  Tue, 30 Aug 2005 21:27:38 -0700
+  * debian/patches/11_launch_assistant-qt4: new patch that modifies the
+    QAssistantClient class to launch Qt Assistant as "assistant-qt4" to
+    cope with the alternatives system (Closes: #327294)
+
+ -- Brian Nelson <pyro@debian.org>  Sun, 11 Sep 2005 09:04:24 -0700
 
 qt4-x11 (4.0.1-1) unstable; urgency=low
 

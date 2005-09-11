@@ -1,0 +1,24 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 11_launch_assistant-qt4.dpatch by Brian Nelson <pyro@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+diff -urNad --exclude=CVS --exclude=.svn ./tools/assistant/lib/qassistantclient.cpp /home/nelson/tmp/dpep-work.Zny9K3/qt4-x11-4.0.1/tools/assistant/lib/qassistantclient.cpp
+--- ./tools/assistant/lib/qassistantclient.cpp	2005-08-16 01:41:14.000000000 -0700
++++ /home/nelson/tmp/dpep-work.Zny9K3/qt4-x11-4.0.1/tools/assistant/lib/qassistantclient.cpp	2005-09-11 09:01:31.000000000 -0700
+@@ -128,11 +128,11 @@
+     : QObject( parent ), host ( "localhost" )
+ {
+     if ( path.isEmpty() )
+-        assistantCommand = "assistant";
++        assistantCommand = "assistant-qt4";
+     else {
+         QFileInfo fi( path );
+         if ( fi.isDir() )
+-            assistantCommand = path + "/assistant";
++            assistantCommand = path + "/assistant-qt4";
+         else
+             assistantCommand = path;
+     }
