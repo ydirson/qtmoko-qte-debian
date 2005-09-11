@@ -15,7 +15,16 @@ qt4-x11 (4.0.1-2) UNRELEASED; urgency=low
     QAssistantClient class to launch Qt Assistant as "assistant-qt4" to
     cope with the alternatives system (Closes: #327294)
 
- -- Brian Nelson <pyro@debian.org>  Sun, 11 Sep 2005 09:04:24 -0700
+  * debian/control: Upgraded libqt4-dev's dependencies on the modules
+    libqt4-sql and libqt4-qt3support from suggests to depends, and added
+    libpq-dev and libmysqlclient14-dev | libmysqlclient-dev as
+    dependencies.  These dependencies are apparently required to make
+    building pkg-config-using packages happy. (Closes: #327618)
+
+  * debian/control: corrected libqt4-sql to suggest libmysqlclient14-dev,
+    not libmysqlclient12-dev which is deprecated
+
+ -- Brian Nelson <pyro@debian.org>  Sun, 11 Sep 2005 09:13:08 -0700
 
 qt4-x11 (4.0.1-1) unstable; urgency=low
 
