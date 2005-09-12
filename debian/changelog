@@ -24,7 +24,9 @@ qt4-x11 (4.0.1-2) UNRELEASED; urgency=low
   * debian/control: corrected libqt4-sql to suggest libmysqlclient14-dev,
     not libmysqlclient12-dev which is deprecated
 
- -- Brian Nelson <pyro@debian.org>  Sun, 11 Sep 2005 09:13:08 -0700
+  * debian/copyright: updated FSF snailmail address
+
+ -- Brian Nelson <pyro@debian.org>  Mon, 12 Sep 2005 00:07:23 -0700
 
 qt4-x11 (4.0.1-1) unstable; urgency=low
 
