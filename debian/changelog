@@ -26,7 +26,11 @@ qt4-x11 (4.0.1-2) UNRELEASED; urgency=low
 
   * debian/copyright: updated FSF snailmail address
 
- -- Brian Nelson <pyro@debian.org>  Mon, 12 Sep 2005 00:07:23 -0700
+  * debian/libqt4-debug.install: removed the libqt3supportwidgets_debug.so
+    designer plugin, since for some reason having this installed breaks
+    designer (Closes: #325782)
+
+ -- Brian Nelson <pyro@debian.org>  Mon, 12 Sep 2005 11:09:24 -0700
 
 qt4-x11 (4.0.1-1) unstable; urgency=low
 
