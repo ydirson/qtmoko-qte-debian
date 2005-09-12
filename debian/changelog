@@ -1,4 +1,4 @@
-qt4-x11 (4.0.1-2) UNRELEASED; urgency=low
+qt4-x11 (4.0.1-2) unstable; urgency=low
 
   * debian/patches/10_qmake_use_qt4_tools.dpatch: new patch that modifies
     qmake.conf so that qmake generates Makefiles that use the -qt4 tools.
@@ -30,7 +30,7 @@ qt4-x11 (4.0.1-2) UNRELEASED; urgency=low
     designer plugin, since for some reason having this installed breaks
     designer (Closes: #325782)
 
- -- Brian Nelson <pyro@debian.org>  Mon, 12 Sep 2005 11:09:24 -0700
+ -- Brian Nelson <pyro@debian.org>  Mon, 12 Sep 2005 12:32:53 -0700
 
 qt4-x11 (4.0.1-1) unstable; urgency=low
 
