@@ -1,3 +1,12 @@
+qt4-x11 (4.0.1-3) UNRELEASED; urgency=low
+
+  * debian/libqt4-core.install: only install the non-debug codecs, since
+    the debug ones pull in a gratuitous dependency on libqt4-debug
+
+  * debian/libqt4-debug.install: install the debug codecs here instead
+
+ -- Brian Nelson <pyro@debian.org>  Sat, 17 Sep 2005 20:15:39 -0700
+
 qt4-x11 (4.0.1-2) unstable; urgency=low
 
   * debian/patches/10_qmake_use_qt4_tools.dpatch: new patch that modifies

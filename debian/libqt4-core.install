@@ -3,4 +3,4 @@ usr/lib/libQtNetwork.so.*
 usr/lib/libQtXml.so.*
 usr/share/qt4/translations/*.qm
 usr/lib/qt4/plugins/imageformats/libqjpeg.so
-usr/lib/qt4/plugins/codecs
+usr/lib/qt4/plugins/codecs/*codecs.so
