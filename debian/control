@@ -3,13 +3,13 @@ Section: libs
 Priority: optional
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Brian Nelson <pyro@debian.org>
-Build-Depends: debhelper (>= 4.1.26), xlibs-static-dev (>= 4.3.0.dfsg.1-4), libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x-dev (>= 4.3.0.dfsg.1-4), libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libjpeg62-dev, libjpeg62-dev, zlib1g-dev, libmng-dev (>= 1.0.3), libpng12-dev, libfreetype6-dev, libmysqlclient14-dev | libmysqlclient-dev, flex, libpq-dev, libaudio-dev, libcupsys2-dev, xlibmesa-gl-dev | libgl-dev, libglu1-xorg-dev | libglu1-mesa-dev | libglu-dev, libxft-dev, libxrender-dev, libxcursor-dev, cdbs (>= 0.4.0), dpatch, libxinerama-dev, libsqlite3-dev
+Build-Depends: debhelper (>= 4.1.26), xlibs-static-dev (>= 4.3.0.dfsg.1-4), libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x-dev (>= 4.3.0.dfsg.1-4), libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libjpeg62-dev, libjpeg62-dev, zlib1g-dev, libmng-dev (>= 1.0.3), libpng12-dev, libfreetype6-dev, libmysqlclient14-dev | libmysqlclient-dev, flex, libpq-dev, libaudio-dev, libcupsys2-dev, xlibmesa-gl-dev | libgl-dev, libglu1-xorg-dev | libglu1-mesa-dev | libglu-dev, libxft-dev, libxrender-dev, libxcursor-dev, cdbs (>= 0.4.0), dpatch, libxinerama-dev
 Standards-Version: 3.6.2
 
 Package: libqt4-dev
 Architecture: any
 Section: libdevel
-Depends: libqt4-core (= ${Source-Version}), libqt4-gui (= ${Source-Version}), libqt4-sql (= ${Source-Version}), libqt4-qt3support (= ${Source-Version}), libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x-dev (>= 4.3.0.dfsg.1-4), libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libxrender-dev, libxcursor-dev, libxinerama-dev, libxi-dev, libmng-dev (>= 1.0.3), libpng12-0-dev, libjpeg62-dev, zlib1g-dev, libfreetype6-dev, libc6-dev, xlibmesa-gl-dev | libgl-dev, libglu1-xorg-dev | libglu1-mesa-dev | libglu-dev, libxft-dev, libaudio-dev, xlibs-static-pic, libpq-dev, libmysqlclient14-dev | libmysqlclient-dev, libsqlite3-dev
+Depends: libqt4-core (= ${Source-Version}), libqt4-gui (= ${Source-Version}), libqt4-sql (= ${Source-Version}), libqt4-qt3support (= ${Source-Version}), libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x-dev (>= 4.3.0.dfsg.1-4), libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libxrender-dev, libxcursor-dev, libxinerama-dev, libxi-dev, libmng-dev (>= 1.0.3), libpng12-0-dev, libjpeg62-dev, zlib1g-dev, libfreetype6-dev, libc6-dev, xlibmesa-gl-dev | libgl-dev, libglu1-xorg-dev | libglu1-mesa-dev | libglu-dev, libxft-dev, libaudio-dev, xlibs-static-pic, libpq-dev, libmysqlclient14-dev | libmysqlclient-dev
 Conflicts: qt3-dev-tools (<= 3:3.3.4-7)
 Recommends: qt4-dev-tools
 Suggests: qt4-doc, libqt4-debug
@@ -53,15 +53,15 @@ Package: libqt4-sql
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: libpq-dev, libmysqlclient14-dev | libmysqlclient-dev, libsqlite3-dev
+Suggests: libpq-dev, libmysqlclient14-dev | libmysqlclient-dev
 Description: Qt 4 SQL database module
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
  This package contains the SQL module for Qt.  It includes support for
- PostgreSQL, MySQL, and SQLite databases.  If you wish to to use the SQL
- module for development, you should install the libpq-dev,
- libmysqlclient-dev, and/or libsqlite3-dev packages.
+ PostgreSQL and MySQL databases.  If you wish to to use the SQL module
+ for development, you should install the libpq-dev and/or
+ libmysqlclient-dev packages.
  .
   Homepage: http://www.trolltech.com
 
