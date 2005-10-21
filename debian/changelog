@@ -9,7 +9,13 @@ qt4-x11 (4.0.1-3) UNRELEASED; urgency=low
   * debian/control: replaced obsolete xlibs-dev dependency with the
     required split packages (Closes: #329302)
 
- -- Brian Nelson <pyro@debian.org>  Tue, 20 Sep 2005 21:34:38 -0700
+  * debian/control: upgrade sqlite build-dependency to libsqlite3-dev,
+    which also fixes SQLite support (Closes: #330976)
+
+  * debian/control: added dependencies on libsqlite3-dev in appropriate
+    packages
+
+ -- Brian Nelson <pyro@debian.org>  Thu, 20 Oct 2005 20:04:17 -0700
 
 qt4-x11 (4.0.1-2) unstable; urgency=low
 
