@@ -80,15 +80,18 @@ Description: Qt 3 compatibility library for Qt 4
  .
   Homepage: http://www.trolltech.com
 
-Package: libqt4-designer
+Package: qt4-designer
 Architecture: any
 Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Qt 4 Designer libraries
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-dev
+Conflicts: libqt4-designer
+Replaces: libqt4-designer, qt4-dev-tools (<= 4.0.1-2)
+Description: Qt 4 Designer
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
- This packages contains the Qt Designer runtime libraries and plugins.
+ Qt Designer is a tool for designing and building graphical user
+ interfaces (GUIs) from Qt components.
  .
   Homepage: http://www.trolltech.com
 
@@ -108,13 +111,13 @@ Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: qt3-assistant (<= 3:3.3.4-7), qt3-designer (<= 3:3.3.4-7), qt3-linguist (<= 3:3.3.4-7)
-Recommends: libqt4-dev, qt4-doc
+Recommends: libqt4-dev, qt4-doc, qt4-designer
 Description: Qt 4 development tools
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
  This packages contains tools used to assist in Qt 4 development,
- including the Qt Designer, Assistant, and Linguist applications.
+ including the Qt Assistant and Linguist applications.
  .
   Homepage: http://www.trolltech.com
 
