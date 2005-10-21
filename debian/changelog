@@ -1,4 +1,4 @@
-qt4-x11 (4.0.1-3) UNRELEASED; urgency=low
+qt4-x11 (4.0.1-3) unstable; urgency=low
 
   * debian/libqt4-core.install: only install the non-debug codecs, since
     the debug ones pull in a gratuitous dependency on libqt4-debug
@@ -18,7 +18,11 @@ qt4-x11 (4.0.1-3) UNRELEASED; urgency=low
     from qt4-dev-tools, and added a dependency on libqt4-dev
     (Closes: #330094)
 
- -- Brian Nelson <pyro@debian.org>  Thu, 20 Oct 2005 20:16:00 -0700
+  * Moved the plugins installed in libqt4-core to libqt4-gui, since they
+    link against the GUI library.  Otherwise a circular libqt4-core <->
+    libqt4-gui dependency results.
+
+ -- Brian Nelson <pyro@debian.org>  Fri, 21 Oct 2005 00:28:53 -0700
 
 qt4-x11 (4.0.1-2) unstable; urgency=low
 
