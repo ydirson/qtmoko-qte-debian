@@ -1,11 +1,11 @@
-qt4-x11 (4.0.1-4) UNRELEASED; urgency=low
+qt4-x11 (4.0.1-4) unstable; urgency=low
 
   * debian/control: changed qt4-designer's section to "devel"
 
   * Added a patch from Thiemo Seufer to fix the FTBFS on mips/mipsel
     (Closes: #335831)
 
- -- Brian Nelson <pyro@debian.org>  Tue, 25 Oct 2005 23:12:41 -0700
+ -- Brian Nelson <pyro@debian.org>  Wed, 26 Oct 2005 00:13:40 -0700
 
 qt4-x11 (4.0.1-3) unstable; urgency=low
 
