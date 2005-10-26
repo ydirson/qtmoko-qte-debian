@@ -1,0 +1,36 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 12_mips_atomic_ops.dpatch by Thiemo Seufer <ths@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix compilation for Linux MIPS-I code.
+
+@DPATCH@
+diff -urNad qt4-x11-4.0.1~/src/corelib/arch/mips/qatomic32.s qt4-x11-4.0.1/src/corelib/arch/mips/qatomic32.s
+--- qt4-x11-4.0.1~/src/corelib/arch/mips/qatomic32.s	2005-10-25 23:35:53.000000000 -0700
++++ qt4-x11-4.0.1/src/corelib/arch/mips/qatomic32.s	2005-10-25 23:52:16.000000000 -0700
+@@ -6,10 +6,12 @@
+ 	.globl	q_atomic_test_and_set_int
+ 	.ent	q_atomic_test_and_set_int
+ q_atomic_test_and_set_int:
++	.set mips2
+ 1:	ll   $8,0($4)
+ 	bne  $8,$5,2f
+ 	move $2,$6
+ 	sc   $2,0($4)
++	.set mips0
+ 	beqz $2,1b
+ 	nop
+ 	jr   $31
+@@ -21,10 +23,12 @@
+ 	.globl	q_atomic_test_and_set_ptr
+ 	.ent	q_atomic_test_and_set_ptr
+ q_atomic_test_and_set_ptr:
++	.set mips2
+ 1:	ll   $8,0($4)
+ 	bne  $8,$5,2f
+ 	move $2,$6
+ 	sc   $2,0($4)
++	.set mips0
+ 	beqz $2,1b
+ 	nop
+ 	jr   $31
