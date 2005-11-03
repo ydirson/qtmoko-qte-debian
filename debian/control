@@ -131,7 +131,7 @@ Description: Qt 4 API documentation
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
- This package contains the complete Qt 4 API documentation.  Examples to
- coding are in qt4-examples. The documentation is provided in HTML and
- manpage format; the HTML version can be viewed in conjunction with the
- Qt Assistant found in the qt4-dev-tools package.
+ This package contains the complete Qt 4 API documentation.  The
+ documentation is provided in HTML and manpage format; the HTML version
+ can be viewed in conjunction with the Qt Assistant found in the
+ qt4-dev-tools package.
