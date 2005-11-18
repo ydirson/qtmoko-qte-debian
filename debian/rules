@@ -43,10 +43,10 @@ common-configure-arch::
 	            -cups
 
 clean::
-	-$(MAKE) -C plugins/src distclean
-	-$(MAKE) -C qmake distclean
-	-$(MAKE) -C tools distclean
-	-$(MAKE) distclean
+	-$(MAKE) -k -C plugins/src distclean
+	-$(MAKE) -k -C qmake distclean
+	-$(MAKE) -k -C tools distclean
+	-$(MAKE) -k distclean
 
 	-find . -mindepth 2 -name Makefile -exec rm -f '{}' ';'
 
@@ -100,3 +100,9 @@ common-install-arch::
 	for f in qmake lupdate lrelease uic moc assistant designer linguist qtconfig; do \
 	    mv "$(BINDIR)/$$f" "$(BINDIR)/$$f-qt4"; \
 	done
+
+binary-install/qt4-doc::
+	# Tar up the examples to include them in qt4-doc
+	-$(MAKE) -k -C examples clean
+	tar -cv examples/ | \
+	gzip -9 > debian/qt4-doc/usr/share/doc/qt4-doc/qt4-examples.tar.gz

@@ -1,0 +1,6 @@
+?package(qt4-dev-tools):\
+	needs="x11"\
+	section="Apps/Programming"\
+	hints="KDE"\
+	title="Qt Designer"\
+	command="/usr/bin/designer-qt4"

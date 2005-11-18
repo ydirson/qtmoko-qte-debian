@@ -10,7 +10,12 @@ qt4-x11 (4.0.1-5) UNRELEASED; urgency=low
     examples/tools/plugandpaint/plugins/ in the clean target
     (Closes: #339674)
 
- -- Brian Nelson <pyro@debian.org>  Thu, 17 Nov 2005 22:09:07 -0800
+  * Removed the menu entry for designer-qt4 from qt4-dev-tools.menu, and
+    added it to a new qt4-designer.menu
+
+  * Added a tarball of the examples to qt4-doc (Closes: #336832)
+
+ -- Brian Nelson <pyro@debian.org>  Fri, 18 Nov 2005 00:01:22 -0800
 
 qt4-x11 (4.0.1-4) unstable; urgency=low
 
