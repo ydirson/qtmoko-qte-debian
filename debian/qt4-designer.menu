@@ -1,4 +1,4 @@
-?package(qt4-dev-tools):\
+?package(qt4-designer):\
 	needs="x11"\
 	section="Apps/Programming"\
 	hints="KDE"\
