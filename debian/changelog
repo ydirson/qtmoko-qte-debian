@@ -6,7 +6,11 @@ qt4-x11 (4.0.1-5) UNRELEASED; urgency=low
   * debian/control: removed the mention of a qt4-examples package that
     doesn't actually exist from the qt4-doc package description
 
- -- Brian Nelson <pyro@debian.org>  Wed,  2 Nov 2005 18:58:52 -0800
+  * debian/rules: remove all *.so files under
+    examples/tools/plugandpaint/plugins/ in the clean target
+    (Closes: #339674)
+
+ -- Brian Nelson <pyro@debian.org>  Thu, 17 Nov 2005 22:09:07 -0800
 
 qt4-x11 (4.0.1-4) unstable; urgency=low
 

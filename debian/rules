@@ -87,8 +87,7 @@ clean::
 	    plugins/accessible/lib*.so* \
 	    plugins/codecs/lib*.so* \
 	    plugins/imageformats/lib*.so* \
-	    examples/tools/plugandpaint/plugins/libpnp_basictools_debug.so \
-	    examples/tools/plugandpaint/plugins/libpnp_extrafilters_debug.so \
+	    examples/tools/plugandpaint/plugins/*.so \
 	    demos/shared/libdemo_shared.prl
 
 # Hack to fix dpatch-edit-patch
