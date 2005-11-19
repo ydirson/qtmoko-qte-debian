@@ -106,3 +106,11 @@ binary-install/qt4-doc::
 	-$(MAKE) -k -C examples distclean
 	tar -cv examples/ | \
 	gzip -9 > debian/qt4-doc/usr/share/doc/qt4-doc/qt4-examples.tar.gz
+
+
+# Automatically install lintian overrides, stolen from debian-qt-kde.mk
+$(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:
+	if test -e debian/$(cdbs_curpkg).lintian; then \
+	    install -p -D -m644 debian/$(cdbs_curpkg).lintian \
+	    debian/$(cdbs_curpkg)/usr/share/lintian/overrides/$(cdbs_curpkg); \
+        fi

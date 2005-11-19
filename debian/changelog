@@ -1,3 +1,12 @@
+qt4-x11 (4.0.1-6) unstable; urgency=low
+
+  * Added a target to automatically install lintian overrides, stolen from
+    debian-qt-kde.mk
+
+  * Added a bunch of lintian overrides for stuff that should be ignored
+
+ -- Brian Nelson <pyro@debian.org>  Sat, 19 Nov 2005 01:17:03 -0800
+
 qt4-x11 (4.0.1-5) unstable; urgency=low
 
   * debian/control: made libqt4-gui replace libqt4-core (<< 4.0.1-3), for
