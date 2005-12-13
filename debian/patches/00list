@@ -2,3 +2,4 @@
 11_launch_assistant-qt4
 12_mips_atomic_ops
 13_arm_gcc4
+14_kfreebsd_build_fix

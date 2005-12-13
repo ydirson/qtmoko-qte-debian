@@ -3,7 +3,10 @@ qt4-x11 (4.0.1-7) UNRELEASED; urgency=low
   * debian/patches/13_arm_gcc4.dpatch: new patch from Jeremy Laine to fix
     FTBFS on arm (Closes: #343176)
 
- -- Brian Nelson <pyro@debian.org>  Tue, 13 Dec 2005 15:37:40 +0200
+  * debian/patches/14_kfreebsd_build_fix.dpatch: new patch from Petr
+    Salinger to fix FTBFS on GNU/kFreeBSD (Closes: #343191)
+
+ -- Brian Nelson <pyro@debian.org>  Tue, 13 Dec 2005 18:21:07 +0200
 
 qt4-x11 (4.0.1-6) unstable; urgency=low
 
