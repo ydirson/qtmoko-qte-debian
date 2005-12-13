@@ -1,3 +1,4 @@
 10_qmake_use_qt4_tools
 11_launch_assistant-qt4
 12_mips_atomic_ops
+13_arm_gcc4
