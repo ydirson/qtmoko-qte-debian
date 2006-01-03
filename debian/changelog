@@ -1,14 +1,24 @@
-qt4-x11 (4.1.0-1) UNRELEASED; urgency=low
+qt4-x11 (4.1.0-0pre1) UNRELEASED; urgency=low
 
   * New upstream release
+    - Fixes missing QBitArray operators (Closes: #341658)
+  
+  * Added the new QTestLib unit testing framework to the libqt4-core
+    package
 
+  * Added the new QtSvg module to the libqt4-gui package
+  
   * debian/patches/13_arm_gcc4.dpatch: new patch from Jeremy Laine to fix
     FTBFS on arm (Closes: #343176)
 
   * debian/patches/14_kfreebsd_build_fix.dpatch: new patch from Petr
     Salinger to fix FTBFS on GNU/kFreeBSD (Closes: #343191)
 
- -- Brian Nelson <pyro@debian.org>  Sun, 25 Dec 2005 16:22:46 -0500
+  * Split the qtconfig tool out of libqt4-gui and into a separate
+    qt4-qtconfig package, due to its linkage against libqt4-qt3support and
+    hence ridiculous dependency chain.
+
+ -- Brian Nelson <pyro@debian.org>  Mon,  2 Jan 2006 20:27:33 -0500
 
 qt4-x11 (4.0.1-6) unstable; urgency=low
 

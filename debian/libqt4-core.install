@@ -1,4 +1,5 @@
 usr/lib/libQtCore.so.*
 usr/lib/libQtNetwork.so.*
 usr/lib/libQtXml.so.*
+usr/lib/libQtTest.so.*
 usr/share/qt4/translations/*.qm

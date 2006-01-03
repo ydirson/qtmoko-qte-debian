@@ -9,7 +9,7 @@ Standards-Version: 3.6.2
 Package: libqt4-dev
 Architecture: any
 Section: libdevel
-Depends: libqt4-core (= ${Source-Version}), libqt4-gui (= ${Source-Version}), libqt4-sql (= ${Source-Version}), libqt4-qt3support (= ${Source-Version}), libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x-dev (>= 4.3.0.dfsg.1-4), libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libxrender-dev, libxcursor-dev, libxinerama-dev, libxi-dev, libmng-dev (>= 1.0.3), libpng12-0-dev, libjpeg62-dev, zlib1g-dev, libfreetype6-dev, libc6-dev, xlibmesa-gl-dev | libgl-dev, libglu1-xorg-dev | libglu1-mesa-dev | libglu-dev, libxft-dev, libaudio-dev, xlibs-static-pic, libpq-dev, libmysqlclient14-dev | libmysqlclient-dev
+Depends: ${shlibs:Depends}, ${misc:Depends}, libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x-dev (>= 4.3.0.dfsg.1-4), libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libxrender-dev, libxcursor-dev, libxinerama-dev, libxi-dev, libmng-dev (>= 1.0.3), libpng12-0-dev, libjpeg62-dev, zlib1g-dev, libfreetype6-dev, xlibmesa-gl-dev | libgl-dev, libglu1-xorg-dev | libglu1-mesa-dev | libglu-dev, libxft-dev, libaudio-dev, xlibs-static-pic, libpq-dev, libmysqlclient14-dev | libmysqlclient-dev
 Conflicts: qt3-dev-tools (<= 3:3.3.4-7)
 Recommends: qt4-dev-tools
 Suggests: qt4-doc, libqt4-debug
@@ -39,7 +39,7 @@ Package: libqt4-gui
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}, fontconfig
-Conflicts: qt3-qtconfig (<= 3:3.3.4-7)
+Recommends: qt4-qtconfig
 Replaces: libqt4-core (<< 4.0.1-3)
 Description: Qt 4 core GUI functionality runtime library
  Qt is a cross-platform C++ application framework.  Qt's primary feature
@@ -119,6 +119,21 @@ Description: Qt 4 development tools
  .
  This packages contains tools used to assist in Qt 4 development,
  including the Qt Assistant and Linguist applications.
+ .
+  Homepage: http://www.trolltech.com
+
+Package: qt4-qtconfig
+Architecture: any
+Section: x11
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Replaces: libqt4-gui (<< 4.1.0)
+Conflicts: qt3-qtconfig (<= 3:3.3.4-7)
+Description: Qt 4 Designer
+ Qt is a cross-platform C++ application framework.  Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ The Qt Configuration program allows endusers to configure the look and
+ behavior of any Qt4 application.
  .
   Homepage: http://www.trolltech.com
 
