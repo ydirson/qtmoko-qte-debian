@@ -46,7 +46,7 @@ clean::
 	-$(MAKE) -k -C plugins/src distclean
 	-$(MAKE) -k -C qmake distclean
 	-$(MAKE) -k -C tools distclean
-	-$(MAKE) -k distclean
+	-$(MAKE) -k confclean
 
 	-find . -mindepth 2 -name Makefile -exec rm -f '{}' ';'
 

@@ -7,7 +7,7 @@ qt4-x11 (4.1.0-0pre1) UNRELEASED; urgency=low
     package
 
   * Added the new QtSvg module to the libqt4-gui package
-  
+
   * debian/patches/13_arm_gcc4.dpatch: new patch from Jeremy Laine to fix
     FTBFS on arm (Closes: #343176)
 
