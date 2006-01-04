@@ -12,7 +12,7 @@ DEB_MAKE_INVOKE := $(MAKE)
 DEB_MAKE_BUILD_TARGET := sub-src sub-tools 
 DEB_MAKE_INSTALL_TARGET := INSTALL_ROOT=$(DEB_DESTDIR) install
 DEB_DH_INSTALL_SOURCEDIR := debian/tmp
-DEB_MAKE_CLEAN_TARGET := distclean
+DEB_MAKE_CLEAN_TARGET := confclean distclean
 DEB_DH_MAKESHLIBS_ARGS_ALL := -V
 DEB_INSTALL_CHANGELOGS_ALL := changes-4.1.0
 
@@ -43,52 +43,20 @@ common-configure-arch::
 	            -cups
 
 clean::
-	-$(MAKE) -k -C plugins/src distclean
-	-$(MAKE) -k -C qmake distclean
-	-$(MAKE) -k -C tools distclean
-	-$(MAKE) -k confclean
+	# Extra stuff missed by confclean/distclean
+	rm -f bin/qmake \
+	      mkspecs/default \
+	      src/corelib/global/arch \
+	      examples/tools/plugandpaint/plugins/*.so \
+	      config.status \
+	      demos/shared/libdemo_shared.prl \
+	      mkspecs/qconfig.pri \
+	      src/corelib/global/qconfig.*
 
-	-find . -mindepth 2 -name Makefile -exec rm -f '{}' ';'
+	rm -rf lib/ plugins/
 
-# Force these since the build system makes them read-only
-	rm -f src/corelib/global/qconfig.cpp src/corelib/global/qconfig.h
-
-# Don't force these, use the '-' thing instead so that failed deletions
-# are displayed so that these may be cleaned out as upstream improves
-# the clean target.
-	-rm .qmake.cache \
-	    config.status \
-	    bin/qmake \
-	    src/corelib/global/qconfig.h.qmake \
-	    src/corelib/global/arch \
-	    tools/designer/src/plugins/tools/view3d/Makefile.Debug \
-	    tools/designer/src/plugins/tools/view3d/Makefile.Release \
-	    mkspecs/default \
-	    mkspecs/qconfig.pri \
-	    config.tests/unix/ptrsize/ptrsizetest.o \
-	    config.tests/unix/ptrsize/ptrsizetest \
-	    config.tests/unix/ipv6/ipv6test.o \
-	    config.tests/unix/ipv6/ipv6test \
-	    config.tests/unix/endian/endiantest.o \
-	    config.tests/unix/endian/endiantest \
-	    config.tests/unix/largefile/largefiletest.o \
-	    config.tests/unix/largefile/largefiletest \
-	    config.tests/unix/stl/stltest.o \
-	    config.tests/unix/stl/stltest \
-	    config.tests/unix/getaddrinfo/getaddrinfotest.o \
-	    config.tests/unix/getaddrinfo/getaddrinfotest \
-	    lib/* \
-	    include/Qt/arch \
-	    include/QtCore/arch \
-	    include/Qt/qconfig.h \
-	    include/QtCore/qconfig.h \
-	    plugins/designer/*.prl \
-	    plugins/designer/lib*.so* \
-	    plugins/accessible/lib*.so* \
-	    plugins/codecs/lib*.so* \
-	    plugins/imageformats/lib*.so* \
-	    examples/tools/plugandpaint/plugins/*.so \
-	    demos/shared/libdemo_shared.prl
+	find include/ -type l -print0 | xargs -0r rm -f
+	find . -mindepth 2 -name 'Makefile*' -print0 | xargs -0r rm -f
 
 # Hack to fix dpatch-edit-patch
 unpatch: deapply-dpatches

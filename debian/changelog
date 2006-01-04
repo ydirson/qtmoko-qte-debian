@@ -18,7 +18,9 @@ qt4-x11 (4.1.0-0pre1) UNRELEASED; urgency=low
     qt4-qtconfig package, due to its linkage against libqt4-qt3support and
     hence ridiculous dependency chain.
 
- -- Brian Nelson <pyro@debian.org>  Mon,  2 Jan 2006 20:27:33 -0500
+  * debian/rules: improved/cleaned up the clean target
+
+ -- Brian Nelson <pyro@debian.org>  Wed,  4 Jan 2006 01:16:17 -0500
 
 qt4-x11 (4.0.1-6) unstable; urgency=low
 
