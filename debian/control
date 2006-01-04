@@ -128,7 +128,7 @@ Section: x11
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Replaces: libqt4-gui (<< 4.1.0)
 Conflicts: qt3-qtconfig (<= 3:3.3.4-7)
-Description: Qt 4 Designer
+Description: Qt 4 configuration tool
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
