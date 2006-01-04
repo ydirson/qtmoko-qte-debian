@@ -1,4 +1,4 @@
-qt4-x11 (4.1.0-0pre1) UNRELEASED; urgency=low
+qt4-x11 (4.1.0-1) unstable; urgency=low
 
   * New upstream release
     - Fixes missing QBitArray operators (Closes: #341658)
@@ -20,7 +20,7 @@ qt4-x11 (4.1.0-0pre1) UNRELEASED; urgency=low
 
   * debian/rules: improved/cleaned up the clean target
 
- -- Brian Nelson <pyro@debian.org>  Wed,  4 Jan 2006 01:16:17 -0500
+ -- Brian Nelson <pyro@debian.org>  Wed,  4 Jan 2006 12:56:23 -0800
 
 qt4-x11 (4.0.1-6) unstable; urgency=low
 
