@@ -44,7 +44,8 @@ common-configure-arch::
 
 clean::
 	# Extra stuff missed by confclean/distclean
-	rm -f bin/qmake \
+	rm -f Makefile \
+	      bin/qmake \
 	      mkspecs/default \
 	      src/corelib/global/arch \
 	      examples/tools/plugandpaint/plugins/*.so \
@@ -56,7 +57,10 @@ clean::
 	rm -rf lib/ plugins/
 
 	find include/ -type l -print0 | xargs -0r rm -f
-	find . -mindepth 2 -name 'Makefile*' -print0 | xargs -0r rm -f
+	find . -mindepth 2 -name Makefile -print0 \
+	                -o -name Makefile.Debug -print0 \
+	                -o -name Makefile.Release -print0 \
+	                | xargs -0r rm -f
 
 # Hack to fix dpatch-edit-patch
 unpatch: deapply-dpatches
