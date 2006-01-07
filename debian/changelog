@@ -5,7 +5,10 @@ qt4-x11 (4.1.0-2) UNRELEASED; urgency=low
     q_atomic_test_and_set_release_int, that were added in this release.
     This should again fix the build failures on mips.
 
- -- Brian Nelson <pyro@debian.org>  Sat,  7 Jan 2006 10:52:36 -0500
+  * debian/patches/13_arm_ftbfs_fixes.dpatch: renamed, added a fix for the
+    new build failure due to a poorly defined qreal
+
+ -- Brian Nelson <pyro@debian.org>  Sat,  7 Jan 2006 13:53:43 -0500
 
 qt4-x11 (4.1.0-1) unstable; urgency=low
 

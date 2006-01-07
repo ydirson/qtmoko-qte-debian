@@ -1,0 +1,35 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 13_arm_ftbfs_fixes.dpatch by Brian Nelson <pyro@debian.org> by way of
+## Jeremy Laine <jeremy.laine@m4x.org>.
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fixes FTBFS on arm
+
+@DPATCH@
+diff -urNad qt4-x11-4.1.0~/src/corelib/global/qglobal.h qt4-x11-4.1.0/src/corelib/global/qglobal.h
+--- qt4-x11-4.1.0~/src/corelib/global/qglobal.h	2005-12-16 06:51:59.000000000 -0500
++++ qt4-x11-4.1.0/src/corelib/global/qglobal.h	2006-01-07 13:46:59.000000000 -0500
+@@ -715,8 +715,9 @@
+ 
+ #if defined(QT_COORD_TYPE)
+ typedef QT_COORD_TYPE qreal;
+-#elif defined(__arm__)
+-typedef float qreal;
++// BN: Defining qreal as float on arm breaks compilation!
++//#elif defined(__arm__)
++//typedef float qreal;
+ #else
+ typedef double qreal;
+ #endif
+diff -urNad qt4-x11-4.1.0~/src/corelib/tools/qchar.h qt4-x11-4.1.0/src/corelib/tools/qchar.h
+--- qt4-x11-4.1.0~/src/corelib/tools/qchar.h	2005-12-16 06:52:00.000000000 -0500
++++ qt4-x11-4.1.0/src/corelib/tools/qchar.h	2006-01-07 13:45:48.000000000 -0500
+@@ -219,7 +219,7 @@
+     inline const char toLatin1() const;
+     inline const ushort unicode() const { return ucs; }
+ #ifdef Q_NO_PACKED_REFERENCE
+-    inline ushort &unicode() { return *(&ucs); }
++    inline ushort &unicode() { return *((ushort*)&ucs); }
+ #else
+     inline ushort &unicode() { return ucs; }
+ #endif
