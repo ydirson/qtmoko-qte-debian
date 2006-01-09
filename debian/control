@@ -9,16 +9,29 @@ Standards-Version: 3.6.2
 Package: libqt4-dev
 Architecture: any
 Section: libdevel
-Depends: ${shlibs:Depends}, ${misc:Depends}, libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x-dev (>= 4.3.0.dfsg.1-4), libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libxrender-dev, libxcursor-dev, libxinerama-dev, libxi-dev, libmng-dev (>= 1.0.3), libpng12-0-dev, libjpeg62-dev, zlib1g-dev, libfreetype6-dev, xlibmesa-gl-dev | libgl-dev, libglu1-xorg-dev | libglu1-mesa-dev | libglu-dev, libxft-dev, libaudio-dev, xlibs-static-pic, libpq-dev, libmysqlclient15-dev
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-core (= ${Source-Version}), libqt4-gui (= ${Source-Version}), libqt4-sql (= ${Source-Version}), libqt4-qt3support (= ${Source-Version}), libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x-dev (>= 4.3.0.dfsg.1-4), libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libxrender-dev, libxcursor-dev, libxinerama-dev, libxi-dev, libmng-dev (>= 1.0.3), libpng12-0-dev, libjpeg62-dev, zlib1g-dev, libfreetype6-dev, xlibmesa-gl-dev | libgl-dev, libglu1-xorg-dev | libglu1-mesa-dev | libglu-dev, libxft-dev, libaudio-dev, xlibs-static-pic, libpq-dev, libmysqlclient15-dev
 Conflicts: qt3-dev-tools (<= 3:3.3.4-7)
 Recommends: qt4-dev-tools
-Suggests: qt4-doc, libqt4-debug
+Suggests: qt4-doc, libqt4-debug-dev
 Description: Qt 4 development files
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
  This packages contains the header files and programs used for building
  Qt applications.
+ .
+  Homepage: http://www.trolltech.com
+
+Package: libqt4-debug-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-dev (= ${Source-Version}), libqt4-debug (= ${Source-Version})
+Description: Qt 4 debugging development files
+ Qt is a cross-platform C++ application framework.  Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This packages contains the header files and programs used for building
+ debugging versions of Qt applications.
  .
   Homepage: http://www.trolltech.com
 

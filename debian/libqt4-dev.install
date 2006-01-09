@@ -1,7 +1,17 @@
 usr/include/qt4/*
 usr/lib/*.la
 usr/lib/*.prl
-usr/lib/*.so
+usr/lib/libQt3Support.so
+usr/lib/libQtCore.so
+usr/lib/libQtDesigner.so
+usr/lib/libQtDesignerComponents.so
+usr/lib/libQtGui.so
+usr/lib/libQtNetwork.so
+usr/lib/libQtOpenGL.so
+usr/lib/libQtSql.so
+usr/lib/libQtSvg.so
+usr/lib/libQtTest.so
+usr/lib/libQtXml.so
 usr/lib/*.pc usr/lib/pkgconfig/
 usr/share/qt4/q3porting.xml
 usr/share/qt4/mkspecs/*
