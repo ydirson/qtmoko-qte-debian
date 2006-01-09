@@ -8,7 +8,10 @@ qt4-x11 (4.1.0-2) UNRELEASED; urgency=low
   * debian/patches/13_arm_ftbfs_fixes.dpatch: renamed, added a fix for the
     new build failure due to a poorly defined qreal
 
- -- Brian Nelson <pyro@debian.org>  Sat,  7 Jan 2006 13:53:43 -0500
+  * debian/control: build against libmysqlclient15, and updated all
+    dependencies to libmysqlclient15-dev (Closes: #346586)
+
+ -- Brian Nelson <pyro@debian.org>  Mon,  9 Jan 2006 14:03:57 -0800
 
 qt4-x11 (4.1.0-1) unstable; urgency=low
 
