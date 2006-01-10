@@ -28,7 +28,12 @@ qt4-x11 (4.1.0-2) UNRELEASED; urgency=low
 
   * Enabled sqlite2 support
 
- -- Brian Nelson <pyro@debian.org>  Mon,  9 Jan 2006 19:37:28 -0800
+  * debian/patches/15_alpha_ftbfs_fix.dpatch: new patch to rename
+    q_atomic_test_and_set_release_ptr to q_atomic_test_and_set_ptr, as
+    suggested by Isaac Clerencia <isaac@debian.org>, to fix a FTBFS on
+    alpha. (Closes: #347353)
+
+ -- Brian Nelson <pyro@debian.org>  Tue, 10 Jan 2006 09:16:28 -0800
 
 qt4-x11 (4.1.0-1) unstable; urgency=low
 
