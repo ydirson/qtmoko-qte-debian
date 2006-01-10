@@ -3,10 +3,10 @@ qt4-x11 (4.1.0-2) UNRELEASED; urgency=low
   * debian/patches/12_mips_atomic_ops.dpatch: Updated patch to account for
     2 new functions, q_atomic_test_and_set_acquire_int and
     q_atomic_test_and_set_release_int, that were added in this release.
-    This should again fix the build failures on mips.
+    This should again fix the build failures on mips. (Closes: #335831)
 
   * debian/patches/13_arm_ftbfs_fixes.dpatch: renamed, added a fix for the
-    new build failure due to a poorly defined qreal
+    new build failure due to a poorly defined qreal (Closes: #347360)
 
   * debian/control: build against libmysqlclient15, and updated all
     dependencies to libmysqlclient15-dev (Closes: #346586)
