@@ -36,6 +36,8 @@ common-configure-arch::
 	            -system-nas-sound \
 	            -qt-sql-psql \
 	            -qt-sql-mysql \
+	            -qt-sql-sqlite \
+	            -qt-sql-sqlite2 \
 	            -I/usr/include/mysql \
 	            -I/usr/include/freetype2 \
 	            -I`pg_config --includedir` \
