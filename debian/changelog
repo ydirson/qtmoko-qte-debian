@@ -1,4 +1,4 @@
-qt4-x11 (4.1.0-2) UNRELEASED; urgency=low
+qt4-x11 (4.1.0-2) unstable; urgency=low
 
   * debian/patches/12_mips_atomic_ops.dpatch: Updated patch to account for
     2 new functions, q_atomic_test_and_set_acquire_int and
@@ -38,7 +38,7 @@ qt4-x11 (4.1.0-2) UNRELEASED; urgency=low
     default qmake CONFIG line.  This disables the recursive linkage
     against all indirectly-used libraries. (Closes: #343190)
 
- -- Brian Nelson <pyro@debian.org>  Tue, 10 Jan 2006 18:02:53 -0800
+ -- Brian Nelson <pyro@debian.org>  Tue, 10 Jan 2006 19:29:52 -0800
 
 qt4-x11 (4.1.0-1) unstable; urgency=low
 
