@@ -1,4 +1,4 @@
-10_qmake_use_qt4_tools
+10_qmake_for_debian
 11_launch_assistant-qt4
 12_mips_atomic_ops
 13_arm_ftbfs_fixes

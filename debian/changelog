@@ -14,7 +14,7 @@ qt4-x11 (4.1.0-2) UNRELEASED; urgency=low
   * debian/control: added explicit dependencies for libqt4-dev on the
     Source-Version packages libqt4-core, libqt4-gui, libqt4-sql, and
     libqt4-qt3support.  These dependencies were accidentally dropped in
-    the last version.
+    the last version.  Also removed some unneeded dependencies.
 
   * Split the *_debug.so symlinks out of libqt4-dev and into a separate
     libqt4-debug-dev package.  Made the libqt4-debug-dev package depend on
@@ -33,12 +33,18 @@ qt4-x11 (4.1.0-2) UNRELEASED; urgency=low
     suggested by Isaac Clerencia <isaac@debian.org>, to fix a FTBFS on
     alpha. (Closes: #347353)
 
- -- Brian Nelson <pyro@debian.org>  Tue, 10 Jan 2006 09:16:28 -0800
+  * debian/patches/10_qmake_for_debian: renamed from
+    10_qmake_use_qt4_tools, and updated to remove the "link_prl" from the
+    default qmake CONFIG line.  This disables the recursive linkage
+    against all indirectly-used libraries. (Closes: #343190)
+
+ -- Brian Nelson <pyro@debian.org>  Tue, 10 Jan 2006 18:02:53 -0800
 
 qt4-x11 (4.1.0-1) unstable; urgency=low
 
   * New upstream release
     - Fixes missing QBitArray operators (Closes: #341658)
+    - Fixes qmake problem with including bad build path (Closes: #327359)
   
   * Added the new QTestLib unit testing framework to the libqt4-core
     package
