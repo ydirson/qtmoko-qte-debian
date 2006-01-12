@@ -1,3 +1,15 @@
+qt4-x11 (4.1.0-3) UNRELEASED; urgency=low
+
+  * Moved *_debug.prl and *_debug.la support files to the libqt4-debug-dev
+    package
+
+  * Updated to debhelper v5 compatibility
+
+  * debian/qt4-dev-tools.install: removed the /usr/share/qt4/templates
+    entry, which no longer contains anything
+
+ -- Brian Nelson <pyro@debian.org>  Thu, 12 Jan 2006 12:11:18 -0800
+
 qt4-x11 (4.1.0-2) unstable; urgency=low
 
   * debian/patches/12_mips_atomic_ops.dpatch: Updated patch to account for

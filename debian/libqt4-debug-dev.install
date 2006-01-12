@@ -1,1 +1,4 @@
 usr/lib/*_debug.so
+usr/lib/*_debug.prl
+usr/lib/*_debug.pc usr/lib/pkgconfig/
+usr/lib/*_debug.la

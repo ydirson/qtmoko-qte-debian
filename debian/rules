@@ -88,3 +88,9 @@ $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:
 	    install -p -D -m644 debian/$(cdbs_curpkg).lintian \
 	    debian/$(cdbs_curpkg)/usr/share/lintian/overrides/$(cdbs_curpkg); \
         fi
+
+# Remove debugging library junk from libqt4-dev, it goes in
+#libqt4-debug-dev instead.
+binary-post-install/libqt4-dev::
+	rm -f debian/$(cdbs_curpkg)/usr/lib/*_debug.* \
+	      debian/$(cdbs_curpkg)/usr/lib/pkgconfig/*_debug.*
