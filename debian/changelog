@@ -8,7 +8,9 @@ qt4-x11 (4.1.0-3) UNRELEASED; urgency=low
   * debian/qt4-dev-tools.install: removed the /usr/share/qt4/templates
     entry, which no longer contains anything
 
- -- Brian Nelson <pyro@debian.org>  Thu, 12 Jan 2006 12:11:18 -0800
+  * Added gif support (Closes: #348092)
+
+ -- Brian Nelson <pyro@debian.org>  Sat, 14 Jan 2006 12:11:32 -0800
 
 qt4-x11 (4.1.0-2) unstable; urgency=low
 

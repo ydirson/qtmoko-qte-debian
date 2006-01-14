@@ -34,6 +34,7 @@ common-configure-arch::
 	            -system-libpng \
 	            -system-libjpeg \
 	            -system-nas-sound \
+	            -qt-gif \
 	            -qt-sql-psql \
 	            -qt-sql-mysql \
 	            -qt-sql-sqlite \
