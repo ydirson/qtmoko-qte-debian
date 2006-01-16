@@ -6,8 +6,8 @@
 
 @DPATCH@
 diff -urNad qt4-x11-4.1.0~/src/corelib/arch/mips/qatomic32.s qt4-x11-4.1.0/src/corelib/arch/mips/qatomic32.s
---- qt4-x11-4.1.0~/src/corelib/arch/mips/qatomic32.s	2005-12-16 06:52:19.000000000 -0500
-+++ qt4-x11-4.1.0/src/corelib/arch/mips/qatomic32.s	2006-01-07 10:47:37.000000000 -0500
+--- qt4-x11-4.1.0~/src/corelib/arch/mips/qatomic32.s	2005-12-16 03:52:19.000000000 -0800
++++ qt4-x11-4.1.0/src/corelib/arch/mips/qatomic32.s	2006-01-16 10:39:45.000000000 -0800
 @@ -6,10 +6,12 @@
  	.globl	q_atomic_test_and_set_int
  	.ent	q_atomic_test_and_set_int
@@ -21,7 +21,7 @@ diff -urNad qt4-x11-4.1.0~/src/corelib/arch/mips/qatomic32.s qt4-x11-4.1.0/src/c
  	beqz $2,1b
  	nop
  	jr   $31
-@@ -21,10 +23,12 @@
+@@ -21,6 +23,7 @@
  	.globl	q_atomic_test_and_set_acquire_int
  	.ent	q_atomic_test_and_set_acquire_int
  q_atomic_test_and_set_acquire_int:
@@ -29,16 +29,20 @@ diff -urNad qt4-x11-4.1.0~/src/corelib/arch/mips/qatomic32.s qt4-x11-4.1.0/src/c
  1:	ll   $8,0($4)
  	bne  $8,$5,2f
  	move $2,$6
- 	sc   $2,0($4)
-+	.set mips0
- 	beqz $2,1b
- 	nop
+@@ -30,6 +33,7 @@
  	jr   $31
-@@ -38,10 +42,12 @@
+ 	nop
+ 2:	sync
++	.set mips0
+ 	jr   $31
+ 	move $2,$0
+ 	.end	q_atomic_test_and_set_acquire_int
+@@ -37,11 +41,13 @@
+ 	.globl	q_atomic_test_and_set_release_int
  	.ent	q_atomic_test_and_set_release_int
  q_atomic_test_and_set_release_int:
- 	sync
 +	.set mips2
+ 	sync
  1:	ll   $8,0($4)
  	bne  $8,$5,2f
  	move $2,$6
