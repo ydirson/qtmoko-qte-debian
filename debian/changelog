@@ -1,4 +1,4 @@
-qt4-x11 (4.1.0-3) UNRELEASED; urgency=low
+qt4-x11 (4.1.0-3) unstable; urgency=low
 
   * Moved *_debug.prl and *_debug.la support files to the libqt4-debug-dev
     package
@@ -14,7 +14,7 @@ qt4-x11 (4.1.0-3) UNRELEASED; urgency=low
     Clerencia <isaac@debian.org>, as the last patch was not good enough to
     fix the FTBFS bug (Closes: #335831)
 
- -- Brian Nelson <pyro@debian.org>  Mon, 16 Jan 2006 10:43:26 -0800
+ -- Brian Nelson <pyro@debian.org>  Tue, 17 Jan 2006 09:49:11 -0800
 
 qt4-x11 (4.1.0-2) unstable; urgency=low
 
