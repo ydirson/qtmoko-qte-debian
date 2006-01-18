@@ -26,6 +26,7 @@ Package: libqt4-debug-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-dev (= ${Source-Version}), libqt4-debug (= ${Source-Version})
+Priority: extra
 Description: Qt 4 debugging development files
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.

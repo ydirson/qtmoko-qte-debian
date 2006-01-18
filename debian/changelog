@@ -1,3 +1,10 @@
+qt4-x11 (4.1.0-4) UNRELEASED; urgency=low
+
+  * debian/control: updated libqt4-debug-dev priority to match that of the
+    override file
+
+ -- Brian Nelson <pyro@debian.org>  Tue, 17 Jan 2006 17:38:50 -0800
+
 qt4-x11 (4.1.0-3) unstable; urgency=low
 
   * Moved *_debug.prl and *_debug.la support files to the libqt4-debug-dev
