@@ -1,4 +1,6 @@
-qt4-x11 (4.1.0-4) UNRELEASED; urgency=low
+qt4-x11 (4.1.1-1) UNRELEASED; urgency=low
+
+  * New upstream release
 
   * debian/control: updated libqt4-debug-dev priority to match that of the
     override file
@@ -9,7 +11,7 @@ qt4-x11 (4.1.0-4) UNRELEASED; urgency=low
   * debian/libqt4-gui.install: added libqmng.so and libqgif.so plugins
     (Closes: #354266)
 
- -- Brian Nelson <pyro@debian.org>  Tue, 28 Feb 2006 12:15:00 -0800
+ -- Brian Nelson <pyro@debian.org>  Tue, 28 Feb 2006 14:53:24 -0800
 
 qt4-x11 (4.1.0-3) unstable; urgency=low
 
