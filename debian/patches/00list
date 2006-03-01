@@ -3,4 +3,3 @@
 12_mips_atomic_ops
 13_arm_ftbfs_fixes
 14_kfreebsd_build_fix
-15_alpha_ftbfs_fix
