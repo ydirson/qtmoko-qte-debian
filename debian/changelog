@@ -1,6 +1,8 @@
-qt4-x11 (4.1.1-1) UNRELEASED; urgency=low
+qt4-x11 (4.1.1-1) unstable; urgency=low
 
   * New upstream release
+    - Fixes the broken debug-and-release build and a load of resulting
+      bugs (Closes: #337764, #337847, #341807, #338380, #354993, #347251)
     - debian/patches/15_alpha_ftbfs_fix.dpatch: removed, integrated upstream
 
   * debian/control: updated libqt4-debug-dev priority to match that of the
@@ -12,7 +14,7 @@ qt4-x11 (4.1.1-1) UNRELEASED; urgency=low
   * debian/libqt4-gui.install: added libqmng.so and libqgif.so plugins
     (Closes: #354266)
 
- -- Brian Nelson <pyro@debian.org>  Tue, 28 Feb 2006 23:47:57 -0800
+ -- Brian Nelson <pyro@debian.org>  Mon,  6 Mar 2006 10:20:47 -0800
 
 qt4-x11 (4.1.0-3) unstable; urgency=low
 
