@@ -1,4 +1,4 @@
-qt4-x11 (4.1.2-1) UNRELEASED; urgency=low
+qt4-x11 (4.1.2-1) unstable; urgency=low
 
   * New upstream release
 
@@ -9,7 +9,7 @@ qt4-x11 (4.1.2-1) UNRELEASED; urgency=low
   * debian/control: changed x-dev dependencies to x11proto-core-dev, for
     modular X transition (Closes: #362053)
 
- -- Brian Nelson <brian@catchmedia.com>  Wed, 12 Apr 2006 22:32:34 -0700
+ -- Brian Nelson <pyro@debian.org>  Thu, 13 Apr 2006 10:35:28 -0700
 
 qt4-x11 (4.1.1-1) unstable; urgency=low
 
