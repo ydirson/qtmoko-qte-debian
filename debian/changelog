@@ -2,11 +2,14 @@ qt4-x11 (4.1.2-1) UNRELEASED; urgency=low
 
   * New upstream release
 
-  * debian/rules: removed dependencies on xlibs-static-dev and
+  * debian/control: removed dependencies on xlibs-static-dev and
     xlibs-static-pic to transition to building against modular X
     (Closes: #362262)
 
- -- Brian Nelson <pyro@debian.org>  Wed, 12 Apr 2006 22:04:46 -0700
+  * debian/control: changed x-dev dependencies to x11proto-core-dev, for
+    modular X transition (Closes: #362053)
+
+ -- Brian Nelson <brian@catchmedia.com>  Wed, 12 Apr 2006 22:32:34 -0700
 
 qt4-x11 (4.1.1-1) unstable; urgency=low
 
