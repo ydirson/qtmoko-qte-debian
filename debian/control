@@ -96,7 +96,7 @@ Description: Qt 3 compatibility library for Qt 4
 
 Package: qt4-designer
 Architecture: any
-Section: kde
+Section: devel
 Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-dev
 Conflicts: libqt4-designer
 Replaces: libqt4-designer, qt4-dev-tools (<= 4.0.1-2)
