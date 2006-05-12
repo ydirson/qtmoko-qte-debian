@@ -1,5 +1,6 @@
 usr/include/qt4/*
 usr/lib/*.la
+usr/lib/*.a
 usr/lib/*.so
 usr/lib/*.prl
 usr/lib/*.pc usr/lib/pkgconfig/
