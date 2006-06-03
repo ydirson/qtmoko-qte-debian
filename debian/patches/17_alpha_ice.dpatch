@@ -1,0 +1,70 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+diff -u qt4-x11-4.1.2/debian/changelog qt4-x11-4.1.2/debian/changelog
+--- qt4-x11-4.1.2/debian/changelog
++++ qt4-x11-4.1.2/debian/changelog
+@@ -1,3 +1,11 @@
++qt4-x11 (4.1.2-2.1) unstable; urgency=low
++
++  * Non-maintainer upload.
++  * Workaround for -fvisibility-inlines-hidden on alpha: break out the
++    static methods so they're not inlined.  Closes: #368883.
++
++ -- Steve Langasek <vorlon@debian.org>  Tue, 30 May 2006 19:56:44 -0700
++
+ qt4-x11 (4.1.2-2) unstable; urgency=low
+ 
+   * debian/libqt4-debug-dev.install, debian/libqt4-dev.install: added
+only in patch2:
+unchanged:
+--- qt4-x11-4.1.2.orig/src/corelib/global/qlibraryinfo.cpp
++++ qt4-x11-4.1.2/src/corelib/global/qlibraryinfo.cpp
+@@ -47,14 +47,7 @@
+ {
+ public:
+     static QSettings *findConfiguration();
+-    static void cleanup()
+-    {
+-        QLibrarySettings *ls = qt_library_settings();
+-        if (ls) {
+-            delete static_cast<QSettings *>(ls->settings);
+-            ls->settings = 0;
+-        }
+-    }
++    static void cleanup();
+     static QSettings *configuration()
+     {
+         QLibrarySettings *ls = qt_library_settings();
+@@ -64,6 +57,15 @@
+     Q_GLOBAL_STATIC(QLibrarySettings, qt_library_settings)
+ };
+ 
++void QLibraryInfoPrivate::cleanup()
++{
++    QLibrarySettings *ls = qt_library_settings();
++    if (ls) {
++        delete static_cast<QSettings *>(ls->settings);
++        ls->settings = 0;
++    }
++}
++
+ QLibrarySettings::QLibrarySettings()
+ {
+     settings = QLibraryInfoPrivate::findConfiguration();
+only in patch2:
+unchanged:
+--- qt4-x11-4.1.2.orig/src/corelib/tools/qhash.h
++++ qt4-x11-4.1.2/src/corelib/tools/qhash.h
+@@ -396,7 +396,7 @@
+ }
+ 
+ template <class Key, class T>
+-Q_INLINE_TEMPLATE void QHash<Key, T>::duplicateNode(QHashData::Node *node, void *newNode)
++void QHash<Key, T>::duplicateNode(QHashData::Node *node, void *newNode)
+ {
+     Node *concreteNode = concrete(node);
+     if (QTypeInfo<T>::isDummy) {
