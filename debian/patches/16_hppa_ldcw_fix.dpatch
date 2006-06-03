@@ -2,7 +2,7 @@
 ## 15_hppa_ldcw.dpatch by  <lamont@bld-4.mmjgroup.com>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
-## DP: No description.
+## DP: patch from Ubuntu to properly support hppa
 
 @DPATCH@
 diff -urNad qt4-x11-4.1.0~/src/corelib/arch/parisc/q_ldcw.s qt4-x11-4.1.0/src/corelib/arch/parisc/q_ldcw.s

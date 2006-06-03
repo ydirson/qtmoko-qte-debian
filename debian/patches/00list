@@ -3,5 +3,5 @@
 12_mips_atomic_ops
 13_arm_ftbfs_fixes
 14_kfreebsd_build_fix
-16_hppa_ldcw_fix.dpatch
-17_alpha_ice.dpatch
+16_hppa_ldcw_fix
+17_alpha_fix
