@@ -6,7 +6,7 @@
 @DPATCH@
 diff -urNad qt4-x11-4.1.3~/src/corelib/global/qlibraryinfo.cpp qt4-x11-4.1.3/src/corelib/global/qlibraryinfo.cpp
 --- qt4-x11-4.1.3~/src/corelib/global/qlibraryinfo.cpp	2006-05-14 03:46:59.000000000 -0700
-+++ qt4-x11-4.1.3/src/corelib/global/qlibraryinfo.cpp	2006-06-03 11:55:29.000000000 -0700
++++ qt4-x11-4.1.3/src/corelib/global/qlibraryinfo.cpp	2006-06-04 10:51:07.000000000 -0700
 @@ -47,14 +47,7 @@
  {
  public:
@@ -39,9 +39,31 @@ diff -urNad qt4-x11-4.1.3~/src/corelib/global/qlibraryinfo.cpp qt4-x11-4.1.3/src
  QLibrarySettings::QLibrarySettings()
  {
      settings = QLibraryInfoPrivate::findConfiguration();
+diff -urNad qt4-x11-4.1.3~/src/corelib/thread/qthreadstorage.h qt4-x11-4.1.3/src/corelib/thread/qthreadstorage.h
+--- qt4-x11-4.1.3~/src/corelib/thread/qthreadstorage.h	2006-05-14 03:46:59.000000000 -0700
++++ qt4-x11-4.1.3/src/corelib/thread/qthreadstorage.h	2006-06-04 13:46:52.000000000 -0700
+@@ -109,8 +109,7 @@
+ 
+     Q_DISABLE_COPY(QThreadStorage)
+ 
+-    static inline void deleteData(void *x)
+-    { delete reinterpret_cast<T&>(x); }
++    static inline void deleteData(void *x);
+ 
+ public:
+     inline QThreadStorage() : d(deleteData) { }
+@@ -128,6 +127,8 @@
+     { qThreadStorage_setLocalData(d, &t); }
+ };
+ 
++void QThreadStorage::deleteData(void *x) { delete reinterpret_cast<T&>(x); }
++
+ QT_END_HEADER
+ 
+ #endif // QT_NO_THREAD
 diff -urNad qt4-x11-4.1.3~/src/corelib/tools/qhash.h qt4-x11-4.1.3/src/corelib/tools/qhash.h
 --- qt4-x11-4.1.3~/src/corelib/tools/qhash.h	2006-05-14 03:46:59.000000000 -0700
-+++ qt4-x11-4.1.3/src/corelib/tools/qhash.h	2006-06-03 11:55:29.000000000 -0700
++++ qt4-x11-4.1.3/src/corelib/tools/qhash.h	2006-06-04 10:51:07.000000000 -0700
 @@ -405,7 +405,7 @@
  }
  
