@@ -1,15 +1,24 @@
-qt4-x11 (4.1.3-1) UNRELEASED; urgency=high
+qt4-x11 (4.1.3-1) unstable; urgency=high
 
   * New upstream release
 
-  * patches/16_hppa_ldcw_fix.dpatch: new patch from Ubuntu to properly
-    support hppa
+  * debian/patches/16_hppa_ldcw_fix.dpatch: new patch from Ubuntu to
+    properly support hppa
 
-  * patches/17_alpha_ice.dpatch: new patch from Steve Langasek to fix FTBFS on
-    alpha (Closes: #368883)
+  * debian/patches/17_alpha_ice.dpatch: new patch from Steve Langasek to
+    fix FTBFS on alpha (Closes: #368883)
     (urgency set to high for that fix).
 
- -- Brian Nelson <pyro@debian.org>  Mon, 29 May 2006 21:02:03 -0700
+  * Dropped the .la files since they pull in too many unneeded
+    dependencies (Closes: #360802)
+
+  * debian/libqt4-debug.install: removed
+    usr/lib/qt4/plugins/codecs/*_debug.so since those aren't included
+    upstream anymore
+
+  * Increased standards version to 3.7.2
+
+ -- Brian Nelson <pyro@debian.org>  Sat,  3 Jun 2006 17:56:32 -0700
 
 qt4-x11 (4.1.2-2) unstable; urgency=low
 

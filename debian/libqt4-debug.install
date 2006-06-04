@@ -1,3 +1,2 @@
 usr/lib/lib*_debug.so.*
 usr/lib/qt4/plugins/imageformats/*_debug.so
-usr/lib/qt4/plugins/codecs/*_debug.so
