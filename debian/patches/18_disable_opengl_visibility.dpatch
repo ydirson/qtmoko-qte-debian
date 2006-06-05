@@ -1,0 +1,16 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: temporary fix because of alpha, has to be dropped as soon as gcc's bug is fixed.
+
+@DPATCH@
+--- src/opengl/opengl.pro.orig
++++ src/opengl/opengl.pro
+@@ -5,6 +5,7 @@
+ win32-msvc*|win32-icc:QMAKE_LFLAGS += /BASE:0x63000000
+ solaris-cc*:QMAKE_CXXFLAGS_RELEASE -= -O2
+ 
++QMAKE_CXXFLAGS_HIDESYMS -= -fvisibility-inlines-hidden
+ 
+ include(../qbase.pri)
+ 
