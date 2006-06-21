@@ -1,0 +1,19 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 19_s390_atomic.dpatch by Bastian Blank <waldi@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+diff -urNad qt4-x11-4.1.3~/src/corelib/arch/s390/arch/qatomic.h qt4-x11-4.1.3/src/corelib/arch/s390/arch/qatomic.h
+--- qt4-x11-4.1.3~/src/corelib/arch/s390/arch/qatomic.h	2006-05-14 10:47:14.000000000 +0000
++++ qt4-x11-4.1.3/src/corelib/arch/s390/arch/qatomic.h	2006-06-21 16:02:04.000000000 +0000
+@@ -24,6 +24,8 @@
+ #ifndef S390_QATOMIC_H
+ #define S390_QATOMIC_H
+ 
++#include <QtCore/qglobal.h>
++
+ QT_BEGIN_HEADER
+ 
+ #define __CS_LOOP(ptr, op_val, op_string) ({				\
