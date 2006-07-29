@@ -1,3 +1,10 @@
+qt4-x11 (4.1.4-2) UNRELEASED; urgency=low
+
+  * debian/control: made libqt4-gui conflict/replace libqt4-designer, to
+    ensure that old package is removed (Closes: #380253)
+
+ -- Brian Nelson <pyro@debian.org>  Fri, 28 Jul 2006 18:35:48 -0700
+
 qt4-x11 (4.1.4-1) unstable; urgency=low
 
   * New upstream release (Closes: #378443)
