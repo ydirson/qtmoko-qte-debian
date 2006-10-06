@@ -12,10 +12,19 @@ DEB_MAKE_INVOKE := $(MAKE)
 DEB_MAKE_BUILD_TARGET := sub-src sub-tools 
 DEB_MAKE_INSTALL_TARGET := INSTALL_ROOT=$(DEB_DESTDIR) install
 DEB_DH_INSTALL_SOURCEDIR := debian/tmp
+
+# Ensure the *.debug files aren't included in any package other than
+# libqt4-debug.
+DEB_DH_INSTALL_ARGS := --exclude=.debug
+
 DEB_MAKE_CLEAN_TARGET := confclean distclean
 DEB_DH_MAKESHLIBS_ARGS_ALL := -V
+
 DEB_INSTALL_CHANGELOGS_ALL := changes-4.2.0
 
+ifeq ($(DEB_HOST_ARCH),arm)
+	EXTRA_CONFIGURE_OPTS += -DQT_QLOCALE_USES_FCVT
+endif
 
 common-configure-arch::
 	./configure -confirm-license \
@@ -42,10 +51,12 @@ common-configure-arch::
 	            -qt-sql-sqlite2 \
 	            -I/usr/include/freetype2 \
 	            -lfontconfig \
-	            -cups
+	            -cups \
+	            $(EXTRA_CONFIGURE_OPTS)
 
 clean::
-	# Extra stuff missed by confclean/distclean
+
+# Extra stuff missed by confclean/distclean
 	rm -f Makefile \
 	      bin/qmake \
 	      mkspecs/default \
@@ -70,17 +81,25 @@ unpatch: deapply-dpatches
 
 BINDIR := $(DEB_DESTDIR)/usr/bin
 common-install-arch::
-	# Tack on -qt4 to the binaries that use the alternatives system
+# Tack on -qt4 to the binaries that use the alternatives system
 	for f in qmake lupdate lrelease uic moc assistant designer linguist qtconfig; do \
 	    mv "$(BINDIR)/$$f" "$(BINDIR)/$$f-qt4"; \
 	done
 
 binary-install/qt4-doc::
-	# Tar up the examples to include them in qt4-doc
+# Tar up the examples to include them in qt4-doc
 	-$(MAKE) -k -C examples distclean
 	tar -cv examples/ | \
 	gzip -9 > debian/qt4-doc/usr/share/doc/qt4-doc/qt4-examples.tar.gz
 
+	-$(MAKE) -k -C demos distclean
+	tar -cv demos/ | \
+	gzip -9 > debian/qt4-doc/usr/share/doc/qt4-doc/qt4-demos.tar.gz
+
+binary-install/libqt4-debug::
+# Run dh_install without the default DEB_DH_INSTALL_ARGS to install the
+# *.debug files.
+	dh_install -plibqt4-debug --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
 
 # Automatically install lintian overrides, stolen from debian-qt-kde.mk
 $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:
@@ -88,9 +107,3 @@ $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:
 	    install -p -D -m644 debian/$(cdbs_curpkg).lintian \
 	    debian/$(cdbs_curpkg)/usr/share/lintian/overrides/$(cdbs_curpkg); \
         fi
-
-# Remove debugging library junk from libqt4-dev, it goes in
-#libqt4-debug-dev instead.
-binary-post-install/libqt4-dev::
-	rm -f debian/$(cdbs_curpkg)/usr/lib/*_debug.* \
-	      debian/$(cdbs_curpkg)/usr/lib/pkgconfig/*_debug.*

@@ -3,6 +3,7 @@ usr/lib/libQtOpenGL.so.*
 usr/lib/libQtSvg.so.*
 usr/lib/libQtDesigner.so.*
 usr/lib/libQtDesignerComponents.so.*
+usr/lib/libQtAssistantClient.so.*
 usr/lib/qt4/plugins/imageformats/libqjpeg.so
 usr/lib/qt4/plugins/imageformats/libqgif.so
 usr/lib/qt4/plugins/imageformats/libqmng.so

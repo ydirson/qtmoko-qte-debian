@@ -25,7 +25,21 @@ qt4-x11 (4.2.0-1) UNRELEASED; urgency=low
   * debian/libqt4-debug.install: changed the wildcards to match the new
     debug lib names.  What was once *_debug.so.* is now *.debug.  Ick.
 
- -- Brian Nelson <pyro@debian.org>  Fri,  6 Oct 2006 09:00:28 -0400
+  * debian/control: removed libqt4-debug-dev since now that the _debug
+    libs have been removed and debugging symbols are shipped in their
+    place, this package is no longer needed
+
+  * Tar up the demos directory and include it in qt4-doc.  Also added the
+    qtdemo binary to libqt4-dev. (Closes: #390925)
+
+  * debian/rules: add -DQT_QLOCALE_USES_FCVT to the configure arguments
+    when building on arm, like Qt3, to fix a uic problem (Closes: #386460)
+
+  * debian/libqt4-gui.install: added usr/lib/libQtAssistantClient.so.*,
+    since it's now shipped as a shared library; previously it was a static
+    library
+
+ -- Brian Nelson <pyro@debian.org>  Fri,  6 Oct 2006 11:59:58 -0400
 
 qt4-x11 (4.1.4-1.1) unstable; urgency=medium
 

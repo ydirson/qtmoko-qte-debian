@@ -13,3 +13,4 @@ usr/bin/moc-qt4
 usr/bin/qt3to4
 usr/bin/rcc
 usr/bin/uic3
+usr/bin/qtdemo
