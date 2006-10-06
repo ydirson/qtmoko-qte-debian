@@ -21,6 +21,14 @@ qt4-x11 (4.2.0-1) UNRELEASED; urgency=low
 
  -- Brian Nelson <pyro@debian.org>  Thu,  5 Oct 2006 21:53:41 -0400
 
+qt4-x11 (4.1.4-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Reintroduce the libpq-dev dependency, which seems to have been removed by
+    mistake in 4.1.0-2. (Closes: #327618)
+
+ -- Steinar H. Gunderson <sesse@debian.org>  Tue, 29 Aug 2006 01:10:59 +0200
+
 qt4-x11 (4.1.4-1) unstable; urgency=low
 
   * New upstream release (Closes: #378443)
