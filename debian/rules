@@ -14,7 +14,7 @@ DEB_MAKE_INSTALL_TARGET := INSTALL_ROOT=$(DEB_DESTDIR) install
 DEB_DH_INSTALL_SOURCEDIR := debian/tmp
 DEB_MAKE_CLEAN_TARGET := confclean distclean
 DEB_DH_MAKESHLIBS_ARGS_ALL := -V
-DEB_INSTALL_CHANGELOGS_ALL := changes-4.1.4
+DEB_INSTALL_CHANGELOGS_ALL := changes-4.2.0
 
 
 common-configure-arch::
@@ -37,11 +37,10 @@ common-configure-arch::
 	            -qt-gif \
 	            -qt-sql-psql \
 	            -qt-sql-mysql \
-	            -qt-sql-sqlite \
+		    -qt-sql-slite \
+	            -system-sqlite \
 	            -qt-sql-sqlite2 \
-	            -I/usr/include/mysql \
 	            -I/usr/include/freetype2 \
-	            -I`pg_config --includedir` \
 	            -lfontconfig \
 	            -cups
 

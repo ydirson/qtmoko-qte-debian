@@ -6,26 +6,17 @@
 ## DP: that use recursively link against all indirectly-used libraries.
 
 @DPATCH@
-diff -urNad qt4-x11-4.1.0~/mkspecs/linux-g++/qmake.conf qt4-x11-4.1.0/mkspecs/linux-g++/qmake.conf
---- qt4-x11-4.1.0~/mkspecs/linux-g++/qmake.conf	2005-12-16 03:51:53.000000000 -0800
-+++ qt4-x11-4.1.0/mkspecs/linux-g++/qmake.conf	2006-01-10 17:57:18.000000000 -0800
-@@ -4,7 +4,7 @@
+diff -urNad qt4-x11-4.2.0~/mkspecs/common/linux.conf qt4-x11-4.2.0/mkspecs/common/linux.conf
+--- qt4-x11-4.2.0~/mkspecs/common/linux.conf	2006-09-29 10:44:55.000000000 -0400
++++ qt4-x11-4.2.0/mkspecs/common/linux.conf	2006-10-05 21:30:21.000000000 -0400
+@@ -19,8 +19,8 @@
+ QMAKE_LIBS_OPENGL_QT  = -lGL
+ QMAKE_LIBS_THREAD     = -lpthread
  
- MAKEFILE_GENERATOR	= UNIX
- TEMPLATE		= app
--CONFIG			+= qt warn_on release incremental link_prl
-+CONFIG			+= qt warn_on release incremental
- QT			+= core gui
- QMAKE_INCREMENTAL_STYLE = sublib
+-QMAKE_MOC             = $$[QT_INSTALL_BINS]/moc
+-QMAKE_UIC             = $$[QT_INSTALL_BINS]/uic
++QMAKE_MOC             = $$[QT_INSTALL_BINS]/moc-qt4
++QMAKE_UIC             = $$[QT_INSTALL_BINS]/uic-qt4
  
-@@ -68,8 +68,8 @@
- QMAKE_LIBS_OPENGL_QT	= -lGL
- QMAKE_LIBS_THREAD	= -lpthread
- 
--QMAKE_MOC		= $$[QT_INSTALL_BINS]/moc
--QMAKE_UIC		= $$[QT_INSTALL_BINS]/uic
-+QMAKE_MOC		= $$[QT_INSTALL_BINS]/moc-qt4
-+QMAKE_UIC		= $$[QT_INSTALL_BINS]/uic-qt4
- 
- QMAKE_AR		= ar cqs
- QMAKE_RANLIB		=
+ QMAKE_AR              = ar cqs
+ QMAKE_RANLIB          =
