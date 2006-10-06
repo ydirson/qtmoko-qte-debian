@@ -1,7 +1,10 @@
 qt4-x11 (4.2.0-1) UNRELEASED; urgency=low
 
   * New upstream release
-
+    - No longer includes "CONFIG = ... debug" in the mkspecs/qconfig.pri
+      (Closes: #357136)
+    - Fixes QFontDialog assert() failures (Closes: #380418)
+    
   * debian/control: made libqt4-gui conflict/replace libqt4-designer, to
     ensure that old package is removed (Closes: #380253)
 
@@ -19,7 +22,10 @@ qt4-x11 (4.2.0-1) UNRELEASED; urgency=low
   * debian/patches/19_s390_atomic.dpatch: removed, since it appears to be
     obsolete
 
- -- Brian Nelson <pyro@debian.org>  Thu,  5 Oct 2006 21:53:41 -0400
+  * debian/libqt4-debug.install: changed the wildcards to match the new
+    debug lib names.  What was once *_debug.so.* is now *.debug.  Ick.
+
+ -- Brian Nelson <pyro@debian.org>  Fri,  6 Oct 2006 09:00:28 -0400
 
 qt4-x11 (4.1.4-1.1) unstable; urgency=medium
 
