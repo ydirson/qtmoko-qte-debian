@@ -93,6 +93,7 @@ binary-install/qt4-doc::
 	gzip -9 > debian/qt4-doc/usr/share/doc/qt4-doc/qt4-examples.tar.gz
 
 	-$(MAKE) -k -C demos distclean
+	find demos/ -name '*.debug' -print0 | xargs -0r rm -f
 	tar -cv demos/ | \
 	gzip -9 > debian/qt4-doc/usr/share/doc/qt4-doc/qt4-demos.tar.gz
 
