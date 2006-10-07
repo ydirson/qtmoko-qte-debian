@@ -89,6 +89,7 @@ common-install-arch::
 binary-install/qt4-doc::
 # Tar up the examples to include them in qt4-doc
 	-$(MAKE) -k -C examples distclean
+	find examples/ -name '*.debug' -print0 | xargs -0r rm -f
 	tar -cv examples/ | \
 	gzip -9 > debian/qt4-doc/usr/share/doc/qt4-doc/qt4-examples.tar.gz
 
