@@ -1,4 +1,4 @@
-qt4-x11 (4.2.0-1) UNRELEASED; urgency=low
+qt4-x11 (4.2.0-1) unstable; urgency=low
 
   * New upstream release
     - No longer includes "CONFIG = ... debug" in the mkspecs/qconfig.pri
@@ -39,7 +39,10 @@ qt4-x11 (4.2.0-1) UNRELEASED; urgency=low
     since it's now shipped as a shared library; previously it was a static
     library
 
- -- Brian Nelson <pyro@debian.org>  Fri,  6 Oct 2006 11:59:58 -0400
+  * Added build-deps on libdbus-1-dev and libglib2.0-dev, and added
+    libQtDBus to the libqt4-core package
+
+ -- Brian Nelson <pyro@debian.org>  Fri,  6 Oct 2006 23:16:46 -0400
 
 qt4-x11 (4.1.4-1.1) unstable; urgency=medium
 
