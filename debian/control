@@ -9,7 +9,7 @@ Standards-Version: 3.7.2
 Package: libqt4-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}, libqt4-core (= ${Source-Version}), libqt4-gui (= ${Source-Version}), libqt4-sql (= ${Source-Version}), libqt4-qt3support (= ${Source-Version}), libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x11proto-core-dev, libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libxrender-dev, libxcursor-dev, libxinerama-dev, libxi-dev, libmng-dev (>= 1.0.3), libpng12-0-dev, libjpeg62-dev, zlib1g-dev, libfreetype6-dev, xlibmesa-gl-dev | libgl-dev, libglu1-xorg-dev | libglu1-mesa-dev | libglu-dev, libxft-dev, libaudio-dev, libpq-dev
+Depends: ${misc:Depends}, libqt4-core (= ${Source-Version}), libqt4-gui (= ${Source-Version}), libqt4-sql (= ${Source-Version}), libqt4-qt3support (= ${Source-Version}), libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x11proto-core-dev, libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libxrender-dev, libxcursor-dev, libxinerama-dev, libxi-dev, libmng-dev (>= 1.0.3), libpng12-0-dev, libjpeg62-dev, zlib1g-dev, libfreetype6-dev, xlibmesa-gl-dev | libgl-dev, libglu1-xorg-dev | libglu1-mesa-dev | libglu-dev, libxft-dev, libaudio-dev, libpq-dev, libglib2.0-dev
 Conflicts: qt3-dev-tools (<= 3:3.3.4-7)
 Recommends: qt4-dev-tools
 Suggests: qt4-doc

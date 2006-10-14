@@ -1,3 +1,10 @@
+qt4-x11 (4.2.0-2) UNRELEASED; urgency=low
+
+  * debian/control: added a dependency on libglib2.0-dev for libqt4-dev
+    (Closes: #392797, #392173)
+
+ -- Brian Nelson <pyro@debian.org>  Sat, 14 Oct 2006 11:25:48 -0400
+
 qt4-x11 (4.2.0-1) unstable; urgency=low
 
   * New upstream release
