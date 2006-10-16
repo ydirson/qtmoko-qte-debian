@@ -1,2 +1,2 @@
 usr/lib/*.debug
-usr/lib/qt4/plugins/imageformats/*.debug
+usr/lib/qt4/plugins/*/*.debug

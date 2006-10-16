@@ -3,7 +3,12 @@ qt4-x11 (4.2.0-2) UNRELEASED; urgency=low
   * debian/control: added a dependency on libglib2.0-dev for libqt4-dev
     (Closes: #392797, #392173)
 
- -- Brian Nelson <pyro@debian.org>  Sat, 14 Oct 2006 11:25:48 -0400
+  * debian/libqt4-sql.install: install the sqldrivers plugins, since for
+    some reason sqlite support is built as a plugin (Closes: #392808)
+
+  * Added a bunch of plugins and their debugging symbols to be installed
+
+ -- Brian Nelson <pyro@debian.org>  Mon, 16 Oct 2006 17:35:25 -0400
 
 qt4-x11 (4.2.0-1) unstable; urgency=low
 

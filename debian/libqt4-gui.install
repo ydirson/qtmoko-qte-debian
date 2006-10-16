@@ -4,6 +4,7 @@ usr/lib/libQtSvg.so.*
 usr/lib/libQtDesigner.so.*
 usr/lib/libQtDesignerComponents.so.*
 usr/lib/libQtAssistantClient.so.*
-usr/lib/qt4/plugins/imageformats/libqjpeg.so
-usr/lib/qt4/plugins/imageformats/libqgif.so
-usr/lib/qt4/plugins/imageformats/libqmng.so
+usr/lib/qt4/plugins/imageformats/*.so
+usr/lib/qt4/plugins/accessible/*.so
+usr/lib/qt4/plugins/iconengines/*.so
+usr/lib/qt4/plugins/inputmethods/*.so

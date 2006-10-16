@@ -1,1 +1,2 @@
 usr/lib/libQtSql.so.*
+usr/lib/qt4/plugins/sqldrivers/*.so

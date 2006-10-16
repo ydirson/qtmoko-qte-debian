@@ -1,3 +1,2 @@
 usr/bin/designer-qt4
-usr/lib/qt4/plugins/designer/*plugin.so
-usr/lib/qt4/plugins/designer/libqt3supportwidgets.so
+usr/lib/qt4/plugins/designer/*.so
