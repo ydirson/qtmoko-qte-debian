@@ -8,7 +8,10 @@ qt4-x11 (4.2.0-2) UNRELEASED; urgency=low
 
   * Added a bunch of plugins and their debugging symbols to be installed
 
- -- Brian Nelson <pyro@debian.org>  Mon, 16 Oct 2006 17:35:25 -0400
+  * debian/patches/19_m68k_inotify_fix.dpatch: new patch to fix FTBFS on
+    m68k (Closes: #391902)
+
+ -- Brian Nelson <pyro@debian.org>  Mon, 16 Oct 2006 17:40:48 -0400
 
 qt4-x11 (4.2.0-1) unstable; urgency=low
 

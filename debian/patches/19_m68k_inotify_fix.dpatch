@@ -1,0 +1,23 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 19_m68k_inotify_fix.dpatch by Brian Nelson <pyro@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: From Roman Zippel <zippel@linux-m68k.org>: These defines are
+## DP: taken from the m68k tree, they should appear like this soon also
+## DP: in the upstream source.
+
+@DPATCH@
+diff -urNad qt4-x11-4.2.0~/src/corelib/io/qfilesystemwatcher_inotify.cpp qt4-x11-4.2.0/src/corelib/io/qfilesystemwatcher_inotify.cpp
+--- qt4-x11-4.2.0~/src/corelib/io/qfilesystemwatcher_inotify.cpp	2006-09-29 10:44:58.000000000 -0400
++++ qt4-x11-4.2.0/src/corelib/io/qfilesystemwatcher_inotify.cpp	2006-10-16 17:38:56.000000000 -0400
+@@ -84,6 +84,10 @@
+ # define __NR_inotify_init      284
+ # define __NR_inotify_add_watch 285
+ # define __NR_inotify_rm_watch  286
++#elif defined (__mc68000__)
++# define __NR_inotify_init      284
++# define __NR_inotify_add_watch 285
++# define __NR_inotify_rm_watch  286
+ #else
+ # error "This architecture is not supported. Please talk to qt-bugs@trolltech.com"
+ #endif
