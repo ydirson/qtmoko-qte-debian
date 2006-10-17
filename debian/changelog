@@ -3,9 +3,6 @@ qt4-x11 (4.2.0-2) UNRELEASED; urgency=low
   * debian/control: added a dependency on libglib2.0-dev for libqt4-dev
     (Closes: #392797, #392173)
 
-  * debian/libqt4-sql.install: install the sqldrivers plugins, since for
-    some reason sqlite support is built as a plugin (Closes: #392808)
-
   * Added a bunch of plugins and their debugging symbols to be installed
 
   * debian/patches/19_m68k_inotify_fix.dpatch: new patch to fix FTBFS on
@@ -13,9 +10,10 @@ qt4-x11 (4.2.0-2) UNRELEASED; urgency=low
 
   * Imported Ubuntu fixes, thanks to Jonathan Riddell for the tip
     - Fix typo in debian/rules -qt-sql-slite to -qt-sql-sqlite
+      (Closes: #392808)
     - Install usr/bin/qdbus usr/bin/qdbusxml2cpp and usr/bin/qdbuscpp2xml
 
- -- Brian Nelson <pyro@debian.org>  Mon, 16 Oct 2006 22:30:42 -0400
+ -- Brian Nelson <pyro@debian.org>  Mon, 16 Oct 2006 23:00:05 -0400
 
 qt4-x11 (4.2.0-1) unstable; urgency=low
 
