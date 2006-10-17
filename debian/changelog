@@ -14,7 +14,10 @@ qt4-x11 (4.2.0-2) UNRELEASED; urgency=low
     - Install usr/bin/qdbus usr/bin/qdbusxml2cpp and usr/bin/qdbuscpp2xml
       (Closes: #391726)
 
- -- Brian Nelson <pyro@debian.org>  Mon, 16 Oct 2006 23:00:05 -0400
+  * debian/control: added a libqt4-dev dependency on libsqlite0-dev
+    (Closes: #392558)
+
+ -- Brian Nelson <pyro@debian.org>  Tue, 17 Oct 2006 08:08:44 -0400
 
 qt4-x11 (4.2.0-1) unstable; urgency=low
 
