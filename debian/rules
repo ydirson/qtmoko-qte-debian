@@ -46,7 +46,7 @@ common-configure-arch::
 	            -qt-gif \
 	            -qt-sql-psql \
 	            -qt-sql-mysql \
-		    -qt-sql-slite \
+		    -qt-sql-sqlite \
 	            -system-sqlite \
 	            -qt-sql-sqlite2 \
 	            -I/usr/include/freetype2 \

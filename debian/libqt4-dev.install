@@ -14,3 +14,5 @@ usr/bin/qt3to4
 usr/bin/rcc
 usr/bin/uic3
 usr/bin/qtdemo
+usr/bin/qdbusxml2cpp
+usr/bin/qdbuscpp2xml

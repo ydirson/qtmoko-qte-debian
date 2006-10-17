@@ -3,4 +3,5 @@ usr/lib/libQtNetwork.so.*
 usr/lib/libQtXml.so.*
 usr/lib/libQtTest.so.*
 usr/lib/libQtDBus.so.*
+usr/bin/qdbus
 usr/share/qt4/translations/*.qm
