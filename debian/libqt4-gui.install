@@ -5,6 +5,6 @@ usr/lib/libQtDesigner.so.*
 usr/lib/libQtDesignerComponents.so.*
 usr/lib/libQtAssistantClient.so.*
 usr/lib/qt4/plugins/imageformats/*.so
-usr/lib/qt4/plugins/accessible/*.so
 usr/lib/qt4/plugins/iconengines/*.so
 usr/lib/qt4/plugins/inputmethods/*.so
+usr/lib/qt4/plugins/accessible/libqtaccessiblewidgets.so

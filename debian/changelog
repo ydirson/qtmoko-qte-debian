@@ -4,7 +4,11 @@ qt4-x11 (4.2.1-1) UNRELEASED; urgency=high
     - Fixes integer overflow in pixmap handling [CVE-2006-4811]
       (Closes: #394192)
 
- -- Brian Nelson <pyro@debian.org>  Sun, 22 Oct 2006 21:18:29 -0400
+  * Install the libqtaccessiblecompatwidgets.so plugin into
+    libqt4-qt3support, so that libqt4-gui does not circularly depend on
+    libqt4-qt3support (Closes: #394351, #394629)
+
+ -- Brian Nelson <pyro@debian.org>  Sun, 22 Oct 2006 21:45:43 -0400
 
 qt4-x11 (4.2.0-2) unstable; urgency=low
 
