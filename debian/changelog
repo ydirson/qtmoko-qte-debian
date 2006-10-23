@@ -1,4 +1,4 @@
-qt4-x11 (4.2.1-1) UNRELEASED; urgency=high
+qt4-x11 (4.2.1-1) unstable; urgency=high
 
   * New upstream release    
     - Fixes integer overflow in pixmap handling [CVE-2006-4811]
@@ -8,7 +8,7 @@ qt4-x11 (4.2.1-1) UNRELEASED; urgency=high
     libqt4-qt3support, so that libqt4-gui does not circularly depend on
     libqt4-qt3support (Closes: #394351, #394629)
 
- -- Brian Nelson <pyro@debian.org>  Sun, 22 Oct 2006 21:45:43 -0400
+ -- Brian Nelson <pyro@debian.org>  Mon, 23 Oct 2006 11:59:52 -0400
 
 qt4-x11 (4.2.0-2) unstable; urgency=low
 

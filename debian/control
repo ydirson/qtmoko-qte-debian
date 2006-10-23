@@ -70,6 +70,7 @@ Package: libqt4-qt3support
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Replaces: libqt4-gui (<< 4.2.1-1)
 Description: Qt 3 compatibility library for Qt 4
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
