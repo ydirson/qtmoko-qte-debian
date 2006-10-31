@@ -6,9 +6,9 @@
 ## DP: that use recursively link against all indirectly-used libraries.
 
 @DPATCH@
-diff -urNad qt4-x11-4.2.0~/mkspecs/common/linux.conf qt4-x11-4.2.0/mkspecs/common/linux.conf
---- qt4-x11-4.2.0~/mkspecs/common/linux.conf	2006-09-29 10:44:55.000000000 -0400
-+++ qt4-x11-4.2.0/mkspecs/common/linux.conf	2006-10-05 21:30:21.000000000 -0400
+diff -urNad qt4-x11-4.2.1~/mkspecs/common/linux.conf qt4-x11-4.2.1/mkspecs/common/linux.conf
+--- qt4-x11-4.2.1~/mkspecs/common/linux.conf	2006-10-20 11:35:09.000000000 -0400
++++ qt4-x11-4.2.1/mkspecs/common/linux.conf	2006-10-30 22:24:57.000000000 -0500
 @@ -19,8 +19,8 @@
  QMAKE_LIBS_OPENGL_QT  = -lGL
  QMAKE_LIBS_THREAD     = -lpthread
@@ -20,3 +20,15 @@ diff -urNad qt4-x11-4.2.0~/mkspecs/common/linux.conf qt4-x11-4.2.0/mkspecs/commo
  
  QMAKE_AR              = ar cqs
  QMAKE_RANLIB          =
+diff -urNad qt4-x11-4.2.1~/mkspecs/linux-g++/qmake.conf qt4-x11-4.2.1/mkspecs/linux-g++/qmake.conf
+--- qt4-x11-4.2.1~/mkspecs/linux-g++/qmake.conf	2006-10-20 11:35:55.000000000 -0400
++++ qt4-x11-4.2.1/mkspecs/linux-g++/qmake.conf	2006-10-30 22:25:28.000000000 -0500
+@@ -4,7 +4,7 @@
+ 
+ MAKEFILE_GENERATOR	= UNIX
+ TEMPLATE		= app
+-CONFIG			+= qt warn_on release incremental link_prl
++CONFIG			+= qt warn_on release incremental
+ QT			+= core gui
+ QMAKE_INCREMENTAL_STYLE = sublib
+ 

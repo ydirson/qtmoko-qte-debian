@@ -5,7 +5,11 @@ qt4-x11 (4.2.1-2) UNRELEASED; urgency=low
 
   * Added patches for hurd support (Closes: #380097)
 
- -- Brian Nelson <pyro@debian.org>  Mon, 30 Oct 2006 22:20:30 -0500
+  * debian/patches/10_qmake_for_debian.dpatch: restored the modification
+    to remove link_prl from the CONFIG line, which fixes problems with
+    unnecessary linkage (Closes: #394836)
+
+ -- Brian Nelson <pyro@debian.org>  Mon, 30 Oct 2006 22:27:45 -0500
 
 qt4-x11 (4.2.1-1) unstable; urgency=high
 
