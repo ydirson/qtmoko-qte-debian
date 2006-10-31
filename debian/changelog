@@ -1,4 +1,4 @@
-qt4-x11 (4.2.1-2) UNRELEASED; urgency=low
+qt4-x11 (4.2.1-2) unstable; urgency=low
 
   * debian/patches/20_hppa_inotify_fix.dpatch: new patch that should fix
     the FTBFS on hppa due to missing defines (Closes: #394953)
@@ -9,7 +9,7 @@ qt4-x11 (4.2.1-2) UNRELEASED; urgency=low
     to remove link_prl from the CONFIG line, which fixes problems with
     unnecessary linkage (Closes: #394836)
 
- -- Brian Nelson <pyro@debian.org>  Mon, 30 Oct 2006 22:27:45 -0500
+ -- Brian Nelson <pyro@debian.org>  Tue, 31 Oct 2006 02:42:02 -0500
 
 qt4-x11 (4.2.1-1) unstable; urgency=high
 
