@@ -34,7 +34,7 @@ common-configure-arch::
 	            -datadir "/usr/share/qt4" \
 	            -plugindir "/usr/lib/qt4/plugins" \
 	            -translationdir "/usr/share/qt4/translations" \
-	            -sysconfdir "/etc/qt4" \
+	            -sysconfdir "/etc/xdg" \
 	            -platform linux-g++ \
 		    -debug-and-release \
 	            -fast \

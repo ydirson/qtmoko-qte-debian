@@ -1,3 +1,10 @@
+qt4-x11 (4.2.1-3) UNRELEASED; urgency=low
+
+  * debian/rules: set the sysconfdir to /etc/xdg instead of /etc/qt4 to
+    match the QSettings documentation (Closes: #407297)
+
+ -- Brian Nelson <pyro@debian.org>  Mon, 29 Jan 2007 20:17:44 -0500
+
 qt4-x11 (4.2.1-2) unstable; urgency=low
 
   * debian/patches/20_hppa_inotify_fix.dpatch: new patch that should fix
