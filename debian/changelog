@@ -1,9 +1,21 @@
-qt4-x11 (4.2.1-3) UNRELEASED; urgency=low
+qt4-x11 (4.2.2-1) UNRELEASED; urgency=low
+
+  * New upstream release (Closes: #410862)
 
   * debian/rules: set the sysconfdir to /etc/xdg instead of /etc/qt4 to
     match the QSettings documentation (Closes: #407297)
 
- -- Brian Nelson <pyro@debian.org>  Mon, 29 Jan 2007 20:17:44 -0500
+  * Added Riku Voipio's patch for ARM EABI (Closes: #408813)
+
+  * debian/patches/22_launch_moc-qt4.dpatch: new patch to ensure the Qt4
+    version of moc is launched by qdbuscpp2xml (Closes: #399049)
+
+  * Added a doc-base file for qt4-doc (Closes: #403290)
+
+  * debian/qt4-designer.links: added a link /usr/share/qt4/bin/designer ->
+    /usr/bin/designer-qt4 (Closes: #410885)
+
+ -- Brian Nelson <pyro@debian.org>  Sat,  3 Mar 2007 13:08:30 -0500
 
 qt4-x11 (4.2.1-2) unstable; urgency=low
 

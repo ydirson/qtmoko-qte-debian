@@ -7,13 +7,13 @@
 ## DP: in the upstream source.
 
 @DPATCH@
-diff -urNad qt4-x11-4.2.0~/src/corelib/io/qfilesystemwatcher_inotify.cpp qt4-x11-4.2.0/src/corelib/io/qfilesystemwatcher_inotify.cpp
---- qt4-x11-4.2.0~/src/corelib/io/qfilesystemwatcher_inotify.cpp	2006-09-29 10:44:58.000000000 -0400
-+++ qt4-x11-4.2.0/src/corelib/io/qfilesystemwatcher_inotify.cpp	2006-10-16 17:38:56.000000000 -0400
-@@ -84,6 +84,10 @@
- # define __NR_inotify_init      284
- # define __NR_inotify_add_watch 285
- # define __NR_inotify_rm_watch  286
+diff -urNad qt4-x11-4.2.2~/src/corelib/io/qfilesystemwatcher_inotify.cpp qt4-x11-4.2.2/src/corelib/io/qfilesystemwatcher_inotify.cpp
+--- qt4-x11-4.2.2~/src/corelib/io/qfilesystemwatcher_inotify.cpp	2006-11-27 12:26:05.000000000 -0500
++++ qt4-x11-4.2.2/src/corelib/io/qfilesystemwatcher_inotify.cpp	2007-03-03 12:30:28.000000000 -0500
+@@ -88,6 +88,10 @@
+ # define __NR_inotify_init      269
+ # define __NR_inotify_add_watch 270
+ # define __NR_inotify_rm_watch  271
 +#elif defined (__mc68000__)
 +# define __NR_inotify_init      284
 +# define __NR_inotify_add_watch 285

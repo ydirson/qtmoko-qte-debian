@@ -9,3 +9,5 @@
 19_m68k_inotify_fix
 20_hppa_inotify_fix
 21_hurd_detection
+22_launch_moc-qt4
+90_arm_eabi_fix

@@ -1,0 +1,19 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 22_launch_moc-qt4.dpatch by Brian Nelson <pyro@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Ensure the Qt4 version of moc is launched.
+
+@DPATCH@
+diff -urNad qt4-x11-4.2.2~/tools/qdbus/tools/qdbuscpp2xml/qdbuscpp2xml.cpp qt4-x11-4.2.2/tools/qdbus/tools/qdbuscpp2xml/qdbuscpp2xml.cpp
+--- qt4-x11-4.2.2~/tools/qdbus/tools/qdbuscpp2xml/qdbuscpp2xml.cpp	2006-11-27 12:26:30.000000000 -0500
++++ qt4-x11-4.2.2/tools/qdbus/tools/qdbuscpp2xml/qdbuscpp2xml.cpp	2007-03-03 12:53:16.000000000 -0500
+@@ -375,7 +375,7 @@
+         else {
+             // run moc on this file
+             QProcess proc;
+-            proc.start(QLatin1String("moc"), QStringList() << QFile::decodeName(argv[i]));
++            proc.start(QLatin1String("moc-qt4"), QStringList() << QFile::decodeName(argv[i]));
+ 
+             if (!proc.waitForStarted()) {
+                 fprintf(stderr, PROGRAMNAME ": could not execute moc! Aborting.\n");
