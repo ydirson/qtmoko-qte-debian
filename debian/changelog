@@ -1,4 +1,4 @@
-qt4-x11 (4.2.2-1) UNRELEASED; urgency=low
+qt4-x11 (4.2.2-1) unstable; urgency=low
 
   * New upstream release (Closes: #410862)
 
@@ -24,7 +24,7 @@ qt4-x11 (4.2.2-1) UNRELEASED; urgency=low
   * debian/libqt4-gui.install: added the codecs plugins, somehow these got
     accidentally dropped (Closes: #409228)
 
- -- Brian Nelson <pyro@debian.org>  Sun,  4 Mar 2007 12:53:55 -0500
+ -- Brian Nelson <pyro@debian.org>  Sun,  4 Mar 2007 13:50:39 -0500
 
 qt4-x11 (4.2.1-2) unstable; urgency=low
 
