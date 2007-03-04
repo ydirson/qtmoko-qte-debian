@@ -1,6 +1,13 @@
-diff -ur qt4-x11-4.2.1/src/corelib/io/qfsfileengine_unix.cpp qt4-x11-4.2.1-youpi/src/corelib/io/qfsfileengine_unix.cpp
---- qt4-x11-4.2.1/src/corelib/io/qfsfileengine_unix.cpp	2006-10-20 15:35:14.000000000 +0000
-+++ qt4-x11-4.2.1-youpi/src/corelib/io/qfsfileengine_unix.cpp	2007-01-21 19:52:35.000000000 +0000
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 80_hurd_max_path.dpatch by Brian Nelson <pyro@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+diff -urNad qt4-x11-4.2.2~/src/corelib/io/qfsfileengine_unix.cpp qt4-x11-4.2.2/src/corelib/io/qfsfileengine_unix.cpp
+--- qt4-x11-4.2.2~/src/corelib/io/qfsfileengine_unix.cpp	2006-11-27 12:26:06.000000000 -0500
++++ qt4-x11-4.2.2/src/corelib/io/qfsfileengine_unix.cpp	2007-03-04 10:50:03.000000000 -0500
 @@ -40,6 +40,10 @@
  # include <private/qcore_mac_p.h>
  #endif
