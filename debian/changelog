@@ -15,7 +15,10 @@ qt4-x11 (4.2.2-1) UNRELEASED; urgency=low
   * debian/qt4-designer.links: added a link /usr/share/qt4/bin/designer ->
     /usr/bin/designer-qt4 (Closes: #410885)
 
- -- Brian Nelson <pyro@debian.org>  Sat,  3 Mar 2007 13:08:30 -0500
+  * Re-arranged patches to group them by arch so that they're easier to
+    deal with
+
+ -- Brian Nelson <pyro@debian.org>  Sun,  4 Mar 2007 10:26:01 -0500
 
 qt4-x11 (4.2.1-2) unstable; urgency=low
 
