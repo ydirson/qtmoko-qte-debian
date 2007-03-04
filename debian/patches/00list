@@ -7,7 +7,8 @@
 40_alpha_ice
 41_alpha_disable_opengl_visibility
 50_kfreebsd_build_fix
+51_kfreebsd_mkspecs
 60_m68k_inotify_fix
 70_hppa_ldcw_fix
 71_hppa_inotify_fix
-80_hurd_detection
+80_hurd_max_path

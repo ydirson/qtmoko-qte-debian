@@ -26,6 +26,13 @@ ifeq ($(DEB_HOST_ARCH),arm)
 	EXTRA_CONFIGURE_OPTS += -DQT_QLOCALE_USES_FCVT
 endif
 
+ifeq ($(DEB_HOST_ARCH_OS),linux)
+        PLATFORM_ARG = linux-g++
+else
+        PLATFORM_ARG = glibc-g++
+endif
+
+
 common-configure-arch::
 	./configure -confirm-license \
 	            -prefix "/usr" \
@@ -35,7 +42,7 @@ common-configure-arch::
 	            -plugindir "/usr/lib/qt4/plugins" \
 	            -translationdir "/usr/share/qt4/translations" \
 	            -sysconfdir "/etc/xdg" \
-	            -platform linux-g++ \
+	            -platform $(PLATFORM_ARG) \
 		    -debug-and-release \
 	            -fast \
 	            -no-rpath \

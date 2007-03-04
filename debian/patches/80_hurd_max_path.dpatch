@@ -1,0 +1,14 @@
+diff -ur qt4-x11-4.2.1/src/corelib/io/qfsfileengine_unix.cpp qt4-x11-4.2.1-youpi/src/corelib/io/qfsfileengine_unix.cpp
+--- qt4-x11-4.2.1/src/corelib/io/qfsfileengine_unix.cpp	2006-10-20 15:35:14.000000000 +0000
++++ qt4-x11-4.2.1-youpi/src/corelib/io/qfsfileengine_unix.cpp	2007-01-21 19:52:35.000000000 +0000
+@@ -40,6 +40,10 @@
+ # include <private/qcore_mac_p.h>
+ #endif
+ 
++#ifndef PATH_MAX
++#define PATH_MAX 4096
++#endif
++
+ void QFSFileEnginePrivate::init()
+ {
+ }

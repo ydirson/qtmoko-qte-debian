@@ -18,7 +18,10 @@ qt4-x11 (4.2.2-1) UNRELEASED; urgency=low
   * Re-arranged patches to group them by arch so that they're easier to
     deal with
 
- -- Brian Nelson <pyro@debian.org>  Sun,  4 Mar 2007 10:26:01 -0500
+  * Applied new patches for kFreeBSD and Hurd support
+    (Closes: #380097, #402007)
+
+ -- Brian Nelson <pyro@debian.org>  Sun,  4 Mar 2007 10:45:49 -0500
 
 qt4-x11 (4.2.1-2) unstable; urgency=low
 
