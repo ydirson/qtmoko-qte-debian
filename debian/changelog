@@ -21,7 +21,10 @@ qt4-x11 (4.2.2-1) UNRELEASED; urgency=low
   * Applied new patches for kFreeBSD and Hurd support
     (Closes: #380097, #402007)
 
- -- Brian Nelson <pyro@debian.org>  Sun,  4 Mar 2007 10:45:49 -0500
+  * debian/libqt4-gui.install: added the codecs plugins, somehow these got
+    accidentally dropped (Closes: #409228)
+
+ -- Brian Nelson <pyro@debian.org>  Sun,  4 Mar 2007 12:53:55 -0500
 
 qt4-x11 (4.2.1-2) unstable; urgency=low
 
