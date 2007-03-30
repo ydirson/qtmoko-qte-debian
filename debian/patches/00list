@@ -1,6 +1,7 @@
 01_qmake_for_debian
 02_launch_assistant-qt4
 03_launch_moc-qt4
+04_utf8_bug_fix
 20_mips_atomic_ops
 30_arm_ftbfs_fixes
 31_arm_eabi_fix

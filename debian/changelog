@@ -1,3 +1,10 @@
+qt4-x11 (4.2.2-2) unstable; urgency=high
+
+  * debian/patches/04_utf8_bug_fix.dpatch: new patch to fix the "UTF-8
+    overlong sequence decoding vulnerability" [CVE-2007-0242]
+
+ -- Brian Nelson <pyro@debian.org>  Fri, 30 Mar 2007 11:04:20 -0400
+
 qt4-x11 (4.2.2-1) unstable; urgency=low
 
   * New upstream release (Closes: #410862)
