@@ -1,3 +1,13 @@
+qt4-x11 (4.2.3-1) unstable; urgency=low
+
+  * New upstream release
+    - Fixes build failures when QT_NO_DEBUG_OUTPUT defined
+      (Closes: #418832)
+    - Fixes broken signal/slot connection in QSvgRenderer
+      (Closes: #411292)
+
+ -- Brian Nelson <pyro@debian.org>  Thu, 12 Apr 2007 12:38:06 -0400
+
 qt4-x11 (4.2.2-2) unstable; urgency=high
 
   * debian/patches/04_utf8_bug_fix.dpatch: new patch to fix the "UTF-8
