@@ -5,9 +5,9 @@
 ## DP: No description.
 
 @DPATCH@
-diff -urNad qt4-x11-4.2.2~/src/corelib/io/qfsfileengine_unix.cpp qt4-x11-4.2.2/src/corelib/io/qfsfileengine_unix.cpp
---- qt4-x11-4.2.2~/src/corelib/io/qfsfileengine_unix.cpp	2006-11-27 12:26:06.000000000 -0500
-+++ qt4-x11-4.2.2/src/corelib/io/qfsfileengine_unix.cpp	2007-03-04 10:50:03.000000000 -0500
+diff -urNad qt4-x11-4.3.0~rc1~/src/corelib/io/qfsfileengine_unix.cpp qt4-x11-4.3.0~rc1/src/corelib/io/qfsfileengine_unix.cpp
+--- qt4-x11-4.3.0~rc1~/src/corelib/io/qfsfileengine_unix.cpp	2007-05-06 17:54:23.000000000 +0200
++++ qt4-x11-4.3.0~rc1/src/corelib/io/qfsfileengine_unix.cpp	2007-05-18 11:11:35.000000000 +0200
 @@ -40,6 +40,10 @@
  # include <private/qcore_mac_p.h>
  #endif
@@ -16,6 +16,6 @@ diff -urNad qt4-x11-4.2.2~/src/corelib/io/qfsfileengine_unix.cpp qt4-x11-4.2.2/s
 +#define PATH_MAX 4096
 +#endif
 +
- void QFSFileEnginePrivate::init()
- {
- }
+ /*!
+     \internal
+ 

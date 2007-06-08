@@ -1,3 +1,53 @@
+qt4-x11 (4.3.0-1) experimental; urgency=low
+
+  * New upstream release.
+    * Fixes a QListView issue. (Closes: 419654)
+
+  [Sune Vuorela]
+  * Remove 04_utf8_bug_fix: Merged upstream.
+  * Update libqt4-dev.install. Upstream installs pkgconfig files the right place.
+  * Update libqt4-core.install. Add libQtScript.
+  * Update rules:
+    * Add utils.mk to use list-missing.
+    * Cleaning seems to fail a bit. Trying to hack around that in clean::
+      target.
+
+  [Fathi Boudra]
+  * Redo 30_arm_ftbfs_fixes to fix another FTBFS. Add arm target to configure
+    script. Thanks to Sune Vuorela and Aurelien Jarno. (Closes: #426129)
+  * Remove 71_hppa_inotify_fix: Merged upstream.
+  * Update patches:
+    * 02_launch_assistant-qt4
+    * 03_launch_moc-qt4
+    * 50_kfreebsd_build_fix
+    * 80_hurd_max_path
+  * Apply qt-copy patches:
+    * 00_0163-fix-gcc43-support: Various fixes to get Qt 4.3 without hundreds
+      of warnings compiling.
+    * 00_0167-fix-group-reading: In big user environments, getgrgid_r() needs
+      more memory than sysconf() returns.
+    * 00_0175-fix-s390-qatomic: Fix s390(x) build.
+    * 00_0176-coverity-fixes: Fix various obvious memory leaks.
+  * Rename disable opengl visibility patch. It is not alpha architecture only.
+  * Add desktop files to support Desktop Environments. (Closes: #378915)
+  * Update qt4-dev-tools.install. Add qdbusviewer and pixeltool.
+    Thanks to Benjamin Meyer for the reminder.
+  * Update libqt4-dev.install. Remove qtdemo binary as we provide a tarball of the
+    demos directory. qtdemo is useless, it can't launch anything without demos
+    builded. It can only show screenshots and short description of demos,
+    users have it in Qt assistant.
+  * Update rules:
+    * Remove -debug-and-release option. Deprecated.
+    * Add configure options:
+      * -no-exceptions
+      * -debug
+      * -qdbus
+      * -pch
+      * -nomake examples
+      * -nomake demos
+
+ -- Fathi Boudra <fboudra@free.fr>  Thu, 17 May 2007 18:28:57 +0200
+
 qt4-x11 (4.2.3-1) unstable; urgency=low
 
   * New upstream release

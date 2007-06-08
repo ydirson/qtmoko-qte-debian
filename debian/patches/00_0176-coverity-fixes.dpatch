@@ -1,0 +1,30 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 00_0176-coverity-fixes.diff.dpatch by Dirk Mueller <mueller@kde.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix various obvious memory leaks.
+
+@DPATCH@
+diff -urNad qt4-x11-4.3.0~rc1~/src/gui/painting/qimagescale.cpp qt4-x11-4.3.0~rc1/src/gui/painting/qimagescale.cpp
+--- qt4-x11-4.3.0~rc1~/src/gui/painting/qimagescale.cpp	2007-05-06 17:54:25.000000000 +0200
++++ qt4-x11-4.3.0~rc1/src/gui/painting/qimagescale.cpp	2007-05-19 08:46:30.000000000 +0200
+@@ -1005,6 +1005,7 @@
+     buffer = QImage(dw, dh, src.format());
+     if (buffer.isNull()) {
+         qWarning("QImage: out of memory, returning null");
++        qimageFreeScaleInfo(scaleinfo);
+         return QImage();
+     }
+ 
+diff -urNad qt4-x11-4.3.0~rc1~/src/tools/uic/cpp/cppwriteicondata.cpp qt4-x11-4.3.0~rc1/src/tools/uic/cpp/cppwriteicondata.cpp
+--- qt4-x11-4.3.0~rc1~/src/tools/uic/cpp/cppwriteicondata.cpp	2007-05-06 17:54:47.000000000 +0200
++++ qt4-x11-4.3.0~rc1/src/tools/uic/cpp/cppwriteicondata.cpp	2007-05-19 08:47:22.000000000 +0200
+@@ -50,7 +50,7 @@
+         ba[i] = r;
+     }
+     QByteArray ret(reinterpret_cast<const char *>(ba), baSize);
+-    delete ba;
++    delete [] ba;
+     return ret;
+ }
+ 

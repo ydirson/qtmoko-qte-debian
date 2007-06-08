@@ -7,9 +7,10 @@ export LD_LIBRARY_PATH := $(QTDIR)/lib:$(LD_LIBRARY_PATH)
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/makefile.mk
 include /usr/share/cdbs/1/rules/dpatch.mk
+include /usr/share/cdbs/1/rules/utils.mk
 
 DEB_MAKE_INVOKE := $(MAKE)
-DEB_MAKE_BUILD_TARGET := sub-src sub-tools 
+DEB_MAKE_BUILD_TARGET := sub-src sub-tools
 DEB_MAKE_INSTALL_TARGET := INSTALL_ROOT=$(DEB_DESTDIR) install
 DEB_DH_INSTALL_SOURCEDIR := debian/tmp
 
@@ -20,7 +21,9 @@ DEB_DH_INSTALL_ARGS := --exclude=.debug
 DEB_MAKE_CLEAN_TARGET := confclean distclean
 DEB_DH_MAKESHLIBS_ARGS_ALL := -V
 
-DEB_INSTALL_CHANGELOGS_ALL := changes-4.2.3
+DEB_DH_STRIP_ARGS_libqt4-debug := -X.debug
+
+DEB_INSTALL_CHANGELOGS_ALL := changes-4.3.0
 
 ifeq ($(DEB_HOST_ARCH),arm)
 	EXTRA_CONFIGURE_OPTS += -DQT_QLOCALE_USES_FCVT
@@ -32,7 +35,6 @@ else
         PLATFORM_ARG = glibc-g++
 endif
 
-
 common-configure-arch::
 	./configure -confirm-license \
 	            -prefix "/usr" \
@@ -43,7 +45,6 @@ common-configure-arch::
 	            -translationdir "/usr/share/qt4/translations" \
 	            -sysconfdir "/etc/xdg" \
 	            -platform $(PLATFORM_ARG) \
-		    -debug-and-release \
 	            -fast \
 	            -no-rpath \
 	            -system-zlib \
@@ -53,12 +54,18 @@ common-configure-arch::
 	            -qt-gif \
 	            -qt-sql-psql \
 	            -qt-sql-mysql \
-		    -qt-sql-sqlite \
+	            -qt-sql-sqlite \
 	            -system-sqlite \
 	            -qt-sql-sqlite2 \
 	            -I/usr/include/freetype2 \
 	            -lfontconfig \
 	            -cups \
+	            -no-exceptions \
+	            -debug \
+	            -qdbus \
+	            -pch \
+	            -nomake examples \
+	            -nomake demos \
 	            $(EXTRA_CONFIGURE_OPTS)
 
 clean::
@@ -76,6 +83,11 @@ clean::
 
 	rm -rf lib/ plugins/
 
+	find . -exec file {} \; | grep ELF | sed 's/:.*//'  | xargs rm -f
+	rm -f examples/tools/plugandpaint/plugins/libpnp_basictools.a
+	rm -f examples/qdbus/complexpingpong/Makefile*
+	rm -f examples/qdbus/pingpong/Makefile*
+
 	find include/ -type l -print0 | xargs -0r rm -f
 	find . -mindepth 2 -name Makefile -print0 \
 	                -o -name Makefile.Debug -print0 \
@@ -85,13 +97,26 @@ clean::
 # Hack to fix dpatch-edit-patch
 unpatch: deapply-dpatches
 
-
 BINDIR := $(DEB_DESTDIR)/usr/bin
 common-install-arch::
 # Tack on -qt4 to the binaries that use the alternatives system
 	for f in qmake lupdate lrelease uic moc assistant designer linguist qtconfig; do \
 	    mv "$(BINDIR)/$$f" "$(BINDIR)/$$f-qt4"; \
 	done
+
+install/qt4-designer::
+	install -D -p -m0644 debian/desktop/designer-qt4.desktop \
+		debian/qt4-designer/usr/share/applications/designer-qt4.desktop
+
+install/qt4-dev-tools::
+	install -D -p -m0644 debian/desktop/assistant-qt4.desktop \
+		debian/qt4-dev-tools/usr/share/applications/assistant-qt4.desktop
+	install -D -p -m0644 debian/desktop/linguist-qt4.desktop \
+		debian/qt4-dev-tools/usr/share/applications/linguist-qt4.desktop
+
+install/qt4-qtconfig::
+	install -D -p -m0644 debian/desktop/qt4config.desktop \
+		debian/qt4-qtconfig/usr/share/applications/qt4config.desktop
 
 binary-install/qt4-doc::
 # Tar up the examples to include them in qt4-doc

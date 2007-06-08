@@ -1,3 +1,5 @@
 usr/bin/assistant-qt4
 usr/bin/linguist-qt4
+usr/bin/qdbusviewer
+usr/bin/pixeltool
 usr/share/qt4/phrasebooks/*

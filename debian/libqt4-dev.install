@@ -2,7 +2,7 @@ usr/include/qt4/*
 usr/lib/*.a
 usr/lib/*.so
 usr/lib/*.prl
-usr/lib/*.pc usr/lib/pkgconfig/
+usr/lib/pkgconfig/
 usr/share/qt4/q3porting.xml
 usr/share/qt4/mkspecs/*
 usr/bin/qmake-qt4
@@ -13,6 +13,5 @@ usr/bin/moc-qt4
 usr/bin/qt3to4
 usr/bin/rcc
 usr/bin/uic3
-usr/bin/qtdemo
 usr/bin/qdbusxml2cpp
 usr/bin/qdbuscpp2xml
