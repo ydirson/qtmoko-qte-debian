@@ -3,6 +3,8 @@ qt4-x11 (4.3.0-1) experimental; urgency=low
   * New upstream release.
     * Fixes a QListView issue. (Closes: 419654)
 
+  * Update uploaders. Add Ana, Sune and Fathi.
+
   [Sune Vuorela]
   * Remove 04_utf8_bug_fix: Merged upstream.
   * Update libqt4-dev.install. Upstream installs pkgconfig files the right place.
@@ -46,7 +48,7 @@ qt4-x11 (4.3.0-1) experimental; urgency=low
       * -nomake examples
       * -nomake demos
 
- -- Fathi Boudra <fboudra@free.fr>  Thu, 17 May 2007 18:28:57 +0200
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 09 Jun 2007 00:25:41 +0200
 
 qt4-x11 (4.2.3-1) unstable; urgency=low
 
