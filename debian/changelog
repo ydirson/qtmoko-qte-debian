@@ -1,3 +1,13 @@
+qt4-x11 (4.3.0-2) unstable; urgency=low
+
+  [Brian Nelson]
+  * Changed dist back to unstable
+  * Tightened qt4-dev-tools's dependency on libqt4-core to
+    (= ${Source-Version}), since it uses internal (non-public) classes in
+    Qt whose ABI can change.
+
+ --
+
 qt4-x11 (4.3.0-1) experimental; urgency=low
 
   * New upstream release.
