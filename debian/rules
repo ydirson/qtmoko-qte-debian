@@ -69,7 +69,6 @@ common-configure-arch::
 	            $(EXTRA_CONFIGURE_OPTS)
 
 clean::
-
 # Extra stuff missed by confclean/distclean
 	rm -f Makefile \
 	      bin/qmake \
@@ -79,14 +78,15 @@ clean::
 	      config.status \
 	      demos/shared/libdemo_shared.prl \
 	      mkspecs/qconfig.pri \
-	      src/corelib/global/qconfig.*
+	      src/corelib/global/qconfig.* \
+	      tools/qtestlib/updater/updater \
+	      examples/tools/plugandpaint/plugins/libpnp_basictools.a \
+	      examples/qdbus/complexpingpong/Makefile* \
+	      examples/qdbus/pingpong/Makefile*
 
 	rm -rf lib/ plugins/
 
-	find . -exec file {} \; | grep ELF | sed 's/:.*//'  | xargs rm -f
-	rm -f examples/tools/plugandpaint/plugins/libpnp_basictools.a
-	rm -f examples/qdbus/complexpingpong/Makefile*
-	rm -f examples/qdbus/pingpong/Makefile*
+	find bin/ config.tests/ -exec file {} \; | grep ELF | sed 's/:.*//'  | xargs rm -f
 
 	find include/ -type l -print0 | xargs -0r rm -f
 	find . -mindepth 2 -name Makefile -print0 \

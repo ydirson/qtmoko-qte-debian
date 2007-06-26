@@ -6,6 +6,8 @@ qt4-x11 (4.3.0-2) unstable; urgency=low
     (= ${Source-Version}), since it uses internal (non-public) classes in
     Qt whose ABI can change. (Closes: #429817)
   * Added a build-dependency on libxi-dev to enable tablet support.
+  * Constrict the hack to clean all binary files to the bin and
+    config.tests directories to drastically improve its speed
 
   [Fathi Boudra]
   * Qt4 demos builds properly in Qt4.3. (Closes: #408639)
@@ -22,7 +24,7 @@ qt4-x11 (4.3.0-2) unstable; urgency=low
       _all_ widgets that contain the QPoint.
     * 00_0182-argb-visuals-default: Qt handling argb visuals on X11.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 26 Jun 2007 19:03:06 +0200
+ -- Brian Nelson <brian@catchmedia.com>  Tue, 26 Jun 2007 17:38:16 -0400
 
 qt4-x11 (4.3.0-1) experimental; urgency=low
 
