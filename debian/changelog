@@ -1,14 +1,28 @@
 qt4-x11 (4.3.0-2) unstable; urgency=low
 
   [Brian Nelson]
-  * Changed dist back to unstable
+  * Changed dist back to unstable.
   * Tightened qt4-dev-tools's dependency on libqt4-core to
     (= ${Source-Version}), since it uses internal (non-public) classes in
-    Qt whose ABI can change.
-  * Added a build-dependency on libxi-dev to enable tablet support or
-    something
+    Qt whose ABI can change. (Closes: #429817)
+  * Added a build-dependency on libxi-dev to enable tablet support.
 
- --
+  [Fathi Boudra]
+  * Qt4 demos builds properly in Qt4.3. (Closes: #408639)
+  * Replace qmake by qmake-qt4 in libqt4-dev long description.
+    (Closes: #415816)
+  * Apply qt-copy patches:
+    * 00_0178-transparency-window-types: adds Qt support for new window types
+      used for compositing.
+    * 00_0179-transient-hack: workaround that makes setting of WM_TRANSIENT_FOR
+      work with some window types.
+    * 00_0180-window-role: several problems with Qt's support for the
+      WM_WINDOW_ROLE property.
+    * 00_0181-qdnd-x11-fix: makes the find_child algorithm in qdnd look at
+      _all_ widgets that contain the QPoint.
+    * 00_0182-argb-visuals-default: Qt handling argb visuals on X11.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 26 Jun 2007 19:03:06 +0200
 
 qt4-x11 (4.3.0-1) experimental; urgency=low
 

@@ -5,9 +5,9 @@
 ## DP: Fix s390(x) build.
 
 @DPATCH@
-diff -urNad qt4-x11-4.3.0~rc1~/src/corelib/arch/qatomic_s390.h qt4-x11-4.3.0~rc1/src/corelib/arch/qatomic_s390.h
---- qt4-x11-4.3.0~rc1~/src/corelib/arch/qatomic_s390.h	2007-05-06 17:54:22.000000000 +0200
-+++ qt4-x11-4.3.0~rc1/src/corelib/arch/qatomic_s390.h	2007-05-17 19:13:18.000000000 +0200
+diff -urNad qt4-x11-4.3.0~/src/corelib/arch/qatomic_s390.h qt4-x11-4.3.0/src/corelib/arch/qatomic_s390.h
+--- qt4-x11-4.3.0~/src/corelib/arch/qatomic_s390.h	2007-05-25 15:24:09.000000000 +0200
++++ qt4-x11-4.3.0/src/corelib/arch/qatomic_s390.h	2007-06-26 19:56:59.000000000 +0200
 @@ -182,10 +182,20 @@
  #endif
  }

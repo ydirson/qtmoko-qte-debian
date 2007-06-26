@@ -5,9 +5,9 @@
 ## DP: In big user environments, getgrgid_r() needs more memory than sysconf() returns.
 
 @DPATCH@
-diff -urNad qt4-x11-4.3.0~rc1~/src/corelib/io/qfsfileengine_unix.cpp qt4-x11-4.3.0~rc1/src/corelib/io/qfsfileengine_unix.cpp
---- qt4-x11-4.3.0~rc1~/src/corelib/io/qfsfileengine_unix.cpp	2007-05-06 17:54:23.000000000 +0200
-+++ qt4-x11-4.3.0~rc1/src/corelib/io/qfsfileengine_unix.cpp	2007-05-17 19:10:48.000000000 +0200
+diff -urNad qt4-x11-4.3.0~/src/corelib/io/qfsfileengine_unix.cpp qt4-x11-4.3.0/src/corelib/io/qfsfileengine_unix.cpp
+--- qt4-x11-4.3.0~/src/corelib/io/qfsfileengine_unix.cpp	2007-05-25 15:24:09.000000000 +0200
++++ qt4-x11-4.3.0/src/corelib/io/qfsfileengine_unix.cpp	2007-06-26 19:56:03.000000000 +0200
 @@ -830,9 +830,16 @@
      } else if (own == OwnerGroup) {
          struct group *gr = 0;

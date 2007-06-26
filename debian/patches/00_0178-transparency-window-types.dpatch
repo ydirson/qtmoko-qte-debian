@@ -1,0 +1,340 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 00_0178-transparency-window-types.dpatch by Lubos Lunak <l.lunak@kde.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: This patch adds Qt support for new window types used for compositing.
+
+@DPATCH@
+diff -urNad qt4-x11-4.3.0~/src/gui/kernel/qapplication_x11.cpp qt4-x11-4.3.0/src/gui/kernel/qapplication_x11.cpp
+--- qt4-x11-4.3.0~/src/gui/kernel/qapplication_x11.cpp	2007-05-25 15:24:19.000000000 +0200
++++ qt4-x11-4.3.0/src/gui/kernel/qapplication_x11.cpp	2007-06-26 20:00:27.000000000 +0200
+@@ -199,6 +199,11 @@
+     "_NET_WM_WINDOW_TYPE_SPLASH\0"
+     "_NET_WM_WINDOW_TYPE_TOOLBAR\0"
+     "_NET_WM_WINDOW_TYPE_UTILITY\0"
++    "_NET_WM_WINDOW_TYPE_DROPDOWN_MENU\0"
++    "_NET_WM_WINDOW_TYPE_POPUP_MENU\0"
++    "_NET_WM_WINDOW_TYPE_COMBO\0"
++    "_NET_WM_WINDOW_TYPE_DND\0"
++    "_NET_WM_WINDOW_TYPE_TOOLTIP\0"
+ 
+     "_KDE_NET_WM_FRAME_STRUT\0"
+ 
+diff -urNad qt4-x11-4.3.0~/src/gui/kernel/qdnd_x11.cpp qt4-x11-4.3.0/src/gui/kernel/qdnd_x11.cpp
+--- qt4-x11-4.3.0~/src/gui/kernel/qdnd_x11.cpp	2007-05-25 15:24:19.000000000 +0200
++++ qt4-x11-4.3.0/src/gui/kernel/qdnd_x11.cpp	2007-06-26 20:00:27.000000000 +0200
+@@ -254,6 +254,7 @@
+         QWidget(QApplication::desktop()->screen(screen),
+                 Qt::Tool | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint)
+     {
++    x11SetWindowType( X11WindowTypeDND );
+     }
+ 
+     void setPixmap(const QPixmap &pm)
+@@ -1392,6 +1393,7 @@
+         // recreate the pixmap on the new screen...
+         delete xdnd_data.deco;
+         xdnd_data.deco = new QShapedPixmapWidget(screen);
++        xdnd_data.deco->x11SetWindowTransient( object->source()->topLevelWidget());
+         if (!QWidget::mouseGrabber()) {
+             updatePixmap();
+             xdnd_data.deco->grabMouse();
+@@ -1852,6 +1854,7 @@
+     object = o;
+     object->d_func()->target = 0;
+     xdnd_data.deco = new QShapedPixmapWidget();
++    xdnd_data.deco->x11SetWindowTransient( object->source()->topLevelWidget());
+ 
+     willDrop = false;
+ 
+diff -urNad qt4-x11-4.3.0~/src/gui/kernel/qt_x11_p.h qt4-x11-4.3.0/src/gui/kernel/qt_x11_p.h
+--- qt4-x11-4.3.0~/src/gui/kernel/qt_x11_p.h	2007-05-25 15:24:19.000000000 +0200
++++ qt4-x11-4.3.0/src/gui/kernel/qt_x11_p.h	2007-06-26 20:00:27.000000000 +0200
+@@ -514,6 +514,11 @@
+         _NET_WM_WINDOW_TYPE_SPLASH,
+         _NET_WM_WINDOW_TYPE_TOOLBAR,
+         _NET_WM_WINDOW_TYPE_UTILITY,
++        _NET_WM_WINDOW_TYPE_DROPDOWN_MENU,
++        _NET_WM_WINDOW_TYPE_POPUP_MENU,
++        _NET_WM_WINDOW_TYPE_COMBO,
++        _NET_WM_WINDOW_TYPE_DND,
++        _NET_WM_WINDOW_TYPE_TOOLTIP,
+ 
+         _KDE_NET_WM_FRAME_STRUT,
+ 
+diff -urNad qt4-x11-4.3.0~/src/gui/kernel/qtooltip.cpp qt4-x11-4.3.0/src/gui/kernel/qtooltip.cpp
+--- qt4-x11-4.3.0~/src/gui/kernel/qtooltip.cpp	2007-05-25 15:24:19.000000000 +0200
++++ qt4-x11-4.3.0/src/gui/kernel/qtooltip.cpp	2007-06-26 20:00:27.000000000 +0200
+@@ -134,6 +134,9 @@
+     setMouseTracking(true);
+     fadingOut = false;
+     reuseTip(text);
++#ifdef Q_WS_X11
++    x11SetWindowType( X11WindowTypeTooltip );
++#endif
+ }
+ 
+ void QTipLabel::restartHideTimer()
+@@ -351,6 +354,9 @@
+             // that is showing (removes flickering)
+             if (QTipLabel::instance->tipChanged(pos, text, w)){
+                 QTipLabel::instance->reuseTip(text);
++#ifdef Q_WS_X11
++                QTipLabel::instance->x11SetWindowTransient( w->topLevelWidget());
++#endif
+                 QTipLabel::instance->setTipRect(w, rect);
+                 QTipLabel::instance->placeTip(pos, w);
+             }
+@@ -360,6 +366,9 @@
+ 
+     if (!text.isEmpty()){ // no tip can be reused, create new tip:
+         new QTipLabel(pos, text, w); // sets QTipLabel::instance to itself
++#ifdef Q_WS_X11
++        QTipLabel::instance->x11SetWindowTransient( w->topLevelWidget());
++#endif
+         QTipLabel::instance->setTipRect(w, rect);
+         QTipLabel::instance->placeTip(pos, w);
+         QTipLabel::instance->setObjectName(QLatin1String("qtooltip_label"));
+diff -urNad qt4-x11-4.3.0~/src/gui/kernel/qwidget.h qt4-x11-4.3.0/src/gui/kernel/qwidget.h
+--- qt4-x11-4.3.0~/src/gui/kernel/qwidget.h	2007-05-25 15:24:19.000000000 +0200
++++ qt4-x11-4.3.0/src/gui/kernel/qwidget.h	2007-06-26 20:00:27.000000000 +0200
+@@ -339,6 +339,19 @@
+ 
+     void setWindowOpacity(qreal level);
+     qreal windowOpacity() const;
++#if defined(Q_WS_X11)
++    enum X11WindowType {
++        X11WindowTypeSelect,
++        X11WindowTypeCombo,
++        X11WindowTypeDND,
++        X11WindowTypeTooltip,
++        X11WindowTypeMenu, // torn-off
++        X11WindowTypeDropdown,
++        X11WindowTypePopup
++    };
++    void x11SetWindowType( X11WindowType type = X11WindowTypeSelect );
++    void x11SetWindowTransient( QWidget* parent );
++#endif
+ 
+     bool isWindowModified() const;
+ #ifndef QT_NO_TOOLTIP
+diff -urNad qt4-x11-4.3.0~/src/gui/kernel/qwidget_x11.cpp qt4-x11-4.3.0/src/gui/kernel/qwidget_x11.cpp
+--- qt4-x11-4.3.0~/src/gui/kernel/qwidget_x11.cpp	2007-05-25 15:24:19.000000000 +0200
++++ qt4-x11-4.3.0/src/gui/kernel/qwidget_x11.cpp	2007-06-26 20:00:27.000000000 +0200
+@@ -510,10 +510,6 @@
+     }
+ #endif // QT_NO_XRENDER
+ 
+-    // NET window types
+-    long net_wintypes[7] = { 0, 0, 0, 0, 0, 0, 0 };
+-    int curr_wintype = 0;
+-
+     QtMWMHints mwmhints;
+     mwmhints.flags = 0L;
+     mwmhints.functions = MWM_FUNC_ALL;
+@@ -524,15 +520,11 @@
+     if (topLevel) {
+         ulong wsa_mask = 0;
+         if (type == Qt::SplashScreen) {
+-            net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_SPLASH);
+         } else { //       if (customize) {
+             mwmhints.decorations = 0L;
+             mwmhints.flags |= MWM_HINTS_DECORATIONS;
+ 
+-            if (flags & Qt::FramelessWindowHint) {
+-                // override netwm type - quick and easy for KDE noborder
+-                net_wintypes[curr_wintype++] = ATOM(_KDE_NET_WM_WINDOW_TYPE_OVERRIDE);
+-            } else {
++            if ((flags & Qt::FramelessWindowHint) == 0 ) {
+                 mwmhints.decorations |= MWM_DECOR_BORDER;
+                 mwmhints.decorations |= MWM_DECOR_RESIZEH;
+ 
+@@ -554,22 +546,6 @@
+             wsa.save_under = True;
+             wsa_mask |= CWSaveUnder;
+         }
+-        // ### need a better way to do this
+-        if (q->inherits("QMenu")) {
+-            // menu netwm type
+-            net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_MENU);
+-        } else if (q->inherits("QToolBar")) {
+-            // toolbar netwm type
+-            net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_TOOLBAR);
+-        } else if (type == Qt::Tool || type == Qt::Drawer) {
+-            // utility netwm type
+-            net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_UTILITY);
+-        }
+-
+-        if (dialog) // dialog netwm type
+-            net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_DIALOG);
+-        // normal netwm type - default
+-        net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_NORMAL);
+ 
+         if (flags & Qt::X11BypassWindowManagerHint) {
+             wsa.override_redirect = True;
+@@ -588,6 +564,7 @@
+         wsa.save_under = True;
+         XChangeWindowAttributes(dpy, id, CWOverrideRedirect | CWSaveUnder,
+                                 &wsa);
++        q->x11SetWindowType();
+     } else if (topLevel && !desktop) {        // top-level widget
+         if (!X11->wm_client_leader)
+             create_wm_client_leader();
+@@ -632,12 +609,7 @@
+         // set mwm hints
+         SetMWMHints(dpy, id, mwmhints);
+ 
+-        // set _NET_WM_WINDOW_TYPE
+-        if (curr_wintype > 0)
+-            XChangeProperty(dpy, id, ATOM(_NET_WM_WINDOW_TYPE), XA_ATOM, 32, PropModeReplace,
+-                            (unsigned char *) net_wintypes, curr_wintype);
+-        else
+-            XDeleteProperty(dpy, id, ATOM(_NET_WM_WINDOW_TYPE));
++        q->x11SetWindowType(); // set _NET_WM_WINDOW_TYPE
+ 
+         // set _NET_WM_PID
+         long curr_pid = getpid();
+@@ -733,6 +705,63 @@
+         q->setAttribute(Qt::WA_OutsideWSRange, true);
+ }
+ 
++// Sets the EWMH (netwm) window type. Needed as a separate function
++// because create() may be too soon in some cases.
++void QWidget::x11SetWindowType( X11WindowType type )
++{
++    Display* dpy = X11->display;
++    // NET window types
++    long net_wintypes[7] = { 0, 0, 0, 0, 0, 0, 0 };
++    int curr_wintype = 0;
++    if( type == X11WindowTypeSelect ) {
++        if ( windowType() == Qt::SplashScreen ) {
++            net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_SPLASH);
++        } else if (inherits("QToolBar")) {
++	    // toolbar netwm type
++	    net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_TOOLBAR);
++        } else if (windowType() == Qt::Tool || windowType() == Qt::Drawer) {
++	    // utility netwm type
++	    net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_UTILITY);
++        } else if (windowType() == Qt::Dialog || windowType() == Qt::Sheet
++            || (windowFlags() & Qt::MSWindowsFixedSizeDialogHint)) {
++            // dialog netwm type
++            net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_DIALOG);
++        }
++    } else if( type == X11WindowTypeCombo ) {
++        // combo netwm type
++	net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_COMBO);
++    } else if( type == X11WindowTypeDND ) {
++        // dnd netwm type
++    	net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_DND);
++    } else if( type == X11WindowTypeDropdown ) {
++        // dropdown netwm type
++    	net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_DROPDOWN_MENU);
++    } else if( type == X11WindowTypePopup ) {
++        // popup netwm type
++    	net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_POPUP_MENU);
++    } else if( type == X11WindowTypeMenu ) {
++        // menu netwm type
++	net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_MENU);
++    } else if( type == X11WindowTypeTooltip ) {
++        // tooltip netwm type
++    	net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_TOOLTIP);
++    }
++
++    // normal netwm type - default
++    net_wintypes[curr_wintype++] = ATOM(_NET_WM_WINDOW_TYPE_NORMAL);
++    // set _NET_WM_WINDOW_TYPE
++    if (curr_wintype > 0)
++        XChangeProperty(dpy, winId(), ATOM(_NET_WM_WINDOW_TYPE), XA_ATOM, 32, PropModeReplace,
++			(unsigned char *) net_wintypes, curr_wintype);
++    else
++        XDeleteProperty(dpy, winId(), ATOM(_NET_WM_WINDOW_TYPE));
++}
++
++void QWidget::x11SetWindowTransient( QWidget* parent )
++{
++    XSetTransientForHint( X11->display, winId(), parent->window()->winId());
++}
++
+ /*!
+     Frees up window system resources. Destroys the widget window if \a
+     destroyWindow is true.
+diff -urNad qt4-x11-4.3.0~/src/gui/widgets/qcombobox.cpp qt4-x11-4.3.0/src/gui/widgets/qcombobox.cpp
+--- qt4-x11-4.3.0~/src/gui/widgets/qcombobox.cpp	2007-05-25 15:24:15.000000000 +0200
++++ qt4-x11-4.3.0/src/gui/widgets/qcombobox.cpp	2007-06-26 20:00:27.000000000 +0200
+@@ -370,6 +370,10 @@
+         layout->insertSpacing(0, verticalMargin);
+         layout->addSpacing(verticalMargin);
+     }
++#ifdef Q_WS_X11
++    x11SetWindowType( X11WindowTypeCombo );
++    x11SetWindowTransient( combo->topLevelWidget());
++#endif
+ }
+ 
+ void QComboBoxPrivateContainer::scrollItemView(int action)
+diff -urNad qt4-x11-4.3.0~/src/gui/widgets/qmenu.cpp qt4-x11-4.3.0/src/gui/widgets/qmenu.cpp
+--- qt4-x11-4.3.0~/src/gui/widgets/qmenu.cpp	2007-05-25 15:24:16.000000000 +0200
++++ qt4-x11-4.3.0/src/gui/widgets/qmenu.cpp	2007-06-26 20:00:27.000000000 +0200
+@@ -84,6 +84,9 @@
+     QTornOffMenu(QMenu *p) : QMenu(*(new QTornOffMenuPrivate(p)))
+     {
+         setParent(p, Qt::Window | Qt::Tool);
++#ifdef Q_WS_X11
++        x11SetWindowType( X11WindowTypeMenu );
++#endif
+ 	setAttribute(Qt::WA_DeleteOnClose, true);
+         setWindowTitle(p->windowTitle());
+         setEnabled(p->isEnabled());
+@@ -130,6 +133,9 @@
+     }
+     defaultMenuAction = menuAction = new QAction(q);
+     menuAction->d_func()->menu = q;
++#ifdef Q_WS_X11
++    q->x11SetWindowType( QWidget::X11WindowTypePopup );
++#endif
+ }
+ 
+ //Windows and KDE allows menus to cover the taskbar, while GNOME and Mac don't
+@@ -1611,6 +1617,32 @@
+     }
+     setGeometry(QRect(pos, size));
+ 
++#ifdef Q_WS_X11
++    QWidget* top = this;
++    for(;;) {
++        if( QMenu* m = qobject_cast< QMenu* >( top )) {
++            if( m->d_func()->causedPopup.widget == NULL )
++                break; // --->
++            top = m->d_func()->causedPopup.widget;
++        } else
++            break; // -->
++    }
++    if( QMenu* m = qobject_cast< QMenu* >( top ))
++        x11SetWindowType( X11WindowTypePopup );
++    else
++        x11SetWindowType( X11WindowTypeDropdown );
++    // hackish ... try to find the main window related to this popup
++    QWidget* parent = d_func()->causedPopup.widget;
++    if( parent == NULL )
++        parent = parentWidget() ? parentWidget()->topLevelWidget() : NULL;
++    if( parent == NULL )
++        parent = QApplication::widgetAt( pos );
++    if( parent == NULL )
++        parent = qApp->activeWindow();
++    if( parent != NULL )
++        x11SetWindowTransient( parent );
++#endif
++
+ #ifndef QT_NO_EFFECTS
+     int hGuess = qApp->layoutDirection() == Qt::RightToLeft ? QEffects::LeftScroll : QEffects::RightScroll;
+     int vGuess = QEffects::DownScroll;
+@@ -1807,6 +1839,9 @@
+     if (QMenuBar *mb = qobject_cast<QMenuBar*>(d->causedPopup.widget))
+         mb->d_func()->setCurrentAction(0);
+ #endif
++#ifdef Q_WS_X11
++    x11SetWindowType( X11WindowTypePopup ); // reset
++#endif
+     d->mouseDown = 0;
+     d->hasHadMouse = false;
+     d->causedPopup.widget = 0;
