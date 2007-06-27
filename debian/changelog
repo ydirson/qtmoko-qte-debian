@@ -11,8 +11,6 @@ qt4-x11 (4.3.0-2) unstable; urgency=low
 
   [Fathi Boudra]
   * Qt4 demos builds properly in Qt4.3. (Closes: #408639)
-  * Replace qmake by qmake-qt4 in libqt4-dev long description.
-    (Closes: #415816)
   * Apply qt-copy patches:
     * 00_0178-transparency-window-types: adds Qt support for new window types
       used for compositing.
@@ -24,7 +22,7 @@ qt4-x11 (4.3.0-2) unstable; urgency=low
       _all_ widgets that contain the QPoint.
     * 00_0182-argb-visuals-default: Qt handling argb visuals on X11.
 
- -- Brian Nelson <brian@catchmedia.com>  Tue, 26 Jun 2007 17:38:16 -0400
+ -- Brian Nelson <pyro@debian.org>  Wed, 27 Jun 2007 00:02:07 -0400
 
 qt4-x11 (4.3.0-1) experimental; urgency=low
 
