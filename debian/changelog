@@ -6,8 +6,8 @@ qt4-x11 (4.3.0-2) unstable; urgency=low
     (= ${Source-Version}), since it uses internal (non-public) classes in
     Qt whose ABI can change. (Closes: #429817)
   * Added a build-dependency on libxi-dev to enable tablet support.
-  * Constrict the hack to clean all binary files to the bin and
-    config.tests directories to drastically improve its speed
+  * Constrict the hack to clean all binary files to the bin, config.tests,
+    and qmake directories to drastically improve its speed
 
   [Fathi Boudra]
   * Qt4 demos builds properly in Qt4.3. (Closes: #408639)

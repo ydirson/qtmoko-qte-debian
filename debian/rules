@@ -79,14 +79,15 @@ clean::
 	      demos/shared/libdemo_shared.prl \
 	      mkspecs/qconfig.pri \
 	      src/corelib/global/qconfig.* \
-	      tools/qtestlib/updater/updater* \
+	      tools/qtestlib/updater/updater \
+	      tools/qtestlib/updater/updater.debug \
 	      examples/tools/plugandpaint/plugins/libpnp_basictools.a \
 	      examples/qdbus/complexpingpong/Makefile* \
 	      examples/qdbus/pingpong/Makefile*
 
 	rm -rf lib/ plugins/
 
-	find bin/ config.tests/ -exec file {} \; | grep ELF | sed 's/:.*//'  | xargs rm -f
+	find bin/ config.tests/ qmake/ -exec file {} \; | grep ELF | sed 's/:.*//'  | xargs rm -f
 
 	find include/ -type l -print0 | xargs -0r rm -f
 	find . -mindepth 2 -name Makefile -print0 \
