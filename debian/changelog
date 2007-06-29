@@ -1,3 +1,12 @@
+qt4-x11 (4.3.0-3) unstable; urgency=low
+
+  [Fathi Boudra]
+  * Revert Qt handling argb visuals on X11 patch. There are dependencies
+    not fixed in Qt. They cause a few regressions when this patch is applied.
+    (Closes: #430907)
+
+ -- Fathi Boudra <fboudra@free.fr>  Fri, 29 Jun 2007 08:15:23 +0200
+
 qt4-x11 (4.3.0-2) unstable; urgency=low
 
   [Brian Nelson]

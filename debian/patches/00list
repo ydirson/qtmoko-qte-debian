@@ -6,7 +6,6 @@
 00_0179-transient-hack
 00_0180-window-role
 00_0181-qdnd-x11-fix
-00_0182-argb-visuals-default
 01_qmake_for_debian
 02_launch_assistant-qt4
 03_launch_moc-qt4
