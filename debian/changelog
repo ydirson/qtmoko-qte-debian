@@ -17,6 +17,8 @@ qt4-x11 (4.3.0-3) unstable; urgency=low
   * Revert Qt handling argb visuals on X11 patch. There are dependencies
     not fixed in Qt. They cause a few regressions when this patch is applied.
     (Closes: #430907)
+  * Revert Qt support for new window types used for compositing.
+    (Closes: #431322)
   * Apply qt-copy patches:
     * 00_0172-prefer-xrandr-over-xinerama: only trust libxinerama if it is not
       the emulated information coming from xrandr 1.2.
