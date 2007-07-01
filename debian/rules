@@ -38,6 +38,8 @@ endif
 common-configure-arch::
 	./configure -confirm-license \
 	            -prefix "/usr" \
+	            -bindir "/usr/bin" \
+	            -libdir "/usr/lib" \
 	            -docdir "/usr/share/qt4/doc" \
 	            -headerdir "/usr/include/qt4" \
 	            -datadir "/usr/share/qt4" \
@@ -71,7 +73,7 @@ common-configure-arch::
 clean::
 # Extra stuff missed by confclean/distclean
 	rm -f Makefile \
-	      bin/qmake \
+	      bin/qmake-qt4 \
 	      mkspecs/default \
 	      src/corelib/global/arch \
 	      examples/tools/plugandpaint/plugins/*.so \
@@ -98,11 +100,11 @@ clean::
 # Hack to fix dpatch-edit-patch
 unpatch: deapply-dpatches
 
-BINDIR := $(DEB_DESTDIR)/usr/bin
+PKGCONFIGDIR := $(DEB_DESTDIR)/usr/lib/pkgconfig
 common-install-arch::
-# Tack on -qt4 to the binaries that use the alternatives system
-	for f in qmake lupdate lrelease uic moc assistant designer linguist qtconfig; do \
-	    mv "$(BINDIR)/$$f" "$(BINDIR)/$$f-qt4"; \
+# Fix wrong path in pkgconfig files
+	for f in QtAssistantClient.pc QtDBus.pc QtTest.pc QtUiTools.pc; do \
+	    sed -i "s|-L/build/buildd/qt4-x11-4.3.0/lib||g" $(PKGCONFIGDIR)/$$f; \
 	done
 
 install/qt4-designer::

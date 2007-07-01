@@ -1,0 +1,244 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## fix-target.dpatch by Fathi Boudra <fboudra@free.fr>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+diff -urNad qt4-x11-4.3.0~/configure qt4-x11-4.3.0/configure
+--- qt4-x11-4.3.0~/configure	2007-05-25 15:24:55.000000000 +0200
++++ qt4-x11-4.3.0/configure	2007-07-01 11:54:42.000000000 +0200
+@@ -3398,7 +3398,7 @@
+ }
+ 
+ # build qmake
+-if true; then ###[ '!' -f "$outpath/bin/qmake" ];
++if true; then ###[ '!' -f "$outpath/bin/qmake-qt4" ];
+     echo "Creating qmake. Please wait..."
+ 
+     OLD_QCONFIG_H=
+@@ -5312,8 +5312,8 @@
+ QMAKE_MOC_SRC    = \$\$QT_BUILD_TREE/src/moc
+ 
+ #local paths that cannot be queried from the QT_INSTALL_* properties while building QTDIR
+-QMAKE_MOC        = \$\$QT_BUILD_TREE/bin/moc
+-QMAKE_UIC        = \$\$QT_BUILD_TREE/bin/uic
++QMAKE_MOC        = \$\$QT_BUILD_TREE/bin/moc-qt4
++QMAKE_UIC        = \$\$QT_BUILD_TREE/bin/uic-qt4
+ QMAKE_UIC3       = \$\$QT_BUILD_TREE/bin/uic3
+ QMAKE_RCC        = \$\$QT_BUILD_TREE/bin/rcc
+ QMAKE_QDBUSXML2CPP = \$\$QT_BUILD_TREE/bin/qdbusxml2cpp
+@@ -5577,11 +5577,11 @@
+ #-------------------------------------------------------------------------------
+ 
+ echo "Finding project files. Please wait..."
+-"$outpath/bin/qmake" -prl -r "${relpath}/projects.pro"
++"$outpath/bin/qmake-qt4" -prl -r "${relpath}/projects.pro"
+ if [ -f "${relpath}/projects.pro" ]; then
+     mkfile="${outpath}/Makefile"
+     [ -f "$mkfile" ] && chmod +w "$mkfile"
+-    QTDIR="$outpath" "$outpath/bin/qmake" -spec "$XQMAKESPEC" "${relpath}/projects.pro" -o "$mkfile"
++    QTDIR="$outpath" "$outpath/bin/qmake-qt4" -spec "$XQMAKESPEC" "${relpath}/projects.pro" -o "$mkfile"
+ fi
+ 
+ # .projects      -> projects to process
+@@ -5754,7 +5754,7 @@
+             echo "  for $a\c"
+         fi
+ 
+-        QMAKE="$outpath/bin/qmake"
++        QMAKE="$outpath/bin/qmake-qt4"
+ 	QMAKE_ARGS="$QMAKE_SWITCHES $QMAKE_SPEC_ARGS"
+         if [ "$file" = ".projects.3" ]; then
+             if echo '\c' | grep '\c' >/dev/null; then
+diff -urNad qt4-x11-4.3.0~/config.tests/unix/compile.test qt4-x11-4.3.0/config.tests/unix/compile.test
+--- qt4-x11-4.3.0~/config.tests/unix/compile.test	2007-05-25 15:24:34.000000000 +0200
++++ qt4-x11-4.3.0/config.tests/unix/compile.test	2007-07-01 12:16:50.000000000 +0200
+@@ -51,7 +51,7 @@
+ cd "$OUTDIR/$TEST"
+ 
+ make distclean >/dev/null 2>&1
+-"$OUTDIR/bin/qmake" -nocache -spec "$QMKSPEC" "CONFIG+=$QMAKE_CONFIG" "LIBS*=$LFLAGS" "INCLUDEPATH*=$INCLUDEPATH" "QMAKE_CXXFLAGS*=$CXXFLAGS" "$SRCDIR/$TEST/$EXE.pro" -o "$OUTDIR/$TEST/Makefile"
++"$OUTDIR/bin/qmake-qt4" -nocache -spec "$QMKSPEC" "CONFIG+=$QMAKE_CONFIG" "LIBS*=$LFLAGS" "INCLUDEPATH*=$INCLUDEPATH" "QMAKE_CXXFLAGS*=$CXXFLAGS" "$SRCDIR/$TEST/$EXE.pro" -o "$OUTDIR/$TEST/Makefile"
+ 
+ if [ "$VERBOSE" = "yes" ]; then
+     make
+diff -urNad qt4-x11-4.3.0~/config.tests/unix/doubleformat.test qt4-x11-4.3.0/config.tests/unix/doubleformat.test
+--- qt4-x11-4.3.0~/config.tests/unix/doubleformat.test	2007-05-25 15:24:34.000000000 +0200
++++ qt4-x11-4.3.0/config.tests/unix/doubleformat.test	2007-07-01 12:15:52.000000000 +0200
+@@ -10,7 +10,7 @@
+ 
+ # build and run a test program
+ test -d "$OUTDIR/config.tests/unix/doubleformat" || mkdir -p "$OUTDIR/config.tests/unix/doubleformat"
+-"$OUTDIR/bin/qmake" -nocache -spec "$QMKSPEC" "$SRCDIR/config.tests/unix/doubleformat/doubleformattest.pro" -o "$OUTDIR/config.tests/unix/doubleformat/Makefile" >/dev/null 2>&1
++"$OUTDIR/bin/qmake-qt4" -nocache -spec "$QMKSPEC" "$SRCDIR/config.tests/unix/doubleformat/doubleformattest.pro" -o "$OUTDIR/config.tests/unix/doubleformat/Makefile" >/dev/null 2>&1
+ cd "$OUTDIR/config.tests/unix/doubleformat"
+ 
+ DOUBLEFORMAT="UNKNOWN"
+diff -urNad qt4-x11-4.3.0~/config.tests/unix/endian.test qt4-x11-4.3.0/config.tests/unix/endian.test
+--- qt4-x11-4.3.0~/config.tests/unix/endian.test	2007-05-25 15:24:34.000000000 +0200
++++ qt4-x11-4.3.0/config.tests/unix/endian.test	2007-07-01 12:16:11.000000000 +0200
+@@ -10,7 +10,7 @@
+ 
+ # build and run a test program
+ test -d "$OUTDIR/config.tests/unix/endian" || mkdir -p "$OUTDIR/config.tests/unix/endian"
+-"$OUTDIR/bin/qmake" -nocache -spec "$QMKSPEC" "$SRCDIR/config.tests/unix/endian/endiantest.pro" -o "$OUTDIR/config.tests/unix/endian/Makefile" >/dev/null 2>&1
++"$OUTDIR/bin/qmake-qt4" -nocache -spec "$QMKSPEC" "$SRCDIR/config.tests/unix/endian/endiantest.pro" -o "$OUTDIR/config.tests/unix/endian/Makefile" >/dev/null 2>&1
+ cd "$OUTDIR/config.tests/unix/endian"
+ 
+ ENDIAN="UNKNOWN"
+diff -urNad qt4-x11-4.3.0~/config.tests/unix/ptrsize.test qt4-x11-4.3.0/config.tests/unix/ptrsize.test
+--- qt4-x11-4.3.0~/config.tests/unix/ptrsize.test	2007-05-25 15:24:34.000000000 +0200
++++ qt4-x11-4.3.0/config.tests/unix/ptrsize.test	2007-07-01 12:16:28.000000000 +0200
+@@ -10,7 +10,7 @@
+ 
+ # build and run a test program
+ test -d "$OUTDIR/config.tests/unix/ptrsize" || mkdir -p "$OUTDIR/config.tests/unix/ptrsize"
+-"$OUTDIR/bin/qmake" -nocache -spec "$QMKSPEC" "$SRCDIR/config.tests/unix/ptrsize/ptrsizetest.pro" -o "$OUTDIR/config.tests/unix/ptrsize/Makefile" >/dev/null 2>&1
++"$OUTDIR/bin/qmake-qt4" -nocache -spec "$QMKSPEC" "$SRCDIR/config.tests/unix/ptrsize/ptrsizetest.pro" -o "$OUTDIR/config.tests/unix/ptrsize/Makefile" >/dev/null 2>&1
+ cd "$OUTDIR/config.tests/unix/ptrsize"
+ 
+ if [ "$VERBOSE" = "yes" ]; then
+diff -urNad qt4-x11-4.3.0~/config.tests/x11/notype.test qt4-x11-4.3.0/config.tests/x11/notype.test
+--- qt4-x11-4.3.0~/config.tests/x11/notype.test	2007-05-25 15:24:34.000000000 +0200
++++ qt4-x11-4.3.0/config.tests/x11/notype.test	2007-07-01 12:17:08.000000000 +0200
+@@ -27,7 +27,7 @@
+     NOTYPE=yes
+ 
+     test -d "$OUTDIR/config.tests/x11/notype" || mkdir -p "$OUTDIR/config.tests/x11/notype"
+-    "$OUTDIR/bin/qmake" -nocache -spec "$QMKSPEC" "$SRCDIR/config.tests/x11/notype/notypetest.pro" -o "$OUTDIR/config.tests/x11/notype/Makefile" >/dev/null 2>&1
++    "$OUTDIR/bin/qmake-qt4" -nocache -spec "$QMKSPEC" "$SRCDIR/config.tests/x11/notype/notypetest.pro" -o "$OUTDIR/config.tests/x11/notype/Makefile" >/dev/null 2>&1
+     cd "$OUTDIR/config.tests/x11/notype"
+ 
+     if [ "$VERBOSE" = "yes" ]; then
+diff -urNad qt4-x11-4.3.0~/qmake/Makefile.unix qt4-x11-4.3.0/qmake/Makefile.unix
+--- qt4-x11-4.3.0~/qmake/Makefile.unix	2007-05-25 15:24:08.000000000 +0200
++++ qt4-x11-4.3.0/qmake/Makefile.unix	2007-07-01 11:51:51.000000000 +0200
+@@ -89,17 +89,17 @@
+ 
+ CXXFLAGS = @QMAKE_CXXFLAGS@ $(CPPFLAGS)
+ 
+-first all: $(BUILD_PATH)/bin/qmake
+-qmake: $(BUILD_PATH)/bin/qmake
++first all: $(BUILD_PATH)/bin/qmake-qt4
++qmake: $(BUILD_PATH)/bin/qmake-qt4
+ 
+-$(BUILD_PATH)/bin/qmake: $(OBJS) $(QOBJS)
++$(BUILD_PATH)/bin/qmake-qt4: $(OBJS) $(QOBJS)
+ 	$(CXX) -o "$@" $(OBJS) $(QOBJS) $(LFLAGS)
+ 
+ clean::
+ 	rm -f $(OBJS) $(QOBJS)
+ 
+ distclean:: clean
+-	rm -rf $(BUILD_PATH)/bin/qmake .deps
++	rm -rf $(BUILD_PATH)/bin/qmake-qt4 .deps
+ 
+ depend:
+ 	makedepend -D__MAKEDEPEND__ $(CPPFLAGS) $(DEPEND_SRC)
+diff -urNad qt4-x11-4.3.0~/projects.pro qt4-x11-4.3.0/projects.pro
+--- qt4-x11-4.3.0~/projects.pro	2007-05-25 15:24:11.000000000 +0200
++++ qt4-x11-4.3.0/projects.pro	2007-07-01 15:25:25.000000000 +0200
+@@ -115,7 +115,7 @@
+ win32 {
+    qmake.files=$$QT_BUILD_TREE/bin/qmake.exe
+ } else {
+-   qmake.files=$$QT_BUILD_TREE/bin/qmake
++   qmake.files=$$QT_BUILD_TREE/bin/qmake-qt4
+ }
+ INSTALLS += qmake
+ 
+diff -urNad qt4-x11-4.3.0~/src/tools/moc/moc.pro qt4-x11-4.3.0/src/tools/moc/moc.pro
+--- qt4-x11-4.3.0~/src/tools/moc/moc.pro	2007-05-25 15:24:02.000000000 +0200
++++ qt4-x11-4.3.0/src/tools/moc/moc.pro	2007-07-01 11:27:06.000000000 +0200
+@@ -1,5 +1,5 @@
+ TEMPLATE	= app
+-TARGET		= moc
++TARGET		= moc-qt4
+ 
+ CONFIG 	       += console qtinc
+ CONFIG         -= qt
+diff -urNad qt4-x11-4.3.0~/src/tools/uic/uic.pro qt4-x11-4.3.0/src/tools/uic/uic.pro
+--- qt4-x11-4.3.0~/src/tools/uic/uic.pro	2007-05-25 15:24:02.000000000 +0200
++++ qt4-x11-4.3.0/src/tools/uic/uic.pro	2007-07-01 11:26:41.000000000 +0200
+@@ -9,7 +9,7 @@
+ 
+ unix:!contains(QT_CONFIG, zlib):LIBS        += -lz
+ 
+-TARGET = uic
++TARGET = uic-qt4
+ DESTDIR = ../../../bin
+ 
+ DEFINES	       += QT_BOOTSTRAPPED QT_UIC QT_LITE_UNICODE QT_NO_DATASTREAM \
+diff -urNad qt4-x11-4.3.0~/tools/assistant/assistant.pro qt4-x11-4.3.0/tools/assistant/assistant.pro
+--- qt4-x11-4.3.0~/tools/assistant/assistant.pro	2007-05-25 15:24:32.000000000 +0200
++++ qt4-x11-4.3.0/tools/assistant/assistant.pro	2007-07-01 11:28:01.000000000 +0200
+@@ -2,7 +2,7 @@
+ 
+ TEMPLATE = app
+ LANGUAGE = C++
+-TARGET = assistant
++TARGET = assistant-qt4
+ 
+ CONFIG += qt warn_on
+ 
+diff -urNad qt4-x11-4.3.0~/tools/designer/src/designer/designer.pro qt4-x11-4.3.0/tools/designer/src/designer/designer.pro
+--- qt4-x11-4.3.0~/tools/designer/src/designer/designer.pro	2007-05-25 15:24:45.000000000 +0200
++++ qt4-x11-4.3.0/tools/designer/src/designer/designer.pro	2007-07-01 11:28:47.000000000 +0200
+@@ -25,7 +25,7 @@
+     DEFINES += QT_DESIGNER_STATIC
+ }
+ 
+-TARGET = designer
++TARGET = designer-qt4
+ 
+ include($$QT_SOURCE_TREE/tools/shared/fontpanel/fontpanel.pri)
+ 
+diff -urNad qt4-x11-4.3.0~/tools/linguist/linguist/linguist.pro qt4-x11-4.3.0/tools/linguist/linguist/linguist.pro
+--- qt4-x11-4.3.0~/tools/linguist/linguist/linguist.pro	2007-05-25 15:24:23.000000000 +0200
++++ qt4-x11-4.3.0/tools/linguist/linguist/linguist.pro	2007-07-01 11:29:34.000000000 +0200
+@@ -50,7 +50,7 @@
+ DEFINES        += QT_KEYWORDS
+ 
+ DESTDIR                = ../../../bin
+-TARGET                = linguist
++TARGET                = linguist-qt4
+ 
+ win32:RC_FILE        = linguist.rc
+ 
+diff -urNad qt4-x11-4.3.0~/tools/linguist/lrelease/lrelease.pro qt4-x11-4.3.0/tools/linguist/lrelease/lrelease.pro
+--- qt4-x11-4.3.0~/tools/linguist/lrelease/lrelease.pro	2007-05-25 15:24:24.000000000 +0200
++++ qt4-x11-4.3.0/tools/linguist/lrelease/lrelease.pro	2007-07-01 11:25:42.000000000 +0200
+@@ -29,7 +29,7 @@
+ SOURCES += $$PROPARSERPATH/proitems.cpp \
+         $$PROPARSERPATH/proreader.cpp
+ 
+-TARGET          = lrelease
++TARGET          = lrelease-qt4
+ INCLUDEPATH     += ../shared
+ DESTDIR         = ../../../bin
+ 
+diff -urNad qt4-x11-4.3.0~/tools/linguist/lupdate/lupdate.pro qt4-x11-4.3.0/tools/linguist/lupdate/lupdate.pro
+--- qt4-x11-4.3.0~/tools/linguist/lupdate/lupdate.pro	2007-05-25 15:24:24.000000000 +0200
++++ qt4-x11-4.3.0/tools/linguist/lupdate/lupdate.pro	2007-07-01 11:25:25.000000000 +0200
+@@ -39,7 +39,7 @@
+         $$PROPARSERPATH/proreader.cpp
+ 
+ 
+-TARGET          = lupdate
++TARGET          = lupdate-qt4
+ INCLUDEPATH     += ../shared
+ DESTDIR          = ../../../bin
+ 
+diff -urNad qt4-x11-4.3.0~/tools/qtconfig/qtconfig.pro qt4-x11-4.3.0/tools/qtconfig/qtconfig.pro
+--- qt4-x11-4.3.0~/tools/qtconfig/qtconfig.pro	2007-05-25 15:24:28.000000000 +0200
++++ qt4-x11-4.3.0/tools/qtconfig/qtconfig.pro	2007-07-01 11:30:02.000000000 +0200
+@@ -16,7 +16,7 @@
+ RESOURCES    = qtconfig.qrc
+ 
+ PROJECTNAME        = Qt Configuration
+-TARGET                = qtconfig
++TARGET                = qtconfig-qt4
+ DESTDIR                = ../../bin
+ 
+ target.path=$$[QT_INSTALL_BINS]

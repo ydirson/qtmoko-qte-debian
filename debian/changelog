@@ -1,9 +1,27 @@
 qt4-x11 (4.3.0-3) unstable; urgency=low
 
   [Fathi Boudra]
+  * Update control:
+    * Replace deprecated ${Source-Version} by ${source:Version}.
+    * Remove useless ${misc:Depends}.
+  * Update rules:
+    * Add bindir and libdir configure options.
+    * Replace common-install-arch target. Replaced by build system patches and
+      a fix for pkgconfig files. (Closes: #401807)
+  * Add patches:
+    * 04_launch_uic-qt4: call uic-qt4 binary.
+    * 05_append_qt4_target: append -qt4 when needed. It fixes moc-location and
+      uic_location are properly in pkgconfig files. (See bug #401807)
+    * 06_qtdemo_destdir: remove QT_BUILD_TREE in qtdemo DESTDIR target.
+      (Closes: #408639)
   * Revert Qt handling argb visuals on X11 patch. There are dependencies
     not fixed in Qt. They cause a few regressions when this patch is applied.
     (Closes: #430907)
+  * Apply qt-copy patches:
+    * 00_0172-prefer-xrandr-over-xinerama: only trust libxinerama if it is not
+      the emulated information coming from xrandr 1.2.
+    * 00_0177-qurl-clear-fix: fix QUrl::clear(). Applied upstream.
+    * 00_0183-qprocess-corruption: fix plain data loss bug. Applied Upstream.
 
  -- Fathi Boudra <fboudra@free.fr>  Fri, 29 Jun 2007 08:15:23 +0200
 
