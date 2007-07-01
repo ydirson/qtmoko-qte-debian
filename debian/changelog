@@ -1,9 +1,7 @@
 qt4-x11 (4.3.0-3) unstable; urgency=low
 
   [Fathi Boudra]
-  * Update control:
-    * Replace deprecated ${Source-Version} by ${source:Version}.
-    * Remove useless ${misc:Depends}.
+  * Update control: Replace deprecated ${Source-Version} by ${source:Version}.
   * Update rules:
     * Add bindir and libdir configure options.
     * Replace common-install-arch target. Replaced by build system patches and
