@@ -4,6 +4,8 @@
 00_0175-fix-s390-qatomic
 00_0176-coverity-fixes
 00_0177-qurl-clear-fix
+00_0178-transparency-window-types
+00_0179-transient-hack
 00_0180-window-role
 00_0181-qdnd-x11-fix
 00_0183-qprocess-corruption
