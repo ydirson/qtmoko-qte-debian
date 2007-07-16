@@ -1,3 +1,12 @@
+qt4-x11 (4.3.0-4) unstable; urgency=low
+
+  * Add 42_alpha_fetch_and_add patch to fix broken threading on alpha, hangs
+    uselessly on startup. fetch-and-add is supposed to return the original
+    value before the addition. Thanks to Steve Langasek and Bradley Hughes.
+    (Closes: #433031)
+
+ -- Fathi Boudra <fboudra@free.fr>  Mon, 16 Jul 2007 21:32:01 +0200
+
 qt4-x11 (4.3.0-3) unstable; urgency=low
 
   [Fathi Boudra]
