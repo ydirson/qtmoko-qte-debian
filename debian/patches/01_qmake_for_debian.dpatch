@@ -30,7 +30,7 @@ diff -urNad qt4-x11-4.3.0~/mkspecs/linux-g++/qmake.conf qt4-x11-4.3.0/mkspecs/li
 -CONFIG			+= qt warn_on release incremental link_prl
 +CONFIG			+= qt warn_on release incremental
  QT			+= core gui
-+DEFINES			+= -DQT_SHARED
++DEFINES		+= QT_SHARED
  QMAKE_INCREMENTAL_STYLE = sublib
  
  include(../common/g++.conf)

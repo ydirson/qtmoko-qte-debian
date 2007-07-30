@@ -1,7 +1,7 @@
 qt4-x11 (4.3.0-5) unstable; urgency=low
 
   [Fathi Boudra]
-  * Update 01_qmake_for_debian patch. Add DEFINES += -DQT_SHARED in qmake.conf
+  * Update 01_qmake_for_debian patch. Add DEFINES += QT_SHARED in qmake.conf
     along with the removal of link_prl. (Closes: #434019)
   * Apply qt-copy patches:
     * 00_0185-fix-format-strings: This patch fixes various code issues with
