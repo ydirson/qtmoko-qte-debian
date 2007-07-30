@@ -9,6 +9,8 @@
 00_0180-window-role
 00_0181-qdnd-x11-fix
 00_0183-qprocess-corruption
+00_0185-fix-format-strings
+00_0186-fix-component-alpha-text
 01_qmake_for_debian
 02_launch_assistant-qt4
 03_launch_moc-qt4

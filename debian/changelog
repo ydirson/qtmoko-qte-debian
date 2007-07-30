@@ -1,3 +1,22 @@
+qt4-x11 (4.3.0-5) unstable; urgency=low
+
+  [Fathi Boudra]
+  * Update 01_qmake_for_debian patch. Add DEFINES += -DQT_SHARED in qmake.conf
+    along with the removal of link_prl. (Closes: #434019)
+  * Apply qt-copy patches:
+    * 00_0185-fix-format-strings: This patch fixes various code issues with
+      handling format strings. None of them seem to be exceptionally bad,
+      but its better safe than sorry. It is related to CVE-2007-3388.
+      TT claims the problem is not present in any version of Qt 4. Dirk Muller
+      disagrees and believes that some of them are possible to exploit.
+    * 00_0186-fix-component-alpha-text: This patch fixes component alpha
+      (LCD hinted) text when it's drawn on a non-opaque background. Qt doesn't
+      initialize the alpha channel in the glyph masks, which causes problems
+      in Konsole when transparency is enabled, and in other situations where
+      the background isn't fully opaque.
+
+ -- Fathi Boudra <fboudra@free.fr>  Mon, 30 Jul 2007 21:36:25 +0200
+
 qt4-x11 (4.3.0-4) unstable; urgency=low
 
   [Fathi Boudra]

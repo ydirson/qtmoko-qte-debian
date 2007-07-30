@@ -6,10 +6,10 @@
 ## DP: that use recursively link against all indirectly-used libraries.
 
 @DPATCH@
-diff -urNad qt4-x11-4.2.1~/mkspecs/common/linux.conf qt4-x11-4.2.1/mkspecs/common/linux.conf
---- qt4-x11-4.2.1~/mkspecs/common/linux.conf	2006-10-20 11:35:09.000000000 -0400
-+++ qt4-x11-4.2.1/mkspecs/common/linux.conf	2006-10-30 22:24:57.000000000 -0500
-@@ -19,8 +19,8 @@
+diff -urNad qt4-x11-4.3.0~/mkspecs/common/linux.conf qt4-x11-4.3.0/mkspecs/common/linux.conf
+--- qt4-x11-4.3.0~/mkspecs/common/linux.conf	2007-05-25 15:24:01.000000000 +0200
++++ qt4-x11-4.3.0/mkspecs/common/linux.conf	2007-07-30 22:18:23.000000000 +0200
+@@ -23,8 +23,8 @@
  QMAKE_LIBS_OPENGL_QT  = -lGL
  QMAKE_LIBS_THREAD     = -lpthread
  
@@ -20,15 +20,17 @@ diff -urNad qt4-x11-4.2.1~/mkspecs/common/linux.conf qt4-x11-4.2.1/mkspecs/commo
  
  QMAKE_AR              = ar cqs
  QMAKE_RANLIB          =
-diff -urNad qt4-x11-4.2.1~/mkspecs/linux-g++/qmake.conf qt4-x11-4.2.1/mkspecs/linux-g++/qmake.conf
---- qt4-x11-4.2.1~/mkspecs/linux-g++/qmake.conf	2006-10-20 11:35:55.000000000 -0400
-+++ qt4-x11-4.2.1/mkspecs/linux-g++/qmake.conf	2006-10-30 22:25:28.000000000 -0500
-@@ -4,7 +4,7 @@
+diff -urNad qt4-x11-4.3.0~/mkspecs/linux-g++/qmake.conf qt4-x11-4.3.0/mkspecs/linux-g++/qmake.conf
+--- qt4-x11-4.3.0~/mkspecs/linux-g++/qmake.conf	2007-05-25 15:24:01.000000000 +0200
++++ qt4-x11-4.3.0/mkspecs/linux-g++/qmake.conf	2007-07-30 22:19:35.000000000 +0200
+@@ -4,8 +4,9 @@
  
  MAKEFILE_GENERATOR	= UNIX
  TEMPLATE		= app
 -CONFIG			+= qt warn_on release incremental link_prl
 +CONFIG			+= qt warn_on release incremental
  QT			+= core gui
++DEFINES			+= -DQT_SHARED
  QMAKE_INCREMENTAL_STYLE = sublib
  
+ include(../common/g++.conf)
