@@ -1,0 +1,58 @@
+--- qt4-x11-4.3.1.orig/src/corelib/arch/mips/qatomic32.s
++++ qt4-x11-4.3.1/src/corelib/arch/mips/qatomic32.s
+@@ -6,10 +6,12 @@
+ 	.globl	q_atomic_test_and_set_int
+ 	.ent	q_atomic_test_and_set_int
+ q_atomic_test_and_set_int:
++	.set mips2
+ 1:	ll   $8,0($4)
+ 	bne  $8,$5,2f
+ 	move $2,$6
+ 	sc   $2,0($4)
++	.set mips0
+ 	beqz $2,1b
+ 	nop
+ 	jr   $31
+@@ -21,6 +23,7 @@
+ 	.globl	q_atomic_test_and_set_acquire_int
+ 	.ent	q_atomic_test_and_set_acquire_int
+ q_atomic_test_and_set_acquire_int:
++	.set mips2
+ 1:	ll   $8,0($4)
+ 	bne  $8,$5,2f
+ 	move $2,$6
+@@ -30,6 +33,7 @@
+ 	jr   $31
+ 	nop
+ 2:	sync
++	.set mips0
+ 	jr   $31
+ 	move $2,$0
+ 	.end	q_atomic_test_and_set_acquire_int
+@@ -37,11 +41,13 @@
+ 	.globl	q_atomic_test_and_set_release_int
+ 	.ent	q_atomic_test_and_set_release_int
+ q_atomic_test_and_set_release_int:
++	.set mips2
+ 	sync
+ 1:	ll   $8,0($4)
+ 	bne  $8,$5,2f
+ 	move $2,$6
+ 	sc   $2,0($4)
++	.set mips0
+ 	beqz $2,1b
+ 	nop
+ 	jr   $31
+@@ -53,10 +59,12 @@
+ 	.globl	q_atomic_test_and_set_ptr
+ 	.ent	q_atomic_test_and_set_ptr
+ q_atomic_test_and_set_ptr:
++	.set mips2
+ 1:	ll   $8,0($4)
+ 	bne  $8,$5,2f
+ 	move $2,$6
+ 	sc   $2,0($4)
++	.set mips0
+ 	beqz $2,1b
+ 	nop
+ 	jr   $31

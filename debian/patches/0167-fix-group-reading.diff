@@ -1,0 +1,22 @@
+--- qt4-x11-4.3.1.orig/src/corelib/io/qfsfileengine_unix.cpp
++++ qt4-x11-4.3.1/src/corelib/io/qfsfileengine_unix.cpp
+@@ -845,9 +845,16 @@
+     } else if (own == OwnerGroup) {
+         struct group *gr = 0;
+ #if !defined(QT_NO_THREAD) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && !defined(Q_OS_OPENBSD)
+-        buf.resize(sysconf(_SC_GETGR_R_SIZE_MAX));
+-        struct group entry;
+-        getgrgid_r(ownerId(own), &entry, buf.data(), buf.size(), &gr);
++        for (unsigned size = sysconf(_SC_GETGR_R_SIZE_MAX); size < 256000; size += size)
++        {
++            buf.resize(size);
++            struct group entry;
++            // ERANGE indicates that the buffer was too small
++            if (!getgrgid_r(ownerId(own), &entry, buf.data(), buf.size(), &gr)
++                || errno != ERANGE)
++                break;
++        }
++
+ #else
+         gr = getgrgid(ownerId(own));
+ #endif

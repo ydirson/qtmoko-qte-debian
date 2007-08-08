@@ -1,0 +1,251 @@
+--- qt4-x11-4.3.1.orig/src/corelib/global/qglobal.h
++++ qt4-x11-4.3.1/src/corelib/global/qglobal.h
+@@ -1276,8 +1276,16 @@
+ #ifdef QT3_SUPPORT
+ Q_CORE_EXPORT QT3_SUPPORT void qSystemWarning(const char *msg, int code = -1);
+ #endif /* QT3_SUPPORT */
+-Q_CORE_EXPORT void qErrnoWarning(int code, const char *msg, ...);
+-Q_CORE_EXPORT void qErrnoWarning(const char *msg, ...);
++Q_CORE_EXPORT void qErrnoWarning(int code, const char *msg, ...)
++#if defined(Q_CC_GNU) && !defined(__INSURE__)
++    __attribute__ ((format (printf, 2, 3)))
++#endif
++    ;
++Q_CORE_EXPORT void qErrnoWarning(const char *msg, ...)
++#if defined(Q_CC_GNU) && !defined(__INSURE__)
++    __attribute__ ((format (printf, 1, 2)))
++#endif
++    ;
+ 
+ #if (defined(QT_NO_DEBUG_OUTPUT) || defined(QT_NO_TEXTSTREAM)) && !defined(QT_NO_DEBUG_STREAM)
+ #define QT_NO_DEBUG_STREAM
+--- qt4-x11-4.3.1.orig/src/corelib/tools/qbytearray.h
++++ qt4-x11-4.3.1/src/corelib/tools/qbytearray.h
+@@ -86,8 +86,16 @@
+ Q_CORE_EXPORT int qstrnicmp(const char *, const char *, uint len);
+ 
+ // implemented in qvsnprintf.cpp
+-Q_CORE_EXPORT int qvsnprintf(char *str, size_t n, const char *fmt, va_list ap);
+-Q_CORE_EXPORT int qsnprintf(char *str, size_t n, const char *fmt, ...);
++Q_CORE_EXPORT int qvsnprintf(char *str, size_t n, const char *fmt, va_list ap)
++#if defined(Q_CC_GNU) && !defined(__INSURE__)
++        __attribute__ ((format (printf, 3, 0)))
++#endif
++    ;
++Q_CORE_EXPORT int qsnprintf(char *str, size_t n, const char *fmt, ...)
++#if defined(Q_CC_GNU) && !defined(__INSURE__)
++        __attribute__ ((format (printf, 3, 4)))
++#endif
++    ;
+ 
+ #ifdef QT3_SUPPORT
+ inline QT3_SUPPORT void *qmemmove(void *dst, const void *src, uint len)
+--- qt4-x11-4.3.1.orig/src/gui/painting/qprintengine_pdf.cpp
++++ qt4-x11-4.3.1/src/gui/painting/qprintengine_pdf.cpp
+@@ -401,9 +401,8 @@
+         object = addXrefEntry(-1);
+         QByteArray alphaDef;
+         QPdf::ByteStream s(&alphaDef);
+-        s << "<< /ca " << (alpha/qreal(255.)) << ">>\n";
+-        xprintf(alphaDef.constData());
+-        xprintf("endobj\n");
++        s << "<< /ca " << (alpha/qreal(255.)) << ">>";
++        xprintf("%s\nendobj\n", alphaDef.constData());
+     }
+     currentPage->graphicStates.append(object);
+     return object;
+--- qt4-x11-4.3.1.orig/src/gui/painting/qprintengine_pdf_p.h
++++ qt4-x11-4.3.1/src/gui/painting/qprintengine_pdf_p.h
+@@ -163,7 +163,11 @@
+     void writePage();
+ 
+     int addXrefEntry(int object, bool printostr = true);
+-    void xprintf(const char* fmt, ...);
++    void xprintf(const char* fmt, ...)
++#if defined(Q_CC_GNU) && !defined(__INSURE__)
++        __attribute__ ((format (printf, 2, 3)))
++#endif
++        ;
+     inline void write(const QByteArray &data) {
+         stream->writeRawData(data.constData(), data.size());
+         streampos += data.size();
+--- qt4-x11-4.3.1.orig/src/qt3support/tools/q3cstring.h
++++ qt4-x11-4.3.1/src/qt3support/tools/q3cstring.h
+@@ -72,7 +72,11 @@
+     }
+ 
+     Q3CString        copy()        const { return *this; }
+-    Q3CString    &sprintf(const char *format, ...);
++    Q3CString    &sprintf(const char *format, ...)
++#if defined(Q_CC_GNU) && !defined(__INSURE__)
++        __attribute__ ((format (printf, 2, 3)))
++#endif
++        ;
+ 
+     Q3CString        left(uint len)  const { return QByteArray::left(len); }
+     Q3CString        right(uint len) const { return QByteArray::right(len); }
+--- qt4-x11-4.3.1.orig/src/qt3support/tools/q3gcache.cpp
++++ qt4-x11-4.3.1/src/qt3support/tools/q3gcache.cpp
+@@ -637,7 +637,7 @@
+ #if defined(QT_DEBUG)
+     QString line;
+     line.fill(QLatin1Char('*'), 80);
+-    qDebug(line.ascii());
++    qDebug("%s", line.ascii());
+     qDebug("CACHE STATISTICS:");
+     qDebug("cache contains %d item%s, with a total cost of %d",
+ 	   count(), count() != 1 ? "s" : "", tCost);
+@@ -658,7 +658,7 @@
+ 	   lruList->dumps != 1 ? "have" : "has", lruList->dumpCosts);
+     qDebug("Statistics from internal dictionary class:");
+     dict->statistics();
+-    qDebug(line.ascii());
++    qDebug("%s", line.ascii());
+ #endif
+ }
+ 
+--- qt4-x11-4.3.1.orig/src/qt3support/tools/q3gdict.cpp
++++ qt4-x11-4.3.1/src/qt3support/tools/q3gdict.cpp
+@@ -843,11 +843,11 @@
+     QString line;
+     line.fill(QLatin1Char('-'), 60);
+     double real, ideal;
+-    qDebug(line.ascii());
++    qDebug("%s", line.ascii());
+     qDebug("DICTIONARY STATISTICS:");
+     if (count() == 0) {
+         qDebug("Empty!");
+-        qDebug(line.ascii());
++        qDebug("%s", line.ascii());
+         return;
+     }
+     real = 0.0;
+@@ -868,7 +868,7 @@
+         while (b--)
+             *pbuf++ = '*';
+         *pbuf = '\0';
+-        qDebug(buf);
++        qDebug("%s", buf);
+         i++;
+     }
+     qDebug("Array size = %d", size());
+@@ -876,7 +876,7 @@
+     qDebug("Real dist  = %g", real);
+     qDebug("Rand dist  = %g", ideal);
+     qDebug("Real/Rand  = %g", real/ideal);
+-    qDebug(line.ascii());
++    qDebug("%s", line.ascii());
+ #endif // QT_DEBUG
+ }
+ 
+--- qt4-x11-4.3.1.orig/tools/assistant/config.cpp
++++ qt4-x11-4.3.1/tools/assistant/config.cpp
+@@ -88,12 +88,12 @@
+ 
+     QFile file(profileFileName);
+     if (!file.exists()) {
+-        qWarning( (QLatin1String("File does not exist: ") + profileFileName).toAscii().constData() );
++        qWarning( "File does not exist: %s", qPrintable(profileFileName) );
+         return 0;
+     }
+     DocuParser *parser = DocuParser::createParser( profileFileName );
+     if (!parser) {
+-        qWarning( (QLatin1String("Failed to create parser for file: ") + profileFileName).toAscii().constData() );
++        qWarning( "Failed to create parser for file: %s", qPrintable(profileFileName) );
+         return 0;
+     }
+     if (parser->parserVersion() < DocuParser::Qt320) {
+@@ -104,7 +104,7 @@
+     parser->parse(&file);
+     config->profil = profileParser->profile();
+     if (!config->profil) {
+-        qWarning( (QLatin1String("Config::loadConfig(), no profile in: ") + profileFileName).toAscii().constData() );
++        qWarning( "Config::loadConfig(), no profile in: %s", qPrintable(profileFileName) );
+         return 0;
+     }
+     config->profil->setProfileType(Profile::UserProfile);
+--- qt4-x11-4.3.1.orig/tools/assistant/index.cpp
++++ qt4-x11-4.3.1/tools/assistant/index.cpp
+@@ -195,7 +195,7 @@
+ {
+     QFile file( filename );
+     if ( !file.open(QFile::ReadOnly) ) {
+-        qWarning( (QLatin1String("can not open file ") + filename).toAscii().constData() );
++        qWarning( "can not open file %s", qPrintable(filename) );
+         return;
+     }
+ 
+@@ -367,7 +367,7 @@
+ 
+     QFile file( fileName );
+     if ( !file.open( QFile::ReadOnly ) ) {
+-        qWarning( (QLatin1String("cannot open file ") + fileName).toAscii().constData() );
++        qWarning( "cannot open file %s", qPrintable(fileName) );
+         return fileName;
+     }
+     QTextStream s( &file );
+@@ -489,7 +489,7 @@
+     QString fName = url.toLocalFile();
+     QFile file( fName );
+     if ( !file.open( QFile::ReadOnly ) ) {
+-        qWarning( (QLatin1String("cannot open file ") + fName).toAscii().constData() );
++        qWarning( "cannot open file %s", qPrintable(fName) );
+         return false;
+     }
+ 
+--- qt4-x11-4.3.1.orig/tools/designer/src/lib/shared/qdesigner_utils.cpp
++++ qt4-x11-4.3.1/tools/designer/src/lib/shared/qdesigner_utils.cpp
+@@ -55,9 +55,7 @@
+ {
+     QDESIGNER_SHARED_EXPORT void designerWarning(const QString &message)
+     {
+-        QString prefixedMessage = QLatin1String("Designer: ");
+-        prefixedMessage += message;
+-        qWarning(prefixedMessage.toUtf8().constData());
++        qWarning("Designer: %s", qPrintable(message));
+     }
+ 
+     QString EnumType::id() const
+--- qt4-x11-4.3.1.orig/tools/designer/src/lib/uilib/formbuilderextra.cpp
++++ qt4-x11-4.3.1/tools/designer/src/lib/uilib/formbuilderextra.cpp
+@@ -48,9 +48,7 @@
+ #endif
+ 
+ void uiLibWarning(const QString &message) {
+-    QString prefixedMessage = QLatin1String("Designer: ");
+-    prefixedMessage += message;
+-    qWarning(prefixedMessage.toUtf8().constData());
++    qWarning("Designer: %s", qPrintable(message));
+ }
+ 
+ QFormBuilderExtra::QFormBuilderExtra() :
+--- qt4-x11-4.3.1.orig/tools/linguist/shared/profileevaluator.h
++++ qt4-x11-4.3.1/tools/linguist/shared/profileevaluator.h
+@@ -103,7 +103,11 @@
+ 
+ private:
+     void logMessage(const QString &msg, MessageType mt = MT_DebugLevel2);
+-    void logMessage(MessageType mt, const char *msg, ...);
++    void logMessage(MessageType mt, const char *msg, ...)
++#if defined(Q_CC_GNU) && !defined(__INSURE__)
++        __attribute__ ((format (printf, 3, 4)))
++#endif
++        ;
+     QString expandVariableReferences(const QString &value);
+     QString evaluateExpandFunction(const QByteArray &func, const QString &arguments);
+ 
+--- qt4-x11-4.3.1.orig/tools/qtestlib/src/qtest_global.h
++++ qt4-x11-4.3.1/tools/qtestlib/src/qtest_global.h
+@@ -74,7 +74,11 @@
+     enum SkipMode { SkipSingle = 1, SkipAll = 2 };
+     enum TestFailMode { Abort = 1, Continue = 2 };
+ 
+-    int Q_TESTLIB_EXPORT qt_snprintf(char *str, int size, const char *format, ...);
++    int Q_TESTLIB_EXPORT qt_snprintf(char *str, int size, const char *format, ...)
++#if defined(Q_CC_GNU) && !defined(__INSURE__)
++        __attribute__ ((format (printf, 3, 4)))
++#endif
++        ;
+ }
+ 
+ QT_END_HEADER

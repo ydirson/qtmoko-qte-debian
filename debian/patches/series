@@ -1,0 +1,31 @@
+# qt-copy patches
+0163-fix-gcc43-support.diff
+0167-fix-group-reading.diff
+0172-prefer-xrandr-over-xinerama.diff
+0175-fix-s390-qatomic.diff
+0176-coverity-fixes.diff
+0178-transparency-window-types.diff
+0179-transient-hack.diff
+0180-window-role.diff
+0181-qdnd-x11-fix.diff
+0182-argb-visuals-default.diff
+0185-fix-format-strings.diff
+0186-fix-component-alpha-text.diff
+0187-fix-font-fixed-pitch.diff
+
+# debian patches
+01_qmake_for_debian.diff
+02_launch_assistant-qt4.diff
+03_launch_moc-qt4.diff
+04_launch_uic-qt4.diff
+05_append_qt4_target.diff
+06_qtdemo_destdir.diff
+20_mips_atomic_ops.diff
+30_arm_ftbfs_fixes.diff
+31_arm_eabi_fix.diff
+40_alpha_ice.diff
+41_disable_opengl_visibility.diff
+50_kfreebsd_build_fix.diff
+60_m68k_inotify_fix.diff
+70_hppa_ldcw_fix.diff
+80_hurd_max_path.diff

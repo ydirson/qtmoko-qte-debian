@@ -1,0 +1,11 @@
+--- qt4-x11-4.3.1.orig/src/corelib/global/qglobal.h
++++ qt4-x11-4.3.1/src/corelib/global/qglobal.h
+@@ -331,7 +331,7 @@
+ #  if defined(Q_OS_DARWIN) && __GNUC__ == 3 && (__GNUC_MINOR__ >= 1 && __GNUC_MINOR__ < 3)
+ #    define Q_BROKEN_DEBUG_STREAM
+ #  endif
+-#  if (defined(__arm__) || defined(__ARMEL__)) && !defined(QT_MOC_CPP)
++#  if (defined(__arm__) || defined(__ARMEL__)) && !defined(__ARM_EABI__) && !defined(QT_MOC_CPP)
+ #    define Q_PACKED __attribute__ ((__packed__))
+ #    define Q_NO_PACKED_REFERENCE
+ #  endif

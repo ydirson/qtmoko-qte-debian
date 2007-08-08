@@ -1,0 +1,45 @@
+--- qt4-x11-4.3.1.orig/src/corelib/global/qlibraryinfo.cpp
++++ qt4-x11-4.3.1/src/corelib/global/qlibraryinfo.cpp
+@@ -69,14 +69,7 @@
+ {
+ public:
+     static QSettings *findConfiguration();
+-    static void cleanup()
+-    {
+-        QLibrarySettings *ls = qt_library_settings();
+-        if (ls) {
+-            delete static_cast<QSettings *>(ls->settings);
+-            ls->settings = 0;
+-        }
+-    }
++    static void cleanup();
+     static QSettings *configuration()
+     {
+ #ifdef QT_NO_THREAD
+@@ -95,6 +88,15 @@
+     }
+ };
+ 
++void QLibraryInfoPrivate::cleanup()
++{
++    QLibrarySettings *ls = qt_library_settings();
++    if (ls) {
++        delete static_cast<QSettings *>(ls->settings);
++        ls->settings = 0;
++    }
++}
++
+ QLibrarySettings::QLibrarySettings()
+ {
+     settings = QLibraryInfoPrivate::findConfiguration();
+--- qt4-x11-4.3.1.orig/src/corelib/tools/qhash.h
++++ qt4-x11-4.3.1/src/corelib/tools/qhash.h
+@@ -479,7 +479,7 @@
+ }
+ 
+ template <class Key, class T>
+-Q_INLINE_TEMPLATE void QHash<Key, T>::duplicateNode(QHashData::Node *node, void *newNode)
++void QHash<Key, T>::duplicateNode(QHashData::Node *node, void *newNode)
+ {
+     Node *concreteNode = concrete(node);
+     if (QTypeInfo<T>::isDummy) {

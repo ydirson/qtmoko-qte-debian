@@ -1,0 +1,16 @@
+--- qt4-x11-4.3.1.orig/tools/assistant/lib/qassistantclient.cpp
++++ qt4-x11-4.3.1/tools/assistant/lib/qassistantclient.cpp
+@@ -187,11 +187,11 @@
+     : QObject( parent ), host ( QLatin1String("localhost") )
+ {
+     if ( path.isEmpty() )
+-        assistantCommand = QLatin1String("assistant");
++        assistantCommand = QLatin1String("assistant-qt4");
+     else {
+         QFileInfo fi( path );
+         if ( fi.isDir() )
+-            assistantCommand = path + QLatin1String("/assistant");
++            assistantCommand = path + QLatin1String("/assistant-qt4");
+         else
+             assistantCommand = path;
+     }

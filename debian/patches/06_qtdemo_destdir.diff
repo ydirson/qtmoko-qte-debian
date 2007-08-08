@@ -1,0 +1,21 @@
+--- qt4-x11-4.3.1.orig/demos/arthurplugin/arthurplugin.pro
++++ qt4-x11-4.3.1/demos/arthurplugin/arthurplugin.pro
+@@ -3,7 +3,7 @@
+ 
+ CONFIG      += designer plugin debug_and_release
+ TEMPLATE    = lib
+-QTDIR_build:DESTDIR     = $$QT_BUILD_TREE/plugins/designer
++QTDIR_build:DESTDIR     = plugins/designer
+ 
+ contains(QT_CONFIG, opengl) {
+ 	DEFINES += QT_OPENGL_SUPPORT
+--- qt4-x11-4.3.1.orig/demos/qtdemo/qtdemo.pro
++++ qt4-x11-4.3.1/demos/qtdemo/qtdemo.pro
+@@ -1,6 +1,6 @@
+ CONFIG += assistant x11inc
+ TARGET = qtdemo
+-DESTDIR = $$QT_BUILD_TREE/bin
++DESTDIR = bin
+ OBJECTS_DIR = .obj
+ MOC_DIR = .moc
+ INSTALLS += target sources

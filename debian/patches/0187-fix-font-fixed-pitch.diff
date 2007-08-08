@@ -1,0 +1,39 @@
+--- qt4-x11-4.3.1.orig/src/gui/text/qfont.cpp
++++ qt4-x11-4.3.1/src/gui/text/qfont.cpp
+@@ -2093,7 +2093,6 @@
+ {
+     QFontEngine *engine = d->engineForScript(QUnicodeTables::Common);
+     Q_ASSERT(engine != 0);
+-#ifdef Q_OS_MAC
+     if (!engine->fontDef.fixedPitchComputed) {
+         QChar ch[2] = { QLatin1Char('i'), QLatin1Char('m') };
+         QGlyphLayout g[2];
+@@ -2102,7 +2101,6 @@
+         engine->fontDef.fixedPitch = g[0].advance.x == g[1].advance.x;
+         engine->fontDef.fixedPitchComputed = true;
+     }
+-#endif
+     return engine->fontDef.fixedPitch;
+ }
+ 
+--- qt4-x11-4.3.1.orig/src/gui/text/qfont_p.h
++++ qt4-x11-4.3.1/src/gui/text/qfont_p.h
+@@ -66,9 +66,7 @@
+           styleStrategy(QFont::PreferDefault), styleHint(QFont::AnyStyle),
+           weight(50), fixedPitch(false), style(QFont::StyleNormal), stretch(100),
+           ignorePitch(true)
+-#ifdef Q_WS_MAC
+           ,fixedPitchComputed(false)
+-#endif
+     {
+     }
+ 
+@@ -90,7 +88,7 @@
+     uint stretch    : 12; // 0-400
+ 
+     uint ignorePitch : 1;
+-    uint fixedPitchComputed : 1; // for Mac OS X only
++    uint fixedPitchComputed : 1;
+     uint reserved   : 16; // for future extensions
+ 
+     bool exactMatch(const QFontDef &other) const;

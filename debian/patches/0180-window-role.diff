@@ -1,0 +1,81 @@
+--- qt4-x11-4.3.1.orig/src/corelib/kernel/qobject.cpp
++++ qt4-x11-4.3.1/src/corelib/kernel/qobject.cpp
+@@ -1008,9 +1008,18 @@
+ {
+     Q_D(QObject);
+     d->objectName = name;
++#if defined(Q_WS_X11)
++    d->checkWindowRole();
++#endif
+ }
+ 
+ 
++#if defined(Q_WS_X11)
++void QObjectPrivate::checkWindowRole()
++{
++}
++#endif
++
+ #ifdef QT3_SUPPORT
+ /*! \internal
+     QObject::child is compat but needs to call itself recursively,
+--- qt4-x11-4.3.1.orig/src/corelib/kernel/qobject_p.h
++++ qt4-x11-4.3.1/src/corelib/kernel/qobject_p.h
+@@ -139,6 +139,9 @@
+     mutable quint32 connectedSignals;
+ 
+     QString objectName;
++#if defined(Q_WS_X11)
++    virtual void checkWindowRole();
++#endif
+ };
+ 
+ class QSemaphore;
+--- qt4-x11-4.3.1.orig/src/gui/kernel/qwidget_p.h
++++ qt4-x11-4.3.1/src/gui/kernel/qwidget_p.h
+@@ -305,6 +305,7 @@
+ 
+ #if defined(Q_WS_X11)
+     void setWindowRole(const char *role);
++    virtual void checkWindowRole();
+     void sendStartupMessage(const char *message) const;
+ #endif
+ 
+--- qt4-x11-4.3.1.orig/src/gui/kernel/qwidget_x11.cpp
++++ qt4-x11-4.3.1/src/gui/kernel/qwidget_x11.cpp
+@@ -671,11 +671,8 @@
+         // when we create a toplevel widget, the frame strut should be dirty
+         data.fstrut_dirty = 1;
+ 
+-        // declare the widget's object name as window role
+-        QByteArray objName = q->objectName().toLocal8Bit();
+-        XChangeProperty(dpy, id,
+-                        ATOM(WM_WINDOW_ROLE), XA_STRING, 8, PropModeReplace,
+-                        (unsigned char *)objName.constData(), objName.length());
++        // declare the widget's object name as window role if not set
++        setWindowRole( !q->windowRole().isEmpty() ? q->windowRole().toUtf8() : q->objectName().toUtf8());
+ 
+         // set client leader property
+         XChangeProperty(dpy, id, ATOM(WM_CLIENT_LEADER),
+@@ -2669,12 +2666,20 @@
+ void QWidgetPrivate::setWindowRole(const char *role)
+ {
+     Q_Q(QWidget);
+-    Q_ASSERT(q->testAttribute(Qt::WA_WState_Created));
++    if( !q->testAttribute(Qt::WA_WState_Created))
++        return;
+     XChangeProperty(X11->display, q->internalWinId(),
+                     ATOM(WM_WINDOW_ROLE), XA_STRING, 8, PropModeReplace,
+                     (unsigned char *)role, qstrlen(role));
+ }
+ 
++void QWidgetPrivate::checkWindowRole()
++{
++    Q_Q(QWidget);
++    if( q->windowRole().isEmpty())
++        setWindowRole( objectName.toUtf8());
++}
++
+ Q_GLOBAL_STATIC(QX11PaintEngine, qt_widget_paintengine)
+ QPaintEngine *QWidget::paintEngine() const
+ {
