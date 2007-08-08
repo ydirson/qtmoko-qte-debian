@@ -1,3 +1,9 @@
+qt4-x11 (4.3.1-1) UNRELEASED; urgency=low
+
+  * New upstream release.
+
+ -- Fathi Boudra <fboudra@free.fr>  Wed, 08 Aug 2007 15:08:11 +0200
+
 qt4-x11 (4.3.0-5) unstable; urgency=low
 
   [Fathi Boudra]
