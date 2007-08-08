@@ -1,4 +1,4 @@
-qt4-x11 (4.3.1-1) unstable; urgency=low
+qt4-x11 (4.3.1-1) UNRELEASED; urgency=low
 
   * New upstream release.
   * Switch to quilt patch system.
@@ -9,7 +9,9 @@ qt4-x11 (4.3.1-1) unstable; urgency=low
     * 0183-qprocess-corruption
     * 42_alpha_fetch_and_add
 
-  * TODO: workaround for 51_kfreebsd_mkspecs patch.
+  * TODO:
+    * workaround for 51_kfreebsd_mkspecs patch.
+    * Add comments to patches.
 
  -- Fathi Boudra <fboudra@free.fr>  Wed, 08 Aug 2007 15:08:11 +0200
 

@@ -8,7 +8,7 @@
 0179-transient-hack.diff
 0180-window-role.diff
 0181-qdnd-x11-fix.diff
-0182-argb-visuals-default.diff
+#0182-argb-visuals-default.diff
 0185-fix-format-strings.diff
 0186-fix-component-alpha-text.diff
 0187-fix-font-fixed-pitch.diff
