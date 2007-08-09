@@ -17,7 +17,9 @@ qt4-x11 (4.3.1-1) unstable; urgency=low
     * 0177-qurl-clear-fix
     * 0183-qprocess-corruption
     * 42_alpha_fetch_and_add
-  * Disable 0172-prefer-xrandr-over-xinerama patch. (Closes: #433931)
+  * Disable:
+    * 0172-prefer-xrandr-over-xinerama patch. (Closes: #433931)
+    * 0181-qdnd-x11-fix patch.
   * Enable 0182-argb-visuals-default patch.
 
   [Sune Vuorela]
