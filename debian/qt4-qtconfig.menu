@@ -1,6 +1,6 @@
 ?package(qt4-qtconfig):\
 	needs="x11"\
-	section="Apps/System"\
+	section="Applications/System"\
 	title="QtConfig"\
 	longtitle="Qt Configuration Utility"\
 	hints="Qt4 config tool"\

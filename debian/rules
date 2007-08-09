@@ -37,18 +37,19 @@ endif
 
 common-configure-arch::
 ifeq ($(DEB_HOST_ARCH),hppa)
-       mkdir -p debian/hppa-tmp
-       echo "Testing wether getdents kernel bug is present on this buildd - see #433768"
-       gcc -o debian/hppa-tmp/hppa-test-program debian/readdir-hppa-test.c
-       cd $(CURDIR)/doc/html && $(CURDIR)/debian/hppa-tmp/hppa-test-program | sort > $(CURDIR)/debian/hppa-tmp/readdir_r-out
-       cd $(CURDIR)/doc/html && ls -a | sort > $(CURDIR)/debian/hppa-tmp/ls-a-out
-       @if ! diff -q $(CURDIR)/debian/hppa-tmp/readdir_r-out $(CURDIR)/debian/hppa-tmp/ls-a-out ; \
-       then  \
-               echo "Kernel bug present. This will misbuild qt4 if proceeding. Failing" ; \
-               echo "Please update kernel and test again" ; \
-               exit 5 ; \
-       fi
+        mkdir -p debian/hppa-tmp
+        echo "Testing whether getdents kernel bug is present on this buildd - see #433768"
+        gcc -o debian/hppa-tmp/hppa-test-program debian/readdir-hppa-test.c
+        cd $(CURDIR)/doc/html && $(CURDIR)/debian/hppa-tmp/hppa-test-program | sort > $(CURDIR)/debian/hppa-tmp/readdir_r-out
+        cd $(CURDIR)/doc/html && ls -a | sort > $(CURDIR)/debian/hppa-tmp/ls-a-out
+        @if ! diff -q $(CURDIR)/debian/hppa-tmp/readdir_r-out $(CURDIR)/debian/hppa-tmp/ls-a-out ; \
+        then \
+                echo "Kernel bug present. This will misbuild qt4 if proceeding. Failing" ; \
+                echo "Please update kernel and test again" ; \
+                exit 5 ; \
+        fi
 endif
+
 	# Create mkspecs/glibc-g++ from mkspecs/linux-g++, needed by GNU/kFreeBSD
 	# we cannot use directly linux-g++ due to src/corelib/io/io.pri
 	rm -rf mkspecs/glibc-g++
@@ -107,7 +108,7 @@ clean::
 
 	rm -rf lib/ plugins/ mkspecs/glibc-g++
 
-	#cleaning up after hppa tests
+	# cleaning up after hppa tests
 	rm -rf debian/hppa-tmp
 
 	find bin/ config.tests/ qmake/ -exec file {} \; | grep ELF | sed 's/:.*//'  | xargs rm -f
@@ -141,12 +142,12 @@ install/qt4-qtconfig::
 
 binary-install/qt4-doc::
 # Tar up the examples to include them in qt4-doc
-	-$(MAKE) -k -C examples distclean
+	[ ! -f Makefile ] || $(MAKE) -k -C examples distclean
 	find examples/ -name '*.debug' -print0 | xargs -0r rm -f
 	tar -cv examples/ | \
 	gzip -9 > debian/qt4-doc/usr/share/doc/qt4-doc/qt4-examples.tar.gz
 
-	-$(MAKE) -k -C demos distclean
+	[ ! -f Makefile ] || $(MAKE) -k -C demos distclean
 	find demos/ -name '*.debug' -print0 | xargs -0r rm -f
 	tar -cv demos/ | \
 	gzip -9 > debian/qt4-doc/usr/share/doc/qt4-doc/qt4-demos.tar.gz
