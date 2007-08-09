@@ -1,5 +1,6 @@
 qt4-x11 (4.3.1-1) unstable; urgency=low
 
+  [ Fathi Boudra ]
   * New upstream release.
   * Switch to quilt patch system.
   * Update copyright. Add Trolltech GPL Exception.
@@ -17,7 +18,11 @@ qt4-x11 (4.3.1-1) unstable; urgency=low
   * Disable 0172-prefer-xrandr-over-xinerama patch. (Closes: #433931)
   * Enable 0182-argb-visuals-default patch.
 
- -- Fathi Boudra <fboudra@free.fr>  Wed, 08 Aug 2007 15:08:11 +0200
+  [ Sune Vuorela ]
+  * Add a quick and dirty test to make build on hppa fail if a current
+    getdents kernel bug is detected.
+
+ -- Sune Vuorela <debian@pusling.com>  Thu, 09 Aug 2007 12:17:01 +0200
 
 qt4-x11 (4.3.0-5) unstable; urgency=low
 
