@@ -1,3 +1,29 @@
+qt-bugs@ issue : 166518
+Trolltech task ID : 167509
+bugs.kde.org number :
+applied: no
+author: Matthias Kretz <kretz@kde.org>
+os: unix
+
+Consider:
+QWidget toplevel;
+QWidget dropWidget(&toplevel);
+dropWidget.setAcceptDrops(true);
+QWidget visibleFooWidget(&toplevel);
+
+find_child in qdnd_x11.cpp will find visibleFooWidget because it's the last
+entry in toplevel.children() and the QPoint of the drop is contained in it.
+But since it does not acceptDrops() handle_xdnd_position will now look at the
+parent widget which is toplevel. That one isWindow() so the iteration stops
+and no QDragEnterEvent will be sent.
+But it never even looked at dropWidget even though it also contains the QPoint
+of the drop!
+
+This patch makes the algorithm look at _all_ widgets that contain the QPoint.
+
+This bug effectively breaks all drops on QAbstractScrollArea subclasses with
+the KDE4 Oxygen widget style.
+
 --- qt4-x11-4.3.1.orig/src/gui/kernel/qdnd_x11.cpp
 +++ qt4-x11-4.3.1/src/gui/kernel/qdnd_x11.cpp
 @@ -58,6 +58,7 @@

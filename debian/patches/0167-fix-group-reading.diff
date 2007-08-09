@@ -1,3 +1,12 @@
+qt-bugs@ issue : none
+Trolltech task ID : none yet
+bugs.kde.org number : None
+applied: no
+author: Dirk Mueller <mueller@kde.org>
+
+in big user environments, getgrgid_r() needs more memory than sysconf() returns.
+Try a bit harder.
+
 --- qt4-x11-4.3.1.orig/src/corelib/io/qfsfileengine_unix.cpp
 +++ qt4-x11-4.3.1/src/corelib/io/qfsfileengine_unix.cpp
 @@ -845,9 +845,16 @@

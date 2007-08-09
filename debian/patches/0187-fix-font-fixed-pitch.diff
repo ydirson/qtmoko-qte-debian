@@ -1,3 +1,13 @@
+qt-bugs@ issue :
+Trolltech task ID :
+applied: no
+author: Matthew Woehlke <mw_triad@users.sourceforge.net>
+
+This patch works around broken QFontInfo::fixedPitch by always using a
+glyph metrics comparison test to guess the information. This has the
+property of both ignoring (bad) and not relying on (good) any information
+that might be provided by the OS's font facility.
+
 --- qt4-x11-4.3.1.orig/src/gui/text/qfont.cpp
 +++ qt4-x11-4.3.1/src/gui/text/qfont.cpp
 @@ -2093,7 +2093,6 @@

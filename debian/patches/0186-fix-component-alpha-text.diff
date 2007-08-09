@@ -1,3 +1,14 @@
+qt-bugs@ issue :
+Trolltech task ID :
+applied: yes
+author: Fredrik Höglund <fredrik@kde.org>
+os: unix
+
+This patch fixes component alpha (LCD hinted) text when it's drawn on a
+non-opaque background. Qt doesn't initialize the alpha channel in the glyph
+masks, which causes problems in Konsole when transparency is enabled, and
+in other situations where the background isn't fully opaque.
+
 --- qt4-x11-4.3.1.orig/src/gui/text/qfontengine_ft.cpp
 +++ qt4-x11-4.3.1/src/gui/text/qfontengine_ft.cpp
 @@ -716,7 +716,8 @@

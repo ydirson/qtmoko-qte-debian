@@ -1,3 +1,14 @@
+qt-bugs@ issue : none, in Qt 4.4 already
+Trolltech task ID : 120338
+applied: no
+author: Zack Rusin <zrusin@trolltech.com>
+os: unix
+
+Fixes:    Qt handling argb visuals on X11
+Details:  we make Qt pick ARGB visuals when available.
+this allows people writing properly semi-transparent
+apps on X11.
+
 --- qt4-x11-4.3.1.orig/src/gui/kernel/qapplication_x11.cpp
 +++ qt4-x11-4.3.1/src/gui/kernel/qapplication_x11.cpp
 @@ -1567,6 +1567,30 @@

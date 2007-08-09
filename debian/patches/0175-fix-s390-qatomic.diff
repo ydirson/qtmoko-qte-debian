@@ -1,3 +1,11 @@
+qt-bugs@ issue :  none
+Trolltech task ID : none
+bugs.kde.org number :
+applied: no
+author: Dirk Mueller
+
+fix s390(x) build
+
 --- qt4-x11-4.3.1.orig/src/corelib/arch/qatomic_s390.h
 +++ qt4-x11-4.3.1/src/corelib/arch/qatomic_s390.h
 @@ -197,10 +197,20 @@

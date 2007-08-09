@@ -1,3 +1,39 @@
+qt-bugs@ issue : none yet
+Trolltech task ID : none
+bugs.kde.org number : none
+applied: no
+author: Lubos Lunak <l.lunak@kde.org>
+
+ Hello,
+
+ there are several problems with Qt's support for the WM_WINDOW_ROLE property:
+
+- plain "QWidget w; w.setWindowRole( "test" );" aborts with 
+Qt::WA_WState_Created not being set
+
+- while QWidgetPrivate::create_sys() uses QObject object name for initial 
+setting of WM_WINDOW_ROLE, later calls to QObject::setObjectName() have no 
+effect on it
+
+- Qt3 used the QObject object name for setting the window role, however Qt4 
+uses some strange mix of object name and what's set manually with 
+setWindowRole().
+
+ The result is that that Qt3 and KDE3 apps that had WM_WINDOW_ROLE set don't 
+in their Qt4 and KDE4 versions. I suggest using the attached patch which 
+fixed all of the above problems:
+
+- set explicit window role is used when actually set, otherwise the object 
+name is used. This e.g. takes care of apps ported using setObjectName() from 
+their Qt3/KDE3 versions (including e.g. Qt Designer) and generally makes it 
+somewhat less demanding to actually set a usable window role (I can't quite 
+see how many developers would be bothered to explicitly call 
+setWindowRole()).
+
+- calls to QObject::setObjectName() update the WM_WINDOW_ROLE property. Since 
+QObjectPrivate already has a virtual dtor I think adding another virtual for 
+handling the QWidget-related functionality from QtCore is fine.
+
 --- qt4-x11-4.3.1.orig/src/corelib/kernel/qobject.cpp
 +++ qt4-x11-4.3.1/src/corelib/kernel/qobject.cpp
 @@ -1008,9 +1008,18 @@

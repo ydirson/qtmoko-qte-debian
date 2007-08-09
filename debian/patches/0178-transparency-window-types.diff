@@ -1,3 +1,11 @@
+qt-bugs@ issue : none yet
+Trolltech task ID : none
+bugs.kde.org number : none
+applied: no
+author: Lubos Lunak <l.lunak@kde.org>
+
+This patch adds Qt support for new window types used for compositing.
+
 --- qt4-x11-4.3.1.orig/src/gui/kernel/qapplication_x11.cpp
 +++ qt4-x11-4.3.1/src/gui/kernel/qapplication_x11.cpp
 @@ -214,6 +214,11 @@

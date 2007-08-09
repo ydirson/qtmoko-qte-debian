@@ -1,3 +1,7 @@
+author: Fathi Boudra <fboudra@free.fr>
+
+Fix qtdemo destdir.
+
 --- qt4-x11-4.3.1.orig/demos/arthurplugin/arthurplugin.pro
 +++ qt4-x11-4.3.1/demos/arthurplugin/arthurplugin.pro
 @@ -3,7 +3,7 @@

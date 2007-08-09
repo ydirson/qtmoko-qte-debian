@@ -1,3 +1,7 @@
+author: Petr Salinger <Petr.Salinger@seznam.cz>
+
+Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
+
 --- qt4-x11-4.3.1.orig/src/corelib/global/qglobal.h
 +++ qt4-x11-4.3.1/src/corelib/global/qglobal.h
 @@ -125,6 +125,12 @@

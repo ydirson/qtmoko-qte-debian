@@ -1,17 +1,21 @@
-qt4-x11 (4.3.1-1) UNRELEASED; urgency=low
+qt4-x11 (4.3.1-1) unstable; urgency=low
 
   * New upstream release.
   * Switch to quilt patch system.
   * Update copyright. Add Trolltech GPL Exception.
   * Update patches for Qt4.3.1.
+  * Remove 51_kfreebsd_mkspecs patch. Moved in rules.
+  * Add 0187-fix-font-fixed-pitch patch:
+    This patch works around broken QFontInfo::fixedPitch by always using a
+    glyph metrics comparison test to guess the information. This has the
+    property of both ignoring (bad) and not relying on (good) any information
+    that might be provided by the OS's font facility. For Mac OS X only.
   * Remove patches merged upstream:
     * 0177-qurl-clear-fix
     * 0183-qprocess-corruption
     * 42_alpha_fetch_and_add
-
-  * TODO:
-    * workaround for 51_kfreebsd_mkspecs patch.
-    * Add comments to patches.
+  * Disable 0172-prefer-xrandr-over-xinerama patch. (Closes: #433931)
+  * Enable 0182-argb-visuals-default patch.
 
  -- Fathi Boudra <fboudra@free.fr>  Wed, 08 Aug 2007 15:08:11 +0200
 

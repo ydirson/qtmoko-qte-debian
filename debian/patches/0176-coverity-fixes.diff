@@ -1,3 +1,11 @@
+qt-bugs@ issue :  none
+Trolltech task ID : none
+bugs.kde.org number :
+applied: no
+author: Dirk Mueller
+
+fix various obvious memory leaks etc
+
 --- qt4-x11-4.3.1.orig/src/gui/painting/qimagescale.cpp
 +++ qt4-x11-4.3.1/src/gui/painting/qimagescale.cpp
 @@ -1020,6 +1020,7 @@

@@ -1,3 +1,18 @@
+qt-bugs@ issue :  none
+Trolltech task ID : none
+bugs.kde.org number :
+applied: yes
+author: Dirk Mueller
+
+only trust libxinerama if its not the emulated information
+coming from xrandr 1.2. xrandr 1.2 is merged fb and libxinerama
+presents then virtual screens in clone mode, which qt (and KDE)
+can't deal with.
+
+proper fix would be to detect crtcs as virtual screens, but
+given that qt can't deal with dynamically changing number of screens,
+this is for "when I have time".
+
 --- qt4-x11-4.3.1.orig/src/gui/kernel/qdesktopwidget_x11.cpp
 +++ qt4-x11-4.3.1/src/gui/kernel/qdesktopwidget_x11.cpp
 @@ -124,11 +124,38 @@

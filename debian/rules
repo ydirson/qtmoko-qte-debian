@@ -36,6 +36,11 @@ else
 endif
 
 common-configure-arch::
+	# Create mkspecs/glibc-g++ from mkspecs/linux-g++, needed by GNU/kFreeBSD
+	# we cannot use directly linux-g++ due to src/corelib/io/io.pri
+	rm -rf mkspecs/glibc-g++
+	cp -a mkspecs/linux-g++ mkspecs/glibc-g++
+
 	./configure -confirm-license \
 	            -prefix "/usr" \
 	            -bindir "/usr/bin" \
@@ -87,7 +92,7 @@ clean::
 	      examples/qdbus/complexpingpong/Makefile* \
 	      examples/qdbus/pingpong/Makefile*
 
-	rm -rf lib/ plugins/
+	rm -rf lib/ plugins/ mkspecs/glibc-g++
 
 	find bin/ config.tests/ qmake/ -exec file {} \; | grep ELF | sed 's/:.*//'  | xargs rm -f
 

@@ -1,3 +1,5 @@
+temporary fix because of alpha, has to be dropped as soon as gcc's bug is fixed.
+
 --- qt4-x11-4.3.1.orig/src/opengl/opengl.pro
 +++ qt4-x11-4.3.1/src/opengl/opengl.pro
 @@ -5,6 +5,7 @@

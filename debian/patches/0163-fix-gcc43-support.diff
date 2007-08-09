@@ -1,3 +1,11 @@
+qt-bugs@ issue : none
+Trolltech task ID : N154723
+bugs.kde.org number : None
+applied: no
+author: Dirk Mueller <mueller@kde.org>
+
+various fixes to get Qt 4.3 without hundreds of warnings compiling
+
 --- qt4-x11-4.3.1.orig/config.tests/unix/endian.test
 +++ qt4-x11-4.3.1/config.tests/unix/endian.test
 @@ -30,6 +30,7 @@

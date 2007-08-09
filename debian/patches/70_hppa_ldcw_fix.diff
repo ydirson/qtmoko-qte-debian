@@ -1,3 +1,7 @@
+author: LaMont Jones <lamont@bld-4.mmjgroup.com>
+
+patch from Ubuntu to properly support hppa.
+
 --- qt4-x11-4.3.1.orig/src/corelib/arch/parisc/q_ldcw.s
 +++ qt4-x11-4.3.1/src/corelib/arch/parisc/q_ldcw.s
 @@ -1,17 +1,7 @@

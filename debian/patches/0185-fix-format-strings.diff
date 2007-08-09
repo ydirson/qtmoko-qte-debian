@@ -1,3 +1,13 @@
+qt-bugs@ issue : N171087
+Trolltech task ID : 
+bugs.kde.org number :
+applied: no
+author: Dirk Mueller <mueller@kde.org>
+
+This patch fixes various code issues with handling format strings
+None of them seem to be exceptionally bad, but its better safe
+than sorry.
+
 --- qt4-x11-4.3.1.orig/src/corelib/global/qglobal.h
 +++ qt4-x11-4.3.1/src/corelib/global/qglobal.h
 @@ -1276,8 +1276,16 @@
