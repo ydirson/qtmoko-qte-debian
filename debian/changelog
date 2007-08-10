@@ -1,3 +1,9 @@
+qt4-x11 (4.3.1-2) unstable; urgency=low
+
+  * There is a large difference between 8 spaces and a tab.
+
+ -- Sune Vuorela <debian@pusling.com>  Fri, 10 Aug 2007 22:20:45 +0200
+
 qt4-x11 (4.3.1-1) unstable; urgency=low
 
   * New upstream release.
