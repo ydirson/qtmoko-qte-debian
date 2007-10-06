@@ -25,6 +25,10 @@ qt4-x11 (4.3.2-1) unstable; urgency=low
     * Introduce QTVERSION.
   * Fix qt4-config menu section. (Closes: 444896)
 
+  [Sune Vuorela]
+  * Have strict interdependencies between packages with a shlibs.local file
+    (Closing: #438746)
+
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 06 Oct 2007 07:00:54 +0200
 
 qt4-x11 (4.3.1-2) unstable; urgency=low

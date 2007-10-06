@@ -28,6 +28,8 @@ DEB_DH_STRIP_ARGS_libqt4-debug := --exclude=.debug
 
 DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
 
+CURRENTVERSION := $(shell head -1 debian/changelog  | sed 's/[^(]*(\([^)]*\)).*/\1/')
+
 DEB_INSTALL_DOCS_ALL := GPL_EXCEPTION_ADDENDUM.TXT
 
 ifeq ($(DEB_HOST_ARCH),arm)
@@ -125,6 +127,8 @@ clean::
 	                -o -name Makefile.Debug -print0 \
 	                -o -name Makefile.Release -print0 \
 	                | xargs -0r rm -f
+	#we generate this on build:
+	rm -f debian/shlibs.local
 
 PKGCONFIGDIR := $(DEB_DESTDIR)/usr/lib/pkgconfig
 common-install-arch::
@@ -178,3 +182,10 @@ $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:
 	    install -p -D -m644 debian/$(cdbs_curpkg).lintian \
 	    debian/$(cdbs_curpkg)/usr/share/lintian/overrides/$(cdbs_curpkg); \
         fi
+
+#generating shlibs local files
+$(patsubst %,binary-fixup/%,$(DEB_ALL_PACKAGES)) :: binary-fixup/%: binary-strip/%
+	if test -e debian/$(cdbs_curpkg)/DEBIAN/shlibs ; then \
+		sed 's/>=[^)]*/= $(CURRENTVERSION)/' debian/$(cdbs_curpkg)/DEBIAN/shlibs >> debian/shlibs.local ;\
+	fi
+
