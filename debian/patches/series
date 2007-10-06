@@ -1,4 +1,5 @@
 # qt-copy patches
+07_trust_dpkg-arch_over_uname-m.diff
 0163-fix-gcc43-support.diff
 0167-fix-group-reading.diff
 0175-fix-s390-qatomic.diff
