@@ -31,6 +31,9 @@ qt4-x11 (4.3.2-1) unstable; urgency=low
   * Don't trust uname in generating the qt build key. This has bitten us in
     qt3, but will soon bite us in qt4 as qt4 becomes more popular.
 
+  [Ana Beatriz Guerrero Lopez]
+  * Add desktop files icons uuencoded and update rules to install them uudecoded.
+
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 06 Oct 2007 07:00:54 +0200
 
 qt4-x11 (4.3.1-2) unstable; urgency=low
