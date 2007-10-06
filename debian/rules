@@ -3,6 +3,9 @@
 export QTDIR := $(shell pwd)
 export PATH := $(QTDIR)/bin:$(PATH)
 export LD_LIBRARY_PATH := $(QTDIR)/lib:$(LD_LIBRARY_PATH)
+export CXXFLAGS := -fpermissive
+
+QTVERSION := $(shell ls changes-* | cut -f2 -d '-')
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/makefile.mk
@@ -21,13 +24,17 @@ DEB_DH_INSTALL_ARGS := --exclude=.debug
 DEB_MAKE_CLEAN_TARGET := confclean distclean
 DEB_DH_MAKESHLIBS_ARGS_ALL := -V
 
-DEB_DH_STRIP_ARGS_libqt4-debug := -X.debug
+DEB_DH_STRIP_ARGS_libqt4-debug := --exclude=.debug
 
-DEB_INSTALL_CHANGELOGS_ALL := changes-4.3.1
+DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
+
+DEB_INSTALL_DOCS_ALL := GPL_EXCEPTION_ADDENDUM.TXT
 
 ifeq ($(DEB_HOST_ARCH),arm)
 	EXTRA_CONFIGURE_OPTS += -DQT_QLOCALE_USES_FCVT
 endif
+
+DEB_CONFIGURE_SCRIPT_ENV += CXXFLAGS=-fpermissive
 
 ifeq ($(DEB_HOST_ARCH_OS),linux)
         PLATFORM_ARG = linux-g++
@@ -123,22 +130,30 @@ PKGCONFIGDIR := $(DEB_DESTDIR)/usr/lib/pkgconfig
 common-install-arch::
 # Fix wrong path in pkgconfig files
 	for f in QtAssistantClient.pc QtDBus.pc QtTest.pc QtUiTools.pc; do \
-	    sed -i "s|-L/build/buildd/qt4-x11-4.3.0/lib||g" $(PKGCONFIGDIR)/$$f; \
+	    sed -i "s|-L/build/buildd/qt4-x11-$(QTVERSION)/lib||g" $(PKGCONFIGDIR)/$$f; \
 	done
 
 install/qt4-designer::
 	install -D -p -m0644 debian/desktop/designer-qt4.desktop \
 		debian/qt4-designer/usr/share/applications/designer-qt4.desktop
+	install -D -p -m0644 debian/desktop/designer.png \
+		debian/qt4-designer/usr/share/pixmaps/designer.png
 
 install/qt4-dev-tools::
 	install -D -p -m0644 debian/desktop/assistant-qt4.desktop \
 		debian/qt4-dev-tools/usr/share/applications/assistant-qt4.desktop
+	install -D -p -m0644 debian/desktop/assistant.png \
+		debian/qt4-dev-tools/usr/share/pixmaps/assistant.png
 	install -D -p -m0644 debian/desktop/linguist-qt4.desktop \
 		debian/qt4-dev-tools/usr/share/applications/linguist-qt4.desktop
+	install -D -p -m0644 debian/desktop/linguist.png \
+		debian/qt4-dev-tools/usr/share/pixmaps/linguist.png
 
 install/qt4-qtconfig::
 	install -D -p -m0644 debian/desktop/qt4config.desktop \
 		debian/qt4-qtconfig/usr/share/applications/qt4config.desktop
+	install -D -p -m0644 debian/desktop/qtconfig.png \
+		debian/qt4-qtconfig/usr/share/pixmaps/qtconfig.png
 
 binary-install/qt4-doc::
 # Tar up the examples to include them in qt4-doc

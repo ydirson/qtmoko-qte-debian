@@ -34,8 +34,8 @@ setWindowRole()).
 QObjectPrivate already has a virtual dtor I think adding another virtual for 
 handling the QWidget-related functionality from QtCore is fine.
 
---- qt4-x11-4.3.1.orig/src/corelib/kernel/qobject.cpp
-+++ qt4-x11-4.3.1/src/corelib/kernel/qobject.cpp
+--- qt4-x11-4.3.2.orig/src/corelib/kernel/qobject.cpp
++++ qt4-x11-4.3.2/src/corelib/kernel/qobject.cpp
 @@ -1008,9 +1008,18 @@
  {
      Q_D(QObject);
@@ -55,8 +55,8 @@ handling the QWidget-related functionality from QtCore is fine.
  #ifdef QT3_SUPPORT
  /*! \internal
      QObject::child is compat but needs to call itself recursively,
---- qt4-x11-4.3.1.orig/src/corelib/kernel/qobject_p.h
-+++ qt4-x11-4.3.1/src/corelib/kernel/qobject_p.h
+--- qt4-x11-4.3.2.orig/src/corelib/kernel/qobject_p.h
++++ qt4-x11-4.3.2/src/corelib/kernel/qobject_p.h
 @@ -139,6 +139,9 @@
      mutable quint32 connectedSignals;
  
@@ -67,9 +67,9 @@ handling the QWidget-related functionality from QtCore is fine.
  };
  
  class QSemaphore;
---- qt4-x11-4.3.1.orig/src/gui/kernel/qwidget_p.h
-+++ qt4-x11-4.3.1/src/gui/kernel/qwidget_p.h
-@@ -305,6 +305,7 @@
+--- qt4-x11-4.3.2.orig/src/gui/kernel/qwidget_p.h
++++ qt4-x11-4.3.2/src/gui/kernel/qwidget_p.h
+@@ -309,6 +309,7 @@
  
  #if defined(Q_WS_X11)
      void setWindowRole(const char *role);
@@ -77,8 +77,8 @@ handling the QWidget-related functionality from QtCore is fine.
      void sendStartupMessage(const char *message) const;
  #endif
  
---- qt4-x11-4.3.1.orig/src/gui/kernel/qwidget_x11.cpp
-+++ qt4-x11-4.3.1/src/gui/kernel/qwidget_x11.cpp
+--- qt4-x11-4.3.2.orig/src/gui/kernel/qwidget_x11.cpp
++++ qt4-x11-4.3.2/src/gui/kernel/qwidget_x11.cpp
 @@ -671,11 +671,8 @@
          // when we create a toplevel widget, the frame strut should be dirty
          data.fstrut_dirty = 1;
@@ -93,7 +93,7 @@ handling the QWidget-related functionality from QtCore is fine.
  
          // set client leader property
          XChangeProperty(dpy, id, ATOM(WM_CLIENT_LEADER),
-@@ -2669,12 +2666,20 @@
+@@ -2671,12 +2668,20 @@
  void QWidgetPrivate::setWindowRole(const char *role)
  {
      Q_Q(QWidget);

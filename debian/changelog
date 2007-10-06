@@ -1,3 +1,32 @@
+qt4-x11 (4.3.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [Fathi Boudra]
+  * Update desktop files categories.
+  * Add desktop files icons. (Closes: #433581)
+  * Update patches to Qt4.3.2.
+  * Add 90_qmake_cxxflags_fpermissive patch.
+  * Remove 0186-fix-component-alpha-text patch. Merged upstream.
+  * Add qt-copy patches:
+    * 0188-fix-moc-parser-same-name-header
+    * 0189-fix-q3toolbar-qcombobox-signal-slot
+    * 0191-listview-alternate-row-colors
+    * 0192-itemdelegate-palette-state
+    * 0193-qtreeview-division-by-zero
+    * 0194-fix-moveonly-dnd-in-itemviews
+    * 0195-compositing-properties
+  * Update qt4-dev-tools long description.
+  * Update copyright:
+    * Update Trolltech GPL exception to v1.1.
+    * Add Trolltech GPL exception addenum.
+  * Update rules:
+    * Build with -fpermissive.
+    * Introduce QTVERSION.
+  * Fix qt4-config menu section. (Closes: 444896)
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 06 Oct 2007 07:00:54 +0200
+
 qt4-x11 (4.3.1-2) unstable; urgency=low
 
   * There is a large difference between 8 spaces and a tab.

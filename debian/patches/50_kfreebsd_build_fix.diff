@@ -2,8 +2,8 @@ author: Petr Salinger <Petr.Salinger@seznam.cz>
 
 Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
 
---- qt4-x11-4.3.1.orig/src/corelib/global/qglobal.h
-+++ qt4-x11-4.3.1/src/corelib/global/qglobal.h
+--- qt4-x11-4.3.2.orig/src/corelib/global/qglobal.h
++++ qt4-x11-4.3.2/src/corelib/global/qglobal.h
 @@ -125,6 +125,12 @@
  #  define Q_OS_RELIANT
  #elif defined(__linux__) || defined(__linux)
@@ -26,8 +26,8 @@ Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
  #elif defined(__DGUX__)
  #  define Q_OS_DGUX
  #elif defined(__QNXNTO__)
---- qt4-x11-4.3.1.orig/src/corelib/plugin/qlibrary.cpp
-+++ qt4-x11-4.3.1/src/corelib/plugin/qlibrary.cpp
+--- qt4-x11-4.3.2.orig/src/corelib/plugin/qlibrary.cpp
++++ qt4-x11-4.3.2/src/corelib/plugin/qlibrary.cpp
 @@ -293,11 +293,11 @@
  
  #if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
@@ -42,8 +42,8 @@ Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
  
  static long qt_find_pattern(const char *s, ulong s_len,
                               const char *pattern, ulong p_len)
---- qt4-x11-4.3.1.orig/src/corelib/tools/qlocale.cpp
-+++ qt4-x11-4.3.1/src/corelib/tools/qlocale.cpp
+--- qt4-x11-4.3.2.orig/src/corelib/tools/qlocale.cpp
++++ qt4-x11-4.3.2/src/corelib/tools/qlocale.cpp
 @@ -63,7 +63,7 @@
  #include <qdebug.h>
  #include <time.h>

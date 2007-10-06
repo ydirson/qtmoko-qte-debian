@@ -1,0 +1,73 @@
+qt-bugs@ issue : none
+bugs.kde.org number : none
+applied: no
+author: Lubos Lunak <l.lunak@kde.org>
+
+This patch makes override-redirect windows (popup menu, dropdown menu,
+tooltip, combobox, etc.) also have more window properties like WM_CLASS,
+so they can be used when compositing.
+
+--- qt4-x11-4.3.2.orig/src/gui/kernel/qwidget_x11.cpp
++++ qt4-x11-4.3.2/src/gui/kernel/qwidget_x11.cpp
+@@ -616,7 +616,11 @@
+         wsa.save_under = True;
+         XChangeWindowAttributes(dpy, id, CWOverrideRedirect | CWSaveUnder,
+                                 &wsa);
+-        q->x11SetWindowType();
++        XClassHint class_hint;
++        QByteArray appName = qAppName().toLatin1();
++        class_hint.res_name = appName.data(); // application name
++        class_hint.res_class = const_cast<char *>(QX11Info::appClass());   // application class
++        XSetClassHint(dpy, id, &class_hint);
+     } else if (topLevel && !desktop) {        // top-level widget
+         if (!X11->wm_client_leader)
+             create_wm_client_leader();
+@@ -661,29 +665,34 @@
+         // set mwm hints
+         SetMWMHints(dpy, id, mwmhints);
+ 
+-        q->x11SetWindowType(); // set _NET_WM_WINDOW_TYPE
+-
+-        // set _NET_WM_PID
+-        long curr_pid = getpid();
+-        XChangeProperty(dpy, id, ATOM(_NET_WM_PID), XA_CARDINAL, 32, PropModeReplace,
+-                        (unsigned char *) &curr_pid, 1);
+-
+         // when we create a toplevel widget, the frame strut should be dirty
+         data.fstrut_dirty = 1;
+ 
+-        // declare the widget's object name as window role if not set
+-        setWindowRole( !q->windowRole().isEmpty() ? q->windowRole().toUtf8() : q->objectName().toUtf8());
+-
+-        // set client leader property
+-        XChangeProperty(dpy, id, ATOM(WM_CLIENT_LEADER),
+-                        XA_WINDOW, 32, PropModeReplace,
+-                        (unsigned char *)&X11->wm_client_leader, 1);
+     } else {
+         // non-toplevel widgets don't have a frame, so no need to
+         // update the strut
+         data.fstrut_dirty = 0;
+     }
+ 
++    if (initializeWindow && (popup || (topLevel && !desktop))) { // properties set on all toplevel windows
++        q->x11SetWindowType(); // set _NET_WM_WINDOW_TYPE
++
++        // set _NET_WM_PID
++        long curr_pid = getpid(); 
++        XChangeProperty(dpy, id, ATOM(_NET_WM_PID), XA_CARDINAL, 32, PropModeReplace, 
++                        (unsigned char *) &curr_pid, 1); 
++
++        // declare the widget's object name as window role if not set
++        setWindowRole( !q->windowRole().isEmpty() ? q->windowRole().toUtf8() : q->objectName().toUtf8()); 
++
++        // set client leader property
++        if (!X11->wm_client_leader)
++            create_wm_client_leader();
++        XChangeProperty(dpy, id, ATOM(WM_CLIENT_LEADER), 
++                        XA_WINDOW, 32, PropModeReplace, 
++                        (unsigned char *)&X11->wm_client_leader, 1); 
++    }
++
+     if (initializeWindow) {
+         // don't erase when resizing
+         wsa.bit_gravity = QApplication::isRightToLeft() ? NorthEastGravity : NorthWestGravity;

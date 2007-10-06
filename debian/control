@@ -119,7 +119,7 @@ Description: Qt 4 development tools
  is its rich set of widgets that provide standard GUI functionality.
  .
  This packages contains tools used to assist in Qt 4 development,
- including the Qt Assistant and Linguist applications.
+ including the Qt Assistant, Linguist, DBus Viewer and Pixel Tool applications.
  .
   Homepage: http://www.trolltech.com
 

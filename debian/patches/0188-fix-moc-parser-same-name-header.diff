@@ -1,0 +1,35 @@
+qt-bugs@ issue : none
+Trolltech task ID : none
+applied: yes
+author: Helio Chissini de Castro <helio@kde.org>
+os: unix
+
+In situations where included header have same name as their parent dir, i.e.
+include/QtMyModule/QtMyModule and #include <QtMyModule> on code. moc will fail if parent dir was
+added in front of includepath.
+moc -Iinclude -Iinclude/QtMyModule fails
+moc -Iinclude/QtMyModule works
+This patch move dir test to proper place, as entry is validated only if is a real file, not a dir.
+Detected by qca2 plugins code that uses QtCrypto/QtCrypto
+Thanks to Thiago to find proper syntax
+
+--- qt4-x11-4.3.2.orig/src/tools/moc/preprocessor.cpp
++++ qt4-x11-4.3.2/src/tools/moc/preprocessor.cpp
+@@ -768,7 +768,7 @@
+             QFileInfo fi;
+             if (local)
+                 fi.setFile(QFileInfo(QString::fromLocal8Bit(filename)).dir(), QString::fromLocal8Bit(include));
+-            for (int j = 0; j < Preprocessor::includes.size() && !fi.exists(); ++j) {
++            for (int j = 0; j < Preprocessor::includes.size() && ( !fi.exists() || fi.isDir() ); ++j) {
+                 const IncludePath &p = Preprocessor::includes.at(j);
+                 if (p.isFrameworkPath) {
+                     const int slashPos = include.indexOf('/');
+@@ -782,7 +782,7 @@
+                 }
+             }
+ 
+-            if (!fi.exists() || fi.isDir())
++            if ( !fi.exists() )
+                 continue;
+             include = fi.filePath().toLocal8Bit();
+ 

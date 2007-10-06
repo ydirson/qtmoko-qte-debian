@@ -1,13 +1,13 @@
-qt-bugs@ issue : none
-Trolltech task ID : N154723
+qt-bugs@ issue : N154723
+Trolltech task ID : none
 bugs.kde.org number : None
 applied: no
 author: Dirk Mueller <mueller@kde.org>
 
 various fixes to get Qt 4.3 without hundreds of warnings compiling
 
---- qt4-x11-4.3.1.orig/config.tests/unix/endian.test
-+++ qt4-x11-4.3.1/config.tests/unix/endian.test
+--- qt4-x11-4.3.2.orig/config.tests/unix/endian.test
++++ qt4-x11-4.3.2/config.tests/unix/endian.test
 @@ -30,6 +30,7 @@
      [ "$VERBOSE" = "yes" ] && echo "    Found 'MostSignificantByteFirst' in binary"
      ENDIAN="BIG"
@@ -16,8 +16,8 @@ various fixes to get Qt 4.3 without hundreds of warnings compiling
  
  # done
  if [ "$ENDIAN" = "LITTLE" ]; then
---- qt4-x11-4.3.1.orig/config.tests/x11/glib/glib.cpp
-+++ qt4-x11-4.3.1/config.tests/x11/glib/glib.cpp
+--- qt4-x11-4.3.2.orig/config.tests/unix/glib/glib.cpp
++++ qt4-x11-4.3.2/config.tests/unix/glib/glib.cpp
 @@ -6,7 +6,7 @@
  {
      GMainContext *context;
@@ -27,8 +27,8 @@ various fixes to get Qt 4.3 without hundreds of warnings compiling
      if (!g_thread_supported())
          g_thread_init(NULL);
      context = g_main_context_default();
---- qt4-x11-4.3.1.orig/src/corelib/codecs/qtextcodec.cpp
-+++ qt4-x11-4.3.1/src/corelib/codecs/qtextcodec.cpp
+--- qt4-x11-4.3.2.orig/src/corelib/codecs/qtextcodec.cpp
++++ qt4-x11-4.3.2/src/corelib/codecs/qtextcodec.cpp
 @@ -432,7 +432,7 @@
              localeMapper = checkForCodec(lang);
  
@@ -38,9 +38,9 @@ various fixes to get Qt 4.3 without hundreds of warnings compiling
              localeMapper = checkForCodec("ISO 8859-15");
  
          // 6. guess locale from ctype unless ctype is "C"
---- qt4-x11-4.3.1.orig/src/corelib/io/qtextstream.cpp
-+++ qt4-x11-4.3.1/src/corelib/io/qtextstream.cpp
-@@ -556,8 +556,8 @@
+--- qt4-x11-4.3.2.orig/src/corelib/io/qtextstream.cpp
++++ qt4-x11-4.3.2/src/corelib/io/qtextstream.cpp
+@@ -553,8 +553,8 @@
      if (!codec || autoDetectUnicode) {
          autoDetectUnicode = false;
          
@@ -51,9 +51,9 @@ various fixes to get Qt 4.3 without hundreds of warnings compiling
              codec = QTextCodec::codecForName("UTF-16");
          } else if (!codec) {
              codec = QTextCodec::codecForLocale();
---- qt4-x11-4.3.1.orig/src/corelib/io/qurl.cpp
-+++ qt4-x11-4.3.1/src/corelib/io/qurl.cpp
-@@ -4740,9 +4740,9 @@
+--- qt4-x11-4.3.2.orig/src/corelib/io/qurl.cpp
++++ qt4-x11-4.3.2/src/corelib/io/qurl.cpp
+@@ -4741,9 +4741,9 @@
      if (include.isEmpty()) {
          for (int i = 0; i < len; ++i) {
              unsigned char c = *inputData++;
@@ -66,7 +66,7 @@ various fixes to get Qt 4.3 without hundreds of warnings compiling
                  || c == 0x2D // -
                  || c == 0x2E // .
                  || c == 0x5F // _
-@@ -4759,9 +4759,9 @@
+@@ -4760,9 +4760,9 @@
          const char * alsoEncode = include.constData();
          for (int i = 0; i < len; ++i) {
              unsigned char c = *inputData++;
@@ -79,8 +79,8 @@ various fixes to get Qt 4.3 without hundreds of warnings compiling
                  || c == 0x2D // -
                  || c == 0x2E // .
                  || c == 0x5F // _
---- qt4-x11-4.3.1.orig/src/corelib/tools/qlocale.cpp
-+++ qt4-x11-4.3.1/src/corelib/tools/qlocale.cpp
+--- qt4-x11-4.3.2.orig/src/corelib/tools/qlocale.cpp
++++ qt4-x11-4.3.2/src/corelib/tools/qlocale.cpp
 @@ -2609,8 +2609,8 @@
  
          QChar c1 = format.at(i);
@@ -92,8 +92,8 @@ various fixes to get Qt 4.3 without hundreds of warnings compiling
              return true;
  
          ++i;
---- qt4-x11-4.3.1.orig/src/gui/kernel/qapplication.cpp
-+++ qt4-x11-4.3.1/src/gui/kernel/qapplication.cpp
+--- qt4-x11-4.3.2.orig/src/gui/kernel/qapplication.cpp
++++ qt4-x11-4.3.2/src/gui/kernel/qapplication.cpp
 @@ -2036,11 +2036,11 @@
  #ifndef QT_NO_TRANSLATION
  static bool qt_detectRTLLanguage()
@@ -108,8 +108,8 @@ various fixes to get Qt 4.3 without hundreds of warnings compiling
  }
  #endif
  
---- qt4-x11-4.3.1.orig/src/gui/kernel/qkeymapper_x11.cpp
-+++ qt4-x11-4.3.1/src/gui/kernel/qkeymapper_x11.cpp
+--- qt4-x11-4.3.2.orig/src/gui/kernel/qkeymapper_x11.cpp
++++ qt4-x11-4.3.2/src/gui/kernel/qkeymapper_x11.cpp
 @@ -1330,8 +1330,8 @@
          }
  
@@ -121,9 +121,9 @@ various fixes to get Qt 4.3 without hundreds of warnings compiling
                  directionKeyEvent = Qt::Key_Direction_L;
              } else if (keysym == XK_Shift_R && directionKeyEvent == XK_Control_R ||
                         keysym == XK_Control_R && directionKeyEvent == XK_Shift_R) {
---- qt4-x11-4.3.1.orig/src/gui/kernel/qwidget.cpp
-+++ qt4-x11-4.3.1/src/gui/kernel/qwidget.cpp
-@@ -1830,7 +1830,7 @@
+--- qt4-x11-4.3.2.orig/src/gui/kernel/qwidget.cpp
++++ qt4-x11-4.3.2/src/gui/kernel/qwidget.cpp
+@@ -1872,7 +1872,7 @@
  
              for (int i = 0; i < pd->children.size(); ++i) {
                  QWidget *w = qobject_cast<QWidget *>(pd->children.at(i));
@@ -132,7 +132,7 @@ various fixes to get Qt 4.3 without hundreds of warnings compiling
                      if (w!=q) {
                          w->create();
                      } else {
-@@ -1840,6 +1840,7 @@
+@@ -1882,6 +1882,7 @@
                          if (winid)
                              w->raise();
                      }
@@ -140,8 +140,8 @@ various fixes to get Qt 4.3 without hundreds of warnings compiling
              }
          } else {
              q->create();
---- qt4-x11-4.3.1.orig/src/gui/painting/qregion_unix.cpp
-+++ qt4-x11-4.3.1/src/gui/painting/qregion_unix.cpp
+--- qt4-x11-4.3.2.orig/src/gui/painting/qregion_unix.cpp
++++ qt4-x11-4.3.2/src/gui/painting/qregion_unix.cpp
 @@ -1944,7 +1944,7 @@
          else
              --isInside;
@@ -151,8 +151,8 @@ various fixes to get Qt 4.3 without hundreds of warnings compiling
              pWETE->nextWETE = AET;
              pWETE = AET;
              inside = !inside;
---- qt4-x11-4.3.1.orig/src/tools/uic/driver.cpp
-+++ qt4-x11-4.3.1/src/tools/uic/driver.cpp
+--- qt4-x11-4.3.2.orig/src/tools/uic/driver.cpp
++++ qt4-x11-4.3.2/src/tools/uic/driver.cpp
 @@ -175,7 +175,7 @@
  
  static bool isAnsiCCharacter(const QChar& c)

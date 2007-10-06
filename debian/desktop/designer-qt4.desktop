@@ -1,5 +1,5 @@
 [Desktop Entry]
-Categories=Qt;Development;GUIDesigner;Qt;
+Categories=Qt;Development;GUIDesigner;
 Encoding=UTF-8
 Exec=/usr/bin/designer-qt4
 Name=Qt 4 Designer

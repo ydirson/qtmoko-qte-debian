@@ -2,8 +2,8 @@ author: Lennert Buytenhek <buytenh@wantstofly.org>
 
 Add support for EABI ARM platforms to Qt.
 
---- qt4-x11-4.3.1.orig/src/corelib/global/qglobal.h
-+++ qt4-x11-4.3.1/src/corelib/global/qglobal.h
+--- qt4-x11-4.3.2.orig/src/corelib/global/qglobal.h
++++ qt4-x11-4.3.2/src/corelib/global/qglobal.h
 @@ -331,7 +331,7 @@
  #  if defined(Q_OS_DARWIN) && __GNUC__ == 3 && (__GNUC_MINOR__ >= 1 && __GNUC_MINOR__ < 3)
  #    define Q_BROKEN_DEBUG_STREAM

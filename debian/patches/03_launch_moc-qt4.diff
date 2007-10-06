@@ -2,8 +2,8 @@ author: Brian Nelson <pyro@debian.org>
 
 Ensure the Qt4 version of moc is launched.
 
---- qt4-x11-4.3.1.orig/tools/qdbus/tools/qdbuscpp2xml/qdbuscpp2xml.cpp
-+++ qt4-x11-4.3.1/tools/qdbus/tools/qdbuscpp2xml/qdbuscpp2xml.cpp
+--- qt4-x11-4.3.2.orig/tools/qdbus/tools/qdbuscpp2xml/qdbuscpp2xml.cpp
++++ qt4-x11-4.3.2/tools/qdbus/tools/qdbuscpp2xml/qdbuscpp2xml.cpp
 @@ -391,7 +391,7 @@
          else {
              // run moc on this file

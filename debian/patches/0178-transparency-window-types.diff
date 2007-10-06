@@ -6,8 +6,8 @@ author: Lubos Lunak <l.lunak@kde.org>
 
 This patch adds Qt support for new window types used for compositing.
 
---- qt4-x11-4.3.1.orig/src/gui/kernel/qapplication_x11.cpp
-+++ qt4-x11-4.3.1/src/gui/kernel/qapplication_x11.cpp
+--- qt4-x11-4.3.2.orig/src/gui/kernel/qapplication_x11.cpp
++++ qt4-x11-4.3.2/src/gui/kernel/qapplication_x11.cpp
 @@ -214,6 +214,11 @@
      "_NET_WM_WINDOW_TYPE_SPLASH\0"
      "_NET_WM_WINDOW_TYPE_TOOLBAR\0"
@@ -20,8 +20,8 @@ This patch adds Qt support for new window types used for compositing.
  
      "_KDE_NET_WM_FRAME_STRUT\0"
  
---- qt4-x11-4.3.1.orig/src/gui/kernel/qdnd_x11.cpp
-+++ qt4-x11-4.3.1/src/gui/kernel/qdnd_x11.cpp
+--- qt4-x11-4.3.2.orig/src/gui/kernel/qdnd_x11.cpp
++++ qt4-x11-4.3.2/src/gui/kernel/qdnd_x11.cpp
 @@ -270,6 +270,7 @@
          QWidget(QApplication::desktop()->screen(screen),
                  Qt::Tool | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint)
@@ -46,8 +46,8 @@ This patch adds Qt support for new window types used for compositing.
  
      willDrop = false;
  
---- qt4-x11-4.3.1.orig/src/gui/kernel/qt_x11_p.h
-+++ qt4-x11-4.3.1/src/gui/kernel/qt_x11_p.h
+--- qt4-x11-4.3.2.orig/src/gui/kernel/qt_x11_p.h
++++ qt4-x11-4.3.2/src/gui/kernel/qt_x11_p.h
 @@ -530,6 +530,11 @@
          _NET_WM_WINDOW_TYPE_SPLASH,
          _NET_WM_WINDOW_TYPE_TOOLBAR,
@@ -60,8 +60,8 @@ This patch adds Qt support for new window types used for compositing.
  
          _KDE_NET_WM_FRAME_STRUT,
  
---- qt4-x11-4.3.1.orig/src/gui/kernel/qtooltip.cpp
-+++ qt4-x11-4.3.1/src/gui/kernel/qtooltip.cpp
+--- qt4-x11-4.3.2.orig/src/gui/kernel/qtooltip.cpp
++++ qt4-x11-4.3.2/src/gui/kernel/qtooltip.cpp
 @@ -149,6 +149,9 @@
      setMouseTracking(true);
      fadingOut = false;
@@ -94,8 +94,8 @@ This patch adds Qt support for new window types used for compositing.
          QTipLabel::instance->setTipRect(w, rect);
          QTipLabel::instance->placeTip(pos, w);
          QTipLabel::instance->setObjectName(QLatin1String("qtooltip_label"));
---- qt4-x11-4.3.1.orig/src/gui/kernel/qwidget.h
-+++ qt4-x11-4.3.1/src/gui/kernel/qwidget.h
+--- qt4-x11-4.3.2.orig/src/gui/kernel/qwidget.h
++++ qt4-x11-4.3.2/src/gui/kernel/qwidget.h
 @@ -354,6 +354,19 @@
  
      void setWindowOpacity(qreal level);
@@ -116,8 +116,8 @@ This patch adds Qt support for new window types used for compositing.
  
      bool isWindowModified() const;
  #ifndef QT_NO_TOOLTIP
---- qt4-x11-4.3.1.orig/src/gui/kernel/qwidget_x11.cpp
-+++ qt4-x11-4.3.1/src/gui/kernel/qwidget_x11.cpp
+--- qt4-x11-4.3.2.orig/src/gui/kernel/qwidget_x11.cpp
++++ qt4-x11-4.3.2/src/gui/kernel/qwidget_x11.cpp
 @@ -562,10 +562,6 @@
      }
  #endif // QT_NO_XRENDER
@@ -255,8 +255,8 @@ This patch adds Qt support for new window types used for compositing.
  /*!
      Frees up window system resources. Destroys the widget window if \a
      destroyWindow is true.
---- qt4-x11-4.3.1.orig/src/gui/widgets/qcombobox.cpp
-+++ qt4-x11-4.3.1/src/gui/widgets/qcombobox.cpp
+--- qt4-x11-4.3.2.orig/src/gui/widgets/qcombobox.cpp
++++ qt4-x11-4.3.2/src/gui/widgets/qcombobox.cpp
 @@ -333,6 +333,10 @@
              combo->update();
          }
@@ -268,8 +268,8 @@ This patch adds Qt support for new window types used for compositing.
  }
  
  void QComboBoxPrivateContainer::leaveEvent(QEvent *)
---- qt4-x11-4.3.1.orig/src/gui/widgets/qmenu.cpp
-+++ qt4-x11-4.3.1/src/gui/widgets/qmenu.cpp
+--- qt4-x11-4.3.2.orig/src/gui/widgets/qmenu.cpp
++++ qt4-x11-4.3.2/src/gui/widgets/qmenu.cpp
 @@ -99,6 +99,9 @@
      QTornOffMenu(QMenu *p) : QMenu(*(new QTornOffMenuPrivate(p)))
      {
@@ -290,7 +290,7 @@ This patch adds Qt support for new window types used for compositing.
  }
  
  //Windows and KDE allows menus to cover the taskbar, while GNOME and Mac don't
-@@ -1669,6 +1675,32 @@
+@@ -1682,6 +1688,32 @@
      }
      setGeometry(QRect(pos, size));
  
@@ -323,7 +323,7 @@ This patch adds Qt support for new window types used for compositing.
  #ifndef QT_NO_EFFECTS
      int hGuess = qApp->layoutDirection() == Qt::RightToLeft ? QEffects::LeftScroll : QEffects::RightScroll;
      int vGuess = QEffects::DownScroll;
-@@ -1865,6 +1897,9 @@
+@@ -1878,6 +1910,9 @@
      if (QMenuBar *mb = qobject_cast<QMenuBar*>(d->causedPopup.widget))
          mb->d_func()->setCurrentAction(0);
  #endif

@@ -1,10 +1,10 @@
 [Desktop Entry]
-Categories=Qt;Settings;Qt;Utility;DesktopSettings;
+Categories=Qt;Settings;
 Encoding=UTF-8
 Exec=/usr/bin/qtconfig-qt4
 Name=Qt 4 Settings
 X-KDE-StartupNotify=true
-Icon=designer
+Icon=qtconfig
 Terminal=false
 Type=Application
 

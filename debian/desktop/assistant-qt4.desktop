@@ -1,5 +1,5 @@
 [Desktop Entry]
-Categories=Qt;Development;Documentation;Qt;
+Categories=Qt;Development;Documentation;
 Encoding=UTF-8
 Exec=/usr/bin/assistant-qt4
 Name=Qt 4 Assistant

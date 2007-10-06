@@ -2,8 +2,8 @@ author: Thiemo Seufer <ths@debian.org>
 
 Fix compilation for Linux MIPS-I code.
 
---- qt4-x11-4.3.1.orig/src/corelib/arch/mips/qatomic32.s
-+++ qt4-x11-4.3.1/src/corelib/arch/mips/qatomic32.s
+--- qt4-x11-4.3.2.orig/src/corelib/arch/mips/qatomic32.s
++++ qt4-x11-4.3.2/src/corelib/arch/mips/qatomic32.s
 @@ -6,10 +6,12 @@
  	.globl	q_atomic_test_and_set_int
  	.ent	q_atomic_test_and_set_int

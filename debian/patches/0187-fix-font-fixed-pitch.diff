@@ -1,5 +1,5 @@
-qt-bugs@ issue :
-Trolltech task ID :
+qt-bugs@ issue : 173297
+Trolltech task ID : 175024
 applied: no
 author: Matthew Woehlke <mw_triad@users.sourceforge.net>
 
@@ -8,8 +8,15 @@ glyph metrics comparison test to guess the information. This has the
 property of both ignoring (bad) and not relying on (good) any information
 that might be provided by the OS's font facility.
 
---- qt4-x11-4.3.1.orig/src/gui/text/qfont.cpp
-+++ qt4-x11-4.3.1/src/gui/text/qfont.cpp
+On further conversation with TT (at which point they were finally able
+to reproduce the problem), it seems fixedPitch() only breaks if one has
+called setFixedPitch(true) on the QFont, and the selected font is not
+fixed pitch.
+
+This patch should be considered temporary until TT has a better fix.
+
+--- qt4-x11-4.3.2.orig/src/gui/text/qfont.cpp
++++ qt4-x11-4.3.2/src/gui/text/qfont.cpp
 @@ -2093,7 +2093,6 @@
  {
      QFontEngine *engine = d->engineForScript(QUnicodeTables::Common);
@@ -26,8 +33,8 @@ that might be provided by the OS's font facility.
      return engine->fontDef.fixedPitch;
  }
  
---- qt4-x11-4.3.1.orig/src/gui/text/qfont_p.h
-+++ qt4-x11-4.3.1/src/gui/text/qfont_p.h
+--- qt4-x11-4.3.2.orig/src/gui/text/qfont_p.h
++++ qt4-x11-4.3.2/src/gui/text/qfont_p.h
 @@ -66,9 +66,7 @@
            styleStrategy(QFont::PreferDefault), styleHint(QFont::AnyStyle),
            weight(50), fixedPitch(false), style(QFont::StyleNormal), stretch(100),
