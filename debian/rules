@@ -140,24 +140,24 @@ common-install-arch::
 install/qt4-designer::
 	install -D -p -m0644 debian/desktop/designer-qt4.desktop \
 		debian/qt4-designer/usr/share/applications/designer-qt4.desktop
-	install -D -p -m0644 debian/desktop/designer.png \
-		debian/qt4-designer/usr/share/pixmaps/designer.png
+	uudecode -o debian/qt4-designer/usr/share/pixmaps/designer.png \
+		debian/desktop/designer.png.uu
 
 install/qt4-dev-tools::
 	install -D -p -m0644 debian/desktop/assistant-qt4.desktop \
 		debian/qt4-dev-tools/usr/share/applications/assistant-qt4.desktop
-	install -D -p -m0644 debian/desktop/assistant.png \
-		debian/qt4-dev-tools/usr/share/pixmaps/assistant.png
+	uudecode -o debian/qt4-dev-tools/usr/share/pixmaps/assistant.png \
+		debian/desktop/assistant.png.uu
 	install -D -p -m0644 debian/desktop/linguist-qt4.desktop \
 		debian/qt4-dev-tools/usr/share/applications/linguist-qt4.desktop
-	install -D -p -m0644 debian/desktop/linguist.png \
-		debian/qt4-dev-tools/usr/share/pixmaps/linguist.png
+	uudecode -o debian/qt4-dev-tools/usr/share/pixmaps/linguist.png \
+		debian/desktop/linguist.png.uu
 
 install/qt4-qtconfig::
 	install -D -p -m0644 debian/desktop/qt4config.desktop \
 		debian/qt4-qtconfig/usr/share/applications/qt4config.desktop
-	install -D -p -m0644 debian/desktop/qtconfig.png \
-		debian/qt4-qtconfig/usr/share/pixmaps/qtconfig.png
+	uudecode -o debian/qt4-qtconfig/usr/share/pixmaps/qtconfig.png \
+		debian/desktop/qtconfig.png.uu
 
 binary-install/qt4-doc::
 # Tar up the examples to include them in qt4-doc
