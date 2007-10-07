@@ -7,8 +7,8 @@ This patch makes override-redirect windows (popup menu, dropdown menu,
 tooltip, combobox, etc.) also have more window properties like WM_CLASS,
 so they can be used when compositing.
 
---- qt4-x11-4.3.2.orig/src/gui/kernel/qwidget_x11.cpp
-+++ qt4-x11-4.3.2/src/gui/kernel/qwidget_x11.cpp
+--- a/src/gui/kernel/qwidget_x11.cpp
++++ b/src/gui/kernel/qwidget_x11.cpp
 @@ -616,7 +616,11 @@
          wsa.save_under = True;
          XChangeWindowAttributes(dpy, id, CWOverrideRedirect | CWSaveUnder,

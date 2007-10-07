@@ -9,8 +9,8 @@ AlternateBase color even for inactive widgets (while the rest of the
 widget is drawn correctly). Please let me know if QListView is not
 the only culprit. (QTreeView was fixed by TT already.)
 
---- qt4-x11-4.3.2.orig/src/gui/itemviews/qlistview.cpp
-+++ qt4-x11-4.3.2/src/gui/itemviews/qlistview.cpp
+--- a/src/gui/itemviews/qlistview.cpp
++++ b/src/gui/itemviews/qlistview.cpp
 @@ -1071,7 +1071,7 @@
                  option.state &= ~QStyle::State_Enabled;
                  cg = QPalette::Disabled;

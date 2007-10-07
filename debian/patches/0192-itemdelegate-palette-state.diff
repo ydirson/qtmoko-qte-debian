@@ -7,8 +7,8 @@ This patch fixes incorrect setting of the palette color group in
 QItemDelegate that resulted in inactive colors being used for widgets
 in active windows.
 
---- qt4-x11-4.3.2.orig/src/gui/itemviews/qitemdelegate.cpp
-+++ qt4-x11-4.3.2/src/gui/itemviews/qitemdelegate.cpp
+--- a/src/gui/itemviews/qitemdelegate.cpp
++++ b/src/gui/itemviews/qitemdelegate.cpp
 @@ -635,10 +635,10 @@
  
      QPen pen = painter->pen();

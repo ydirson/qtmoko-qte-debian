@@ -6,6 +6,7 @@ export LD_LIBRARY_PATH := $(QTDIR)/lib:$(LD_LIBRARY_PATH)
 export CXXFLAGS := -fpermissive
 
 QTVERSION := $(shell ls changes-* | cut -f2 -d '-')
+CURRENTVERSION := $(shell head -1 debian/changelog  | sed 's/[^(]*(\([^)]*\)).*/\1/')
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/makefile.mk
@@ -27,8 +28,6 @@ DEB_DH_MAKESHLIBS_ARGS_ALL := -V
 DEB_DH_STRIP_ARGS_libqt4-debug := --exclude=.debug
 
 DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
-
-CURRENTVERSION := $(shell head -1 debian/changelog  | sed 's/[^(]*(\([^)]*\)).*/\1/')
 
 DEB_INSTALL_DOCS_ALL := GPL_EXCEPTION_ADDENDUM.TXT
 
@@ -117,7 +116,7 @@ clean::
 
 	rm -rf lib/ plugins/ mkspecs/glibc-g++
 
-	# cleaning up after hppa tests
+	# clean up after hppa tests
 	rm -rf debian/hppa-tmp
 
 	find bin/ config.tests/ qmake/ -exec file {} \; | grep ELF | sed 's/:.*//'  | xargs rm -f
@@ -127,7 +126,8 @@ clean::
 	                -o -name Makefile.Debug -print0 \
 	                -o -name Makefile.Release -print0 \
 	                | xargs -0r rm -f
-	#we generate this on build:
+
+	# generate on build
 	rm -f debian/shlibs.local
 
 PKGCONFIGDIR := $(DEB_DESTDIR)/usr/lib/pkgconfig
@@ -183,7 +183,7 @@ $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:
 	    debian/$(cdbs_curpkg)/usr/share/lintian/overrides/$(cdbs_curpkg); \
         fi
 
-#generating shlibs local files
+# Generate shlibs local files
 $(patsubst %,binary-fixup/%,$(DEB_ALL_PACKAGES)) :: binary-fixup/%: binary-strip/%
 	if test -e debian/$(cdbs_curpkg)/DEBIAN/shlibs ; then \
 		sed 's/>=[^)]*/= $(CURRENTVERSION)/' debian/$(cdbs_curpkg)/DEBIAN/shlibs >> debian/shlibs.local ;\

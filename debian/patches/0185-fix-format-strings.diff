@@ -8,8 +8,8 @@ This patch fixes various code issues with handling format strings
 None of them seem to be exceptionally bad, but its better safe
 than sorry.
 
---- qt4-x11-4.3.2.orig/src/corelib/global/qglobal.h
-+++ qt4-x11-4.3.2/src/corelib/global/qglobal.h
+--- a/src/corelib/global/qglobal.h
++++ b/src/corelib/global/qglobal.h
 @@ -1276,8 +1276,16 @@
  #ifdef QT3_SUPPORT
  Q_CORE_EXPORT QT3_SUPPORT void qSystemWarning(const char *msg, int code = -1);
@@ -29,8 +29,8 @@ than sorry.
  
  #if (defined(QT_NO_DEBUG_OUTPUT) || defined(QT_NO_TEXTSTREAM)) && !defined(QT_NO_DEBUG_STREAM)
  #define QT_NO_DEBUG_STREAM
---- qt4-x11-4.3.2.orig/src/corelib/tools/qbytearray.h
-+++ qt4-x11-4.3.2/src/corelib/tools/qbytearray.h
+--- a/src/corelib/tools/qbytearray.h
++++ b/src/corelib/tools/qbytearray.h
 @@ -86,8 +86,16 @@
  Q_CORE_EXPORT int qstrnicmp(const char *, const char *, uint len);
  
@@ -50,8 +50,8 @@ than sorry.
  
  #ifdef QT3_SUPPORT
  inline QT3_SUPPORT void *qmemmove(void *dst, const void *src, uint len)
---- qt4-x11-4.3.2.orig/src/gui/painting/qprintengine_pdf_p.h
-+++ qt4-x11-4.3.2/src/gui/painting/qprintengine_pdf_p.h
+--- a/src/gui/painting/qprintengine_pdf_p.h
++++ b/src/gui/painting/qprintengine_pdf_p.h
 @@ -163,7 +163,11 @@
      void writePage();
  
@@ -65,8 +65,8 @@ than sorry.
      inline void write(const QByteArray &data) {
          stream->writeRawData(data.constData(), data.size());
          streampos += data.size();
---- qt4-x11-4.3.2.orig/src/qt3support/tools/q3cstring.h
-+++ qt4-x11-4.3.2/src/qt3support/tools/q3cstring.h
+--- a/src/qt3support/tools/q3cstring.h
++++ b/src/qt3support/tools/q3cstring.h
 @@ -72,7 +72,11 @@
      }
  
@@ -80,8 +80,8 @@ than sorry.
  
      Q3CString        left(uint len)  const { return QByteArray::left(len); }
      Q3CString        right(uint len) const { return QByteArray::right(len); }
---- qt4-x11-4.3.2.orig/tools/linguist/shared/profileevaluator.h
-+++ qt4-x11-4.3.2/tools/linguist/shared/profileevaluator.h
+--- a/tools/linguist/shared/profileevaluator.h
++++ b/tools/linguist/shared/profileevaluator.h
 @@ -103,7 +103,11 @@
  
  private:
@@ -95,8 +95,8 @@ than sorry.
      QString expandVariableReferences(const QString &value);
      QString evaluateExpandFunction(const QByteArray &func, const QString &arguments);
  
---- qt4-x11-4.3.2.orig/tools/qtestlib/src/qtest_global.h
-+++ qt4-x11-4.3.2/tools/qtestlib/src/qtest_global.h
+--- a/tools/qtestlib/src/qtest_global.h
++++ b/tools/qtestlib/src/qtest_global.h
 @@ -74,7 +74,11 @@
      enum SkipMode { SkipSingle = 1, SkipAll = 2 };
      enum TestFailMode { Abort = 1, Continue = 2 };

@@ -3,8 +3,8 @@ author: Brian Nelson <pyro@debian.org>
 From Roman Zippel <zippel@linux-m68k.org>: These defines are taken from the
 m68k tree, they should appear like this soon also in the upstream source.
 
---- qt4-x11-4.3.2.orig/src/corelib/io/qfilesystemwatcher_inotify.cpp
-+++ qt4-x11-4.3.2/src/corelib/io/qfilesystemwatcher_inotify.cpp
+--- a/src/corelib/io/qfilesystemwatcher_inotify.cpp
++++ b/src/corelib/io/qfilesystemwatcher_inotify.cpp
 @@ -103,6 +103,10 @@
  # define __NR_inotify_init      269
  # define __NR_inotify_add_watch 270

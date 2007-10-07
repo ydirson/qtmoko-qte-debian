@@ -1,7 +1,7 @@
 author: Fathi Boudra <fboudra@free.fr>
 
---- qt4-x11-4.3.2.orig/config.tests/unix/compile.test
-+++ qt4-x11-4.3.2/config.tests/unix/compile.test
+--- a/config.tests/unix/compile.test
++++ b/config.tests/unix/compile.test
 @@ -51,7 +51,7 @@
  cd "$OUTDIR/$TEST"
  
@@ -11,8 +11,8 @@ author: Fathi Boudra <fboudra@free.fr>
  
  if [ "$VERBOSE" = "yes" ]; then
      make
---- qt4-x11-4.3.2.orig/config.tests/unix/doubleformat.test
-+++ qt4-x11-4.3.2/config.tests/unix/doubleformat.test
+--- a/config.tests/unix/doubleformat.test
++++ b/config.tests/unix/doubleformat.test
 @@ -10,7 +10,7 @@
  
  # build and run a test program
@@ -22,8 +22,8 @@ author: Fathi Boudra <fboudra@free.fr>
  cd "$OUTDIR/config.tests/unix/doubleformat"
  
  DOUBLEFORMAT="UNKNOWN"
---- qt4-x11-4.3.2.orig/config.tests/unix/endian.test
-+++ qt4-x11-4.3.2/config.tests/unix/endian.test
+--- a/config.tests/unix/endian.test
++++ b/config.tests/unix/endian.test
 @@ -10,7 +10,7 @@
  
  # build and run a test program
@@ -33,8 +33,8 @@ author: Fathi Boudra <fboudra@free.fr>
  cd "$OUTDIR/config.tests/unix/endian"
  
  ENDIAN="UNKNOWN"
---- qt4-x11-4.3.2.orig/config.tests/unix/ptrsize.test
-+++ qt4-x11-4.3.2/config.tests/unix/ptrsize.test
+--- a/config.tests/unix/ptrsize.test
++++ b/config.tests/unix/ptrsize.test
 @@ -10,7 +10,7 @@
  
  # build and run a test program
@@ -44,8 +44,8 @@ author: Fathi Boudra <fboudra@free.fr>
  cd "$OUTDIR/config.tests/unix/ptrsize"
  
  if [ "$VERBOSE" = "yes" ]; then
---- qt4-x11-4.3.2.orig/config.tests/x11/notype.test
-+++ qt4-x11-4.3.2/config.tests/x11/notype.test
+--- a/config.tests/x11/notype.test
++++ b/config.tests/x11/notype.test
 @@ -27,7 +27,7 @@
      NOTYPE=yes
  
@@ -55,8 +55,8 @@ author: Fathi Boudra <fboudra@free.fr>
      cd "$OUTDIR/config.tests/x11/notype"
  
      if [ "$VERBOSE" = "yes" ]; then
---- qt4-x11-4.3.2.orig/configure
-+++ qt4-x11-4.3.2/configure
+--- a/configure
++++ b/configure
 @@ -3517,7 +3517,7 @@
  }
  
@@ -100,8 +100,8 @@ author: Fathi Boudra <fboudra@free.fr>
  	QMAKE_ARGS="$QMAKE_SWITCHES $QMAKE_SPEC_ARGS"
          if [ "$file" = ".projects.3" ]; then
              if echo '\c' | grep '\c' >/dev/null; then
---- qt4-x11-4.3.2.orig/projects.pro
-+++ qt4-x11-4.3.2/projects.pro
+--- a/projects.pro
++++ b/projects.pro
 @@ -118,7 +118,7 @@
  win32 {
     qmake.files=$$QT_BUILD_TREE/bin/qmake.exe
@@ -111,8 +111,8 @@ author: Fathi Boudra <fboudra@free.fr>
  }
  INSTALLS += qmake
  
---- qt4-x11-4.3.2.orig/qmake/Makefile.unix
-+++ qt4-x11-4.3.2/qmake/Makefile.unix
+--- a/qmake/Makefile.unix
++++ b/qmake/Makefile.unix
 @@ -90,17 +90,17 @@
  
  CXXFLAGS = @QMAKE_CXXFLAGS@ $(CPPFLAGS)
@@ -135,8 +135,8 @@ author: Fathi Boudra <fboudra@free.fr>
  
  depend:
  	makedepend -D__MAKEDEPEND__ $(CPPFLAGS) $(DEPEND_SRC)
---- qt4-x11-4.3.2.orig/src/tools/moc/moc.pro
-+++ qt4-x11-4.3.2/src/tools/moc/moc.pro
+--- a/src/tools/moc/moc.pro
++++ b/src/tools/moc/moc.pro
 @@ -1,5 +1,5 @@
  TEMPLATE	= app
 -TARGET		= moc
@@ -144,8 +144,8 @@ author: Fathi Boudra <fboudra@free.fr>
  
  CONFIG 	       += console qtinc
  CONFIG         -= qt
---- qt4-x11-4.3.2.orig/src/tools/uic/uic.pro
-+++ qt4-x11-4.3.2/src/tools/uic/uic.pro
+--- a/src/tools/uic/uic.pro
++++ b/src/tools/uic/uic.pro
 @@ -9,7 +9,7 @@
  
  unix:!contains(QT_CONFIG, zlib):LIBS        += -lz
@@ -155,8 +155,8 @@ author: Fathi Boudra <fboudra@free.fr>
  DESTDIR = ../../../bin
  
  DEFINES	       += QT_BOOTSTRAPPED QT_UIC QT_LITE_UNICODE QT_NO_DATASTREAM \
---- qt4-x11-4.3.2.orig/tools/assistant/assistant.pro
-+++ qt4-x11-4.3.2/tools/assistant/assistant.pro
+--- a/tools/assistant/assistant.pro
++++ b/tools/assistant/assistant.pro
 @@ -2,7 +2,7 @@
  
  TEMPLATE = app
@@ -166,8 +166,8 @@ author: Fathi Boudra <fboudra@free.fr>
  
  CONFIG += qt warn_on
  
---- qt4-x11-4.3.2.orig/tools/designer/src/designer/designer.pro
-+++ qt4-x11-4.3.2/tools/designer/src/designer/designer.pro
+--- a/tools/designer/src/designer/designer.pro
++++ b/tools/designer/src/designer/designer.pro
 @@ -25,7 +25,7 @@
      DEFINES += QT_DESIGNER_STATIC
  }
@@ -177,8 +177,8 @@ author: Fathi Boudra <fboudra@free.fr>
  
  include($$QT_SOURCE_TREE/tools/shared/fontpanel/fontpanel.pri)
  
---- qt4-x11-4.3.2.orig/tools/linguist/linguist/linguist.pro
-+++ qt4-x11-4.3.2/tools/linguist/linguist/linguist.pro
+--- a/tools/linguist/linguist/linguist.pro
++++ b/tools/linguist/linguist/linguist.pro
 @@ -50,7 +50,7 @@
  DEFINES        += QT_KEYWORDS
  
@@ -188,8 +188,8 @@ author: Fathi Boudra <fboudra@free.fr>
  
  win32:RC_FILE        = linguist.rc
  
---- qt4-x11-4.3.2.orig/tools/linguist/lrelease/lrelease.pro
-+++ qt4-x11-4.3.2/tools/linguist/lrelease/lrelease.pro
+--- a/tools/linguist/lrelease/lrelease.pro
++++ b/tools/linguist/lrelease/lrelease.pro
 @@ -29,7 +29,7 @@
  SOURCES += $$PROPARSERPATH/proitems.cpp \
          $$PROPARSERPATH/proreader.cpp
@@ -199,8 +199,8 @@ author: Fathi Boudra <fboudra@free.fr>
  INCLUDEPATH     += ../shared
  DESTDIR         = ../../../bin
  
---- qt4-x11-4.3.2.orig/tools/linguist/lupdate/lupdate.pro
-+++ qt4-x11-4.3.2/tools/linguist/lupdate/lupdate.pro
+--- a/tools/linguist/lupdate/lupdate.pro
++++ b/tools/linguist/lupdate/lupdate.pro
 @@ -39,7 +39,7 @@
          $$PROPARSERPATH/proreader.cpp
  
@@ -210,8 +210,8 @@ author: Fathi Boudra <fboudra@free.fr>
  INCLUDEPATH     += ../shared
  DESTDIR          = ../../../bin
  
---- qt4-x11-4.3.2.orig/tools/qtconfig/qtconfig.pro
-+++ qt4-x11-4.3.2/tools/qtconfig/qtconfig.pro
+--- a/tools/qtconfig/qtconfig.pro
++++ b/tools/qtconfig/qtconfig.pro
 @@ -16,7 +16,7 @@
  RESOURCES    = qtconfig.qrc
  

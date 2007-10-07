@@ -1,7 +1,7 @@
 author: Brian Nelson <pyro@debian.org>
 
---- qt4-x11-4.3.2.orig/src/corelib/io/qfsfileengine_unix.cpp
-+++ qt4-x11-4.3.2/src/corelib/io/qfsfileengine_unix.cpp
+--- a/src/corelib/io/qfsfileengine_unix.cpp
++++ b/src/corelib/io/qfsfileengine_unix.cpp
 @@ -55,6 +55,10 @@
  # include <private/qcore_mac_p.h>
  #endif

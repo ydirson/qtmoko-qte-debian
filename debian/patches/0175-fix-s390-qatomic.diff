@@ -6,8 +6,8 @@ author: Dirk Mueller
 
 fix s390(x) build
 
---- qt4-x11-4.3.2.orig/src/corelib/arch/qatomic_s390.h
-+++ qt4-x11-4.3.2/src/corelib/arch/qatomic_s390.h
+--- a/src/corelib/arch/qatomic_s390.h
++++ b/src/corelib/arch/qatomic_s390.h
 @@ -197,10 +197,20 @@
  #endif
  }

@@ -3,8 +3,8 @@ author: Brian Nelson <pyro@debian.org>
 Ensures qmake generates Makefiles that use the -qt4 tools and that use
 recursively link against all indirectly-used libraries.
 
---- qt4-x11-4.3.2.orig/mkspecs/common/linux.conf
-+++ qt4-x11-4.3.2/mkspecs/common/linux.conf
+--- a/mkspecs/common/linux.conf
++++ b/mkspecs/common/linux.conf
 @@ -23,8 +23,8 @@
  QMAKE_LIBS_OPENGL_QT  = -lGL
  QMAKE_LIBS_THREAD     = -lpthread
@@ -16,8 +16,8 @@ recursively link against all indirectly-used libraries.
  
  QMAKE_AR              = ar cqs
  QMAKE_RANLIB          =
---- qt4-x11-4.3.2.orig/mkspecs/linux-g++/qmake.conf
-+++ qt4-x11-4.3.2/mkspecs/linux-g++/qmake.conf
+--- a/mkspecs/linux-g++/qmake.conf
++++ b/mkspecs/linux-g++/qmake.conf
 @@ -4,8 +4,9 @@
  
  MAKEFILE_GENERATOR	= UNIX

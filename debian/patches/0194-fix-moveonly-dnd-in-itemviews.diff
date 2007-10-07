@@ -5,8 +5,8 @@ author: Matthias Kretz <kretz@kde.org>
 
 Allows drag and drop to work without pressing the shift key for itemviews that use InternalMove.
 
---- qt4-x11-4.3.2.orig/src/gui/itemviews/qabstractitemview.cpp
-+++ qt4-x11-4.3.2/src/gui/itemviews/qabstractitemview.cpp
+--- a/src/gui/itemviews/qabstractitemview.cpp
++++ b/src/gui/itemviews/qabstractitemview.cpp
 @@ -2968,7 +2968,7 @@
  
  #ifndef QT_NO_DRAGANDDROP
@@ -25,8 +25,8 @@ Allows drag and drop to work without pressing the shift key for itemviews that u
              d->clearOrRemove();
      }
  }
---- qt4-x11-4.3.2.orig/src/gui/itemviews/qlistview.cpp
-+++ qt4-x11-4.3.2/src/gui/itemviews/qlistview.cpp
+--- a/src/gui/itemviews/qlistview.cpp
++++ b/src/gui/itemviews/qlistview.cpp
 @@ -992,7 +992,7 @@
                  d->dynamicListView->draggedItems.push_back(*it);
          QDrag *drag = new QDrag(this);

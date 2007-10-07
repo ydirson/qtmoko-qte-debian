@@ -7,8 +7,8 @@ author: Dirk Mueller <mueller@kde.org>
 in big user environments, getgrgid_r() needs more memory than sysconf() returns.
 Try a bit harder.
 
---- qt4-x11-4.3.2.orig/src/corelib/io/qfsfileengine_unix.cpp
-+++ qt4-x11-4.3.2/src/corelib/io/qfsfileengine_unix.cpp
+--- a/src/corelib/io/qfsfileengine_unix.cpp
++++ b/src/corelib/io/qfsfileengine_unix.cpp
 @@ -845,9 +845,16 @@
      } else if (own == OwnerGroup) {
          struct group *gr = 0;

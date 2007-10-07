@@ -26,8 +26,8 @@ qt4-x11 (4.3.2-1) unstable; urgency=low
   * Fix qt4-config menu section. (Closes: 444896)
 
   [Sune Vuorela]
-  * Have strict interdependencies between packages with a shlibs.local file
-    (Closing: #438746)
+  * Have strict interdependencies between packages with a shlibs.local file.
+    (Closes: #438746)
   * Don't trust uname in generating the qt build key. This has bitten us in
     qt3, but will soon bite us in qt4 as qt4 becomes more popular.
 

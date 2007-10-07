@@ -13,8 +13,8 @@ This patch move dir test to proper place, as entry is validated only if is a rea
 Detected by qca2 plugins code that uses QtCrypto/QtCrypto
 Thanks to Thiago to find proper syntax
 
---- qt4-x11-4.3.2.orig/src/tools/moc/preprocessor.cpp
-+++ qt4-x11-4.3.2/src/tools/moc/preprocessor.cpp
+--- a/src/tools/moc/preprocessor.cpp
++++ b/src/tools/moc/preprocessor.cpp
 @@ -768,7 +768,7 @@
              QFileInfo fi;
              if (local)

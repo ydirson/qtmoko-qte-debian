@@ -1,7 +1,7 @@
 author: Matthias Klose <doko@debian.org>
 
---- qt4-x11-4.3.2.orig/mkspecs/common/g++.conf
-+++ qt4-x11-4.3.2/mkspecs/common/g++.conf
+--- a/mkspecs/common/g++.conf
++++ b/mkspecs/common/g++.conf
 @@ -17,7 +17,7 @@
  QMAKE_CFLAGS_USE_PRECOMPILE += -include ${QMAKE_PCH_OUTPUT_BASE}
  

@@ -2,8 +2,8 @@ author: Fathi Boudra <fboudra@free.fr>
 
 Fix qtdemo destdir.
 
---- qt4-x11-4.3.2.orig/demos/arthurplugin/arthurplugin.pro
-+++ qt4-x11-4.3.2/demos/arthurplugin/arthurplugin.pro
+--- a/demos/arthurplugin/arthurplugin.pro
++++ b/demos/arthurplugin/arthurplugin.pro
 @@ -3,7 +3,7 @@
  
  CONFIG      += designer plugin debug_and_release
@@ -13,8 +13,8 @@ Fix qtdemo destdir.
  
  contains(QT_CONFIG, opengl) {
  	DEFINES += QT_OPENGL_SUPPORT
---- qt4-x11-4.3.2.orig/demos/qtdemo/qtdemo.pro
-+++ qt4-x11-4.3.2/demos/qtdemo/qtdemo.pro
+--- a/demos/qtdemo/qtdemo.pro
++++ b/demos/qtdemo/qtdemo.pro
 @@ -1,6 +1,6 @@
  CONFIG += assistant x11inc
  TARGET = qtdemo

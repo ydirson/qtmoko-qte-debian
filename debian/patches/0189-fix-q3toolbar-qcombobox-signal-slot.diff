@@ -9,8 +9,8 @@ This patch changed un-existing slot in qcombobox by existing slot.
 When qcombobox was transform to popupmenu when toolbar with combobox is too small
 we used this slot to update combobox. (now it's updated)
 
---- qt4-x11-4.3.2.orig/src/qt3support/widgets/q3toolbar.cpp
-+++ qt4-x11-4.3.2/src/qt3support/widgets/q3toolbar.cpp
+--- a/src/qt3support/widgets/q3toolbar.cpp
++++ b/src/qt3support/widgets/q3toolbar.cpp
 @@ -667,7 +667,7 @@
                      Q3PopupMenu *cp = new Q3PopupMenu(d->extensionPopup);
                      cp->setEnabled(c->isEnabled());

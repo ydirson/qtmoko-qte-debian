@@ -2,8 +2,8 @@ author: LaMont Jones <lamont@bld-4.mmjgroup.com>
 
 patch from Ubuntu to properly support hppa.
 
---- qt4-x11-4.3.2.orig/src/corelib/arch/parisc/q_ldcw.s
-+++ qt4-x11-4.3.2/src/corelib/arch/parisc/q_ldcw.s
+--- a/src/corelib/arch/parisc/q_ldcw.s
++++ b/src/corelib/arch/parisc/q_ldcw.s
 @@ -1,17 +1,7 @@
 -	.SPACE $PRIVATE$
 -	.SUBSPA $DATA$,QUAD=1,ALIGN=8,ACCESS=31

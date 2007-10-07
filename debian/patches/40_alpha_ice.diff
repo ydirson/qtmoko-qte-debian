@@ -1,5 +1,5 @@
---- qt4-x11-4.3.2.orig/src/corelib/global/qlibraryinfo.cpp
-+++ qt4-x11-4.3.2/src/corelib/global/qlibraryinfo.cpp
+--- a/src/corelib/global/qlibraryinfo.cpp
++++ b/src/corelib/global/qlibraryinfo.cpp
 @@ -69,14 +69,7 @@
  {
  public:
@@ -32,8 +32,8 @@
  QLibrarySettings::QLibrarySettings()
  {
      settings = QLibraryInfoPrivate::findConfiguration();
---- qt4-x11-4.3.2.orig/src/corelib/tools/qhash.h
-+++ qt4-x11-4.3.2/src/corelib/tools/qhash.h
+--- a/src/corelib/tools/qhash.h
++++ b/src/corelib/tools/qhash.h
 @@ -479,7 +479,7 @@
  }
  
