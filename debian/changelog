@@ -33,6 +33,7 @@ qt4-x11 (4.3.2-1) unstable; urgency=low
 
   [Ana Beatriz Guerrero Lopez]
   * Add desktop files icons uuencoded and update rules to install them uudecoded.
+  * Add sharutils build dependency.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 06 Oct 2007 07:00:54 +0200
 
