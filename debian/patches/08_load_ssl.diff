@@ -1,0 +1,20 @@
+--- a/src/network/qsslsocket_openssl_symbols.cpp
++++ b/src/network/qsslsocket_openssl_symbols.cpp
+@@ -249,7 +249,7 @@
+         return false;
+     }
+ #else
+-    QLibrary libssl(QLatin1String("ssl"));
++    QLibrary libssl(QLatin1String("ssl.so.0.9.8"));
+     if (!libssl.load()) {
+         // Cannot find libssl
+         qWarning("QSslSocket: cannot find ssl library: %s.",
+@@ -257,7 +257,7 @@
+         return false;
+     }
+ 
+-    QLibrary libcrypto(QLatin1String("crypto"));
++    QLibrary libcrypto(QLatin1String("crypto.so.0.9.8"));
+     if (!libcrypto.load()) {
+         // Cannot find libcrypto
+         qWarning("QSslSocket: cannot find crypto library: %s.",

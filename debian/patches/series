@@ -15,6 +15,7 @@
 0193-qtreeview-division-by-zero.diff
 0194-fix-moveonly-dnd-in-itemviews.diff
 0195-compositing-properties.diff
+0196-q3toolbar-clean-rebuild.diff
 
 # debian patches
 01_qmake_for_debian.diff
@@ -24,6 +25,7 @@
 05_append_qt4_target.diff
 06_qtdemo_destdir.diff
 07_trust_dpkg-arch_over_uname-m.diff
+08_load_ssl.diff
 20_mips_atomic_ops.diff
 30_arm_ftbfs_fixes.diff
 31_arm_eabi_fix.diff

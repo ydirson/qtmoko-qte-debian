@@ -1,0 +1,29 @@
+qt-bugs@ issue : 182657
+bugs.kde.org number : none
+applied: yes
+author: TrollTech
+
+This patch fixes crash when we clear q3toolbar and rebuild it.
+bug reported and tested by Laurent Montel <montel@kde.org>,
+fixed by TT, patch will be in qt 4.3.3.
+
+--- a/src/qt3support/widgets/q3toolbar.cpp
++++ b/src/qt3support/widgets/q3toolbar.cpp
+@@ -489,7 +489,8 @@
+         if (child && child->isWidgetType() && !((QWidget*)child)->isWindow()
+              && child->parent() == this
+             && QLatin1String("qt_dockwidget_internal") != child->objectName()) {
+-            QWidgetItem *item = new QWidgetItem((QWidget*)child);
++            boxLayout()->addWidget((QWidget*)child);
++            QLayoutItem *item = boxLayout()->itemAt(boxLayout()->indexOf((QWidget*)child));
+             if (QToolButton *button = qobject_cast<QToolButton*>(child)) {
+                 item->setAlignment(Qt::AlignHCenter);
+                 button->setFocusPolicy(Qt::NoFocus);
+@@ -503,7 +504,6 @@
+                 }
+                 button->setAutoRaise(true);
+             }
+-            boxLayout()->addItem(item);
+             if (isVisible()) {
+                 // toolbar compatibility: we auto show widgets that
+                 // are not explicitly hidden

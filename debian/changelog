@@ -1,9 +1,17 @@
 qt4-x11 (4.3.2-2) UNRELEASED; urgency=low
 
+  [Adeodato Simó]
+
   * Do not depend or build-depend on the transitional package xlibmesa-gl-dev,
     but on libgl1-mesa-dev instead. Ditto for libglu1-xorg-dev/libglu1-mesa-dev.
 
- -- Adeodato Simó <dato@net.com.org.es>  Sun, 28 Oct 2007 22:48:17 +0100
+  [Fathi Boudra]
+
+  * Merge Kubuntu load ssl patch. Thanks to Jonathan Riddell.
+  * Add qt-copy patch: 0196-q3toolbar-clean-rebuild.
+    It fixes crash when we clear q3toolbar and rebuild it.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 06 Nov 2007 09:20:21 +0100
 
 qt4-x11 (4.3.2-1) unstable; urgency=low
 
