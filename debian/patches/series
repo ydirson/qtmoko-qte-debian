@@ -16,6 +16,7 @@
 0194-fix-moveonly-dnd-in-itemviews.diff
 0195-compositing-properties.diff
 0196-q3toolbar-clean-rebuild.diff
+0197-fix-qstylesheetstyle.diff
 
 # debian patches
 01_qmake_for_debian.diff
