@@ -1,4 +1,4 @@
-qt4-x11 (4.3.2-2) UNRELEASED; urgency=low
+qt4-x11 (4.3.2-2) unstable; urgency=low
 
   [Adeodato Simó]
 
@@ -13,6 +13,8 @@ qt4-x11 (4.3.2-2) UNRELEASED; urgency=low
       It fixes crash when we clear q3toolbar and rebuild it.
     * 0197-qstylesheetstyle.
       it fixes stylesheet style: e.g. klineedits looking wrong under oxygen.
+    * 0198-qstylesheetstyle2.
+      it fixes stylesheet style: e.g. kcombobox with a clean button.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 06 Nov 2007 09:20:21 +0100
 

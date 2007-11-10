@@ -17,6 +17,7 @@
 0195-compositing-properties.diff
 0196-q3toolbar-clean-rebuild.diff
 0197-fix-qstylesheetstyle.diff
+0198-fix-qstylesheetstyle2.diff
 
 # debian patches
 01_qmake_for_debian.diff
