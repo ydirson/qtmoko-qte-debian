@@ -1,7 +1,5 @@
 author: Sune Vuorela
 Reported to trolltech as N180631 - and task 181882
-Index: b/configure
-===================================================================
 --- a/configure
 +++ b/configure
 @@ -93,7 +93,44 @@

@@ -8,7 +8,7 @@ fix s390(x) build
 
 --- a/src/corelib/arch/qatomic_s390.h
 +++ b/src/corelib/arch/qatomic_s390.h
-@@ -197,10 +197,20 @@
+@@ -195,10 +195,20 @@
  #endif
  }
  

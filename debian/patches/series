@@ -1,23 +1,18 @@
 # qt-copy patches
-0163-fix-gcc43-support.diff
 0167-fix-group-reading.diff
+#0172-prefer-xrandr-over-xinerama.diff
 0175-fix-s390-qatomic.diff
 0176-coverity-fixes.diff
 0178-transparency-window-types.diff
 0179-transient-hack.diff
 0180-window-role.diff
-0185-fix-format-strings.diff
 0187-fix-font-fixed-pitch.diff
-0188-fix-moc-parser-same-name-header.diff
-0189-fix-q3toolbar-qcombobox-signal-slot.diff
 0191-listview-alternate-row-colors.diff
 0192-itemdelegate-palette-state.diff
-0193-qtreeview-division-by-zero.diff
 0194-fix-moveonly-dnd-in-itemviews.diff
 0195-compositing-properties.diff
-0196-q3toolbar-clean-rebuild.diff
-0197-fix-qstylesheetstyle.diff
-0198-fix-qstylesheetstyle2.diff
+0200-fix-qsslsocket-waitfor.diff
+0203-qtexthtmlparser-link-color.diff
 
 # debian patches
 01_qmake_for_debian.diff

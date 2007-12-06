@@ -2,7 +2,7 @@ author: Brian Nelson <pyro@debian.org>
 
 --- a/src/corelib/io/qfsfileengine_unix.cpp
 +++ b/src/corelib/io/qfsfileengine_unix.cpp
-@@ -55,6 +55,10 @@
+@@ -53,6 +53,10 @@
  # include <private/qcore_mac_p.h>
  #endif
  

@@ -9,7 +9,7 @@ so they can be used when compositing.
 
 --- a/src/gui/kernel/qwidget_x11.cpp
 +++ b/src/gui/kernel/qwidget_x11.cpp
-@@ -616,7 +616,11 @@
+@@ -614,7 +614,11 @@
          wsa.save_under = True;
          XChangeWindowAttributes(dpy, id, CWOverrideRedirect | CWSaveUnder,
                                  &wsa);
@@ -18,11 +18,11 @@ so they can be used when compositing.
 +        QByteArray appName = qAppName().toLatin1();
 +        class_hint.res_name = appName.data(); // application name
 +        class_hint.res_class = const_cast<char *>(QX11Info::appClass());   // application class
-+        XSetClassHint(dpy, id, &class_hint);
++        XSetWMProperties(dpy, id, 0, 0, 0, 0, 0, 0, &class_hint);
      } else if (topLevel && !desktop) {        // top-level widget
          if (!X11->wm_client_leader)
              create_wm_client_leader();
-@@ -661,29 +665,34 @@
+@@ -659,29 +663,34 @@
          // set mwm hints
          SetMWMHints(dpy, id, mwmhints);
  

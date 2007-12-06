@@ -1,0 +1,60 @@
+qt-bugs@ issue : N188142
+Trolltech task ID : 188329 (status: fixed for Qt 4.4.0)
+bugs.kde.org number : None
+applied: no
+author: Andreas Hartmetz <ahartmetz@gmail.com>
+
+This patch fixes that some QSslSocket::waitFor$X methods, when passed -1 as the
+argument, behave as if they were passed 0. -1 is supposed to mean "wait indefi-
+nitely" while 0 means "don't wait".
+
+
+--- a/src/network/qsslsocket.cpp
++++ b/src/network/qsslsocket.cpp
+@@ -250,6 +250,19 @@
+ #include <QtNetwork/qhostaddress.h>
+ #include <QtNetwork/qhostinfo.h>
+ 
++/*
++   Returns the difference between msecs and elapsed. If msecs is -1,
++   however, -1 is returned.
++*/
++static int qt_timeout_value(int msecs, int elapsed)
++{
++    if (msecs == -1)
++        return -1;
++
++    int timeout = msecs - elapsed;
++    return timeout < 0 ? 0 : timeout;
++}
++
+ class QSslSocketGlobalData
+ {
+ public:
+@@ -1109,7 +1122,7 @@
+             startClientEncryption();
+         // Loop, waiting until the connection has been encrypted or an error
+         // occurs.
+-        if (!d->plainSocket->waitForReadyRead(qBound(0, msecs - stopWatch.elapsed(), msecs)))
++        if (!d->plainSocket->waitForReadyRead(qt_timeout_value(msecs, stopWatch.elapsed())))
+             return false;
+     }
+     return d->connectionEncrypted;
+@@ -1137,7 +1150,7 @@
+             return false;
+     }
+ 
+-    while (d->plainSocket->waitForReadyRead(qBound(0, msecs - stopWatch.elapsed(), msecs))) {
++    while (d->plainSocket->waitForReadyRead(qt_timeout_value(msecs, stopWatch.elapsed()))) {
+         if (d->readBuffer.size() != oldReadBufferSize) {
+             // If the read buffer has grown, readyRead() must have been emitted.
+             return true;
+@@ -1166,7 +1179,7 @@
+             return false;
+     }
+ 
+-    return d->plainSocket->waitForBytesWritten(qBound(0, msecs - stopWatch.elapsed(), msecs));
++    return d->plainSocket->waitForBytesWritten(qt_timeout_value(msecs, stopWatch.elapsed()));
+ }
+ 
+ /*!

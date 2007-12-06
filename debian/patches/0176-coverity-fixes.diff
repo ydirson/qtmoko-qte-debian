@@ -8,7 +8,7 @@ fix various obvious memory leaks etc
 
 --- a/src/gui/painting/qimagescale.cpp
 +++ b/src/gui/painting/qimagescale.cpp
-@@ -1020,6 +1020,7 @@
+@@ -1024,6 +1024,7 @@
      buffer = QImage(dw, dh, src.format());
      if (buffer.isNull()) {
          qWarning("QImage: out of memory, returning null");
@@ -18,7 +18,7 @@ fix various obvious memory leaks etc
  
 --- a/src/svg/qsvghandler.cpp
 +++ b/src/svg/qsvghandler.cpp
-@@ -1144,15 +1144,9 @@
+@@ -1142,15 +1142,9 @@
          if (!size.isEmpty()) {
              QSvgHandler::LengthType type;
              qreal len = parseLength(size, type, handler);

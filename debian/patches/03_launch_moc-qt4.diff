@@ -4,7 +4,7 @@ Ensure the Qt4 version of moc is launched.
 
 --- a/tools/qdbus/tools/qdbuscpp2xml/qdbuscpp2xml.cpp
 +++ b/tools/qdbus/tools/qdbuscpp2xml/qdbuscpp2xml.cpp
-@@ -391,7 +391,7 @@
+@@ -389,7 +389,7 @@
          else {
              // run moc on this file
              QProcess proc;

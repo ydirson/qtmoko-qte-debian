@@ -1,5 +1,5 @@
 qt-bugs@ issue : 178507
-Trolltech task ID : 179170
+Trolltech task ID : 179170 (status: fixed for Qt 4.4.0)
 applied: no
 author: Matthew Woehlke <mw_triad@users.sourceforge.net>
 
@@ -9,7 +9,7 @@ in active windows.
 
 --- a/src/gui/itemviews/qitemdelegate.cpp
 +++ b/src/gui/itemviews/qitemdelegate.cpp
-@@ -635,10 +635,10 @@
+@@ -633,10 +633,10 @@
  
      QPen pen = painter->pen();
      QPalette::ColorGroup cg = option.state & QStyle::State_Enabled

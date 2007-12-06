@@ -36,7 +36,7 @@ handling the QWidget-related functionality from QtCore is fine.
 
 --- a/src/corelib/kernel/qobject.cpp
 +++ b/src/corelib/kernel/qobject.cpp
-@@ -1008,9 +1008,18 @@
+@@ -1006,9 +1006,18 @@
  {
      Q_D(QObject);
      d->objectName = name;
@@ -57,7 +57,7 @@ handling the QWidget-related functionality from QtCore is fine.
      QObject::child is compat but needs to call itself recursively,
 --- a/src/corelib/kernel/qobject_p.h
 +++ b/src/corelib/kernel/qobject_p.h
-@@ -139,6 +139,9 @@
+@@ -137,6 +137,9 @@
      mutable quint32 connectedSignals;
  
      QString objectName;
@@ -69,7 +69,7 @@ handling the QWidget-related functionality from QtCore is fine.
  class QSemaphore;
 --- a/src/gui/kernel/qwidget_p.h
 +++ b/src/gui/kernel/qwidget_p.h
-@@ -309,6 +309,7 @@
+@@ -307,6 +307,7 @@
  
  #if defined(Q_WS_X11)
      void setWindowRole(const char *role);
@@ -79,7 +79,7 @@ handling the QWidget-related functionality from QtCore is fine.
  
 --- a/src/gui/kernel/qwidget_x11.cpp
 +++ b/src/gui/kernel/qwidget_x11.cpp
-@@ -671,11 +671,8 @@
+@@ -669,11 +669,8 @@
          // when we create a toplevel widget, the frame strut should be dirty
          data.fstrut_dirty = 1;
  
@@ -93,7 +93,7 @@ handling the QWidget-related functionality from QtCore is fine.
  
          // set client leader property
          XChangeProperty(dpy, id, ATOM(WM_CLIENT_LEADER),
-@@ -2671,12 +2668,20 @@
+@@ -2669,12 +2666,20 @@
  void QWidgetPrivate::setWindowRole(const char *role)
  {
      Q_Q(QWidget);

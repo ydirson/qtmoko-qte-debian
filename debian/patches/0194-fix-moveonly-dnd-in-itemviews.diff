@@ -1,13 +1,24 @@
 qt-bugs@ issue : 181399
-Trolltech task ID : 181413
+Trolltech task ID : 181413 (status: pending for Qt 4.4.0)
 applied: no
 author: Matthias Kretz <kretz@kde.org>
 
 Allows drag and drop to work without pressing the shift key for itemviews that use InternalMove.
 
+--- a/src/gui/itemviews/qlistview.cpp
++++ b/src/gui/itemviews/qlistview.cpp
+@@ -992,7 +992,7 @@
+         }
+         QDrag *drag = new QDrag(this);
+         drag->setMimeData(d->model->mimeData(indexes));
+-        Qt::DropAction action = drag->start(supportedActions);
++        Qt::DropAction action = drag->exec(supportedActions);
+         d->dynamicListView->draggedItems.clear();
+         if (action == Qt::MoveAction)
+             d->clearOrRemove();
 --- a/src/gui/itemviews/qabstractitemview.cpp
 +++ b/src/gui/itemviews/qabstractitemview.cpp
-@@ -2968,7 +2968,7 @@
+@@ -2966,7 +2966,7 @@
  
  #ifndef QT_NO_DRAGANDDROP
  /*!
@@ -16,7 +27,7 @@ Allows drag and drop to work without pressing the shift key for itemviews that u
  */
  void QAbstractItemView::startDrag(Qt::DropActions supportedActions)
  {
-@@ -2985,7 +2985,7 @@
+@@ -2983,7 +2983,7 @@
          drag->setPixmap(pixmap);
          drag->setMimeData(data);
          drag->setHotSpot(d->pressedPosition - rect.topLeft());
@@ -25,14 +36,3 @@ Allows drag and drop to work without pressing the shift key for itemviews that u
              d->clearOrRemove();
      }
  }
---- a/src/gui/itemviews/qlistview.cpp
-+++ b/src/gui/itemviews/qlistview.cpp
-@@ -992,7 +992,7 @@
-                 d->dynamicListView->draggedItems.push_back(*it);
-         QDrag *drag = new QDrag(this);
-         drag->setMimeData(d->model->mimeData(indexes));
--        Qt::DropAction action = drag->start(supportedActions);
-+        Qt::DropAction action = drag->exec(supportedActions);
-         d->dynamicListView->draggedItems.clear();
-         if (action == Qt::MoveAction)
-             d->clearOrRemove();
