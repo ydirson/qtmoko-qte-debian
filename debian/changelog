@@ -1,4 +1,6 @@
-qt4-x11 (4.3.2-2) unstable; urgency=low
+qt4-x11 (4.3.3-1) unstable; urgency=low
+
+  * New upstream release.
 
   [Adeodato Simó]
 
@@ -7,16 +9,25 @@ qt4-x11 (4.3.2-2) unstable; urgency=low
 
   [Fathi Boudra]
 
+  * Bump Standards-Version to 3.7.3.
   * Merge Kubuntu load ssl patch. Thanks to Jonathan Riddell.
-  * Add qt-copy patch:
-    * 0196-q3toolbar-clean-rebuild.
-      It fixes crash when we clear q3toolbar and rebuild it.
-    * 0197-qstylesheetstyle.
-      it fixes stylesheet style: e.g. klineedits looking wrong under oxygen.
-    * 0198-qstylesheetstyle2.
-      it fixes stylesheet style: e.g. kcombobox with a clean button.
+  * Add CDDL exception to debian/copyright.
+  * Add 21_mis-assumes_non-irix_mips_systems_have_no_fpu patch.
+    Thanks to Thiemo Seufer.
+  * Remove qt-copy patches:
+    * 0163-fix-gcc43-support.
+    * 0185-fix-format-strings.
+    * 0188-fix-moc-parser-same-name-header.
+    * 0189-fix-q3toolbar-qcombobox-signal-slot.
+    * 0193-qtreeview-division-by-zero.diff.
+  * Add qt-copy patches:
+    * 0200-fix-qsslsocket-waitfor.
+      Fixes some QSslSocket::waitFor$X methods.
+    * 0203-qtexthtmlparser-link-color.
+      Links are assigned a foreground color according to the system current
+      color scheme.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 06 Nov 2007 09:20:21 +0100
+ -- Fathi Boudra <fabo@debian.org>  Thu, 06 Dec 2007 22:06:46 +0100
 
 qt4-x11 (4.3.2-1) unstable; urgency=low
 

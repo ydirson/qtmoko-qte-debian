@@ -24,6 +24,7 @@
 07_trust_dpkg-arch_over_uname-m.diff
 08_load_ssl.diff
 20_mips_atomic_ops.diff
+21_mis-assumes_non-irix_mips_systems_have_no_fpu.diff
 30_arm_ftbfs_fixes.diff
 31_arm_eabi_fix.diff
 40_alpha_ice.diff
