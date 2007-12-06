@@ -2,7 +2,7 @@ Source: qt4-x11
 Section: libs
 Priority: optional
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
-Uploaders: Brian Nelson <pyro@debian.org>, Sune Vuorela <debian@pusling.com>, Fathi Boudra <fboudra@free.fr>, Ana Beatriz Guerrero Lopez <ana@debian.org>
+Uploaders: Brian Nelson <pyro@debian.org>, Sune Vuorela <debian@pusling.com>, Fathi Boudra <fabo@debian.org>, Ana Beatriz Guerrero Lopez <ana@debian.org>
 Build-Depends: cdbs, debhelper (>= 5), quilt, sharutils, libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x11proto-core-dev, libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libjpeg62-dev, zlib1g-dev, libmng-dev (>= 1.0.3), libpng12-dev, libfreetype6-dev, libmysqlclient15-dev, flex, libpq-dev, libaudio-dev, libcupsys2-dev, libgl1-mesa-dev | libgl-dev, libglu1-mesa-dev | libglu-dev, libxft-dev, libxrender-dev, libxcursor-dev, libxinerama-dev, libsqlite0-dev, libsqlite3-dev, libdbus-1-dev, libglib2.0-dev, libxi-dev
 Standards-Version: 3.7.2
 
