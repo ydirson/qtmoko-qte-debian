@@ -4,6 +4,7 @@ export QTDIR := $(shell pwd)
 export PATH := $(QTDIR)/bin:$(PATH)
 export LD_LIBRARY_PATH := $(QTDIR)/lib:$(LD_LIBRARY_PATH)
 export CXXFLAGS := -fpermissive
+export LDFLAGS := -Wl,--as-needed
 
 QTVERSION := $(shell ls changes-* | cut -f2 -d '-')
 CURRENTVERSION := $(shell head -1 debian/changelog  | sed 's/[^(]*(\([^)]*\)).*/\1/')
@@ -35,7 +36,7 @@ ifeq ($(DEB_HOST_ARCH),arm)
 	EXTRA_CONFIGURE_OPTS += -DQT_QLOCALE_USES_FCVT
 endif
 
-DEB_CONFIGURE_SCRIPT_ENV += CXXFLAGS=-fpermissive
+DEB_CONFIGURE_SCRIPT_ENV += CXXFLAGS="-fpermissive" LDFLAGS="-Wl,--as-needed"
 
 ifeq ($(DEB_HOST_ARCH_OS),linux)
         PLATFORM_ARG = linux-g++

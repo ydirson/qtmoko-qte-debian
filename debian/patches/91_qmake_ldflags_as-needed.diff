@@ -1,0 +1,11 @@
+--- a/mkspecs/common/g++.conf
++++ b/mkspecs/common/g++.conf
+@@ -32,7 +32,7 @@
+ 
+ QMAKE_LINK		= g++
+ QMAKE_LINK_SHLIB	= g++
+-QMAKE_LFLAGS		+=
++QMAKE_LFLAGS		+= -Wl,--as-needed
+ QMAKE_LFLAGS_RELEASE	+=
+ QMAKE_LFLAGS_DEBUG	+=
+ QMAKE_LFLAGS_APP	+=

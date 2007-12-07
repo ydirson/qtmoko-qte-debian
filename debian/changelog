@@ -12,8 +12,10 @@ qt4-x11 (4.3.3-1) unstable; urgency=low
   * Bump Standards-Version to 3.7.3.
   * Merge Kubuntu load ssl patch. Thanks to Jonathan Riddell.
   * Add CDDL exception to debian/copyright.
-  * Add 21_assume_no_fpu_for_embedded_devices patch.
-    Thanks to Thiemo Seufer and Bradley Hughes. (Closes: #451046)
+  * Add 21_assume_no_fpu_for_embedded_devices patch. Thanks to Thiemo Seufer
+    and Bradley Hughes. Not Enabled yet: It breaks ABI on mips.
+    We will keep it for later (> 4.3.3-1).
+  * Add 91_qmake_ldflags_as-needed patch. Build with --as-needed linker flag.
   * Remove qt-copy patches:
     * 0163-fix-gcc43-support.
     * 0185-fix-format-strings.
