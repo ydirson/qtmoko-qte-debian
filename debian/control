@@ -5,6 +5,7 @@ Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Brian Nelson <pyro@debian.org>, Sune Vuorela <debian@pusling.com>, Fathi Boudra <fabo@debian.org>, Ana Beatriz Guerrero Lopez <ana@debian.org>
 Build-Depends: cdbs, debhelper (>= 5), quilt, sharutils, libxext-dev (>= 4.3.0.dfsg.1-4), libxrandr-dev (>= 4.3.0.dfsg.1-4), x11proto-core-dev, libsm-dev (>= 4.3.0.dfsg.1-4), libxmu-dev (>= 4.3.0.dfsg.1-4), libice-dev (>= 4.3.0.dfsg.1-4), libx11-dev (>= 4.3.0.dfsg.1-4), libxt-dev (>= 4.3.0.dfsg.1-4), libjpeg62-dev, zlib1g-dev, libmng-dev (>= 1.0.3), libpng12-dev, libfreetype6-dev, libmysqlclient15-dev, flex, libpq-dev, libaudio-dev, libcupsys2-dev, libgl1-mesa-dev | libgl-dev, libglu1-mesa-dev | libglu-dev, libxft-dev, libxrender-dev, libxcursor-dev, libxinerama-dev, libsqlite0-dev, libsqlite3-dev, libdbus-1-dev, libglib2.0-dev, libxi-dev
 Standards-Version: 3.7.3
+Homepage: http://www.trolltech.com
 
 Package: libqt4-dev
 Architecture: any
@@ -19,8 +20,6 @@ Description: Qt 4 development files
  .
  This packages contains the header development files and development
  programs such as qmake used for building Qt4 applications.
- .
-  Homepage: http://www.trolltech.com
 
 Package: libqt4-core
 Architecture: any
@@ -32,8 +31,6 @@ Description: Qt 4 core non-GUI functionality runtime library
  .
  This packages contains the core non-GUI shared library, and the Network
  and XML modules.
- .
-  Homepage: http://www.trolltech.com
 
 Package: libqt4-gui
 Architecture: any
@@ -48,8 +45,6 @@ Description: Qt 4 core GUI functionality runtime library
  .
  This packages contains the core GUI shared library and the OpenGL
  module.
- .
-  Homepage: http://www.trolltech.com
 
 Package: libqt4-sql
 Architecture: any
@@ -63,8 +58,6 @@ Description: Qt 4 SQL database module
  This package contains the SQL module for Qt.  It includes support for
  PostgreSQL, MySQL, and SQLite databases.  If you wish to to use the SQL
  module for development, you should install the libqt4-dev package.
- .
-  Homepage: http://www.trolltech.com
 
 Package: libqt4-qt3support
 Architecture: any
@@ -79,8 +72,6 @@ Description: Qt 3 compatibility library for Qt 4
  allows applications designed to use deprecated Qt 3 classes and
  functions to work with Qt 4, with help from the qt3to4 porting tool
  found in the libqt4-dev package.
- .
-  Homepage: http://www.trolltech.com
 
 Package: qt4-designer
 Architecture: any
@@ -94,8 +85,6 @@ Description: Qt 4 Designer
  .
  Qt Designer is a tool for designing and building graphical user
  interfaces (GUIs) from Qt components.
- .
-  Homepage: http://www.trolltech.com
 
 Package: libqt4-debug
 Architecture: any
@@ -105,8 +94,6 @@ Description: Qt 4 library debugging symbols
  is its rich set of widgets that provide standard GUI functionality.
  .
  This packages contains the debugging symbols for the Qt 4 libraries.
- .
-  Homepage: http://www.trolltech.com
 
 Package: qt4-dev-tools
 Architecture: any
@@ -120,8 +107,6 @@ Description: Qt 4 development tools
  .
  This packages contains tools used to assist in Qt 4 development,
  including the Qt Assistant, Linguist, DBus Viewer and Pixel Tool applications.
- .
-  Homepage: http://www.trolltech.com
 
 Package: qt4-qtconfig
 Architecture: any
@@ -135,8 +120,6 @@ Description: Qt 4 configuration tool
  .
  The Qt Configuration program allows endusers to configure the look and
  behavior of any Qt4 application.
- .
-  Homepage: http://www.trolltech.com
 
 Package: qt4-doc
 Architecture: all
