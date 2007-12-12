@@ -1,3 +1,15 @@
+qt4-x11 (4.3.3-2) unstable; urgency=low
+
+  +++ Changes by Matthew Rosewarne:
+
+  * Add qt-copy patches:
+    * 0204-fix-tulip-aliasing.diff.
+      Should fix KDE 4.0-rc2 startup crash.
+  * Update qt-copy-patches:
+    * 0203-qtexthtmlparser-link-color.diff.
+
+ -- Matthew Rosewarne <mrosewarne@inoutbox.com>  Wed, 12 Dec 2007 14:40:31 -0500
+
 qt4-x11 (4.3.3-1) unstable; urgency=low
 
   * New upstream release.

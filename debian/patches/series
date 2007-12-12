@@ -13,6 +13,7 @@
 0195-compositing-properties.diff
 0200-fix-qsslsocket-waitfor.diff
 0203-qtexthtmlparser-link-color.diff
+0204-fix-tulip-aliasing.diff
 
 # debian patches
 01_qmake_for_debian.diff
