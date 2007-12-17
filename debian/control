@@ -100,7 +100,8 @@ Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-core (= ${binary:Version})
 Conflicts: qt3-assistant (<= 3:3.3.4-7), qt3-designer (<= 3:3.3.4-7), qt3-linguist (<= 3:3.3.4-7)
-Recommends: libqt4-dev, qt4-doc, qt4-designer
+Recommends: libqt4-dev, qt4-designer
+Suggests:  qt4-doc
 Description: Qt 4 development tools
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.

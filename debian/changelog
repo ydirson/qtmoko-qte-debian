@@ -8,7 +8,11 @@ qt4-x11 (4.3.3-2) unstable; urgency=low
   * Update qt-copy-patches:
     * 0203-qtexthtmlparser-link-color.diff.
 
- -- Matthew Rosewarne <mrosewarne@inoutbox.com>  Wed, 12 Dec 2007 14:40:31 -0500
+  +++ Changes by Armin Berres:
+
+  * Don't recommend qt4-doc, suggest it instead.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 12 Dec 2007 14:40:31 -0500
 
 qt4-x11 (4.3.3-1) unstable; urgency=low
 
