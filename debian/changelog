@@ -12,6 +12,7 @@ qt4-x11 (4.3.3-2) unstable; urgency=low
 
   * Downgrade libqt4-dev dependency to qt4-dev-tools from Recommends to
     Suggests.
+  * Add semicolon at the end of the MimeType key. Thanks to Pino Toscano.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 12 Dec 2007 14:40:31 -0500
 
