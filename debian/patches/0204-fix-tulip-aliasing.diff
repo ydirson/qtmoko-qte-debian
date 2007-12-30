@@ -11,7 +11,7 @@ code in release builds.
 
 --- a/src/corelib/tools/qmap.h
 +++ b/src/corelib/tools/qmap.h
-@@ -185,6 +185,7 @@ public:
+@@ -185,6 +185,7 @@
  
      class iterator
      {
@@ -19,7 +19,7 @@ code in release builds.
          QMapData::Node *i;
  
      public:
-@@ -240,9 +241,9 @@ public:
+@@ -240,9 +241,9 @@
      public:
  #endif
          inline bool operator==(const const_iterator &o) const
@@ -31,7 +31,7 @@ code in release builds.
  
      private:
          // ### Qt 5: remove
-@@ -252,6 +253,7 @@ public:
+@@ -252,6 +253,7 @@
  
      class const_iterator
      {
@@ -39,7 +39,7 @@ code in release builds.
          QMapData::Node *i;
  
      public:
-@@ -270,7 +272,7 @@ public:
+@@ -270,7 +272,7 @@
  #else
          inline const_iterator(const iterator &o)
  #endif
@@ -50,7 +50,7 @@ code in release builds.
          inline const T &value() const { return concrete(i)->value; }
 --- a/src/corelib/tools/qset.h
 +++ b/src/corelib/tools/qset.h
-@@ -84,6 +84,7 @@ public:
+@@ -84,6 +84,7 @@
      {
          typedef QHash<T, QHashDummyValue> Hash;
          typename Hash::iterator i;
@@ -58,7 +58,7 @@ code in release builds.
  
      public:
          typedef std::bidirectional_iterator_tag iterator_category;
-@@ -101,9 +102,9 @@ public:
+@@ -101,9 +102,9 @@
          inline bool operator==(const iterator &o) const { return i == o.i; }
          inline bool operator!=(const iterator &o) const { return i != o.i; }
          inline bool operator==(const const_iterator &o) const
@@ -70,7 +70,7 @@ code in release builds.
          inline iterator &operator++() { ++i; return *this; }
          inline iterator operator++(int) { iterator r = *this; ++i; return r; }
          inline iterator &operator--() { --i; return *this; }
-@@ -118,6 +119,7 @@ public:
+@@ -118,6 +119,7 @@
      {
          typedef QHash<T, QHashDummyValue> Hash;
          typename Hash::const_iterator i;
@@ -78,7 +78,7 @@ code in release builds.
  
      public:
          typedef std::bidirectional_iterator_tag iterator_category;
-@@ -130,7 +132,7 @@ public:
+@@ -130,7 +132,7 @@
          inline const_iterator(typename Hash::const_iterator o) : i(o) {}
          inline const_iterator(const const_iterator &o) : i(o.i) {}
          inline const_iterator(const iterator &o)
@@ -89,7 +89,7 @@ code in release builds.
          inline const T *operator->() const { return &i.key(); }
 --- a/src/corelib/tools/qhash.h
 +++ b/src/corelib/tools/qhash.h
-@@ -291,6 +291,7 @@ public:
+@@ -291,6 +291,7 @@
  
      class iterator
      {
@@ -97,7 +97,7 @@ code in release builds.
          QHashData::Node *i;
  
      public:
-@@ -343,9 +344,9 @@ public:
+@@ -343,9 +344,9 @@
      public:
  #endif
          inline bool operator==(const const_iterator &o) const
@@ -109,7 +109,7 @@ code in release builds.
  
      private:
          // ### Qt 5: remove
-@@ -355,6 +356,7 @@ public:
+@@ -355,6 +356,7 @@
  
      class const_iterator
      {
@@ -117,7 +117,7 @@ code in release builds.
          QHashData::Node *i;
  
      public:
-@@ -374,7 +376,7 @@ public:
+@@ -374,7 +376,7 @@
  #else
          inline const_iterator(const iterator &o)
  #endif
@@ -128,7 +128,7 @@ code in release builds.
          inline const T &value() const { return concrete(i)->value; }
 --- a/src/corelib/tools/qlist.h
 +++ b/src/corelib/tools/qlist.h
-@@ -162,17 +162,17 @@ public:
+@@ -162,17 +162,17 @@
          inline bool operator>=(const iterator& other) const { return i >= other.i; }
  #ifndef QT_STRICT_ITERATORS
          inline bool operator==(const const_iterator &o) const
@@ -154,7 +154,7 @@ code in release builds.
          inline iterator operator++(int) { Node *n = i; ++i; return n; }
 --- a/src/corelib/tools/qlinkedlist.h
 +++ b/src/corelib/tools/qlinkedlist.h
-@@ -119,9 +119,9 @@ public:
+@@ -119,9 +119,9 @@
          inline bool operator==(const iterator &o) const { return i == o.i; }
          inline bool operator!=(const iterator &o) const { return i != o.i; }
          inline bool operator==(const const_iterator &o) const

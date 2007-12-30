@@ -99,13 +99,13 @@ Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-core (= ${binary:Version})
 Conflicts: qt3-assistant (<= 3:3.3.4-7), qt3-designer (<= 3:3.3.4-7), qt3-linguist (<= 3:3.3.4-7)
-Recommends: libqt4-dev, qt4-designer, qt4-doc
+Recommends: libqt4-dev, qt4-doc, qt4-designer
 Description: Qt 4 development tools
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
  This packages contains tools used to assist in Qt 4 development,
- including the Qt Assistant, Linguist, DBus Viewer and Pixel Tool applications.
+ including the Qt Assistant, Linguist, D-Bus Viewer and Pixel Tool applications.
 
 Package: qt4-qtconfig
 Architecture: any

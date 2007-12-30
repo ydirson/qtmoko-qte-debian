@@ -1,20 +1,18 @@
-qt4-x11 (4.3.3-2) unstable; urgency=low
+qt4-x11 (4.3.3-2) UNRELEASED; urgency=low
 
-  [Matthew Rosewarne]
-
-  * Add qt-copy patches:
-    * 0204-fix-tulip-aliasing.
-      Should fix KDE 4.0-rc2 startup crash.
-  * Update qt-copy-patches:
-    * 0203-qtexthtmlparser-link-color.
-
-  [Fathi Boudra]
-
+  * Update 0203-qtexthtmlparser-link-color qt-copy patch:
+    Add qt-bugs@ issue and Trolltech task ID.
+  * Add 0204-fix-tulip-aliasing qt-copy patch:
+    Fix KDE4 RC2 crashing on startup due to Qt 4.3.3 update.
   * Downgrade libqt4-dev dependency to qt4-dev-tools from Recommends to
     Suggests.
   * Add semicolon at the end of the MimeType key. Thanks to Pino Toscano.
+  * Revert build with --as-needed linker flag:
+    It breaks other packages. (Closes: #457038, #457284)
+  * Add 91_qmake_lflags_no-undefined patch:
+    By default, qmake adds --no-undefined linker flag.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 12 Dec 2007 14:40:31 -0500
+ -- Fathi Boudra <fabo@debian.org>  Sun, 30 Dec 2007 23:29:09 +0100
 
 qt4-x11 (4.3.3-1) unstable; urgency=low
 
