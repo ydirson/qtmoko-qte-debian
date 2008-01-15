@@ -13,30 +13,55 @@ proper fix would be to detect crtcs as virtual screens, but
 given that qt can't deal with dynamically changing number of screens,
 this is for "when I have time".
 
+also includes a race fix that can cause the whole KDE session to crash
+when you resize the screen.
+
 --- a/src/gui/kernel/qdesktopwidget_x11.cpp
 +++ b/src/gui/kernel/qdesktopwidget_x11.cpp
-@@ -140,7 +140,8 @@
+@@ -122,13 +122,16 @@
+     int unused;
+     use_xinerama = (XineramaQueryExtension(X11->display, &unused, &unused) && XineramaIsActive(X11->display));
+ 
+-    if (use_xinerama) {
++    if (use_xinerama)
+         xinerama_screeninfo =
+             XineramaQueryScreens(X11->display, &screenCount);
++
++    if (use_xinerama && xinerama_screeninfo) {
+         defaultScreen = 0;
+     } else
+ #endif // QT_NO_XINERAMA
+     {
++        use_xinerama = false;
+         defaultScreen = DefaultScreen(X11->display);
+         screenCount = ScreenCount(X11->display);
+     }
+@@ -139,8 +142,8 @@
+     workareas = new QRect[screenCount];
  
      // get the geometry of each screen
-     int i, x, y, w, h;
+-    int i, x, y, w, h;
 -    for (i = 0; i < screenCount; i++) {
-+    int itScreenCount = screenCount;
-+    for (i = 0; i < itScreenCount; i++) {
++    int i, j, x, y, w, h;
++    for (i = 0, j = 0; i < screenCount; i++, j++) {
  
  #ifndef QT_NO_XINERAMA
          if (use_xinerama) {
-@@ -158,10 +159,19 @@
+@@ -157,11 +160,21 @@
+                 h = HeightOfScreen(ScreenOfDisplay(X11->display, i));
              }
  
-         rects[i].setRect(x, y, w, h);
-+        if (i > 0 && rects[i-1].intersects(rects[i]) &&
-+                (rects[i].width()*rects[i].height()) >
-+                (rects[i-1].width()*rects[i-1].height())) {
-+            rects[i-1] = rects[i];
-+           screenCount--;
+-        rects[i].setRect(x, y, w, h);
++        rects[j].setRect(x, y, w, h);
++        if (j > 0 && rects[j-1].intersects(rects[j]) &&
++                (rects[j].width()*rects[j].height()) >
++                (rects[j-1].width()*rects[j-1].height())) {
++            rects[j-1] = rects[j];
++           j--;
 +        }
          workareas[i] = QRect();
      }
++    screenCount = j;
  
  #ifndef QT_NO_XINERAMA
 +    if (use_xinerama && screenCount == 1)

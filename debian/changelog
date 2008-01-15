@@ -2,6 +2,7 @@ qt4-x11 (4.3.3-3) UNRELEASED; urgency=low
 
   * Add 0205-fast-qpixmap-fill qt-copy patch:
     Fix a performance issue in QPixmap::fill()
+  * Refresh and enable 0172-prefer-xrandr-over-xinerama patch.
 
  -- Fathi Boudra <fabo@debian.org>  Wed, 02 Jan 2008 09:45:31 +0100
 

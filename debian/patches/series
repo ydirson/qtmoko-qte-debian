@@ -1,6 +1,6 @@
 # qt-copy patches
 0167-fix-group-reading.diff
-#0172-prefer-xrandr-over-xinerama.diff
+0172-prefer-xrandr-over-xinerama.diff
 0175-fix-s390-qatomic.diff
 0176-coverity-fixes.diff
 0178-transparency-window-types.diff
