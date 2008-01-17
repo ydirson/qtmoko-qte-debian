@@ -15,6 +15,7 @@
 0203-qtexthtmlparser-link-color.diff
 0204-fix-tulip-aliasing.diff
 0205-fast-qpixmap-fill.diff
+0206-fix-meta-modifier.diff 
 
 # debian patches
 01_qmake_for_debian.diff
