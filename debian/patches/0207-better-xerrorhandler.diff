@@ -1,0 +1,157 @@
+qt-bugs@ issue : <number>
+Trolltech task ID : <number>
+bugs.kde.org number : none
+applied: no
+author: Lubos Lunak <l.lunak@kde.org>
+os: unix
+Better X error handler - it tries harder to find error descriptions
+and also prints qAppName().
+
+
+--- a/src/gui/kernel/qapplication_x11.cpp
++++ b/src/gui/kernel/qapplication_x11.cpp
+@@ -497,50 +497,111 @@
+         break;
+     }
+ 
+-    char errstr[256];
+-    XGetErrorText( dpy, err->error_code, errstr, 256 );
+-    char buffer[256];
+-    char request_str[256];
+-    qsnprintf(buffer, 256, "%d", err->request_code);
+-    XGetErrorDatabaseText(dpy, "XRequest", buffer, "", request_str, 256);
+-    if (err->request_code < 128) {
+-        // X error for a normal protocol request
+-        qWarning( "X Error: %s %d\n"
++    if( err->request_code < 128 ) // X error for a normal protocol request
++        {
++        char errstr[ 256 ];
++        char request_str[ 256 ];
++        char num[ 256 ];
++        XGetErrorText( dpy, err->error_code, errstr, 255 );
++        sprintf( num, "%d", err->request_code );
++        XGetErrorDatabaseText( dpy, "XRequest", num, "", request_str, 256 );
++        qWarning( "%s : X Error: %s %d\n"
+                   "  Major opcode: %d (%s)\n"
+                   "  Resource id:  0x%lx",
++                  qAppName().toLatin1().data(),
+                   errstr, err->error_code,
+                   err->request_code,
+                   request_str,
+                   err->resourceid );
+-    } else {
+-        // X error for an extension request
+-        const char *extensionName = 0;
+-        if (err->request_code == X11->xrender_major)
+-            extensionName = "RENDER";
+-        else if (err->request_code == X11->xrandr_major)
+-            extensionName = "RANDR";
+-        else if (err->request_code == X11->xinput_major)
+-            extensionName = "XInputExtension";
+-
+-        char minor_str[256];
+-        if (extensionName) {
+-            qsnprintf(buffer, 256, "%s.%d", extensionName, err->minor_code);
+-            XGetErrorDatabaseText(dpy, "XRequest", buffer, "", minor_str, 256);
+-        } else {
+-            extensionName = "Uknown extension";
+-            qsnprintf(minor_str, 256, "Unknown request");
+         }
+-        qWarning( "X Error: %s %d\n"
++    else // extensions
++        {
++        // XGetErrorText() currently has a bug that makes it fail to find text
++        // for some errors (when error==error_base), also XGetErrorDatabaseText()
++        // requires the right extension name, so it is needed to get info about
++        // all extensions. Xlib itself has it, but in internal data, so fetch
++        // it again. Additionally, xcb doesn't like normal Xlib calls inside
++        // the error handler, so open another connection. Both of these mean
++        // a bunch of roundtrips, but this is error reporting anyway, right?
++        Display* dpy2 = XOpenDisplay( XDisplayString( dpy ));
++        int nextensions;
++        char** extensions = XListExtensions( dpy2, &nextensions );
++        int* majors = NULL;
++        int* error_bases = NULL;
++        if( extensions == NULL )
++            nextensions = 0;
++        else
++            {
++            majors = new int[ nextensions ];
++            error_bases = new int[ nextensions ];
++            for( int i = 0;
++                 i < nextensions;
++                 ++i )
++                {
++                int dummy;
++                if( !XQueryExtension( dpy2, extensions[ i ], &majors[ i ], &dummy, &error_bases[ i ] ))
++                    {
++                    majors[ i ] = 0;
++                    error_bases[ i ] = 0;
++                    }
++                }
++            }
++        char errstr[ 256 ];
++        char errcode[ 256 ];
++        char request_str[ 256 ];
++        char num[ 256 ];
++        const char* extensionName = "<unknown>";
++        XGetErrorText( dpy, err->error_code, errstr, 255 );
++        int index = -1;
++        int base = 0;
++        for( int i = 0;
++             i < nextensions;
++             ++i )
++            if( error_bases[ i ] != 0
++                && err->error_code >= error_bases[ i ] && ( index == -1 || error_bases[ i ] > base ))
++                {
++                index = i;
++                base = error_bases[ i ];
++                }
++        if( errstr == QByteArray::number( err->error_code )) // XGetErrorText() failed,
++            { // or it has a bug that causes not finding all errors, check ourselves
++            if( index != -1 )
++                {
++                snprintf( num, 255, "%s.%d", extensions[ index ], err->error_code - base );
++                XGetErrorDatabaseText( dpy, "XProtoError", num, "<unknown>", errstr, 255 );
++                }
++            else
++                strcpy( errstr, "<unknown>" );
++            }
++        if( index != -1 )
++            snprintf( errcode, 255, "(%s+%d)", extensions[ index ], err->error_code - base );
++        else
++            strcpy( errcode, "" );
++        strcpy( request_str, "<unknown>" );
++        for( int i = 0;
++             i < nextensions;
++             ++i )
++            if( majors[ i ] == err->request_code )
++                {
++                snprintf( num, 255, "%s.%d", extensions[ i ], err->minor_code );
++                XGetErrorDatabaseText( dpy, "XRequest", num, "<unknown>", request_str, 255 );
++                extensionName = extensions[ i ];
++                }
++        qWarning( "%s: X Error: %s %d%s\n"
+                   "  Extension:    %d (%s)\n"
+                   "  Minor opcode: %d (%s)\n"
+                   "  Resource id:  0x%lx",
+-                  errstr, err->error_code,
+-                  err->request_code,
+-                  extensionName,
+-                  err->minor_code,
+-                  minor_str,
++                  qAppName().toLatin1().data(),
++                  errstr, err->error_code, errcode,
++                  err->request_code, extensionName,
++                  err->minor_code, request_str,
+                   err->resourceid );
+-    }
++        if( extensions != NULL )
++            XFreeExtensionList( extensions );
++        delete[] majors;
++        delete[] error_bases;
++        XCloseDisplay( dpy2 );
++        }
+ 
+     // ### we really should distinguish between severe, non-severe and
+     // ### application specific errors
