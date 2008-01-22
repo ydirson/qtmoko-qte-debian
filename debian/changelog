@@ -5,7 +5,7 @@ qt4-x11 (4.3.3-3) UNRELEASED; urgency=low
       Fix a performance issue in QPixmap::fill()
     * 0206-fix-meta-modifier
       Fix handling of the Meta modifier
-    * 0207-better-xerrorhandler
+    * 0207-better-xerrorhandler (it isn't enabled)
       Better X error handler
       It tries harder to find error descriptions and prints qAppName()
   * Refresh and enable 0172-prefer-xrandr-over-xinerama patch.
