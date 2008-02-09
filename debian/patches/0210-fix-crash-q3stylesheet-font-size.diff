@@ -1,0 +1,24 @@
+qt-bugs@ issue : none
+Trolltech task ID : none
+bugs.kde.org number : none
+applied: yes
+author: Montel Laurent <montel@kde.org>
+
+This patch fixes crashs in q3stylesheet (it was possible to
+use a qfont size < 1)
+Bug reported to TT with this patch. 
+
+--- a/src/qt3support/text/q3stylesheet.cpp
++++ b/src/qt3support/text/q3stylesheet.cpp
+@@ -1454,9 +1454,9 @@
+         s = baseSize;
+     }
+     if (pixel)
+-        font.setPixelSize(s);
++        font.setPixelSize(qMax(1,s));
+     else
+-        font.setPointSize(s);
++        font.setPointSize(qMax(1,s));
+ }
+ 
+ #endif // QT_NO_RICHTEXT

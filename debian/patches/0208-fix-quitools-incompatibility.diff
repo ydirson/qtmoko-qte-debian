@@ -1,0 +1,88 @@
+qt-bugs@ issue : none
+Trolltech task ID : none
+bugs.kde.org number : none
+applied: no
+author: Lubos Lunak <l.lunak@kde.org>
+
+http://lists.kde.org/?l=kde-core-devel&m=120168476826132&w=2
+
+This patch removes dependency of QUiTools library on QObjectPrivate. Since
+QUiTools is a statically linked library, anything using it could abort
+whenever the installed Qt version changes.
+
+
+--- a/tools/designer/src/uitools/quiloader.cpp
++++ b/tools/designer/src/uitools/quiloader.cpp
+@@ -57,11 +57,14 @@
+ #include <QToolBox>
+ #include <QComboBox>
+ #include <QFontComboBox>
+-#include <private/qobject_p.h>
+ 
+ typedef QMap<QString, bool> widget_map;
+ Q_GLOBAL_STATIC(widget_map, g_widgets)
+ 
++class QUiLoaderPrivate;
++typedef QHash<const QUiLoader*,QUiLoaderPrivate*> d_pointers_hash;
++Q_GLOBAL_STATIC(d_pointers_hash, d_pointers)
++
+ #ifdef QFORMINTERNAL_NAMESPACE
+ namespace QFormInternal
+ {
+@@ -277,9 +280,17 @@
+ }
+ #endif
+ 
+-class QUiLoaderPrivate: public QObjectPrivate
++/*
++ QtUiTools is statically linked, so it cannot reference Qt internal classes
++ such as QObjectPrivate, as the statically linked version could conflict
++ with the shared Qt version.
++*/
++#undef Q_D
++#define Q_D(Class) Class##Private * const d = d_pointers()->value( this )
++
++
++class QUiLoaderPrivate
+ {
+-    Q_DECLARE_PUBLIC(QUiLoader)
+ public:
+ #ifdef QFORMINTERNAL_NAMESPACE
+     QFormInternal::FormBuilderPrivate builder;
+@@ -370,8 +381,9 @@
+     Creates a form loader with the given \a parent.
+ */
+ QUiLoader::QUiLoader(QObject *parent)
+-    : QObject(*new QUiLoaderPrivate, parent)
++    : QObject(parent)
+ {
++    d_pointers()->insert( this, new QUiLoaderPrivate );
+     Q_D(QUiLoader);
+ 
+     d->builder.loader = this;
+@@ -392,6 +404,7 @@
+ */
+ QUiLoader::~QUiLoader()
+ {
++    delete d_pointers()->take( this );
+ }
+ 
+ /*!
+--- a/tools/designer/src/uitools/quiloader.h
++++ b/tools/designer/src/uitools/quiloader.h
+@@ -49,7 +49,6 @@
+ class QIODevice;
+ class QDir;
+ 
+-class QUiLoaderPrivate;
+ class QUiLoader : public QObject
+ {
+     Q_OBJECT
+@@ -76,7 +75,6 @@
+     bool isScriptingEnabled() const;
+ 
+ private:
+-    Q_DECLARE_PRIVATE(QUiLoader)
+     Q_DISABLE_COPY(QUiLoader)
+ };
+ 

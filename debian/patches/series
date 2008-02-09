@@ -17,6 +17,10 @@
 0205-fast-qpixmap-fill.diff
 0206-fix-meta-modifier.diff
 #0207-better-xerrorhandler.diff
+0208-fix-quitools-incompatibility.diff
+0209-prevent-qt-mixing.diff
+0210-fix-crash-q3stylesheet-font-size.diff
+0211-q3action-crash.diff
 
 # debian patches
 01_qmake_for_debian.diff

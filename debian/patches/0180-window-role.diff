@@ -1,8 +1,10 @@
-qt-bugs@ issue : none yet
-Trolltech task ID : none
+qt-bugs@ issue : 167704
+Trolltech task ID : 168283
 bugs.kde.org number : none
 applied: no
 author: Lubos Lunak <l.lunak@kde.org>
+
+NOTE: It is suggested to apply patch #0209 as well when this patch is used.
 
  Hello,
 
