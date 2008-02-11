@@ -24,6 +24,10 @@ qt4-x11 (4.3.3-3) UNRELEASED; urgency=low
   * Refresh and enable 0172-prefer-xrandr-over-xinerama patch.
   * Add ${shlibs:Depends} to libqt4-dev. See missing shared library
     dependencies thread on debian-devel mailing list.
+  * Add catalan translation. Thanks to Javier Serrano Polo. (Closes: #459822)
+
+    TODO: add a piece of code to generate binary qt_ca translation file
+          install/clean binary qt_ca translation file
 
  -- Fathi Boudra <fabo@debian.org>  Wed, 02 Jan 2008 09:45:31 +0100
 
