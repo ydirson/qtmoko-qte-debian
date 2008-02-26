@@ -14,8 +14,8 @@ Copyright:
 License:
 
     This package is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License version 2 as
-    published by the Free Software Foundation.
+    it under the terms of the GNU General Public License version 2 or version 3
+    as published by the Free Software Foundation.
 
     This package is distributed in the hope that it will be useful, but
     WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -28,7 +28,10 @@ License:
     02110-1301, USA.
 
 On Debian systems, the complete text of the GNU General Public License
-can be found in `/usr/share/common-licenses/GPL'.
+can be found in `/usr/share/common-licenses/GPL-2' and
+`/usr/share/common-licenses/GPL-3'.
+
+Since Qt4.3.4, Qt is triple licensed under the QPL, GPL 2 and GPL 3.
 
 Since Qt4.3.1, a Trolltech GPL exception was added to allow linking
 against non-GPL libraries and applications:

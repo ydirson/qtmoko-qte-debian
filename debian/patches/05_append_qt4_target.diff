@@ -57,7 +57,7 @@ author: Fathi Boudra <fboudra@free.fr>
      if [ "$VERBOSE" = "yes" ]; then
 --- a/configure
 +++ b/configure
-@@ -3517,7 +3517,7 @@
+@@ -3523,7 +3523,7 @@
  }
  
  # build qmake
@@ -66,7 +66,7 @@ author: Fathi Boudra <fboudra@free.fr>
      echo "Creating qmake. Please wait..."
  
      OLD_QCONFIG_H=
-@@ -5438,8 +5438,8 @@
+@@ -5444,8 +5444,8 @@
  QMAKE_MOC_SRC    = \$\$QT_BUILD_TREE/src/moc
  
  #local paths that cannot be queried from the QT_INSTALL_* properties while building QTDIR
@@ -77,7 +77,7 @@ author: Fathi Boudra <fboudra@free.fr>
  QMAKE_UIC3       = \$\$QT_BUILD_TREE/bin/uic3
  QMAKE_RCC        = \$\$QT_BUILD_TREE/bin/rcc
  QMAKE_QDBUSXML2CPP = \$\$QT_BUILD_TREE/bin/qdbusxml2cpp
-@@ -5703,11 +5703,11 @@
+@@ -5709,11 +5709,11 @@
  #-------------------------------------------------------------------------------
  
  echo "Finding project files. Please wait..."
@@ -91,7 +91,7 @@ author: Fathi Boudra <fboudra@free.fr>
  fi
  
  # .projects      -> projects to process
-@@ -5880,7 +5880,7 @@
+@@ -5886,7 +5886,7 @@
              echo "  for $a\c"
          fi
  

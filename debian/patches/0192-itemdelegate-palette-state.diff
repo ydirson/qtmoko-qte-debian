@@ -9,7 +9,7 @@ in active windows.
 
 --- a/src/gui/itemviews/qitemdelegate.cpp
 +++ b/src/gui/itemviews/qitemdelegate.cpp
-@@ -633,10 +633,10 @@
+@@ -640,10 +640,10 @@
  
      QPen pen = painter->pen();
      QPalette::ColorGroup cg = option.state & QStyle::State_Enabled

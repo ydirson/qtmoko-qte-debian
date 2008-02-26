@@ -7,7 +7,7 @@ Allows drag and drop to work without pressing the shift key for itemviews that u
 
 --- a/src/gui/itemviews/qlistview.cpp
 +++ b/src/gui/itemviews/qlistview.cpp
-@@ -992,7 +992,7 @@
+@@ -999,7 +999,7 @@
          }
          QDrag *drag = new QDrag(this);
          drag->setMimeData(d->model->mimeData(indexes));
@@ -18,7 +18,7 @@ Allows drag and drop to work without pressing the shift key for itemviews that u
              d->clearOrRemove();
 --- a/src/gui/itemviews/qabstractitemview.cpp
 +++ b/src/gui/itemviews/qabstractitemview.cpp
-@@ -2966,7 +2966,7 @@
+@@ -2973,7 +2973,7 @@
  
  #ifndef QT_NO_DRAGANDDROP
  /*!
@@ -27,7 +27,7 @@ Allows drag and drop to work without pressing the shift key for itemviews that u
  */
  void QAbstractItemView::startDrag(Qt::DropActions supportedActions)
  {
-@@ -2983,7 +2983,7 @@
+@@ -2990,7 +2990,7 @@
          drag->setPixmap(pixmap);
          drag->setMimeData(data);
          drag->setHotSpot(d->pressedPosition - rect.topLeft());

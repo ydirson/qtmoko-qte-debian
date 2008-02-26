@@ -1,6 +1,6 @@
 --- a/src/network/qsslsocket_openssl_symbols.cpp
 +++ b/src/network/qsslsocket_openssl_symbols.cpp
-@@ -247,7 +247,7 @@
+@@ -254,7 +254,7 @@
          return false;
      }
  #else
@@ -9,7 +9,7 @@
      if (!libssl.load()) {
          // Cannot find libssl
          qWarning("QSslSocket: cannot find ssl library: %s.",
-@@ -255,7 +255,7 @@
+@@ -262,7 +262,7 @@
          return false;
      }
  

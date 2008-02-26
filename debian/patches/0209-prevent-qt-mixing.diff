@@ -15,7 +15,7 @@ It only further enforces using the same sources for the whole Qt build.
 
 --- a/src/corelib/kernel/qobject_p.h
 +++ b/src/corelib/kernel/qobject_p.h
-@@ -75,7 +75,9 @@
+@@ -82,7 +82,9 @@
  
  inline QObjectData::~QObjectData() {}
  

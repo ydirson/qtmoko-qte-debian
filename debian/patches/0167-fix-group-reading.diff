@@ -9,7 +9,7 @@ Try a bit harder.
 
 --- a/src/corelib/io/qfsfileengine_unix.cpp
 +++ b/src/corelib/io/qfsfileengine_unix.cpp
-@@ -843,9 +843,16 @@
+@@ -850,9 +850,16 @@
      } else if (own == OwnerGroup) {
          struct group *gr = 0;
  #if !defined(QT_NO_THREAD) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && !defined(Q_OS_OPENBSD)

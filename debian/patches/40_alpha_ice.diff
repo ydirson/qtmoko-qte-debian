@@ -1,6 +1,6 @@
 --- a/src/corelib/global/qlibraryinfo.cpp
 +++ b/src/corelib/global/qlibraryinfo.cpp
-@@ -67,14 +67,7 @@
+@@ -74,14 +74,7 @@
  {
  public:
      static QSettings *findConfiguration();
@@ -16,7 +16,7 @@
      static QSettings *configuration()
      {
  #ifdef QT_NO_THREAD
-@@ -93,6 +86,15 @@
+@@ -100,6 +93,15 @@
      }
  };
  
@@ -34,7 +34,7 @@
      settings = QLibraryInfoPrivate::findConfiguration();
 --- a/src/corelib/tools/qhash.h
 +++ b/src/corelib/tools/qhash.h
-@@ -479,7 +479,7 @@
+@@ -486,7 +486,7 @@
  }
  
  template <class Key, class T>

@@ -1,17 +1,13 @@
-qt4-x11 (4.3.3-3) UNRELEASED; urgency=low
+qt4-x11 (4.3.4-1) unstable; urgency=low
+
+  * New upstream release:
+    * This version adds the GNU General Public License (GPL) version 3
+      to all Qt Open Source editions. The GPL Exception version 1.1
+      applies to both versions of the GPL license.
 
   * Add qt-copy patches:
     * 0205-fast-qpixmap-fill
       Fix a performance issue in QPixmap::fill()
-    * 0206-fix-meta-modifier
-      Fix handling of the Meta modifier
-    * 0207-better-xerrorhandler (it isn't enabled)
-      Better X error handler
-      It tries harder to find error descriptions and prints qAppName()
-    * 0208-fix-quitools-incompatibility
-      This patch removes dependency of QUiTools library on QObjectPrivate.
-      Since QUiTools is a statically linked library, anything using it could
-      abort whenever the installed Qt version changes.
     * 0209-prevent-qt-mixing
       This patch changes QObjectPrivateVersion, thus preventing mixing parts
       of upstream Qt and qt-copy.
@@ -22,14 +18,16 @@ qt4-x11 (4.3.3-3) UNRELEASED; urgency=low
       During porting qt3to4 port QGroupAction to Q3GroupAction but not QAction
       to Q3Action (which is logical) But it crashs when it's not a q3action.
   * Refresh and enable 0172-prefer-xrandr-over-xinerama patch.
+  * Remove 0204-fix-tulip-aliasing patch. Merged upstream.
   * Add ${shlibs:Depends} to libqt4-dev. See missing shared library
     dependencies thread on debian-devel mailing list.
   * Add catalan translation. Thanks to Javier Serrano Polo. (Closes: #459822)
+  * Update copyright file. Add GPL version 3.
 
     TODO: add a piece of code to generate binary qt_ca translation file
           install/clean binary qt_ca translation file
 
- -- Fathi Boudra <fabo@debian.org>  Wed, 02 Jan 2008 09:45:31 +0100
+ -- Fathi Boudra <fabo@debian.org>  Tue, 26 Feb 2008 18:38:27 +0100
 
 qt4-x11 (4.3.3-2) unstable; urgency=low
 

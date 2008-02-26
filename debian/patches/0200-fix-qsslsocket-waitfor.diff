@@ -11,7 +11,7 @@ nitely" while 0 means "don't wait".
 
 --- a/src/network/qsslsocket.cpp
 +++ b/src/network/qsslsocket.cpp
-@@ -250,6 +250,19 @@
+@@ -257,6 +257,19 @@
  #include <QtNetwork/qhostaddress.h>
  #include <QtNetwork/qhostinfo.h>
  
@@ -31,7 +31,7 @@ nitely" while 0 means "don't wait".
  class QSslSocketGlobalData
  {
  public:
-@@ -1109,7 +1122,7 @@
+@@ -1116,7 +1129,7 @@
              startClientEncryption();
          // Loop, waiting until the connection has been encrypted or an error
          // occurs.
@@ -40,7 +40,7 @@ nitely" while 0 means "don't wait".
              return false;
      }
      return d->connectionEncrypted;
-@@ -1137,7 +1150,7 @@
+@@ -1144,7 +1157,7 @@
              return false;
      }
  
@@ -49,7 +49,7 @@ nitely" while 0 means "don't wait".
          if (d->readBuffer.size() != oldReadBufferSize) {
              // If the read buffer has grown, readyRead() must have been emitted.
              return true;
-@@ -1166,7 +1179,7 @@
+@@ -1173,7 +1186,7 @@
              return false;
      }
  

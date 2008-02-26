@@ -1,4 +1,4 @@
-qt-bugs@ issue :  none
+qt-bugs@ issue :  N198137
 Trolltech task ID : none
 bugs.kde.org number :
 applied: no
@@ -19,14 +19,17 @@ when you resize the screen.
 it also includes a fix for a bug that causes the whole KDE session to crash
 when you remove a CRTc.
 
+
 --- a/src/gui/kernel/qdesktopwidget_x11.cpp
 +++ b/src/gui/kernel/qdesktopwidget_x11.cpp
-@@ -119,28 +119,32 @@
+@@ -124,30 +124,35 @@
+ void QDesktopWidgetPrivate::init()
+ {
      // get the screen count
++    int newScreenCount;
  #ifndef QT_NO_XINERAMA
      XineramaScreenInfo *xinerama_screeninfo = 0;
--    int unused;
-+    int unused, newScreenCount;
+     int unused;
      use_xinerama = (XineramaQueryExtension(X11->display, &unused, &unused) && XineramaIsActive(X11->display));
  
 -    if (use_xinerama) {
@@ -62,7 +65,7 @@ when you remove a CRTc.
  
  #ifndef QT_NO_XINERAMA
          if (use_xinerama) {
-@@ -157,11 +161,29 @@
+@@ -164,11 +169,29 @@
                  h = HeightOfScreen(ScreenOfDisplay(X11->display, i));
              }
  
@@ -93,7 +96,7 @@ when you remove a CRTc.
      if (xinerama_screeninfo)
          XFree(xinerama_screeninfo);
  #endif // QT_NO_XINERAMA
-@@ -209,8 +231,7 @@
+@@ -216,8 +239,7 @@
          screen = d->defaultScreen;
  
      if (! d->screens) {

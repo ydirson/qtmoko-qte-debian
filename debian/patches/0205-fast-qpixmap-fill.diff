@@ -16,7 +16,7 @@ fill server side.
 
 --- a/src/gui/image/qpixmap_x11.cpp
 +++ b/src/gui/image/qpixmap_x11.cpp
-@@ -440,8 +440,28 @@
+@@ -447,8 +447,28 @@
          return;
      if (fillColor.alpha() != 255) {
  #ifndef QT_NO_XRENDER

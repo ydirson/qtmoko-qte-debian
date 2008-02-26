@@ -11,7 +11,7 @@ Patch from TT.
 
 --- a/src/qt3support/widgets/q3action.cpp
 +++ b/src/qt3support/widgets/q3action.cpp
-@@ -1664,7 +1664,7 @@
+@@ -1671,7 +1671,7 @@
          if (d->dropdown) {
              if (!d->exclusive) {
                  QList<Q3Action*>::Iterator it(d->actions.begin());

@@ -9,7 +9,7 @@ This patch adds Qt support for new window types used for compositing.
 
 --- a/src/gui/kernel/qwidget.h
 +++ b/src/gui/kernel/qwidget.h
-@@ -352,6 +352,19 @@
+@@ -359,6 +359,19 @@
  
      void setWindowOpacity(qreal level);
      qreal windowOpacity() const;
@@ -31,7 +31,7 @@ This patch adds Qt support for new window types used for compositing.
  #ifndef QT_NO_TOOLTIP
 --- a/src/gui/kernel/qdnd_x11.cpp
 +++ b/src/gui/kernel/qdnd_x11.cpp
-@@ -268,6 +268,7 @@
+@@ -275,6 +275,7 @@
          QWidget(QApplication::desktop()->screen(screen),
                  Qt::Tool | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint)
      {
@@ -39,7 +39,7 @@ This patch adds Qt support for new window types used for compositing.
      }
  
      void setPixmap(const QPixmap &pm)
-@@ -1436,6 +1437,7 @@
+@@ -1443,6 +1444,7 @@
          // recreate the pixmap on the new screen...
          delete xdnd_data.deco;
          xdnd_data.deco = new QShapedPixmapWidget(screen);
@@ -47,7 +47,7 @@ This patch adds Qt support for new window types used for compositing.
          if (!QWidget::mouseGrabber()) {
              updatePixmap();
              xdnd_data.deco->grabMouse();
-@@ -1897,6 +1899,7 @@
+@@ -1904,6 +1906,7 @@
      object = o;
      object->d_func()->target = 0;
      xdnd_data.deco = new QShapedPixmapWidget();
@@ -57,7 +57,7 @@ This patch adds Qt support for new window types used for compositing.
  
 --- a/src/gui/kernel/qt_x11_p.h
 +++ b/src/gui/kernel/qt_x11_p.h
-@@ -528,6 +528,11 @@
+@@ -535,6 +535,11 @@
          _NET_WM_WINDOW_TYPE_SPLASH,
          _NET_WM_WINDOW_TYPE_TOOLBAR,
          _NET_WM_WINDOW_TYPE_UTILITY,
@@ -71,7 +71,7 @@ This patch adds Qt support for new window types used for compositing.
  
 --- a/src/gui/kernel/qtooltip.cpp
 +++ b/src/gui/kernel/qtooltip.cpp
-@@ -147,6 +147,9 @@
+@@ -154,6 +154,9 @@
      setMouseTracking(true);
      fadingOut = false;
      reuseTip(text);
@@ -81,7 +81,7 @@ This patch adds Qt support for new window types used for compositing.
  }
  
  void QTipLabel::restartHideTimer()
-@@ -367,6 +370,10 @@
+@@ -374,6 +377,10 @@
              // that is showing (removes flickering)
              if (QTipLabel::instance->tipChanged(pos, text, w)){
                  QTipLabel::instance->reuseTip(text);
@@ -92,7 +92,7 @@ This patch adds Qt support for new window types used for compositing.
                  QTipLabel::instance->setTipRect(w, rect);
                  QTipLabel::instance->placeTip(pos, w);
              }
-@@ -376,6 +383,10 @@
+@@ -383,6 +390,10 @@
  
      if (!text.isEmpty()){ // no tip can be reused, create new tip:
          new QTipLabel(pos, text, w); // sets QTipLabel::instance to itself
@@ -105,7 +105,7 @@ This patch adds Qt support for new window types used for compositing.
          QTipLabel::instance->setObjectName(QLatin1String("qtooltip_label"));
 --- a/src/gui/kernel/qapplication_x11.cpp
 +++ b/src/gui/kernel/qapplication_x11.cpp
-@@ -212,6 +212,11 @@
+@@ -219,6 +219,11 @@
      "_NET_WM_WINDOW_TYPE_SPLASH\0"
      "_NET_WM_WINDOW_TYPE_TOOLBAR\0"
      "_NET_WM_WINDOW_TYPE_UTILITY\0"
@@ -119,7 +119,7 @@ This patch adds Qt support for new window types used for compositing.
  
 --- a/src/gui/kernel/qwidget_x11.cpp
 +++ b/src/gui/kernel/qwidget_x11.cpp
-@@ -560,10 +560,6 @@
+@@ -567,10 +567,6 @@
      }
  #endif // QT_NO_XRENDER
  
@@ -130,7 +130,7 @@ This patch adds Qt support for new window types used for compositing.
      QtMWMHints mwmhints;
      mwmhints.flags = 0L;
      mwmhints.functions = MWM_FUNC_ALL;
-@@ -574,15 +570,11 @@
+@@ -581,15 +577,11 @@
      if (topLevel) {
          ulong wsa_mask = 0;
          if (type == Qt::SplashScreen) {
@@ -147,7 +147,7 @@ This patch adds Qt support for new window types used for compositing.
                  mwmhints.decorations |= MWM_DECOR_BORDER;
                  mwmhints.decorations |= MWM_DECOR_RESIZEH;
  
-@@ -604,22 +596,6 @@
+@@ -611,22 +603,6 @@
              wsa.save_under = True;
              wsa_mask |= CWSaveUnder;
          }
@@ -170,7 +170,7 @@ This patch adds Qt support for new window types used for compositing.
  
          if (flags & Qt::X11BypassWindowManagerHint) {
              wsa.override_redirect = True;
-@@ -638,6 +614,7 @@
+@@ -645,6 +621,7 @@
          wsa.save_under = True;
          XChangeWindowAttributes(dpy, id, CWOverrideRedirect | CWSaveUnder,
                                  &wsa);
@@ -178,7 +178,7 @@ This patch adds Qt support for new window types used for compositing.
      } else if (topLevel && !desktop) {        // top-level widget
          if (!X11->wm_client_leader)
              create_wm_client_leader();
-@@ -682,12 +659,7 @@
+@@ -689,12 +666,7 @@
          // set mwm hints
          SetMWMHints(dpy, id, mwmhints);
  
@@ -192,7 +192,7 @@ This patch adds Qt support for new window types used for compositing.
  
          // set _NET_WM_PID
          long curr_pid = getpid();
-@@ -783,6 +755,63 @@
+@@ -790,6 +762,63 @@
          q->setAttribute(Qt::WA_OutsideWSRange, true);
  }
  
@@ -258,7 +258,7 @@ This patch adds Qt support for new window types used for compositing.
      destroyWindow is true.
 --- a/src/gui/widgets/qcombobox.cpp
 +++ b/src/gui/widgets/qcombobox.cpp
-@@ -332,6 +332,10 @@
+@@ -339,6 +339,10 @@
              combo->update();
          }
      }
@@ -271,7 +271,7 @@ This patch adds Qt support for new window types used for compositing.
  void QComboBoxPrivateContainer::resizeEvent(QResizeEvent *e)
 --- a/src/gui/widgets/qmenu.cpp
 +++ b/src/gui/widgets/qmenu.cpp
-@@ -97,6 +97,9 @@
+@@ -104,6 +104,9 @@
      QTornOffMenu(QMenu *p) : QMenu(*(new QTornOffMenuPrivate(p)))
      {
          setParent(p, Qt::Window | Qt::Tool);
@@ -281,7 +281,7 @@ This patch adds Qt support for new window types used for compositing.
  	setAttribute(Qt::WA_DeleteOnClose, true);
          setWindowTitle(p->windowTitle());
          setEnabled(p->isEnabled());
-@@ -143,6 +146,9 @@
+@@ -150,6 +153,9 @@
      }
      defaultMenuAction = menuAction = new QAction(q);
      menuAction->d_func()->menu = q;
@@ -291,7 +291,7 @@ This patch adds Qt support for new window types used for compositing.
  }
  
  //Windows and KDE allows menus to cover the taskbar, while GNOME and Mac don't
-@@ -1678,6 +1684,33 @@
+@@ -1685,6 +1691,33 @@
          }
      }
      setGeometry(QRect(pos, size));
@@ -325,7 +325,7 @@ This patch adds Qt support for new window types used for compositing.
  #ifndef QT_NO_EFFECTS
      int hGuess = qApp->layoutDirection() == Qt::RightToLeft ? QEffects::LeftScroll : QEffects::RightScroll;
      int vGuess = QEffects::DownScroll;
-@@ -1874,6 +1907,9 @@
+@@ -1881,6 +1914,9 @@
      if (QMenuBar *mb = qobject_cast<QMenuBar*>(d->causedPopup.widget))
          mb->d_func()->setCurrentAction(0);
  #endif

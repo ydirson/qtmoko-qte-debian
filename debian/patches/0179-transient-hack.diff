@@ -10,7 +10,7 @@ It is not a proper solution, waiting for TT to come up with something.
 
 --- a/src/gui/kernel/qwidget_x11.cpp
 +++ b/src/gui/kernel/qwidget_x11.cpp
-@@ -1648,7 +1648,7 @@
+@@ -1655,7 +1655,7 @@
          do_size_hints(q, extra);
  
          // udpate WM_TRANSIENT_FOR

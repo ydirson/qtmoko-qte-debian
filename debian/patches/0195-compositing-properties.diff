@@ -9,7 +9,7 @@ so they can be used when compositing.
 
 --- a/src/gui/kernel/qwidget_x11.cpp
 +++ b/src/gui/kernel/qwidget_x11.cpp
-@@ -614,7 +614,11 @@
+@@ -621,7 +621,11 @@
          wsa.save_under = True;
          XChangeWindowAttributes(dpy, id, CWOverrideRedirect | CWSaveUnder,
                                  &wsa);
@@ -22,7 +22,7 @@ so they can be used when compositing.
      } else if (topLevel && !desktop) {        // top-level widget
          if (!X11->wm_client_leader)
              create_wm_client_leader();
-@@ -659,29 +663,34 @@
+@@ -666,29 +670,34 @@
          // set mwm hints
          SetMWMHints(dpy, id, mwmhints);
  

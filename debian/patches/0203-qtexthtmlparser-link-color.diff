@@ -7,7 +7,7 @@ Links are assigned a foreground color according to the system current color sche
 
 --- a/src/gui/text/qtexthtmlparser.cpp
 +++ b/src/gui/text/qtexthtmlparser.cpp
-@@ -1031,7 +1031,7 @@
+@@ -1038,7 +1038,7 @@
                      && !attributes.at(i + 1).isEmpty()) {
                      hasHref = true;
                      charFormat.setUnderlineStyle(QTextCharFormat::SingleUnderline);

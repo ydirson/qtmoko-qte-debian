@@ -2,7 +2,7 @@ author: Fathi Boudra <fboudra@free.fr>
 
 --- a/tools/designer/src/lib/shared/qdesigner_utils.cpp
 +++ b/tools/designer/src/lib/shared/qdesigner_utils.cpp
-@@ -131,7 +131,7 @@
+@@ -138,7 +138,7 @@
          binary += QDir::separator();
          switch (mode) {
          case UIC_GenerateCode:
