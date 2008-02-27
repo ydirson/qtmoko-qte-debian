@@ -19,13 +19,12 @@ qt4-x11 (4.3.4-1) unstable; urgency=low
       to Q3Action (which is logical) But it crashs when it's not a q3action.
   * Refresh and enable 0172-prefer-xrandr-over-xinerama patch.
   * Remove 0204-fix-tulip-aliasing patch. Merged upstream.
+  * Remove 90_qmake_cxxflags_fpermissive patch.
   * Add ${shlibs:Depends} to libqt4-dev. See missing shared library
     dependencies thread on debian-devel mailing list.
   * Add catalan translation. Thanks to Javier Serrano Polo. (Closes: #459822)
   * Update copyright file. Add GPL version 3.
-
-    TODO: add a piece of code to generate binary qt_ca translation file
-          install/clean binary qt_ca translation file
+  * Remove -fpermissive.
 
  -- Fathi Boudra <fabo@debian.org>  Tue, 26 Feb 2008 18:38:27 +0100
 

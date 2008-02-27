@@ -3,7 +3,6 @@
 export QTDIR := $(shell pwd)
 export PATH := $(QTDIR)/bin:$(PATH)
 export LD_LIBRARY_PATH := $(QTDIR)/lib:$(LD_LIBRARY_PATH)
-export CXXFLAGS := -fpermissive
 export LDFLAGS := -Wl,--no-undefined -Wl,--as-needed
 
 QTVERSION := $(shell ls changes-* | cut -f2 -d '-')
@@ -36,7 +35,7 @@ ifeq ($(DEB_HOST_ARCH),arm)
 	EXTRA_CONFIGURE_OPTS += -DQT_QLOCALE_USES_FCVT
 endif
 
-DEB_CONFIGURE_SCRIPT_ENV += CXXFLAGS="-fpermissive" LDFLAGS="-Wl,--no-undefined -Wl,--as-needed"
+DEB_CONFIGURE_SCRIPT_ENV += LDFLAGS="-Wl,--no-undefined -Wl,--as-needed"
 
 ifeq ($(DEB_HOST_ARCH_OS),linux)
         PLATFORM_ARG = linux-g++
@@ -137,6 +136,10 @@ common-install-arch::
 	for f in QtAssistantClient.pc QtDBus.pc QtTest.pc QtUiTools.pc; do \
 	    sed -i "s|-L/build/buildd/qt4-x11-$(QTVERSION)/lib||g" $(PKGCONFIGDIR)/$$f; \
 	done
+
+install/libqt4-core::
+	$(CURDIR)/bin/lrelease-qt4 debian/translations/qt_ca.ts \
+		-qm $(DEB_DESTDIR)/usr/share/qt4/translations/qt_ca.qm
 
 install/qt4-designer::
 	install -D -p -m0644 debian/desktop/designer-qt4.desktop \

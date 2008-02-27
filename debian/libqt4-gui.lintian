@@ -1,1 +1,1 @@
-libqt4-gui: package-name-doesnt-match-sonames libQtGui4 libQtOpenGL4
+libqt4-gui: package-name-doesnt-match-sonames libQtAssistantClient4 libQtDesigner4 libQtDesignerComponents4 libQtGui4 libQtOpenGL4 libQtSvg4

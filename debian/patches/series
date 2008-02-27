@@ -37,5 +37,4 @@
 60_m68k_inotify_fix.diff
 70_hppa_ldcw_fix.diff
 80_hurd_max_path.diff
-90_qmake_cxxflags_fpermissive.diff
 91_qmake_lflags_no-undefined.diff

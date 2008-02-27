@@ -1,0 +1,4 @@
+libqt4-dev: executable-not-elf-or-script ./usr/share/qt4/mkspecs/macx-pbuilder/Info.plist.app
+libqt4-dev: executable-not-elf-or-script ./usr/share/qt4/mkspecs/macx-xcode/Info.plist.app
+libqt4-dev: executable-not-elf-or-script ./usr/share/qt4/mkspecs/macx-xcode/qmake.conf
+libqt4-dev: executable-not-elf-or-script ./usr/share/qt4/mkspecs/macx-pbuilder/qmake.conf
