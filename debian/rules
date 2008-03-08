@@ -2,8 +2,6 @@
 
 export QTDIR := $(shell pwd)
 export PATH := $(QTDIR)/bin:$(PATH)
-export LD_LIBRARY_PATH := $(QTDIR)/lib:$(LD_LIBRARY_PATH)
-export LDFLAGS := -Wl,--no-undefined -Wl,--as-needed
 
 QTVERSION := $(shell ls changes-* | cut -f2 -d '-')
 CURRENTVERSION := $(shell head -1 debian/changelog  | sed 's/[^(]*(\([^)]*\)).*/\1/')
@@ -27,6 +25,8 @@ DEB_DH_MAKESHLIBS_ARGS_ALL := -V
 
 DEB_DH_STRIP_ARGS_libqt4-debug := --exclude=.debug
 
+DEB_DH_SHLIBDEPS_ARGS_ALL := --exclude=.debug
+
 DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
 
 DEB_INSTALL_DOCS_ALL := GPL_EXCEPTION_ADDENDUM.TXT
@@ -34,8 +34,6 @@ DEB_INSTALL_DOCS_ALL := GPL_EXCEPTION_ADDENDUM.TXT
 ifeq ($(DEB_HOST_ARCH),arm)
 	EXTRA_CONFIGURE_OPTS += -DQT_QLOCALE_USES_FCVT
 endif
-
-DEB_CONFIGURE_SCRIPT_ENV += LDFLAGS="-Wl,--no-undefined -Wl,--as-needed"
 
 ifeq ($(DEB_HOST_ARCH_OS),linux)
         PLATFORM_ARG = linux-g++
@@ -77,6 +75,7 @@ endif
 	            -fast \
 	            -no-rpath \
 	            -system-zlib \
+	            -system-libtiff \
 	            -system-libpng \
 	            -system-libjpeg \
 	            -system-nas-sound \
@@ -90,7 +89,6 @@ endif
 	            -lfontconfig \
 	            -cups \
 	            -no-exceptions \
-	            -debug \
 	            -qdbus \
 	            -pch \
 	            -nomake examples \
@@ -130,12 +128,15 @@ clean::
 	# generate on build
 	rm -f debian/shlibs.local
 
-PKGCONFIGDIR := $(DEB_DESTDIR)/usr/lib/pkgconfig
 common-install-arch::
 # Fix wrong path in pkgconfig files
-	for f in QtAssistantClient.pc QtDBus.pc QtTest.pc QtUiTools.pc; do \
-	    sed -i "s|-L/build/buildd/qt4-x11-$(QTVERSION)/lib||g" $(PKGCONFIGDIR)/$$f; \
-	done
+	find $(DEB_DESTDIR)/usr/lib/pkgconfig -type f -name '*.pc' \
+		-exec perl -pi -e "s, -L$(CURDIR)/?\S+,,g" {} \;
+# Fix wrong path in prl files
+	find $(DEB_DESTDIR)/usr/lib -type f -name '*.prl' \
+		-exec perl -pi -e "s, -L$(CURDIR)/\S+,,g" {} \;
+	find $(DEB_DESTDIR)/usr/lib -type f -name '*.prl' \
+		-exec sed -i -e "/^QMAKE_PRL_BUILD_DIR/d" {} \;
 
 install/libqt4-core::
 	$(CURDIR)/bin/lrelease-qt4 debian/translations/qt_ca.ts \

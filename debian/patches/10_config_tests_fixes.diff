@@ -1,0 +1,62 @@
+author: Fathi Boudra <fabo@debian.org>
+
+Configuration test fixes for Interbase/Firebird and ODBC sql drivers.
+
+--- a/config.tests/unix/ibase/ibase.pro
++++ b/config.tests/unix/ibase/ibase.pro
+@@ -1,4 +1,4 @@
+ SOURCES = ibase.cpp
+ CONFIG -= qt dylib
+ mac:CONFIG -= app_bundle
+-LIBS += -lgds
++LIBS += -lfbclient
+--- a/config.tests/unix/odbc/odbc.pro
++++ b/config.tests/unix/odbc/odbc.pro
+@@ -1,4 +1,4 @@
+ SOURCES = odbc.cpp
+ CONFIG -= qt dylib
+ CONFIG -= app_bundle
+-LIBS += -lodbc
++LIBS += -liodbc
+--- a/src/plugins/sqldrivers/odbc/odbc.pro
++++ b/src/plugins/sqldrivers/odbc/odbc.pro
+@@ -12,7 +12,7 @@
+ 
+ unix {
+ 	!contains( LIBS, .*odbc.* ) {
+-	    LIBS 	*= -lodbc
++	    LIBS 	*= -liodbc
+ 	}
+ }
+ 
+--- a/src/sql/drivers/drivers.pri
++++ b/src/sql/drivers/drivers.pri
+@@ -48,7 +48,7 @@
+      SOURCES += drivers/odbc/qsql_odbc.cpp
+ 
+      mac:!contains( LIBS, .*odbc.* ):LIBS        *= -liodbc
+-     unix:!contains( LIBS, .*odbc.* ):LIBS       *= -lodbc
++     unix:!contains( LIBS, .*odbc.* ):LIBS       *= -liodbc
+ 
+      win32 {
+          !win32-borland:LIBS     *= -lodbc32
+@@ -93,7 +93,7 @@
+     HEADERS += drivers/ibase/qsql_ibase.h
+     SOURCES += drivers/ibase/qsql_ibase.cpp
+     
+-    unix:LIBS *= -lgds  
++    unix:LIBS *= -lfbclient
+     
+     win32 {
+         !win32-borland:LIBS *= -lgds32_ms
+--- a/src/plugins/sqldrivers/ibase/ibase.pro
++++ b/src/plugins/sqldrivers/ibase/ibase.pro
+@@ -4,7 +4,7 @@
+ SOURCES		= main.cpp \
+ 		  ../../../sql/drivers/ibase/qsql_ibase.cpp
+ 
+-unix:!contains( LIBS, .*gds.* ):!contains( LIBS, .*libfb.* ):LIBS    *= -lgds
++unix:!contains( LIBS, .*gds.* ):!contains( LIBS, .*libfb.* ):LIBS    *= -lfbclient
+ 
+ win32:!contains( LIBS, .*gds.* ):!contains( LIBS, .*fbclient.* ) {
+ 	!win32-borland:LIBS *= -lgds32_ms

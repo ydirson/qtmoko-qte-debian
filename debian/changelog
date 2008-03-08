@@ -1,3 +1,23 @@
+qt4-x11 (4.3.4-2) unstable; urgency=low
+
+  * Add patches:
+    * 09_qmake_lflags_as-needed
+      workaround as LDFLAGS isn't honored by configure script.
+      we set --as-needed flag for Qt build only.
+    * 10_config_tests_fixes.diff
+      configuration test fixes for Interbase/Firebird and ODBC sql drivers.
+  * Update 01_qmake_for_debian patch:
+    * re-introduce link_prl and drop QT_SHARED workaround.
+  * Update rules:
+    * Remove exported LD_LIBRARY_PATH and LDFLAGS.
+    * Remove DEB_CONFIGURE_SCRIPT_ENV.
+    * Exclude debug files from dh_shlibdeps using DEB_DH_SHLIBDEPS_ARGS_ALL.
+    * Update configure options to use libtiff from system.
+    * Remove debug configure option to build with -02.
+    * Update common-install-arch target to fix wrong path in pkconfig and prl files.
+
+ -- Fathi Boudra <fabo@debian.org>  Sat, 08 Mar 2008 10:09:02 +0100
+
 qt4-x11 (4.3.4-1) unstable; urgency=low
 
   * New upstream release:

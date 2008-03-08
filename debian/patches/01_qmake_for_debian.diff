@@ -1,7 +1,6 @@
 author: Brian Nelson <pyro@debian.org>
 
-Ensures qmake generates Makefiles that use the -qt4 tools and that use
-recursively link against all indirectly-used libraries.
+Ensures qmake generates Makefiles that use the -qt4 tools.
 
 --- a/mkspecs/common/linux.conf
 +++ b/mkspecs/common/linux.conf
@@ -16,16 +15,3 @@ recursively link against all indirectly-used libraries.
  
  QMAKE_AR              = ar cqs
  QMAKE_RANLIB          =
---- a/mkspecs/linux-g++/qmake.conf
-+++ b/mkspecs/linux-g++/qmake.conf
-@@ -4,8 +4,9 @@
- 
- MAKEFILE_GENERATOR	= UNIX
- TEMPLATE		= app
--CONFIG			+= qt warn_on release incremental link_prl
-+CONFIG			+= qt warn_on release incremental
- QT			+= core gui
-+DEFINES		+= QT_SHARED
- QMAKE_INCREMENTAL_STYLE = sublib
- 
- include(../common/g++.conf)
