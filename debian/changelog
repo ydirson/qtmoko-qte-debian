@@ -15,6 +15,7 @@ qt4-x11 (4.3.4-2) unstable; urgency=low
     * Update configure options to use libtiff from system.
     * Remove debug configure option to build with -02.
     * Update common-install-arch target to fix wrong path in pkconfig and prl files.
+  * Add libtiff4-dev build dependency.
 
  -- Fathi Boudra <fabo@debian.org>  Sat, 08 Mar 2008 10:09:02 +0100
 
