@@ -9,13 +9,14 @@ qt4-x11 (4.3.4-2) unstable; urgency=low
   * Update 01_qmake_for_debian patch:
     * re-introduce link_prl and drop QT_SHARED workaround.
   * Update rules:
-    * Remove exported LD_LIBRARY_PATH and LDFLAGS.
+    * Remove exported LDFLAGS.
     * Remove DEB_CONFIGURE_SCRIPT_ENV.
     * Exclude debug files from dh_shlibdeps using DEB_DH_SHLIBDEPS_ARGS_ALL.
     * Update configure options to use libtiff from system.
     * Remove debug configure option to build with -02.
     * Update common-install-arch target to fix wrong path in pkconfig and prl files.
   * Add libtiff4-dev build dependency.
+  * Update libqt4-dev dependencies.
 
  -- Fathi Boudra <fabo@debian.org>  Sat, 08 Mar 2008 10:09:02 +0100
 

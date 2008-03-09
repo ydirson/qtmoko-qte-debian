@@ -2,6 +2,8 @@
 
 export QTDIR := $(shell pwd)
 export PATH := $(QTDIR)/bin:$(PATH)
+# workaround to use lrelease. fixed in Qt >= 4.4.x
+export LD_LIBRARY_PATH := $(QTDIR)/lib:$(LD_LIBRARY_PATH)
 
 QTVERSION := $(shell ls changes-* | cut -f2 -d '-')
 CURRENTVERSION := $(shell head -1 debian/changelog  | sed 's/[^(]*(\([^)]*\)).*/\1/')
