@@ -60,3 +60,33 @@ Fix compilation for Linux MIPS-I code.
  	beqz $2,1b
  	nop
  	jr   $31
+@@ -68,6 +76,7 @@
+ 	.globl	q_atomic_test_and_set_acquire_ptr
+ 	.ent	q_atomic_test_and_set_acquire_ptr
+ q_atomic_test_and_set_acquire_ptr:
++	.set mips2
+ 1:	ll   $8,0($4)
+ 	bne  $8,$5,2f
+ 	move $2,$6
+@@ -77,6 +86,7 @@
+ 	jr   $31
+ 	nop
+ 2:	sync
++	.set mips0
+ 	jr   $31
+ 	move $2,$0
+ 	.end	q_atomic_test_and_set_acquire_ptr
+@@ -84,11 +94,13 @@
+ 	.globl	q_atomic_test_and_set_release_ptr
+ 	.ent	q_atomic_test_and_set_release_ptr
+ q_atomic_test_and_set_release_ptr:
++	.set mips2
+ 	sync
+ 1:	ll   $8,0($4)
+ 	bne  $8,$5,2f
+ 	move $2,$6
+ 	sc   $2,0($4)
++	.set mips0
+ 	beqz $2,1b
+ 	nop
+ 	jr   $31
