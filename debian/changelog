@@ -1,3 +1,11 @@
+qt4-x11 (4.4.0~rc1-3) UNRELEASED; urgency=low
+
+  [ NOT RELEASED YET ]
+
+  * Replace libqcncodecs.so in libqt4-gui (<< 4.4.0~beta1-1). (Closes: #475340)
+
+ -- Fathi Boudra <fabo@debian.org>  Thu, 10 Apr 2008 09:15:01 +0200
+
 qt4-x11 (4.4.0~rc1-2) unstable; urgency=low
 
   * Add patch for Explicit template specialization cannot have a storage class
