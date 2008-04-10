@@ -5,14 +5,14 @@ m68k tree, they should appear like this soon also in the upstream source.
 
 --- a/src/corelib/io/qfilesystemwatcher_inotify.cpp
 +++ b/src/corelib/io/qfilesystemwatcher_inotify.cpp
-@@ -108,6 +108,10 @@
- # define __NR_inotify_init      269
- # define __NR_inotify_add_watch 270
- # define __NR_inotify_rm_watch  271
+@@ -112,6 +112,10 @@
+ # define __NR_inotify_init	240
+ # define __NR_inotify_add_watch	241
+ # define __NR_inotify_rm_watch	242
 +#elif defined (__mc68000__)
-+# define __NR_inotify_init      284
-+# define __NR_inotify_add_watch 285
-+# define __NR_inotify_rm_watch  286
++# define __NR_inotify_init	284
++# define __NR_inotify_add_watch	285
++# define __NR_inotify_rm_watch	286
  #else
  # error "This architecture is not supported. Please talk to qt-bugs@trolltech.com"
  #endif

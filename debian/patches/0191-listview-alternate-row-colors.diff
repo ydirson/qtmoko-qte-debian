@@ -11,7 +11,7 @@ the only culprit. (QTreeView was fixed by TT already.)
 
 --- a/src/gui/itemviews/qlistview.cpp
 +++ b/src/gui/itemviews/qlistview.cpp
-@@ -1078,7 +1078,7 @@
+@@ -1097,7 +1097,7 @@
                  option.state &= ~QStyle::State_Enabled;
                  cg = QPalette::Disabled;
              } else {

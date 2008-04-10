@@ -1,0 +1,4 @@
+libqt4-xmlpatterns-dbg: sharedobject-in-library-directory-missing-soname usr/lib/libQtXmlPatterns.so.4.4.0.debug
+libqt4-xmlpatterns-dbg: binary-with-bad-dynamic-table ./usr/lib/libQtXmlPatterns.so.4.4.0.debug
+libqt4-xmlpatterns-dbg: shared-lib-without-dependency-information ./usr/lib/libQtXmlPatterns.so.4.4.0.debug
+

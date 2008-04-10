@@ -1,22 +1,15 @@
 # qt-copy patches
 0167-fix-group-reading.diff
-0172-prefer-xrandr-over-xinerama.diff
-0175-fix-s390-qatomic.diff
-0176-coverity-fixes.diff
-0178-transparency-window-types.diff
-0179-transient-hack.diff
 0180-window-role.diff
-0187-fix-font-fixed-pitch.diff
 0191-listview-alternate-row-colors.diff
 0192-itemdelegate-palette-state.diff
-0194-fix-moveonly-dnd-in-itemviews.diff
 0195-compositing-properties.diff
-0200-fix-qsslsocket-waitfor.diff
 0203-qtexthtmlparser-link-color.diff
-0205-fast-qpixmap-fill.diff
 0209-prevent-qt-mixing.diff
 0210-fix-crash-q3stylesheet-font-size.diff
-0211-q3action-crash.diff
+0214-fix-qgraphicsproxywidget-tab-crash.diff
+0216-allow-isystem-for-headers.diff
+0220-no-x-recursion-in-xerrhandler.diff
 
 # debian patches
 01_qmake_for_debian.diff
@@ -24,19 +17,16 @@
 03_launch_moc-qt4.diff
 04_launch_uic-qt4.diff
 05_append_qt4_target.diff
-06_qtdemo_destdir.diff
 07_trust_dpkg-arch_over_uname-m.diff
-08_load_ssl.diff
 09_qmake_lflags_as-needed.diff
 10_config_tests_fixes.diff
+11_qdbus_to_dbus_fix.diff
 20_mips_atomic_ops.diff
-#21_assume_no_fpu_for_embedded_devices.diff
-30_arm_ftbfs_fixes.diff
-31_arm_eabi_fix.diff
 40_alpha_ice.diff
 41_disable_opengl_visibility.diff
 50_kfreebsd_build_fix.diff
 60_m68k_inotify_fix.diff
 70_hppa_ldcw_fix.diff
+71_hppa_unaligned_access_fix_458133.diff
 80_hurd_max_path.diff
-91_qmake_lflags_no-undefined.diff
+90_gcc43.diff

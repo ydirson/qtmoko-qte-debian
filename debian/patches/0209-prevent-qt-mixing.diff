@@ -1,7 +1,7 @@
 qt-bugs@ issue : none
 Trolltech task ID : none
 bugs.kde.org number : none
-applied: no
+applied: yes
 author: Lubos Lunak <l.lunak@kde.org>
 
 This patch changes QObjectPrivateVersion, thus preventing mixing
@@ -15,7 +15,7 @@ It only further enforces using the same sources for the whole Qt build.
 
 --- a/src/corelib/kernel/qobject_p.h
 +++ b/src/corelib/kernel/qobject_p.h
-@@ -82,7 +82,9 @@
+@@ -85,7 +85,9 @@
  
  inline QObjectData::~QObjectData() {}
  

@@ -1,44 +1,20 @@
 qt-bugs@ issue : 167704
-Trolltech task ID : 168283
+Trolltech task ID : 168283 (status: "fixed" for Qt 4.4.0, but effectively refused)
 bugs.kde.org number : none
 applied: no
 author: Lubos Lunak <l.lunak@kde.org>
 
 NOTE: It is suggested to apply patch #0209 as well when this patch is used.
 
- Hello,
+This patch uses object name as a fallback for window role if no window role
+is set explicitly using setWindowRole(). Since Qt3 always used the object
+name as the window role and most Qt3/KDE3 code is ported to call setObjectName(),
+this makes the window role set in many cases (which KWin uses for window identifying).
 
- there are several problems with Qt's support for the WM_WINDOW_ROLE property:
-
-- plain "QWidget w; w.setWindowRole( "test" );" aborts with 
-Qt::WA_WState_Created not being set
-
-- while QWidgetPrivate::create_sys() uses QObject object name for initial 
-setting of WM_WINDOW_ROLE, later calls to QObject::setObjectName() have no 
-effect on it
-
-- Qt3 used the QObject object name for setting the window role, however Qt4 
-uses some strange mix of object name and what's set manually with 
-setWindowRole().
-
- The result is that that Qt3 and KDE3 apps that had WM_WINDOW_ROLE set don't 
-in their Qt4 and KDE4 versions. I suggest using the attached patch which 
-fixed all of the above problems:
-
-- set explicit window role is used when actually set, otherwise the object 
-name is used. This e.g. takes care of apps ported using setObjectName() from 
-their Qt3/KDE3 versions (including e.g. Qt Designer) and generally makes it 
-somewhat less demanding to actually set a usable window role (I can't quite 
-see how many developers would be bothered to explicitly call 
-setWindowRole()).
-
-- calls to QObject::setObjectName() update the WM_WINDOW_ROLE property. Since 
-QObjectPrivate already has a virtual dtor I think adding another virtual for 
-handling the QWidget-related functionality from QtCore is fine.
 
 --- a/src/corelib/kernel/qobject.cpp
 +++ b/src/corelib/kernel/qobject.cpp
-@@ -1013,9 +1013,18 @@
+@@ -1016,9 +1016,18 @@
  {
      Q_D(QObject);
      d->objectName = name;
@@ -59,59 +35,65 @@ handling the QWidget-related functionality from QtCore is fine.
      QObject::child is compat but needs to call itself recursively,
 --- a/src/corelib/kernel/qobject_p.h
 +++ b/src/corelib/kernel/qobject_p.h
-@@ -144,6 +144,9 @@
+@@ -146,6 +146,9 @@
      mutable quint32 connectedSignals;
  
      QString objectName;
 +#if defined(Q_WS_X11)
 +    virtual void checkWindowRole();
 +#endif
- };
  
- class QSemaphore;
+     // Note: you must hold the signalSlotLock() before accessing the lists below or calling the functions
+     struct Connection
 --- a/src/gui/kernel/qwidget_p.h
 +++ b/src/gui/kernel/qwidget_p.h
-@@ -314,6 +314,7 @@
+@@ -328,6 +328,7 @@
  
  #if defined(Q_WS_X11)
-     void setWindowRole(const char *role);
+     void setWindowRole();
 +    virtual void checkWindowRole();
      void sendStartupMessage(const char *message) const;
+     void setNetWmWindowTypes();
  #endif
- 
 --- a/src/gui/kernel/qwidget_x11.cpp
 +++ b/src/gui/kernel/qwidget_x11.cpp
-@@ -676,11 +676,8 @@
-         // when we create a toplevel widget, the frame strut should be dirty
+@@ -714,13 +714,17 @@
          data.fstrut_dirty = 1;
  
--        // declare the widget's object name as window role
--        QByteArray objName = q->objectName().toLocal8Bit();
--        XChangeProperty(dpy, id,
--                        ATOM(WM_WINDOW_ROLE), XA_STRING, 8, PropModeReplace,
--                        (unsigned char *)objName.constData(), objName.length());
-+        // declare the widget's object name as window role if not set
-+        setWindowRole( !q->windowRole().isEmpty() ? q->windowRole().toUtf8() : q->objectName().toUtf8());
+         // declare the widget's window role
++        QByteArray windowRole;
+         if (QTLWExtra *topData = maybeTopData()) {
+-            if (!topData->role.isEmpty()) {
+-                QByteArray windowRole = topData->role.toUtf8();
+-                XChangeProperty(dpy, id,
+-                                ATOM(WM_WINDOW_ROLE), XA_STRING, 8, PropModeReplace,
+-                                (unsigned char *)windowRole.constData(), windowRole.length());
+-            }
++            if (!topData->role.isEmpty())
++                windowRole = topData->role.toUtf8();
++        }
++        if (windowRole.isEmpty()) // use object name as a fallback
++            windowRole = objectName.toUtf8();
++        if (!windowRole.isEmpty()) {
++            XChangeProperty(dpy, id,
++                            ATOM(WM_WINDOW_ROLE), XA_STRING, 8, PropModeReplace,
++                            (unsigned char *)windowRole.constData(), windowRole.length());
+         }
  
          // set client leader property
-         XChangeProperty(dpy, id, ATOM(WM_CLIENT_LEADER),
-@@ -2676,12 +2673,20 @@
- void QWidgetPrivate::setWindowRole(const char *role)
- {
-     Q_Q(QWidget);
--    Q_ASSERT(q->testAttribute(Qt::WA_WState_Created));
-+    if( !q->testAttribute(Qt::WA_WState_Created))
-+        return;
-     XChangeProperty(X11->display, q->internalWinId(),
-                     ATOM(WM_WINDOW_ROLE), XA_STRING, 8, PropModeReplace,
-                     (unsigned char *)role, qstrlen(role));
+@@ -2857,6 +2861,17 @@
+                     (unsigned char *)windowRole.constData(), windowRole.length());
  }
  
 +void QWidgetPrivate::checkWindowRole()
 +{
 +    Q_Q(QWidget);
-+    if( q->windowRole().isEmpty())
-+        setWindowRole( objectName.toUtf8());
++    if( !q->windowRole().isEmpty() || !q->internalWinId())
++        return;
++    QByteArray windowRole = objectName.toUtf8(); // use as a fallback
++    XChangeProperty(X11->display, q->internalWinId(),
++                    ATOM(WM_WINDOW_ROLE), XA_STRING, 8, PropModeReplace,
++                    (unsigned char *)windowRole.constData(), windowRole.length());
 +}
 +
  Q_GLOBAL_STATIC(QX11PaintEngine, qt_widget_paintengine)

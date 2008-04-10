@@ -1,0 +1,6 @@
+libqt4-webkit-dbg: sharedobject-in-library-directory-missing-soname usr/lib/libQtWebKit.so.4.4.0.debug
+libqt4-webkit-dbg: binary-with-bad-dynamic-table ./usr/lib/libQtWebKit.so.4.4.0.debug
+libqt4-webkit-dbg: binary-with-bad-dynamic-table ./usr/lib/qt4/plugins/designer/libqwebview.so.debug
+libqt4-webkit-dbg: shared-lib-without-dependency-information ./usr/lib/libQtWebKit.so.4.4.0.debug
+libqt4-webkit-dbg: shared-lib-without-dependency-information ./usr/lib/qt4/plugins/designer/libqwebview.so.debug
+

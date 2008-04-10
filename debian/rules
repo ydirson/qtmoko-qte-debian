@@ -2,7 +2,7 @@
 
 export QTDIR := $(shell pwd)
 export PATH := $(QTDIR)/bin:$(PATH)
-# workaround to use lrelease. fixed in Qt >= 4.4.x
+# workaround to use lrelease.
 export LD_LIBRARY_PATH := $(QTDIR)/lib:$(LD_LIBRARY_PATH)
 
 QTVERSION := $(shell ls changes-* | cut -f2 -d '-')
@@ -18,20 +18,27 @@ DEB_MAKE_BUILD_TARGET := sub-src sub-tools
 DEB_MAKE_INSTALL_TARGET := INSTALL_ROOT=$(DEB_DESTDIR) install
 DEB_DH_INSTALL_SOURCEDIR := debian/tmp
 
-# Ensure the *.debug files aren't included in any package other than
-# libqt4-debug.
+# Ensure the *.debug files aren't included in any package other than libqt4-dbg
 DEB_DH_INSTALL_ARGS := --exclude=.debug
 
 DEB_MAKE_CLEAN_TARGET := confclean distclean
 DEB_DH_MAKESHLIBS_ARGS_ALL := -V
 
-DEB_DH_STRIP_ARGS_libqt4-debug := --exclude=.debug
+DEB_DH_STRIP_ARGS_libqt4-dbg := --exclude=.debug
 
 DEB_DH_SHLIBDEPS_ARGS_ALL := --exclude=.debug
 
-DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
+# Qt4.4.0-beta1 does not contain changes file
+#DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
 
 DEB_INSTALL_DOCS_ALL := GPL_EXCEPTION_ADDENDUM.TXT
+
+ibase_architectures := i386 kfreebsd-i386 kfreebsd-amd64 knetbsd-i386 netbsd-i386 amd64 sparc powerpc
+ifeq ($(DEB_HOST_ARCH),$(findstring $(DEB_HOST_ARCH), $(ibase_architectures)))
+	EXTRA_CONFIGURE_OPTS += -plugin-sql-ibase
+else
+	EXTRA_CONFIGURE_OPTS += -no-sql-ibase
+endif
 
 ifeq ($(DEB_HOST_ARCH),arm)
 	EXTRA_CONFIGURE_OPTS += -DQT_QLOCALE_USES_FCVT
@@ -43,7 +50,10 @@ else
         PLATFORM_ARG = glibc-g++
 endif
 
-common-configure-arch::
+common-configure-arch:: config.status
+
+config.status:
+	# Test broken hppa kernel with glibc >= 2.5
 ifeq ($(DEB_HOST_ARCH),hppa)
 	mkdir -p debian/hppa-tmp
 	echo "Testing whether getdents kernel bug is present on this buildd - see #433768"
@@ -73,6 +83,8 @@ endif
 	            -plugindir "/usr/lib/qt4/plugins" \
 	            -translationdir "/usr/share/qt4/translations" \
 	            -sysconfdir "/etc/xdg" \
+	            -demosdir "/usr/lib/qt4/demos" \
+	            -examplesdir "/usr/lib/qt4/examples" \
 	            -platform $(PLATFORM_ARG) \
 	            -fast \
 	            -no-rpath \
@@ -82,52 +94,88 @@ endif
 	            -system-libjpeg \
 	            -system-nas-sound \
 	            -qt-gif \
-	            -qt-sql-psql \
-	            -qt-sql-mysql \
-	            -qt-sql-sqlite \
+	            -plugin-sql-mysql \
+	            -plugin-sql-odbc \
+	            -plugin-sql-psql \
+	            -plugin-sql-sqlite \
+	            -plugin-sql-sqlite2 \
 	            -system-sqlite \
-	            -qt-sql-sqlite2 \
 	            -I/usr/include/freetype2 \
 	            -lfontconfig \
 	            -cups \
-	            -no-exceptions \
-	            -qdbus \
+	            -exceptions \
+	            -dbus \
 	            -pch \
-	            -nomake examples \
-	            -nomake demos \
+	            -no-phonon \
+	            -svg \
+	            -webkit \
+	            -xmlpatterns \
 	            $(EXTRA_CONFIGURE_OPTS)
 
 clean::
 # Extra stuff missed by confclean/distclean
-	rm -f Makefile \
-	      bin/qmake-qt4 \
-	      mkspecs/default \
-	      src/corelib/global/arch \
-	      examples/tools/plugandpaint/plugins/*.so \
-	      config.status \
-	      demos/shared/libdemo_shared.prl \
-	      mkspecs/qconfig.pri \
-	      src/corelib/global/qconfig.* \
-	      tools/qtestlib/updater/updater \
-	      tools/qtestlib/updater/updater.debug \
-	      examples/tools/plugandpaint/plugins/libpnp_basictools.a \
-	      examples/qdbus/complexpingpong/Makefile* \
-	      examples/qdbus/pingpong/Makefile*
-
-	rm -rf lib/ plugins/ mkspecs/glibc-g++
-
-	# clean up after hppa tests
+	
+	# Misc. files
+	rm -f \
+	  config.status \
+	  config.tests/.qmake.cache \
+	  examples/dbus/*/Makefile.* \
+	  mkspecs/qconfig.pri \
+	  src/corelib/global/qconfig.* \
+	;
+	
+	# Misc. directories
+	rm -rf \
+	  examples/tools/plugandpaint/plugins/ \
+	  examples/tools/styleplugin/styles/ \
+	  lib/ \
+	  mkspecs/glibc-g++/ \
+	  plugins/ \
+	;
+	
+	# hppa test directory
 	rm -rf debian/hppa-tmp
 
-	find bin/ config.tests/ qmake/ -exec file {} \; | grep ELF | sed 's/:.*//'  | xargs rm -f
+	# Leftover dirs
+	find -depth -type d \( -false \
+	  -o -name debug-shared \
+	  -o -name debug-static \
+	  -o -name \*.gch \
+	  -o -name .moc\* \
+	  -o -name .obj\* \
+	  -o -name .pch \
+	  -o -name pkgconfig \
+	  -o -name .rcc \
+	  -o -name release-shared \
+	  -o -name release-static \
+	  -o -name .uic \
+	\) -print0 | xargs -0 rm -rf
+		
+	# Leftover files and all symlinks
+	find \( -false \
+	  -o -name \*.a \
+	  -o -name Makefile.Debug \
+	  -o -name Makefile.Release \
+	  -o -name \*.o \
+	  -o -name \*.prl \
+	  -o -name \*.so \
+	  -o -name \*.so.debug \
+	  -o -type l \
+	\) -delete
+	
+	# Delete all Makefiles, excluding some from src/3rdparty
+	find $(CURDIR) -name Makefile \
+	  ! -path $(CURDIR)/src/3rdparty/Makefile \
+	  ! -path $(CURDIR)/src/3rdparty/freetype/\* \
+	  ! -path $(CURDIR)/src/3rdparty/zlib/\* \
+	-delete
+	
+	# Any remaining executables
+	find $(CURDIR) -type f -exec file -i '{}' \; | grep \
+	  -e application/x-executable \
+	| cut -d ':' -f 1 | xargs rm -f
 
-	find include/ -type l -print0 | xargs -0r rm -f
-	find . -mindepth 2 -name Makefile -print0 \
-	                -o -name Makefile.Debug -print0 \
-	                -o -name Makefile.Release -print0 \
-	                | xargs -0r rm -f
-
-	# generate on build
+	# Generated on build
 	rm -f debian/shlibs.local
 
 common-install-arch::
@@ -140,51 +188,55 @@ common-install-arch::
 	find $(DEB_DESTDIR)/usr/lib -type f -name '*.prl' \
 		-exec sed -i -e "/^QMAKE_PRL_BUILD_DIR/d" {} \;
 
-install/libqt4-core::
+install/libqtcore4::
 	$(CURDIR)/bin/lrelease-qt4 debian/translations/qt_ca.ts \
 		-qm $(DEB_DESTDIR)/usr/share/qt4/translations/qt_ca.qm
 
+install/qt4-demos::
+	mkdir -p debian/$(cdbs_curpkg)/usr/lib/qt4/demos/qtdemo
+	uudecode -o debian/$(cdbs_curpkg)/usr/lib/qt4/demos/qtdemo/qtdemo.qhc \
+		debian/collection/qtdemo.qhc.uu
+
 install/qt4-designer::
 	install -D -p -m0644 debian/desktop/designer-qt4.desktop \
-		debian/qt4-designer/usr/share/applications/designer-qt4.desktop
-	mkdir -p debian/qt4-designer/usr/share/pixmaps
-	uudecode -o debian/qt4-designer/usr/share/pixmaps/designer.png \
+		debian/$(cdbs_curpkg)/usr/share/applications/designer-qt4.desktop
+	mkdir -p debian/$(cdbs_curpkg)/usr/share/pixmaps
+	uudecode -o debian/$(cdbs_curpkg)/usr/share/pixmaps/designer.png \
 		debian/desktop/designer.png.uu
 
 install/qt4-dev-tools::
 	install -D -p -m0644 debian/desktop/assistant-qt4.desktop \
-		debian/qt4-dev-tools/usr/share/applications/assistant-qt4.desktop
+		debian/$(cdbs_curpkg)/usr/share/applications/assistant-qt4.desktop
 	install -D -p -m0644 debian/desktop/linguist-qt4.desktop \
-		debian/qt4-dev-tools/usr/share/applications/linguist-qt4.desktop
-	mkdir -p debian/qt4-dev-tools/usr/share/pixmaps
-	uudecode -o debian/qt4-dev-tools/usr/share/pixmaps/assistant.png \
+		debian/$(cdbs_curpkg)/usr/share/applications/linguist-qt4.desktop
+	mkdir -p debian/$(cdbs_curpkg)/usr/share/pixmaps
+	uudecode -o debian/$(cdbs_curpkg)/usr/share/pixmaps/assistant.png \
 		debian/desktop/assistant.png.uu
-	uudecode -o debian/qt4-dev-tools/usr/share/pixmaps/linguist.png \
+	uudecode -o debian/$(cdbs_curpkg)/usr/share/pixmaps/linguist.png \
 		debian/desktop/linguist.png.uu
 
 install/qt4-qtconfig::
 	install -D -p -m0644 debian/desktop/qt4config.desktop \
-		debian/qt4-qtconfig/usr/share/applications/qt4config.desktop
-	mkdir -p debian/qt4-qtconfig/usr/share/pixmaps
-	uudecode -o debian/qt4-qtconfig/usr/share/pixmaps/qtconfig.png \
+		debian/$(cdbs_curpkg)/usr/share/applications/qt4config.desktop
+	mkdir -p debian/$(cdbs_curpkg)/usr/share/pixmaps
+	uudecode -o debian/$(cdbs_curpkg)/usr/share/pixmaps/qtconfig.png \
 		debian/desktop/qtconfig.png.uu
 
-binary-install/qt4-doc::
-# Tar up the examples to include them in qt4-doc
-	[ ! -f examples/Makefile ] || $(MAKE) -k -C examples distclean
-	find examples/ -name '*.debug' -print0 | xargs -0r rm -f
-	tar -cv examples/ | \
-	gzip -9 > debian/qt4-doc/usr/share/doc/qt4-doc/qt4-examples.tar.gz
+binary-install/libqt4-dbg::
+# Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files
+	dh_install -plibqt4-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
 
-	[ ! -f demos/Makefile ] || $(MAKE) -k -C demos distclean
-	find demos/ -name '*.debug' -print0 | xargs -0r rm -f
-	tar -cv demos/ | \
-	gzip -9 > debian/qt4-doc/usr/share/doc/qt4-doc/qt4-demos.tar.gz
+binary-install/libqt4-webkit-dbg::
+# Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files
+	dh_install -plibqt4-webkit-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
 
-binary-install/libqt4-debug::
-# Run dh_install without the default DEB_DH_INSTALL_ARGS to install the
-# *.debug files.
-	dh_install -plibqt4-debug --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
+binary-install/libqt4-xmlpatterns-dbg::
+# Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files
+	dh_install -plibqt4-xmlpatterns-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
+
+binary-post-install/libqt4-dev::
+	doxytag -t debian/$(cdbs_curpkg)/usr/share/qt4/doc/qt4.tag \
+		$(DEB_DESTDIR)/usr/share/qt4/doc/html
 
 # Automatically install lintian overrides, stolen from debian-qt-kde.mk
 $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:

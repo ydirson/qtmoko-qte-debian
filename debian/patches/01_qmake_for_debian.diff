@@ -14,4 +14,4 @@ Ensures qmake generates Makefiles that use the -qt4 tools.
 +QMAKE_UIC             = $$[QT_INSTALL_BINS]/uic-qt4
  
  QMAKE_AR              = ar cqs
- QMAKE_RANLIB          =
+ QMAKE_OBJCOPY         = objcopy

@@ -1,1 +1,5 @@
 usr/bin/qtconfig-qt4
+usr/share/qt4/translations/qtconfig_pl.qm
+usr/share/qt4/translations/qtconfig_zh_CN.qm
+usr/share/qt4/translations/qtconfig_zh_TW.qm
+

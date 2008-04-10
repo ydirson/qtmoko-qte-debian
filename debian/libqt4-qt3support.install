@@ -1,2 +1,4 @@
 usr/lib/libQt3Support.so.*
 usr/lib/qt4/plugins/accessible/libqtaccessiblecompatwidgets.so
+usr/lib/qt4/plugins/designer/libqt3supportwidgets.so
+

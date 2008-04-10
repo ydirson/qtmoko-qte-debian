@@ -1,3 +1,148 @@
+qt4-x11 (4.4.0~rc1-2) unstable; urgency=low
+
+  * Add patch for Explicit template specialization cannot have a storage class
+    with gcc-4.3. Specializations of templates cannot explicitly specify
+    a storage class, and have the same storage as the primary template. 
+
+ -- Fathi Boudra <fabo@debian.org>  Wed, 09 Apr 2008 09:40:00 +0200
+
+qt4-x11 (4.4.0~rc1-1) unstable; urgency=low
+
+  * New upstream release. (Closes: #469783)
+
+  +++ Changes by Modestas Vainius:
+
+  * Refresh qt-copy patches:
+    * 0167-fix-group-reading.diff - adjust offsets.
+    * 0180-window-role.diff - adjust offsets.
+    * 0195-compositing-properties.diff - adjust offsets.
+    * 0203-qtexthtmlparser-link-color.diff - adjust offsets.
+    * 0209-prevent-qt-mixing.diff - adjust offsets.
+    * 0214-fix-qgraphicsproxywidget-tab-crash.diff - adjust offsets.
+    * 0216-allow-isystem-for-headers.diff - adjust offsets.
+  * Remove qt-copy patches:
+    * 0172-prefer-xrandr-over-xinerama.diff - merged upstream.
+    * 0178-transparency-window-types.diff - merged upstream.
+    * 0215-compile-with-Xcursor-linkage.diff - merged upstream.
+    * 0217-qurl-isempty-regression.diff - merged upstream.
+    * 0218-qassert-macro-fix.diff - merged upstream.
+    * fix-qt_bootstrapped-typo.diff  - merged upstream.
+  * Add qt-copy patches:
+    * 0220-no-x-recursion-in-xerrhandler.diff - adjust offsets.
+  * Refresh Debian patches:
+    * 02_launch_assistant-qt4.diff - adjust offsets.
+    * 05_append_qt4_target.diff - adopt to upstream changes. lrelease and
+      lupdate have been moved to tools/linguist/, adjust offsets.
+    * 50_kfreebsd_build_fix.diff - adjust offsets.
+    * 80_hurd_max_path.diff - adjust offsets.
+  * Remove Debian patches:
+    * 08_load_ssl.diff - different fix applied upstream.
+  * Update *.install files:
+    * qt4-dev-tools.install: a few renames of the language files,
+      s/assistant-qt3/assistant-qt4/, add usr/bin/xmlpatterns
+  * Add libqt4-core transitional package. (Closes: #473658)
+  * Add debian/not-installed to document files which are deliberately not
+    installed
+  * Avoid calling ./configure repeatedly during build/install: tie ./configure
+    to config.status
+
+  +++ Changes by Fathi Boudra:
+
+  * Re-introduce LD_LIBRARY_PATH workaround to use lrelease.
+  * Remove Conflicts against libqt4-core.
+  * Reorder libqt4-sql dependencies to have packages available on all
+    architectures listed first. (Closes: #473348)
+  * Add architectures availability list to libqt4-sql-ibase package.
+    (Closes: #473348)
+  * Add patch to fix unaligned access on hppa. Thanks to Bernhard R. Link.
+    (Closes: #458133)
+  * Add patch to replace remaining qdbus by dbus. Fix libqtscriptdbus build.
+  * Update configure options:
+    * Replace -qdbus by -dbus.
+    * Add -svg.
+
+  +++ Changes by Matthew Rosewarne:
+
+  * Rewrite clean rule to remove remaining build cruft.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 07 Apr 2008 01:36:54 -0400
+
+qt4-x11 (4.4.0~beta1-1) experimental; urgency=low
+
+  * New upstream release.
+
+  * Add build dependencies: doxygen, firebird2.0-dev, libiodbc2-dev,
+    libpam0g-dev, libreadline5-dev, libxslt1-dev.
+  * Split libqt4-gui and libqt4-core packages.
+  * Create package for each Qt module.
+  * Enable all SQL drivers as plugins and add related packages:
+    libqt4-sql-ibase, libqt4-sql-mysql, libqt4-sql-odbc, libqt4-sql-psql,
+    libqt4-sql-sqlite, libqt4-sql-sqlite2.
+  * Add packages: libqt4-assistant, libqt4-dbus, libqt4-designer, libqt4-help,
+    libqt4-network, libqt4-opengl, libqt4-script, libqt4-svg, libqt4-test,
+    libqt4-webkit, libqt4-xml, libqt4-xmlpatterns and qt4-demos.
+  * Replace libqt4-core by libqtcore4 package.
+  * Rename libqt4-debug to libqt4-dbg like other debug packages in Debian.
+  * Update .lintian override files.
+  * Update .install files.
+  * Move translations files in their respective packages.
+  * Disable DEB_INSTALL_CHANGELOGS_ALL.
+  * Build ibase sql plugin on supported architectures only.
+  * Enable demos, examples, WebKit and XmlPatterns.
+  * Enable exceptions. It is a dependency to XmlPatterns module.
+  * Add qtdemo help collection file.
+  * Split WebKit and XmlPatterns debug packages from libqt4-dbg.
+  * Generate Doxygen tagfile in libqt4-dev. Thanks to Matthew Rosewarne.
+  * Examples and Demos are not shipped compressed anymore.
+  * Refresh qt-copy patches:
+    * 0167-fix-group-reading
+    * 0172-prefer-xrandr-over-xinerama
+    * 0178-transparency-window-types
+    * 0180-window-role
+    * 0191-listview-alternate-row-colors
+    * 0192-itemdelegate-palette-state
+    * 0195-compositing-properties
+    * 0203-qtexthtmlparser-link-color
+    * 0209-prevent-qt-mixing
+    * 0210-fix-crash-q3stylesheet-font-size
+  * Remove qt-copy patches:
+    * 0175-fix-s390-qatomic
+    * 0176-coverity-fixes
+    * 0179-transient-hack
+    * 0187-fix-font-fixed-pitch
+    * 0194-fix-moveonly-dnd-in-itemviews
+    * 0200-fix-qsslsocket-waitfor
+    * 0205-fast-qpixmap-fill
+    * 0211-q3action-crash
+  * Add qt-copy patches:
+    * 0214-fix-qgraphicsproxywidget-tab-crash
+    * 0215-compile-with-Xcursor-linkage
+    * 0216-allow-isystem-for-headers
+    * 0217-qurl-isempty-regression
+    * 0218-qassert-macro-fix
+    * fix-qt_bootstrapped-typo
+  * Refresh Debian patches:
+    * 01_qmake_for_debian
+    * 02_launch_assistant-qt4
+    * 03_launch_moc-qt4
+    * 04_launch_uic-qt4
+    * 05_append_qt4_target
+    * 08_load_ssl
+    * 10_config_tests_fixes
+    * 40_alpha_ice
+    * 41_disable_opengl_visibility
+    * 50_kfreebsd_build_fix
+    * 60_m68k_inotify_fix
+    * 80_hurd_max_path
+  * Remove Debian patches:
+    * 06_qtdemo_destdir. Useless as we ship qtdemo again.
+    * 30_arm_ftbfs_fixes. Merged upstream.
+    * 31_arm_eabi_fix. Upstream changed arm architecture handling.
+      This patch doesn't apply as it is.
+    * 91_qmake_lflags_no-undefined. Merged upstream.
+
+ -- Fathi Boudra <fabo@debian.org>  Thu, 13 Mar 2008 22:34:45 +0100
+
 qt4-x11 (4.3.4-2) unstable; urgency=low
 
   * Add patches:
