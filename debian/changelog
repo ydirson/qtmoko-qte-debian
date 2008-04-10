@@ -1,5 +1,11 @@
 qt4-x11 (4.4.0~rc1-3) UNRELEASED; urgency=low
 
+  +++ Changes by Sune Vuorela:
+
+  * Clean up a bit in the dependencies of libqt4-dev
+
+  +++ Changes by Fathi Boudra:
+
   * Add libqt4-svg dependency to libqt4-gui. It helps for the transition as
     libQtSvg.so.4 was previously in libqt4-gui package. (Closes: #475324)
   * Replace libqcncodecs.so in libqt4-gui (<< 4.4.0~beta1-1). (Closes: #475340)

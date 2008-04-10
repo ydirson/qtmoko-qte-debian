@@ -310,24 +310,13 @@ Section: libdevel
 Depends: ${shlibs:Depends}, ${misc:Depends},
  libqt4-gui (= ${binary:Version}), libqt4-network (= ${binary:Version}),
  libqt4-opengl (= ${binary:Version}), libqt4-script (= ${binary:Version}),
- libqt4-sql (= ${binary:Version}), libqt4-sql-mysql (= ${binary:Version}),
- libqt4-sql-odbc (= ${binary:Version}), libqt4-sql-psql (= ${binary:Version}),
- libqt4-sql-sqlite (= ${binary:Version}), libqt4-sql-sqlite2 (= ${binary:Version}),
- libqt4-svg (= ${binary:Version}), libqt4-webkit (= ${binary:Version}),
- libqt4-xml (= ${binary:Version}), libqt4-xmlpatterns (= ${binary:Version}),
- libqt4-dbus (= ${binary:Version}), libqt4-qt3support (= ${binary:Version}),
- libqt4-designer (= ${binary:Version}), libqt4-help (= ${binary:Version}),
+ libqt4-sql (= ${binary:Version}), libqt4-svg (= ${binary:Version}), 
+ libqt4-webkit (= ${binary:Version}), libqt4-xml (= ${binary:Version}), 
+ libqt4-xmlpatterns (= ${binary:Version}),  libqt4-dbus (= ${binary:Version}), 
+ libqt4-qt3support (= ${binary:Version}), libqt4-designer (= ${binary:Version}), 
+ libqt4-help (= ${binary:Version}),
  libqt4-assistant (= ${binary:Version}), libqt4-test (= ${binary:Version}),
- libqt4-sql-ibase (= ${binary:Version}) [i386 kfreebsd-i386 kfreebsd-amd64 knetbsd-i386 netbsd-i386 amd64 sparc powerpc]
- firebird2.0-dev [i386 kfreebsd-i386 kfreebsd-amd64 knetbsd-i386 netbsd-i386 amd64 sparc powerpc],
- libaudio-dev, libcupsys2-dev, libdbus-1-dev, libfreetype6-dev,
- libgl1-mesa-dev | libgl-dev, libglib2.0-dev, libglu1-mesa-dev | libglu-dev,
- libice-dev, libiodbc2-dev, libjpeg62-dev, libmng-dev, libmysqlclient15-dev,
- libpam0g-dev, libpng12-dev, libpq-dev, libreadline5-dev, libsm-dev,
- libsqlite0-dev, libsqlite3-dev, libtiff4-dev, libx11-dev, libxcursor-dev,
- libxext-dev, libxft-dev, libxi-dev, libxinerama-dev, libxmu-dev,
- libxrandr-dev, libxrender-dev, libxslt1-dev, libxt-dev, x11proto-core-dev,
- zlib1g-dev
+ libgl1-mesa-dev | libgl-dev, libglu1-mesa-dev | libglu-dev,
 Conflicts: qt3-dev-tools (<= 3:3.3.4-7)
 Suggests: qt4-dev-tools, qt4-doc
 Description: Qt 4 development files
