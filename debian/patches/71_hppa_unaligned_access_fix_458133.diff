@@ -1,0 +1,91 @@
+author: Bernhard R. Link <brlink@debian.org>
+
+Fix unaligned access on hppa
+
+--- a/src/corelib/global/qnumeric_p.h
++++ b/src/corelib/global/qnumeric_p.h
+@@ -64,11 +64,17 @@
+ static const unsigned char qt_armfpa_inf_bytes[] = { 0, 0, 0xf0, 0x7f, 0, 0, 0, 0 };
+ static inline double qt_inf()
+ {
++    union { double d; unsigned char bytes[8]; } val;
++
+ #ifdef QT_ARMFPA
+-    return *reinterpret_cast<const double *>(qt_armfpa_inf_bytes);
++    qMemCopy(val.bytes, qt_armfpa_inf_bytes, 8);
+ #else
+-    return *reinterpret_cast<const double *>(QSysInfo::ByteOrder == QSysInfo::BigEndian ? qt_be_inf_bytes : qt_le_inf_bytes);
++    if (QSysInfo::ByteOrder == QSysInfo::BigEndian)
++        qMemCopy(val.bytes, qt_be_inf_bytes, 8);
++      else
++        qMemCopy(val.bytes, qt_le_inf_bytes, 8);
+ #endif
++    return val.d;
+ }
+ 
+ // Signaling NAN
+@@ -77,11 +83,17 @@
+ static const unsigned char qt_armfpa_snan_bytes[] = { 0, 0, 0xf8, 0x7f, 0, 0, 0, 0 };
+ static inline double qt_snan()
+ {
++    union { double d; unsigned char bytes[8]; } val;
++
+ #ifdef QT_ARMFPA
+-    return *reinterpret_cast<const double *>(qt_armfpa_snan_bytes);
++    qMemCopy(val.bytes, qt_armfpa_snan_bytes, 8);
+ #else
+-    return *reinterpret_cast<const double *>(QSysInfo::ByteOrder == QSysInfo::BigEndian ? qt_be_snan_bytes : qt_le_snan_bytes);
++    if (QSysInfo::ByteOrder == QSysInfo::BigEndian)
++        qMemCopy(val.bytes, qt_be_snan_bytes, 8);
++      else
++        qMemCopy(val.bytes, qt_le_snan_bytes, 8);
+ #endif
++    return val.d;
+ }
+ 
+ // Quiet NAN
+@@ -90,11 +102,17 @@
+ static const unsigned char qt_armfpa_qnan_bytes[] = { 0, 0, 0xf8, 0xff, 0, 0, 0, 0 };
+ static inline double qt_qnan()
+ {
++    union { double d; unsigned char bytes[8]; } val;
++
+ #ifdef QT_ARMFPA
+-    return *reinterpret_cast<const double *>(qt_armfpa_qnan_bytes);
++    qMemCopy(val.bytes, qt_armfpa_qnan_bytes, 8);
+ #else
+-    return *reinterpret_cast<const double *>(QSysInfo::ByteOrder == QSysInfo::BigEndian ? qt_be_qnan_bytes : qt_le_qnan_bytes);
++    if (QSysInfo::ByteOrder == QSysInfo::BigEndian)
++        qMemCopy(val.bytes, qt_be_qnan_bytes, 8);
++      else
++        qMemCopy(val.bytes, qt_le_qnan_bytes, 8);
+ #endif
++    return val.d;
+ }
+ 
+ static inline bool qt_is_inf(double d)
+--- a/src/3rdparty/sha1/sha1.cpp
++++ b/src/3rdparty/sha1/sha1.cpp
+@@ -151,10 +151,10 @@
+     quint32 d = state->h3;
+     quint32 e = state->h4;
+ 
+-    quint8 chunkBuffer[64];
+-    memcpy(chunkBuffer, buffer, 64);
++    Sha1Chunk chunkBuffer;
++    memcpy(chunkBuffer.bytes, buffer, 64);
+ 
+-    Sha1Chunk *chunk = reinterpret_cast<Sha1Chunk*>(&chunkBuffer);
++    Sha1Chunk *chunk = &chunkBuffer;
+ 
+     for (int i = 0; i < 16; ++i)
+         chunk->words[i] = qFromBigEndian(chunk->words[i]);
+@@ -190,7 +190,7 @@
+     // Wipe variables
+ #ifdef SHA1_WIPE_VARIABLES
+     a = b = c = d = e = 0;
+-    memset(chunkBuffer, 0, 64);
++    memset(chunkBuffer.bytes, 0, 64);
+ #endif
+ }
+ 

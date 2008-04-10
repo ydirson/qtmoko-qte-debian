@@ -1,0 +1,47 @@
+qt-bugs@ issue : 205699
+Trolltech task ID : none yet
+bugs.kde.org number : none
+applied: no
+author: Lubos Lunak <l.lunak@kde.org>
+os: unix
+
+X error handler is not allowed to do X protocol requests. Therefore e.g. creating
+QDragManager instance should not be allowed in it, as it results in things like
+creating X pixmaps. See https://bugzilla.novell.com/show_bug.cgi?id=368456.
+
+--- a/src/gui/kernel/qdnd_x11.cpp
++++ b/src/gui/kernel/qdnd_x11.cpp
+@@ -1700,21 +1700,23 @@
+ 
+ bool QX11Data::xdndHandleBadwindow()
+ {
+-    QDragManager *manager = QDragManager::self();
+-    if (manager->object && qt_xdnd_current_target) {
+-        qt_xdnd_current_target = 0;
+-        qt_xdnd_current_proxy_target = 0;
+-        manager->object->deleteLater();
+-        manager->object = 0;
+-        delete xdnd_data.deco;
+-        xdnd_data.deco = 0;
+-        return true;
++    if (qt_xdnd_current_target) { // avoid possibly on-demand creating the manager in X error handler
++        QDragManager *manager = QDragManager::self();
++        if (manager->object) {
++            qt_xdnd_current_target = 0;
++            qt_xdnd_current_proxy_target = 0;
++            manager->object->deleteLater();
++            manager->object = 0;
++            xdnd_data.deco->deleteLater();
++            xdnd_data.deco = 0;
++            return true;
++        }
+     }
+     if (qt_xdnd_dragsource_xid) {
+         qt_xdnd_dragsource_xid = 0;
+         if (qt_xdnd_current_widget) {
+             QDragLeaveEvent e;
+-            QApplication::sendEvent(qt_xdnd_current_widget, &e);
++            QApplication::postEvent(qt_xdnd_current_widget, &e);
+             qt_xdnd_current_widget = 0;
+         }
+         return true;

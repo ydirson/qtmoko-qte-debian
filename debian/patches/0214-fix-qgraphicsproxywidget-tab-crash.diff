@@ -1,0 +1,23 @@
+qt-bugs@ issue : N199058
+Trolltech task ID : none
+applied: no
+author: Frerich Raabe <raabe@kde.org>
+
+Fixes a crash in QGraphicsProxyWidget which was triggered when no
+QGraphicsProxyWidget item in a QGraphicsScene had a QWidget associated
+with it. As soon as the user pressed <Tab>, QGraphicsProxyWidget
+attempted to give the focus to *some* QWidget (even if it was null).
+
+--- a/src/gui/graphicsview/qgraphicsproxywidget.cpp
++++ b/src/gui/graphicsview/qgraphicsproxywidget.cpp
+@@ -376,6 +376,10 @@
+ 	}
+     }
+ 
++    if (!child) {
++	return 0;
++    }
++
+     QWidget *oldChild = child;
+     do {
+         if (child->isEnabled()

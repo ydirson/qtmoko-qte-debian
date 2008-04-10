@@ -1,0 +1,17 @@
+--- a/src/phonon/phonon.pro
++++ b/src/phonon/phonon.pro
+@@ -104,7 +104,7 @@
+            $$PHONON_DIR/volumefadereffect.cpp \
+            $$PHONON_DIR/volumeslider.cpp
+ 
+-contains(QT_CONFIG, qdbus) {
++contains(QT_CONFIG, dbus) {
+        CONFIG += qdbus
+        HEADERS += $$PHONON_DIR/audiooutputadaptor.h
+        SOURCES += $$PHONON_DIR/audiooutputadaptor.cpp
+--- a/src/plugins/script/script.pro
++++ b/src/plugins/script/script.pro
+@@ -1,2 +1,2 @@
+ TEMPLATE = subdirs
+-contains(QT_CONFIG, qdbus):SUBDIRS += qtdbus
++contains(QT_CONFIG, dbus):SUBDIRS += qtdbus
