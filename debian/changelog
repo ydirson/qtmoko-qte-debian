@@ -1,8 +1,17 @@
-qt4-x11 (4.4.0~rc1-3) UNRELEASED; urgency=low
+qt4-x11 (4.4.0~rc1-3) unstable; urgency=low
 
   +++ Changes by Sune Vuorela:
 
-  * Clean up a bit in the dependencies of libqt4-dev
+  * Clean up a bit in the dependencies of libqt4-dev. Removed dependencies:
+    libqt4-sql-mysql, libqt4-sql-odbc, libqt4-sql-psql, libqt4-sql-sqlite,
+    libqt4-sql-sqlite2, libqt4-sql-ibase, firebird2.0-dev, libaudio-dev,
+    libcupsys2-dev, libdbus-1-dev, libfreetype6-dev, libglib2.0-dev,
+    libice-dev, libiodbc2-dev, libjpeg62-dev, libmng-dev, libmysqlclient15-dev,
+    libpam0g-dev, libpng12-dev, libpq-dev, libreadline5-dev, libsm-dev,
+    libsqlite0-dev, libsqlite3-dev, libtiff4-dev, libx11-dev, libxcursor-dev,
+    libxext-dev, libxft-dev, libxi-dev, libxinerama-dev, libxmu-dev,
+    libxrandr-dev, libxrender-dev, libxslt1-dev, libxt-dev, x11proto-core-dev,
+    zlib1g-dev
 
   +++ Changes by Fathi Boudra:
 
@@ -13,7 +22,7 @@ qt4-x11 (4.4.0~rc1-3) UNRELEASED; urgency=low
     without the necessary assembler .set directives.
     Thanks to Thiemo Seufer. (Closes: #475402)
 
- -- Fathi Boudra <fabo@debian.org>  Thu, 10 Apr 2008 09:15:01 +0200
+ -- Fathi Boudra <fabo@debian.org>  Sat, 12 Apr 2008 07:48:37 +0200
 
 qt4-x11 (4.4.0~rc1-2) unstable; urgency=low
 
