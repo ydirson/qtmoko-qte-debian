@@ -317,7 +317,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
  libqt4-help (= ${binary:Version}),
  libqt4-assistant (= ${binary:Version}), libqt4-test (= ${binary:Version}),
  libgl1-mesa-dev | libgl-dev, libglu1-mesa-dev | libglu-dev,
-Conflicts: qt3-dev-tools (<= 3:3.3.4-7)
+Conflicts: qt3-dev-tools (<= 3:3.3.4-7), libqtwebkit-dev
+Replaces: libqtwebkit-dev
 Suggests: qt4-dev-tools, qt4-doc
 Description: Qt 4 development files
  Qt is a cross-platform C++ application framework. Qt's primary feature

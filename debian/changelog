@@ -1,3 +1,9 @@
+qt4-x11 (4.4.0~rc1-4) unstable; urgency=low
+
+  * Have libqt4-dev conflict/replace libqtwebkit-dev.
+
+ -- Sune Vuorela <debian@pusling.com>  Sat, 12 Apr 2008 18:14:01 +0200
+
 qt4-x11 (4.4.0~rc1-3) unstable; urgency=low
 
   +++ Changes by Sune Vuorela:
