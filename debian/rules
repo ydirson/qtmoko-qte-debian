@@ -186,7 +186,7 @@ common-install-arch::
 	find $(DEB_DESTDIR)/usr/lib -type f -name '*.prl' \
 		-exec perl -pi -e "s, -L$(CURDIR)/\S+,,g" {} \;
 	find $(DEB_DESTDIR)/usr/lib -type f -name '*.prl' \
-		-exec sed -i -e "/^QMAKE_PRL_BUILD_DIR/d" {} \;
+		-exec sed -i -e "/^QMAKE_PRL_BUILD_DIR/d;s/(QMAKE_PRL_LIBS =).*/\1/" {} \;
 
 install/libqtcore4::
 	$(CURDIR)/bin/lrelease-qt4 debian/translations/qt_ca.ts \
