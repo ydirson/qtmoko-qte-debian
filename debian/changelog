@@ -20,7 +20,7 @@ qt4-x11 (4.4.0~rc1-4) unstable; urgency=low
   * Add Recommends: qt4-doc to qt4-demos.
   * Add watch file.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 15 Apr 2008 17:07:21 -0400
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 15 Apr 2008 17:19:54 -0400
 
 qt4-x11 (4.4.0~rc1-3) unstable; urgency=low
 
@@ -1003,26 +1003,3 @@ qt4-x11 (4.0.0-1) unstable; urgency=low
   * Initial release (Closes: #306694)
 
  -- Brian Nelson <pyro@debian.org>  Tue,  5 Jul 2005 19:42:18 -0700
-qt4-x11 (4.4.0~rc1-4.1) unstable; urgency=low
-
-  +++ Changes by Sune Vuorela:
-
-  * Have libqt4-dev conflict/replace libqtwebkit-dev.
-  * Fix qmake to generate a bit better pkg-config files. Those should usually
-    not be generated - as it ends up being crackful. After a bit of patching
-    they are a bit less crackful though.
-  * Postprocess prl files to remove the same crack as in the pc files.
-  * Do a bit nicer linking when needed instead of relying on crackfulness from
-    prl and pc files.
-  * Add a disabled patch to generate better prl files, but unfortunately too
-    much of qt4 build process relies on on it and is not yet fixed, but it is
-    saved for later use.
-  * Fix qmake makefile generation - should not add double slashes to
-    makefiles.
-
-  +++ Changes by Matthew Rosewarne:
-
-  * Add Recommends: qt4-doc to qt4-demos.
-  * 
-
- -- Matthew Rosewarne <mrosewarne@inoutbox.com>  Tue, 15 Apr 2008 17:07:21 -0400
