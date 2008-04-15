@@ -30,7 +30,7 @@ Description: Qt 4 core module
  The QtCore module contains core non-GUI functionality.
 
 Package: libqt4-core
-Architecture: all
+Architecture: any
 Section: libs
 Depends: libqtcore4 (>= ${source:Version}), libqt4-network (>= ${source:Version}), libqt4-script (>= ${source:Version}), libqt4-xml (>= ${source:Version}), libqt4-dbus (>= ${source:Version}), libqt4-test (>= ${source:Version})
 Description: transitional package for Qt 4 core non-GUI runtime libraries

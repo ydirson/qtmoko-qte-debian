@@ -14,13 +14,15 @@ qt4-x11 (4.4.0~rc1-4) unstable; urgency=low
     saved for later use.
   * Fix qmake makefile generation - should not add double slashes to
     makefiles.
+  * Make libqt4-core transitional package arch:any. It doesn't bloat the
+    archive too much, but it helps on installability.
 
   +++ Changes by Matthew Rosewarne:
 
   * Add Recommends: qt4-doc to qt4-demos.
   * Add watch file.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 15 Apr 2008 17:19:54 -0400
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 15 Apr 2008 23:48:31 +0200
 
 qt4-x11 (4.4.0~rc1-3) unstable; urgency=low
 
