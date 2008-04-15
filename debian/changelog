@@ -5,8 +5,9 @@ qt4-x11 (4.4.0~rc1-4) unstable; urgency=low
   * Have libqt4-dev conflict/replace libqtwebkit-dev.
   * Fix qmake to generate a bit better pkg-config files. Those should usually
     not be generated - as it ends up being crackful. After a bit of patching
-    they are a bit less crackful though.
+    they are a bit less crackful though. (Closes: 457570)
   * Postprocess prl files to remove the same crack as in the pc files.
+    (Closes: 470572)
   * Do a bit nicer linking when needed instead of relying on crackfulness from
     prl and pc files.
   * Add a disabled patch to generate better prl files, but unfortunately too
