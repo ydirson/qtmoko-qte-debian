@@ -1,5 +1,7 @@
 qt4-x11 (4.4.0~rc1-4) unstable; urgency=low
 
+  +++ Changes by Sune Vuorela:
+
   * Have libqt4-dev conflict/replace libqtwebkit-dev.
   * Fix qmake to generate a bit better pkg-config files. Those should usually
     not be generated - as it ends up being crackful. After a bit of patching
@@ -11,7 +13,11 @@ qt4-x11 (4.4.0~rc1-4) unstable; urgency=low
     much of qt4 build process relies on on it and is not yet fixed, but it is
     saved for later use.
 
- -- Sune Vuorela <debian@pusling.com>  Sat, 12 Apr 2008 18:14:01 +0200
+  +++ Changes by Matthew Rosewarne:
+
+  * Add Recommends: qt4-doc to qt4-demos.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 12 Apr 2008 18:14:01 +0200
 
 qt4-x11 (4.4.0~rc1-3) unstable; urgency=low
 
