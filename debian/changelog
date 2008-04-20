@@ -1,3 +1,19 @@
+qt4-x11 (4.4.0~rc1-5~pre1) unstable; urgency=low
+
+  +++ Changes by Modestas Vainius:
+
+  * Downgrade libqt4-dev *gl*-dev dependences to Recommends. They pull in half
+    of X11 development headers and are rarely needed. What's more, OpenGL apps
+    will probably depend on them explicitly anyway.
+  * Add development packages of the SQL plugins to libqt4-dev Suggests.
+  * Make libqt4-sql recommend its plugins. Depends does not do us any good us
+    because we don't know which plugin a user is going to use anyway. Moreover
+    installation of the libqt4-sql package does not necessarily imply usage of
+    the specific plugin(s). Finally, this resolves circular dependencies among
+    libqt4-sql and its plugins.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 20 Apr 2008 13:24:08 +0300
+
 qt4-x11 (4.4.0~rc1-4) unstable; urgency=low
 
   +++ Changes by Sune Vuorela:
