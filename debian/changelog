@@ -11,6 +11,7 @@ qt4-x11 (4.4.0~rc1-5~pre1) unstable; urgency=low
     installation of the libqt4-sql package does not necessarily imply usage of
     the specific plugin(s). Finally, this resolves circular dependencies among
     libqt4-sql and its plugins.
+  * Add myself to Uploaders.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 20 Apr 2008 13:24:08 +0300
 
