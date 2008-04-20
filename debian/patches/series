@@ -1,8 +1,6 @@
 # qt-copy patches
 0167-fix-group-reading.diff
 0180-window-role.diff
-0191-listview-alternate-row-colors.diff
-0192-itemdelegate-palette-state.diff
 0195-compositing-properties.diff
 0203-qtexthtmlparser-link-color.diff
 0209-prevent-qt-mixing.diff
@@ -10,6 +8,10 @@
 0214-fix-qgraphicsproxywidget-tab-crash.diff
 0216-allow-isystem-for-headers.diff
 0220-no-x-recursion-in-xerrhandler.diff
+0222-statusbar-recursion.diff
+0223-fix-qpixmap-hasalpha.diff
+0224-fast-qpixmap-fill.diff
+0225-invalidate-tabbar-geometry-on-refresh.diff
 
 # debian patches
 01_qmake_for_debian.diff

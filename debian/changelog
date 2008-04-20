@@ -4,6 +4,21 @@ qt4-x11 (4.4.0~rc1-5) UNRELEASED; urgency=low
 
   * Add libqt4-sql-sqlite dependency to qt4-dev-tools. Qt Assistant and
     qhelpgenerator use the sqlite plugin. (Closes: #476986)
+  * Remove qt-copy patches 0191 and 0192. The relevant code has changed
+    such that neither patch seems to have any effect (although listviews
+    still do not use active/inactive roles correctly).
+  * Add qt-copy patches:
+    * 0222-statusbar-recursion
+      This patch fixes random crashes due to paintevent
+      recursion and in once case a 100% startup crash (lyx).
+    * 0223-fix-qpixmap-hasalpha
+      Fix a performance regression in QPixmap::hasAlpha() in Qt 4.4.
+    * 0224-fast-qpixmap-fill
+      This patch avoids the expensive image->pixmap conversion by discarding
+      the old pixmap, creating a new one with the correct format, and doing
+      the fill server side.
+    * 0225-invalidate-tabbar-geometry-on-refresh
+      Fix problem where Konsole's tab bar is not shown immediately on startup.
 
   +++ Changes by Modestas Vainius:
 
