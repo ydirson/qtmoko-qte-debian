@@ -1,12 +1,17 @@
-qt4-x11 (4.4.0~rc1-5~pre1) unstable; urgency=low
+qt4-x11 (4.4.0~rc1-5) UNRELEASED; urgency=low
+
+  +++ Changes by Fathi Boudra:
+
+  * Add libqt4-sql-sqlite dependency to qt4-dev-tools. Qt Assistant and
+    qhelpgenerator use the sqlite plugin. (Closes: #476986)
 
   +++ Changes by Modestas Vainius:
 
-  * Downgrade libqt4-dev *gl*-dev dependences to Recommends. They pull in half
-    of X11 development headers and are rarely needed. What's more, OpenGL apps
-    will probably depend on them explicitly anyway.
+  * Downgrade libqt4-dev *gl*-dev dependencies to Recommends.
+    They pull in half of X11 development headers and are rarely needed.
+    What's more, OpenGL apps will probably depend on them explicitly anyway.
   * Add development packages of the SQL plugins to libqt4-dev Suggests.
-  * Make libqt4-sql recommend its plugins. Depends does not do us any good us
+  * Make libqt4-sql recommend its plugins. Depends does not do us any good
     because we don't know which plugin a user is going to use anyway. Moreover
     installation of the libqt4-sql package does not necessarily imply usage of
     the specific plugin(s). Finally, this resolves circular dependencies among
