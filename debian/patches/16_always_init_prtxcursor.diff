@@ -1,0 +1,11 @@
+--- qt4-x11-4.4.0~rc1.orig/src/gui/kernel/qapplication_x11.cpp	2008-04-21 19:11:01.000000000 +0300
++++ qt4-x11-4.4.0~rc1/src/gui/kernel/qapplication_x11.cpp	2008-04-21 19:13:17.000000000 +0300
+@@ -1778,6 +1778,8 @@
+         if (xcursorLib.load()) {
+             X11->ptrXcursorLibraryLoadCursor =
+                 (PtrXcursorLibraryLoadCursor) xcursorLib.resolve("XcursorLibraryLoadCursor");
++        } else {
++            X11->ptrXcursorLibraryLoadCursor = NULL;
+         }
+ #else
+         X11->ptrXcursorLibraryLoadCursor = XcursorLibraryLoadCursor;

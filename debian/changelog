@@ -32,8 +32,11 @@ qt4-x11 (4.4.0~rc1-5) UNRELEASED; urgency=low
     the specific plugin(s). Finally, this resolves circular dependencies among
     libqt4-sql and its plugins.
   * Add myself to Uploaders.
+  * Add 16_always_init_prtxcursor.diff, which properly initializes
+    X11->ptrXcursorLibraryLoadCursor to NULL when Xcursor library is not
+    available on the system. (Closes: #476608)
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 20 Apr 2008 13:24:08 +0300
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 21 Apr 2008 19:17:19 +0300
 
 qt4-x11 (4.4.0~rc1-4) unstable; urgency=low
 
