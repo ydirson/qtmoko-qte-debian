@@ -8,7 +8,6 @@
 0214-fix-qgraphicsproxywidget-tab-crash.diff
 0216-allow-isystem-for-headers.diff
 0220-no-x-recursion-in-xerrhandler.diff
-0222-statusbar-recursion.diff
 0223-fix-qpixmap-hasalpha.diff
 0224-fast-qpixmap-fill.diff
 0225-invalidate-tabbar-geometry-on-refresh.diff

@@ -8,9 +8,6 @@ qt4-x11 (4.4.0~rc1-5) UNRELEASED; urgency=low
     such that neither patch seems to have any effect (although listviews
     still do not use active/inactive roles correctly).
   * Add qt-copy patches:
-    * 0222-statusbar-recursion
-      This patch fixes random crashes due to paintevent
-      recursion and in once case a 100% startup crash (lyx).
     * 0223-fix-qpixmap-hasalpha
       Fix a performance regression in QPixmap::hasAlpha() in Qt 4.4.
     * 0224-fast-qpixmap-fill
