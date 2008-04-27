@@ -87,12 +87,16 @@ endif
 	            -examplesdir "/usr/lib/qt4/examples" \
 	            -platform $(PLATFORM_ARG) \
 	            -fast \
+	            -optimized-qmake \
 	            -no-rpath \
 	            -system-zlib \
 	            -system-libtiff \
 	            -system-libpng \
 	            -system-libjpeg \
 	            -system-nas-sound \
+	            -xfixes \
+	            -xcursor \
+	            -xinerama \
 	            -qt-gif \
 	            -plugin-sql-mysql \
 	            -plugin-sql-odbc \

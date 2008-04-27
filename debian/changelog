@@ -32,8 +32,19 @@ qt4-x11 (4.4.0~rc1-5) UNRELEASED; urgency=low
     the specific plugin(s). Finally, this resolves circular dependencies among
     libqt4-sql and its plugins.
   * Add myself to Uploaders.
+  * Add 16_always_init_qt_x11data_ptrx.diff, which ensures that X11->ptrX*
+    are properly initialized when Xcursor, Xinerama, Xfixes are not available
+    in default "runtime" configuration  (Closes: #476608).
+  * Pass -xfixes -xcursor -xinerama to configure because default "runtime"
+    configuration requires a user to have libxfixes-dev, libxcursor-dev and
+    libxinerama-dev installed to enable features requires respective X
+    libraries (QLibrary simply searches for "lib*.so"). This change in
+    configuration makes 16 patch irrelevant for Debian, but I'm leaving it
+    as it's still the fix for the crashes which might occur on default Qt 4.4
+    configutions.
+  * Optimize qmake: pass -optimized-qmake to configure.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 20 Apr 2008 13:24:08 +0300
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 27 Apr 2008 04:15:28 +0300
 
 qt4-x11 (4.4.0~rc1-4) unstable; urgency=low
 
