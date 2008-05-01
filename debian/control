@@ -33,9 +33,9 @@ Package: libqt4-core
 Architecture: any
 Section: libs
 Depends:
- libqtcore4 (>= ${binary:Version}), libqt4-network (>= ${binary:Version}),
- libqt4-script (>= ${binary:Version}), libqt4-xml (>= ${binary:Version}),
- libqt4-dbus (>= ${binary:Version}), libqt4-test (>= ${binary:Version})
+ libqtcore4 (= ${binary:Version}), libqt4-network (= ${binary:Version}),
+ libqt4-script (= ${binary:Version}), libqt4-xml (= ${binary:Version}),
+ libqt4-dbus (= ${binary:Version}), libqt4-test (= ${binary:Version})
 Description: transitional package for Qt 4 core non-GUI runtime libraries
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -61,8 +61,8 @@ Description: Qt 4 GUI module
 Package: libqt4-gui
 Architecture: any
 Section: libs
-Depends: libqtgui4 (>= ${binary:Version}), libqt4-svg (>= ${binary:Version}), libqt4-opengl (>= ${binary:Version}),
- libqt4-designer (>= ${binary:Version}), libqt4-assistant (>= ${binary:Version})
+Depends: libqtgui4 (= ${binary:Version}), libqt4-svg (= ${binary:Version}), libqt4-opengl (= ${binary:Version}),
+ libqt4-designer (= ${binary:Version}), libqt4-assistant (= ${binary:Version})
 Description: transitional package for Qt 4 GUI runtime libraries
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
