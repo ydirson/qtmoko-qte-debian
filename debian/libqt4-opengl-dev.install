@@ -1,0 +1,10 @@
+usr/include/qt4/OpenGL/*
+usr/include/qt4/Qt/QtOpenGL
+usr/include/qt4/Qt/qgl.h
+usr/include/qt4/Qt/qglcolormap.h
+usr/include/qt4/Qt/qglframebufferobject.h
+usr/include/qt4/Qt/qglobal.h
+usr/include/qt4/Qt/qglpixelbuffer.h
+usr/lib/libQtOpenGL.prl
+usr/lib/libQtOpenGL.so
+usr/lib/pkgconfig/QtOpenGL.pc

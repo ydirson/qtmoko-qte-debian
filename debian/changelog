@@ -1,3 +1,26 @@
+qt4-x11 (4.4.0-1) UNRELEASED; urgency=low
+
+  * New upstream release (rumoured, but source N/A yet).
+
+  +++ Changes by Modestas Vainius:
+
+  * Split OpenGL headers from libqt4-dev to libqt4-opengl-dev:
+    - Update install files.
+    - Make libqt4-opengl-dev depend on X OpenGL headers, hence remove the
+      latter from libqt4-dev Recommends.
+    - Add libqt4-opengl-dev to libqt4-dev Recommends.
+    - Remove libq4-opengl from libqt4-dev Depends.
+  * Explicitly add libqtcore4 to libqt4-dev (was implicit before).
+  * Rename libqt4-gui to libqtgui4 (new package).
+  * Make libqt4-gui a transitional package (Closes: #478694) depending on
+    libqtgui4, libqt4-opengl (Closes: #478264), libqt4-sql, libqt4-designer,
+    libqt4-assistant.
+  * Use ${binary:Version} instead of ${source:Version} in dependences of
+    libqt4-core and libqt4-gui transitional packages.
+  * Require just libqtcore4 to install libqt4-dbg instead of libqt4-gui.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 01 May 2008 13:39:50 +0300
+
 qt4-x11 (4.4.0~rc1-5) unstable; urgency=high
 
   +++ Changes by Fathi Boudra:
