@@ -1,6 +1,6 @@
 qt4-x11 (4.4.0-1) UNRELEASED; urgency=low
 
-  * New upstream release (rumoured, but source N/A yet).
+  * New upstream release.
 
   +++ Changes by Modestas Vainius:
 
@@ -18,8 +18,13 @@ qt4-x11 (4.4.0-1) UNRELEASED; urgency=low
   * Use ${binary:Version} instead of ${source:Version} in dependences of
     libqt4-core and libqt4-gui transitional packages.
   * Require just libqtcore4 to install libqt4-dbg instead of libqt4-gui.
+  * Resync patches:
+    - 05_append_qt4_target.diff - fix offsets.
+    - 11_qdbus_to_dbus_fix.diff - remove, fixed upstream.
+    - Revert to "runtime" configuration for xcursor, xinerama, xfixes and drop
+      16_always_init_qt_x11data_ptrx.diff patch. Fixed upstream.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 01 May 2008 13:39:50 +0300
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 02 May 2008 19:30:48 +0300
 
 qt4-x11 (4.4.0~rc1-5) unstable; urgency=high
 

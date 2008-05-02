@@ -94,9 +94,6 @@ endif
 	            -system-libpng \
 	            -system-libjpeg \
 	            -system-nas-sound \
-	            -xfixes \
-	            -xcursor \
-	            -xinerama \
 	            -qt-gif \
 	            -plugin-sql-mysql \
 	            -plugin-sql-odbc \
