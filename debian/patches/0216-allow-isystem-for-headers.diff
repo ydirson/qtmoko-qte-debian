@@ -36,7 +36,7 @@ directory at the end of the compiler's header search path.
      -I?*|-I)
          VAR="add_ipath"
          if [ "$1" = "-I" ]; then
-@@ -1724,6 +1729,9 @@
+@@ -1725,6 +1730,9 @@
      add_ipath)
          I_FLAGS="$I_FLAGS -I\"${VAL}\""
          ;;

@@ -1,5 +1,3 @@
-Index: b/qmake/generators/unix/unixmake2.cpp
-===================================================================
 --- a/qmake/generators/unix/unixmake2.cpp
 +++ b/qmake/generators/unix/unixmake2.cpp
 @@ -1440,6 +1440,8 @@

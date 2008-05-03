@@ -1,5 +1,3 @@
-Index: b/qmake/generators/makefile.cpp
-===================================================================
 --- a/qmake/generators/makefile.cpp
 +++ b/qmake/generators/makefile.cpp
 @@ -2334,7 +2334,7 @@

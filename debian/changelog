@@ -15,16 +15,24 @@ qt4-x11 (4.4.0-1) UNRELEASED; urgency=low
   * Make libqt4-gui a transitional package (Closes: #478694) depending on
     libqtgui4, libqt4-opengl (Closes: #478264), libqt4-sql, libqt4-designer,
     libqt4-assistant.
-  * Use ${binary:Version} instead of ${source:Version} in dependences of
+  * Use ${binary:Version} instead of ${source:Version} in dependencies of
     libqt4-core and libqt4-gui transitional packages.
   * Require just libqtcore4 to install libqt4-dbg instead of libqt4-gui.
   * Resync patches:
     - 05_append_qt4_target.diff - fix offsets.
-    - 11_qdbus_to_dbus_fix.diff - remove, fixed upstream.
+    - 11_qdbus_to_dbus_fix.diff - remove, merged upstream.
     - Revert to "runtime" configuration for xcursor, xinerama, xfixes and drop
       16_always_init_qt_x11data_ptrx.diff patch. Fixed upstream.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 02 May 2008 19:30:48 +0300
+  +++ Changes by Fathi Boudra:
+
+  * Add qt-copy patch:
+    * 0226-qtreeview-column_resize_when_needed
+      This patch assures that if no header is shown, or if we only have one
+      column (so no other columns become shrinked), the contents will be
+      visible.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 03 May 2008 11:26:50 +0200
 
 qt4-x11 (4.4.0~rc1-5) unstable; urgency=high
 
