@@ -26,6 +26,8 @@ qt4-x11 (4.4.0-1) UNRELEASED; urgency=low
 
   +++ Changes by Fathi Boudra:
 
+  * Update libqt4-dev and libqt4-opengl-dev install to use complete files
+    list instead of wildcard.
   * Add qt-copy patch:
     * 0226-qtreeview-column_resize_when_needed
       This patch assures that if no header is shown, or if we only have one
