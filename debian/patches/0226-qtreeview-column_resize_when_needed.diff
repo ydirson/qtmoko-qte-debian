@@ -92,3 +92,13 @@ no other columns become shrinked), the contents will be visible.
  void QTreeViewPrivate::_q_columnsAboutToBeRemoved(const QModelIndex &parent, int start, int end)
  {
      Q_UNUSED(parent);
+--- a/src/gui/itemviews/qtreeview_p.h
++++ b/src/gui/itemviews/qtreeview_p.h
+@@ -101,6 +101,7 @@
+         QPixmap after;
+     };
+ 
++    void _q_forceColumnResizeToFitContents();
+     void expand(int item, bool emitSignal);
+     void collapse(int item, bool emitSignal);
+ 
