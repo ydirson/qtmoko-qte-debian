@@ -1,4 +1,6 @@
 usr/lib/libQtHelp.so.*
 usr/share/qt4/translations/qt_help_de.qm
 usr/share/qt4/translations/qt_help_pl.qm
+usr/share/qt4/translations/qt_help_zh_CN.qm
+usr/share/qt4/translations/qt_help_zh_TW.qm
 
