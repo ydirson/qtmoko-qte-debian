@@ -1,7 +1,7 @@
 qt-bugs@ issue : None
 Trolltech task ID : None
 bugs.kde.org number : None
-applied: yes
+applied: no
 author: Fredrik Höglund <fredrik@kde.org>
 
 Since there's no way to specify that a QPixmap should have an alpha channel

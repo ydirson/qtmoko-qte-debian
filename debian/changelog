@@ -1,4 +1,4 @@
-qt4-x11 (4.4.0-1) UNRELEASED; urgency=low
+qt4-x11 (4.4.0-1) unstable; urgency=low
 
   * New upstream release.
 
@@ -35,7 +35,7 @@ qt4-x11 (4.4.0-1) UNRELEASED; urgency=low
       column (so no other columns become shrinked), the contents will be
       visible.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 03 May 2008 11:26:50 +0200
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 06 May 2008 17:37:49 +0200
 
 qt4-x11 (4.4.0~rc1-5) unstable; urgency=high
 
