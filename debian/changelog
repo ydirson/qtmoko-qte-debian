@@ -2,6 +2,10 @@ qt4-x11 (4.4.0-2) UNRELEASED; urgency=low
 
   +++ Changes by Fathi Boudra:
 
+  * Split html documentation in qt4-doc-html package.
+  * Merge Ubuntu patches:
+    * Add lpia architecture in trusted dpkg-arch over uname.
+    * Add sqlite3 workaround in config tests fixes.
   * Add qt-copy patch:
     * 0227-qdatastream-regression
       Fix a bug that causes all Qt3/2 applications to crash or hang under KDE4.
@@ -44,10 +48,6 @@ qt4-x11 (4.4.0-1) unstable; urgency=low
       This patch assures that if no header is shown, or if we only have one
       column (so no other columns become shrinked), the contents will be
       visible.
-  * Split html documentation in qt4-doc-html package.
-  * Merge Ubuntu patches:
-    * Add lpia architecture in trusted dpkg-arch over uname.
-    * Add sqlite3 workaround in config tests fixes.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 06 May 2008 17:37:49 +0200
 
