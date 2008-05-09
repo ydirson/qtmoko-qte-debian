@@ -2275,7 +2275,6 @@ usr/lib/libQtXml.prl
 usr/lib/libQtXml.so
 usr/lib/libQtXmlPatterns.prl
 usr/lib/libQtXmlPatterns.so
-usr/lib/pkgconfig
 usr/lib/pkgconfig/Qt3Support.pc
 usr/lib/pkgconfig/QtAssistantClient.pc
 usr/lib/pkgconfig/QtCLucene.pc
