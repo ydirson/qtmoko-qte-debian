@@ -12,7 +12,7 @@ qt4-x11 (4.4.0-2) UNRELEASED; urgency=low
   
   +++ Changes by Modestas Vainius:
 
-  * Add 16_qsortfilterproxymodel_invalidate_noscroll.diff patch which fixes
+  * Add 16_qsortfilterproxymodel_invalidate_noscroll.diff patch which stops
     scrolling to the current item/index on QSortFilterProxyModel::invalidate()
     This patch has been scheduled for Qt 4.4.1 (TT #204403).
 
