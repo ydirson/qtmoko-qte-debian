@@ -269,6 +269,7 @@ usr/include/qt4/Qt/qfuture.h
 usr/include/qt4/Qt/qfutureinterface.h
 usr/include/qt4/Qt/qfuturesynchronizer.h
 usr/include/qt4/Qt/qfuturewatcher.h
+usr/include/qt4/Qt/qglobal.h
 usr/include/qt4/Qt/qgraphicsgridlayout.h
 usr/include/qt4/Qt/qgraphicsitem.h
 usr/include/qt4/Qt/qgraphicsitemanimation.h
