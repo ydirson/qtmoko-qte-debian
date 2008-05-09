@@ -12,6 +12,7 @@
 0224-fast-qpixmap-fill.diff
 0225-invalidate-tabbar-geometry-on-refresh.diff
 0226-qtreeview-column_resize_when_needed.diff
+0227-qdatastream-regression.diff
 
 # debian patches
 01_qmake_for_debian.diff
