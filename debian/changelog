@@ -1,4 +1,4 @@
-qt4-x11 (4.4.0-2) UNRELEASED; urgency=low
+qt4-x11 (4.4.0-2) unstable; urgency=low
 
   +++ Changes by Fathi Boudra:
 
@@ -15,8 +15,13 @@ qt4-x11 (4.4.0-2) UNRELEASED; urgency=low
   * Add 16_qsortfilterproxymodel_invalidate_noscroll.diff patch which stops
     scrolling to the current item/index on QSortFilterProxyModel::invalidate()
     This patch has been scheduled for Qt 4.4.1 (TT #204403).
+  * Add missing Replaces:
+    - libqt4-opengl-dev replaces libqt4-dev (<< 4.4.0-2) due to obvious
+      reasons.
+    - libqt4-dev replaces libqt4-opengl-dev (<< 4.4.0-2) (due to qglobal.h
+      misplace).
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 09 May 2008 23:23:55 +0300
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 09 May 2008 23:35:16 +0300
 
 qt4-x11 (4.4.0-1) unstable; urgency=low
 
