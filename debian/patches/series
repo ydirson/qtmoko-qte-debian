@@ -26,6 +26,7 @@
 12_fix_qmake_pkgconfig.diff
 14_add_libraries_to_gui_build_where_actually_needed.diff
 15_fix_qmake_makefile_generation.diff
+16_qsortfilterproxymodel_invalidate_noscroll.diff
 20_mips_atomic_ops.diff
 40_alpha_ice.diff
 41_disable_opengl_visibility.diff

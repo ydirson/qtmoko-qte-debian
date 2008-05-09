@@ -9,8 +9,14 @@ qt4-x11 (4.4.0-2) UNRELEASED; urgency=low
   * Add qt-copy patch:
     * 0227-qdatastream-regression
       Fix a bug that causes all Qt3/2 applications to crash or hang under KDE4.
+  
+  +++ Changes by Modestas Vainius:
 
- -- Fathi Boudra <fabo@debian.org>  Fri, 09 May 2008 20:01:24 +0200
+  * Add 16_qsortfilterproxymodel_invalidate_noscroll.diff patch which fixes
+    scrolling to the current item/index on QSortFilterProxyModel::invalidate()
+    This patch has been scheduled for Qt 4.4.1 (TT #204403).
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 09 May 2008 23:23:55 +0300
 
 qt4-x11 (4.4.0-1) unstable; urgency=low
 
