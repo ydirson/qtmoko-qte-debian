@@ -2,11 +2,14 @@ author: Sune Vuorela
 Reported to trolltech as N180631 - and task 181882
 --- a/configure
 +++ b/configure
-@@ -93,7 +93,47 @@
+@@ -93,7 +93,50 @@
  #-------------------------------------------------------------------------------
  
  # need that throughout the script
 -UNAME_MACHINE=`(uname -m) 2>/dev/null` || UNAME_MACHINE=unknown
++# This is a ugly hack that shouldn't be extended any more. New archs
++# should just use the default *) UNAME_MACHINE="$DPKG_ARCH" The current mappings
++# is for backwards compatibility with existing archs already released.
 +DPKG_ARCH=`(dpkg-architecture -qDEB_HOST_ARCH) 2>/dev/null` || UNAME_MACHINE=unknown
 +case $DPKG_ARCH in 
 +	amd64)
