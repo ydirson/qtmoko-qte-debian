@@ -32,8 +32,7 @@ Description: Qt 4 core module
 Package: libqt4-core
 Architecture: any
 Section: libs
-Depends:
- libqtcore4 (= ${binary:Version}), libqt4-network (= ${binary:Version}),
+Depends: libqtcore4 (= ${binary:Version}), libqt4-network (= ${binary:Version}),
  libqt4-script (= ${binary:Version}), libqt4-xml (= ${binary:Version}),
  libqt4-dbus (= ${binary:Version}), libqt4-test (= ${binary:Version})
 Description: transitional package for Qt 4 core non-GUI runtime libraries
