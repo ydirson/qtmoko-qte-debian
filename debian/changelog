@@ -1,4 +1,6 @@
-qt4-x11 (4.4.0-3) unstable; urgency=low
+qt4-x11 (4.4.0-3) UNRELEASED; urgency=low
+
+  +++ Changes by Sune Vuorela:
 
   * Fix generic atomic header. (Closes: #475767)
     This is enough to fix building of kdelibs, but there should be a proper 
@@ -12,9 +14,13 @@ qt4-x11 (4.4.0-3) unstable; urgency=low
       open: QTextEdit should react to ShortcutOverride for the keys it handles
       (was already partly done).
 
-    * 0231- !!! we wait for ipv6 fix !!!
+  +++ Changes by Modestas Vainius:
 
- -- Sune Vuorela <debian@pusling.com>  Sun, 08 Jun 2008 08:28:00 +0200
+  * Steal 73_from4.4.1_no_AAAA_when_ipv6_disabled.diff patch from 4.4.1
+    snapshot, which disables IPv6 DNS queries (AAAA) when IPv6 is disabled on
+    the system. 
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 08 Jun 2008 13:17:02 +0300
 
 qt4-x11 (4.4.0-2) unstable; urgency=low
 

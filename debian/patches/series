@@ -36,5 +36,6 @@
 70_hppa_ldcw_fix.diff
 71_hppa_unaligned_access_fix_458133.diff
 72_generic_arch_atomic_header_fix.diff
+73_from4.4.1_no_AAAA_when_ipv6_disabled.diff
 80_hurd_max_path.diff
 90_gcc43.diff
