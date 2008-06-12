@@ -1,0 +1,42 @@
+This is expected to be in 4.4.2
+
+
+From: Tor Arne VestbÃ¸ <tavestbo@trolltech.com>
+Date: Tue, 10 Jun 2008 16:04:06 +0000 (+0200)
+Subject: Fill the background of scrollbars to the window color before
+X-Git-Url: http://code.staikos.net/cgi-bin/gitweb.cgi?p=webkit;a=commitdiff_plain;h=5b0ea6b840a6e25e97b886e1852c3fc6ef8e8d0d
+
+Fill the background of scrollbars to the window color before
+letting the QStyle paint its primitive elements.
+
+Signed-off-by: Simon
+---
+
++2008-06-10  Tor Arne VestbÃ¸  <tavestbo@trolltech.com>
++
++        Reviewed by Simon
++
++        Fill the background of scrollbars to the window color before
++        letting the QStyle paint its primitive elements.
++
++        * platform/qt/PlatformScrollBarQt.cpp:
++        (WebCore::PlatformScrollbar::paint):
++
+ 2008-05-30  Adam Treat  <treat@kde.org>
+ 
+         Reviewed by Simon.
+diff --git a/WebCore/platform/qt/PlatformScrollBarQt.cpp b/WebCore/platform/qt/PlatformScrollBarQt.cpp
+index 66063eb..c7f5bdd 100644
+--- a/src/3rdparty/webkit/WebCore/platform/qt/PlatformScrollBarQt.cpp
++++ b/src/3rdparty/webkit/WebCore/platform/qt/PlatformScrollBarQt.cpp
+@@ -183,6 +183,10 @@ void PlatformScrollbar::paint(GraphicsContext* graphicsContext, const IntRect& d
+ #else
+     p->translate(topLeft);
+     m_opt.rect.moveTo(QPoint(0, 0));
++
++    // The QStyle expects the background to be already filled
++    p->fillRect(m_opt.rect, m_opt.palette.background());
++
+     QApplication::style()->drawComplexControl(QStyle::CC_ScrollBar, &m_opt, p, 0);
+     m_opt.rect.moveTo(topLeft);
+ #endif

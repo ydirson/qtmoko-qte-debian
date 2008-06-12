@@ -1,4 +1,11 @@
-qt4-x11 (4.4.0-3) UNRELEASED; urgency=low
+qt4-x11 (4.4.0-4) unstable; urgency=low
+
+  * Get patch from 4.4.2 (yes!) to fix painting of scrollbars in webkit with
+    some styles.
+
+ -- Sune Vuorela <debian@pusling.com>  Wed, 11 Jun 2008 23:22:22 +0200
+
+qt4-x11 (4.4.0-3) unstable; urgency=low
 
   +++ Changes by Sune Vuorela:
 
