@@ -2,6 +2,7 @@ qt4-x11 (4.4.0-4) unstable; urgency=low
 
   * Get patch from 4.4.2 (yes!) to fix painting of scrollbars in webkit with
     some styles.
+  * Get patch from 4.4.2 to allow Https to be treated as https in -network.
 
  -- Sune Vuorela <debian@pusling.com>  Wed, 11 Jun 2008 23:22:22 +0200
 

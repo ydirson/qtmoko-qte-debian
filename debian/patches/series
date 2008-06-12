@@ -1,5 +1,6 @@
 # patches from upstream
 0001_webkit_backround_in_scrollbars_webkit-5b0ea6b840a6e25e97b886e1852c3fc6ef8e8d0d.diff
+0002_https_lowercase.cpp
 # qt-copy patches
 0167-fix-group-reading.diff
 0180-window-role.diff
