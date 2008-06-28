@@ -1,0 +1,11 @@
+--- a/src/gui/dialogs/qprintdialog_unix.cpp
++++ b/src/gui/dialogs/qprintdialog_unix.cpp
+@@ -749,7 +749,7 @@
+     Q_ASSERT(index != printerCount - 3); // separator
+     widget.filename->setEnabled(false);
+     widget.lOutput->setEnabled(false);
+-    if (index > printerCount - 3) { // PDF or postscript
++    if (filePrintersAdded && index > printerCount - 3) { // PDF or postscript
+         widget.location->setText(QPrintDialog::tr("Local file"));
+         widget.type->setText(QPrintDialog::tr("Write %1 file").arg(index == printerCount - 2 ?
+                     QString::fromLatin1("PDF") : QString::fromLatin1("Postscript")));

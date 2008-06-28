@@ -1,10 +1,19 @@
-qt4-x11 (4.4.0-4) unstable; urgency=low
+qt4-x11 (4.4.0-4~pre1) unstable; urgency=low
+
+  +++ Changes by Sune Vuolera:
 
   * Get patch from 4.4.2 (yes!) to fix painting of scrollbars in webkit with
     some styles.
   * Get patch from 4.4.2 to allow Https to be treated as https in -network.
 
- -- Sune Vuorela <debian@pusling.com>  Wed, 11 Jun 2008 23:22:22 +0200
+  +++ Changes by Modestas Vainius:
+
+  * Add 21_qprintdialog_honour_fileprintersadded.diff patch to fix the problem
+    with QPrintDialog misdetecting some normal printers as virtual file printers
+    on dialog exec and when PrintToFile is disabled (TT #214505).
+  * Add 0233-fix-q3textbrowser-image.diff patch from qt copy.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 28 Jun 2008 15:31:31 +0300
 
 qt4-x11 (4.4.0-3) unstable; urgency=low
 

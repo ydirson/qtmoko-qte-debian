@@ -18,6 +18,7 @@
 0227-qdatastream-regression.diff
 0228-qsortfilterproxymodel-invalidate-noscroll.diff
 0230-qtextcontrol-selectnextword.diff
+0233-fix-q3textbrowser-image.diff
 
 # debian patches
 01_qmake_for_debian.diff
@@ -32,6 +33,7 @@
 14_add_libraries_to_gui_build_where_actually_needed.diff
 15_fix_qmake_makefile_generation.diff
 20_mips_atomic_ops.diff
+21_qprintdialog_honour_fileprintersadded.diff
 40_alpha_ice.diff
 41_disable_opengl_visibility.diff
 50_kfreebsd_build_fix.diff
