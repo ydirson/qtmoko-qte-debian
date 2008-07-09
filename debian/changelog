@@ -1,6 +1,6 @@
 qt4-x11 (4.4.0-4~pre1) unstable; urgency=low
 
-  +++ Changes by Sune Vuolera:
+  +++ Changes by Sune Vuorela:
 
   * Get patch from 4.4.2 (yes!) to fix painting of scrollbars in webkit with
     some styles.
@@ -10,6 +10,8 @@ qt4-x11 (4.4.0-4~pre1) unstable; urgency=low
     See #487745 for details.
   * Don't make the std:: symbols in webkit public. Solution based on the work
     of Mike Hommey in the gtk webkit package.
+  * Add 0235-qdbus-dispatch-async-timeout.diff from qt copy. Acked in qt-copy
+    by Thiago.
 
   +++ Changes by Modestas Vainius:
 
