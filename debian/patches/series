@@ -19,10 +19,10 @@
 0228-qsortfilterproxymodel-invalidate-noscroll.diff
 0230-qtextcontrol-selectnextword.diff
 0233-fix-q3textbrowser-image.diff
+0235-qdbus-dispatch-async-timeout.diff
+0236-qtoolbararealayout-restore.diff
 
 # debian patches
-0236-qtoolbararealayout-restore.diff
-0235-qdbus-dispatch-async-timeout.diff
 01_qmake_for_debian.diff
 02_launch_assistant-qt4.diff
 03_launch_moc-qt4.diff
