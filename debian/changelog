@@ -12,6 +12,8 @@ qt4-x11 (4.4.0-4~pre1) unstable; urgency=low
     of Mike Hommey in the gtk webkit package.
   * Add 0235-qdbus-dispatch-async-timeout.diff from qt copy. Acked in qt-copy
     by Thiago.
+  * Add 0236-qtoolbararealayout-restore.diff to fix a regression in qt4.4.
+    Patch from Trolltech.
 
   +++ Changes by Modestas Vainius:
 

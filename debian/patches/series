@@ -21,6 +21,7 @@
 0233-fix-q3textbrowser-image.diff
 
 # debian patches
+0236-qtoolbararealayout-restore.diff
 0235-qdbus-dispatch-async-timeout.diff
 01_qmake_for_debian.diff
 02_launch_assistant-qt4.diff
