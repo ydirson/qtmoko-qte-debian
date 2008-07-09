@@ -14,6 +14,8 @@ qt4-x11 (4.4.0-4~pre1) unstable; urgency=low
     by Thiago.
   * Add 0236-qtoolbararealayout-restore.diff to fix a regression in qt4.4.
     Patch from Trolltech.
+  * Add 0003_tab_text_cutoff.diff patch to fix rendering of text in tabs.
+    Patch available in qt4.5.
 
   +++ Changes by Modestas Vainius:
 
