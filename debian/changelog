@@ -1,4 +1,4 @@
-qt4-x11 (4.4.0-4~pre1) unstable; urgency=low
+qt4-x11 (4.4.0-4) unstable; urgency=low
 
   +++ Changes by Sune Vuorela:
 
@@ -26,7 +26,7 @@ qt4-x11 (4.4.0-4~pre1) unstable; urgency=low
     on dialog exec and when PrintToFile is disabled (TT #214505).
   * Add 0233-fix-q3textbrowser-image.diff patch from qt copy.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 28 Jun 2008 15:31:31 +0300
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 09 Jul 2008 02:53:33 +0200
 
 qt4-x11 (4.4.0-3) unstable; urgency=low
 
