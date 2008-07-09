@@ -20,6 +20,7 @@
 0228-qsortfilterproxymodel-invalidate-noscroll.diff
 0230-qtextcontrol-selectnextword.diff
 0233-fix-q3textbrowser-image.diff
+0234-fix-mysql-threaded.diff
 0235-qdbus-dispatch-async-timeout.diff
 0236-qtoolbararealayout-restore.diff
 
