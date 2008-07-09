@@ -5,6 +5,9 @@ qt4-x11 (4.4.0-4~pre1) unstable; urgency=low
   * Get patch from 4.4.2 (yes!) to fix painting of scrollbars in webkit with
     some styles.
   * Get patch from 4.4.2 to allow Https to be treated as https in -network.
+  * Fix some unaligned access issues that makes any webkit using application
+    crash (SIGBUS) on archs where this isn't allowed. Patch by Mike Hommey.
+    See #487745 for details.
 
   +++ Changes by Modestas Vainius:
 
