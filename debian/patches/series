@@ -32,6 +32,7 @@
 12_fix_qmake_pkgconfig.diff
 14_add_libraries_to_gui_build_where_actually_needed.diff
 15_fix_qmake_makefile_generation.diff
+16_hide_std_symbols_on_qtwebkit.diff
 20_mips_atomic_ops.diff
 21_qprintdialog_honour_fileprintersadded.diff
 30_webkit-unaligned-access.patch

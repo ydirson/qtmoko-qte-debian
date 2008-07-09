@@ -8,6 +8,8 @@ qt4-x11 (4.4.0-4~pre1) unstable; urgency=low
   * Fix some unaligned access issues that makes any webkit using application
     crash (SIGBUS) on archs where this isn't allowed. Patch by Mike Hommey.
     See #487745 for details.
+  * Don't make the std:: symbols in webkit public. Solution based on the work
+    of Mike Hommey in the gtk webkit package.
 
   +++ Changes by Modestas Vainius:
 

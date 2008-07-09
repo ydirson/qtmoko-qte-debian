@@ -1,0 +1,22 @@
+Index: b/src/3rdparty/webkit/WebKit.pri
+===================================================================
+--- a/src/3rdparty/webkit/WebKit.pri
++++ b/src/3rdparty/webkit/WebKit.pri
+@@ -27,6 +27,7 @@
+ BASE_DIR = $$PWD
+ qt-port:INCLUDEPATH += \
+     $$PWD/WebKit/qt/Api
++qt-port:QMAKE_LFLAGS += -Wl,--version-script,$$BASE_DIR/symbols.filter
+ gtk-port:INCLUDEPATH += \
+     $$BASE_DIR/WebCore/platform/gtk \
+     $$BASE_DIR/WebCore/platform/network/curl \
+Index: b/src/3rdparty/webkit/symbols.filter
+===================================================================
+--- /dev/null
++++ b/src/3rdparty/webkit/symbols.filter
+@@ -0,0 +1,5 @@
++{
++local:
++_ZSt*;
++_ZNSt*;
++};
