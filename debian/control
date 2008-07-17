@@ -340,7 +340,7 @@ Description: Qt 4 development files
  is its rich set of widgets that provide standard GUI functionality.
  .
  This package contains the header development files and development programs
- such as qmake used for building Qt4 applications.
+ such as qmake (qmake-qt4) used for building Qt4 applications.
 
 Package: libqt4-opengl-dev
 Architecture: any
