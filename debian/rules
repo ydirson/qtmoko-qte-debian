@@ -14,7 +14,7 @@ include /usr/share/cdbs/1/rules/patchsys-quilt.mk
 include /usr/share/cdbs/1/rules/utils.mk
 
 DEB_MAKE_INVOKE := $(MAKE)
-DEB_MAKE_BUILD_TARGET := sub-src sub-tools
+DEB_MAKE_BUILD_TARGET := sub-src
 DEB_MAKE_INSTALL_TARGET := INSTALL_ROOT=$(DEB_DESTDIR) install
 DEB_DH_INSTALL_SOURCEDIR := debian/tmp
 
@@ -48,6 +48,12 @@ ifeq ($(DEB_HOST_ARCH_OS),linux)
 else
         PLATFORM_ARG = glibc-g++
 endif
+
+common-build-arch::  debian/stamp-makefile-build-tools
+
+debian/stamp-makefile-build-tools: debian/stamp-makefile-build
+	$(MAKE) sub-tools
+	touch $@
 
 common-configure-arch:: config.status
 
@@ -177,6 +183,7 @@ clean::
 
 	# Generated on build
 	rm -f debian/shlibs.local
+	rm -f debian/stamp-makefile-build-tools
 
 common-install-arch::
 # Fix wrong path in pkgconfig files
