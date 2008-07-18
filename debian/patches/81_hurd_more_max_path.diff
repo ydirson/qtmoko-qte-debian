@@ -1,0 +1,15 @@
+define MAX_PATH if not defined.  This is needed on hurd.
+Patch by Michael Banck
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=485931
+
+--- a/src/3rdparty/clucene/src/CLucene/config/compiler.h
++++ b/src/3rdparty/clucene/src/CLucene/config/compiler.h
+@@ -147,7 +147,7 @@
+ #elif defined(_MAX_PATH)
+ #define CL_MAX_PATH _MAX_PATH
+ #else
+- #error "CL_MAX_PATH could not be determined"
++ #define CL_MAX_PATH 4096
+ #endif
+ 
+ //this is the max filename... for now its just the same,
