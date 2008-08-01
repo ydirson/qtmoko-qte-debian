@@ -1,5 +1,4 @@
 # patches from upstream
-0001_webkit_backround_in_scrollbars_webkit-5b0ea6b840a6e25e97b886e1852c3fc6ef8e8d0d.diff
 0002_https_lowercase.cpp
 0003_tab_text_cutoff.diff
 # qt-copy patches
@@ -8,17 +7,13 @@
 0195-compositing-properties.diff
 0203-qtexthtmlparser-link-color.diff
 0209-prevent-qt-mixing.diff
-0210-fix-crash-q3stylesheet-font-size.diff
 0214-fix-qgraphicsproxywidget-tab-crash.diff
 0216-allow-isystem-for-headers.diff
-0220-no-x-recursion-in-xerrhandler.diff
-0223-fix-qpixmap-hasalpha.diff
 0224-fast-qpixmap-fill.diff
-0225-invalidate-tabbar-geometry-on-refresh.diff
+0225-invalidate-tabbar-geometry-on-refresh.patch
 0226-qtreeview-column_resize_when_needed.diff
-0227-qdatastream-regression.diff
-0228-qsortfilterproxymodel-invalidate-noscroll.diff
 0230-qtextcontrol-selectnextword.diff
+0232-fix-qdesktopwidget-screen-merge.diff
 0233-fix-q3textbrowser-image.diff
 0234-fix-mysql-threaded.diff
 0235-qdbus-dispatch-async-timeout.diff
@@ -38,7 +33,6 @@
 15_fix_qmake_makefile_generation.diff
 16_hide_std_symbols_on_qtwebkit.diff
 20_mips_atomic_ops.diff
-21_qprintdialog_honour_fileprintersadded.diff
 30_webkit-unaligned-access.patch
 40_alpha_ice.diff
 41_disable_opengl_visibility.diff
@@ -47,7 +41,5 @@
 70_hppa_ldcw_fix.diff
 71_hppa_unaligned_access_fix_458133.diff
 72_generic_arch_atomic_header_fix.diff
-73_from4.4.1_no_AAAA_when_ipv6_disabled.diff
 80_hurd_max_path.diff
 81_hurd_more_max_path.diff
-90_gcc43.diff

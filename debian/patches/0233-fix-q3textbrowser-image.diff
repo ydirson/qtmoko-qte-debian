@@ -7,8 +7,7 @@ In qt4.4.x there is a regression in Q3TextBrowser it can load an image.
 
 --- a/src/qt3support/other/q3mimefactory.cpp	2008-06-25 14:30:02 -0000
 +++ b/src/qt3support/other/q3mimefactory.cpp	2008-06-25 14:30:02 -0000
-
-@@ -152,9 +152,8 @@
+@@ -182,9 +182,8 @@
          QByteArray mimetype("application/octet-stream");
          if (extensions.contains(e))
              mimetype = extensions[e].latin1();

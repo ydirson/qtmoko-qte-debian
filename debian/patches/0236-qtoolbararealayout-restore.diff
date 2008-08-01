@@ -7,7 +7,7 @@ author: TT
 QMainWindow::restoreState doesn't layout toolbars properly, regression
 from Qt-4.4
 
-Index: a/src/gui/widgets/qtoolbararealayout.cpp
+Index: src/gui/widgets/qtoolbararealayout.cpp
 ===================================================================
 --- a/src/gui/widgets/qtoolbararealayout.cpp	(revision 829449)
 +++ b/src/gui/widgets/qtoolbararealayout.cpp	(working copy)

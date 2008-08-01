@@ -7,25 +7,22 @@ author: Dirk Mueller <mueller@kde.org>
 in big user environments, getgrgid_r() needs more memory than sysconf() returns.
 Try a bit harder.
 
---- a/src/corelib/io/qfsfileengine_unix.cpp
-+++ b/src/corelib/io/qfsfileengine_unix.cpp
-@@ -829,9 +829,16 @@
-     } else if (own == OwnerGroup) {
-         struct group *gr = 0;
- #if !defined(QT_NO_THREAD) && defined(_POSIX_THREAD_SAFE_FUNCTIONS) && !defined(Q_OS_OPENBSD)
--        buf.resize(sysconf(_SC_GETGR_R_SIZE_MAX));
+--- a/src/corelib//io/qfsfileengine_unix.cpp
++++ b/src/corelib//io/qfsfileengine_unix.cpp
+@@ -835,9 +835,13 @@
+         size_max = sysconf(_SC_GETGR_R_SIZE_MAX);
+         if (size_max == -1)
+             size_max = 1024;
+-        buf.resize(size_max);
 -        struct group entry;
 -        getgrgid_r(ownerId(own), &entry, buf.data(), buf.size(), &gr);
-+        for (unsigned size = sysconf(_SC_GETGR_R_SIZE_MAX); size < 256000; size += size)
-+        {
-+            buf.resize(size);
++        for (;size_max < 256000; size_max += size_max) {
++            buf.resize(size_max);
 +            struct group entry;
-+            // ERANGE indicates that the buffer was too small
-+            if (!getgrgid_r(ownerId(own), &entry, buf.data(), buf.size(), &gr)
-+                || errno != ERANGE)
++            if (!getgrgid_r(ownerId(own), &entry, buf.data(), buf.size(), &gr) || errno != ERANGE)
 +                break;
-+        }
 +
++        }
  #else
          gr = getgrgid(ownerId(own));
  #endif

@@ -22,9 +22,11 @@ This patch adds support for using -isystem to allow putting an include
 directory at the end of the compiler's header search path.
 
 
---- a/configure
-+++ b/configure
-@@ -829,6 +829,11 @@
+Index: configure
+===================================================================
+--- a/configure	(revision 777050)
++++ b/configure	(working copy)
+@@ -832,6 +832,11 @@
              VAL=`echo $1 | sed 's,-D,,'`
          fi
          ;;
@@ -36,7 +38,7 @@ directory at the end of the compiler's header search path.
      -I?*|-I)
          VAR="add_ipath"
          if [ "$1" = "-I" ]; then
-@@ -1725,6 +1730,9 @@
+@@ -1739,6 +1744,9 @@
      add_ipath)
          I_FLAGS="$I_FLAGS -I\"${VAL}\""
          ;;

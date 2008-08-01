@@ -28,7 +28,7 @@ Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
  #elif defined(__QNXNTO__)
 --- a/src/corelib/plugin/qlibrary.cpp
 +++ b/src/corelib/plugin/qlibrary.cpp
-@@ -288,13 +288,13 @@
+@@ -289,13 +289,13 @@
  
  #if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
  
@@ -55,7 +55,7 @@ Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
  #    include <fenv.h>
  #endif
  
-@@ -6256,7 +6256,7 @@
+@@ -6258,7 +6258,7 @@
      _control87(MCW_EM, MCW_EM);
  #endif
  
@@ -64,7 +64,7 @@ Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
      fenv_t envp;
      feholdexcept(&envp);
  #endif
-@@ -6272,7 +6272,7 @@
+@@ -6274,7 +6274,7 @@
  #endif //_M_X64
  #endif //Q_OS_WIN
  

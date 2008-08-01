@@ -2,7 +2,7 @@ author: Fathi Boudra <fabo@debian.org>
 
 --- a/config.tests/unix/compile.test
 +++ b/config.tests/unix/compile.test
-@@ -51,7 +51,7 @@
+@@ -53,7 +53,7 @@
  cd "$OUTDIR/$TEST"
  
  make distclean >/dev/null 2>&1
@@ -57,7 +57,7 @@ author: Fathi Boudra <fabo@debian.org>
      if [ "$VERBOSE" = "yes" ]; then
 --- a/configure
 +++ b/configure
-@@ -3799,7 +3799,7 @@
+@@ -3829,7 +3829,7 @@
  }
  
  # build qmake
@@ -66,7 +66,7 @@ author: Fathi Boudra <fabo@debian.org>
      echo "Creating qmake. Please wait..."
  
      OLD_QCONFIG_H=
-@@ -6012,8 +6012,8 @@
+@@ -6058,8 +6058,8 @@
  QMAKE_MOC_SRC    = \$\$QT_BUILD_TREE/src/moc
  
  #local paths that cannot be queried from the QT_INSTALL_* properties while building QTDIR
@@ -77,7 +77,7 @@ author: Fathi Boudra <fabo@debian.org>
  QMAKE_UIC3       = \$\$QT_BUILD_TREE/bin/uic3
  QMAKE_RCC        = \$\$QT_BUILD_TREE/bin/rcc
  QMAKE_QDBUSXML2CPP = \$\$QT_BUILD_TREE/bin/qdbusxml2cpp
-@@ -6313,11 +6313,11 @@
+@@ -6360,11 +6360,11 @@
  #-------------------------------------------------------------------------------
  
  echo "Finding project files. Please wait..."
@@ -91,7 +91,7 @@ author: Fathi Boudra <fabo@debian.org>
  fi
  
  # .projects      -> projects to process
-@@ -6490,7 +6490,7 @@
+@@ -6537,7 +6537,7 @@
              echo "  for $a\c"
          fi
  
@@ -102,7 +102,7 @@ author: Fathi Boudra <fabo@debian.org>
              if echo '\c' | grep '\c' >/dev/null; then
 --- a/projects.pro
 +++ b/projects.pro
-@@ -114,7 +114,7 @@
+@@ -116,7 +116,7 @@
  win32 {
     qmake.files=$$QT_BUILD_TREE/bin/qmake.exe
  } else {

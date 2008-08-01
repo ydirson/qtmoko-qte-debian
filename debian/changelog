@@ -1,4 +1,6 @@
-qt4-x11 (4.4.0-5) UNRELEASED; urgency=low
+qt4-x11 (4.4.1-0r1) UNRELEASED; urgency=low
+
+  * New upstream release.
 
   +++ Changes by Sune Vuorela:
 
@@ -7,7 +9,36 @@ qt4-x11 (4.4.0-5) UNRELEASED; urgency=low
   * Apply patch from friendly hurd porters. (Closes: 485931)
   * Make the rules file parallel build safe.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 18 Jul 2008 00:57:42 +0200
+  +++ Changes by Modestas Vainius:
+
+  * Resync our qt-copy patches with KDE svn:
+    * add:
+      - 0232-fix-qdesktopwidget-screen-merge.diff
+    * removed from qt-copy KDE svn:
+      - 0210-fix-crash-q3stylesheet-font-size.diff
+      - 0220-no-x-recursion-in-xerrhandler.diff
+      - 0223-fix-qpixmap-hasalpha.diff
+      - 0227-qdatastream-regression.diff
+      - 0228-qsortfilterproxymodel-invalidate-noscroll.diff
+    * refresh:
+      0167, 0180, 0195, 0203, 0209, 0214, 0216,
+      0224, 0226, 0230, 0233, 0235, 0236.
+    * other qt-copy patches are in 4.4.1.
+  * Resync our patches:
+    * remove, merged (stolen from) upstream:
+      - 0001_webkit_backround_in_scrollbars_webkit-5b0ea6b840a6e25e97b886e185...
+      - 21_qprintdialog_honour_fileprintersadded.diff
+      - 73_from4.4.1_no_AAAA_when_ipv6_disabled.diff
+      - 90_gcc43.diff
+    * partially merged upstream, leave unmerged parts:
+      - 71_hppa_unaligned_access_fix_458133.diff
+    * refresh:
+      - 05_append_qt4_target.diff
+      - 14_add_libraries_to_gui_build_where_actually_needed.diff
+      - 20_mips_atomic_ops.diff
+      - 50_kfreebsd_build_fix.diff
+
+ -- Modestas Vainius <modestas@vainius.eu>  Fri, 01 Aug 2008 21:15:03 +0300
 
 qt4-x11 (4.4.0-4) unstable; urgency=low
 

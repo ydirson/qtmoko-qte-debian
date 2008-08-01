@@ -1,17 +1,10 @@
 --- a/src/gui/kernel/kernel.pri
 +++ b/src/gui/kernel/kernel.pri
-@@ -112,6 +112,7 @@
-             HEADERS += \
-                 kernel/qguieventdispatcher_glib_p.h
-             QMAKE_CXXFLAGS += $$QT_CFLAGS_GLIB
-+            LIBS +=$$QT_LIBS_GLIB
- 	}
-             SOURCES += \
- 		kernel/qeventdispatcher_x11.cpp
-@@ -140,6 +141,7 @@
+@@ -141,6 +141,8 @@
              HEADERS += \
                  kernel/qeventdispatcher_glib_qws_p.h
              QMAKE_CXXFLAGS += $$QT_CFLAGS_GLIB
++            LIBS +=$$QT_LIBS_GLIB
 +	    LIBS +=$$QT_LIBS_GLIB
  	}
  
