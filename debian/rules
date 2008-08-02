@@ -22,7 +22,12 @@ DEB_DH_INSTALL_SOURCEDIR := debian/tmp
 DEB_DH_INSTALL_ARGS := --exclude=.debug
 
 DEB_MAKE_CLEAN_TARGET := confclean distclean
-DEB_DH_MAKESHLIBS_ARGS_ALL := -V
+
+# Shlibs of the current upstream version
+#DEB_DH_MAKESHLIBS_ARGS_ALL := -V
+# Specific shlibs version
+SHLIBSVERSION := 4.4.0
+$(foreach libpkg,$(filter-out %-dev %-dbg,$(filter lib%,$(DEB_ARCH_PACKAGES))),$(eval DEB_DH_MAKESHLIBS_ARGS_$(libpkg) := -V'$(libpkg) (>= $(SHLIBSVERSION))'))
 
 DEB_DH_STRIP_ARGS_libqt4-dbg := --exclude=.debug
 

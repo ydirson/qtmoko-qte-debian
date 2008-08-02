@@ -1,4 +1,4 @@
-qt4-x11 (4.4.1-0r1) UNRELEASED; urgency=low
+qt4-x11 (4.4.1-0r2) UNRELEASED; urgency=low
 
   * New upstream release.
 
@@ -37,8 +37,10 @@ qt4-x11 (4.4.1-0r1) UNRELEASED; urgency=low
       - 14_add_libraries_to_gui_build_where_actually_needed.diff
       - 20_mips_atomic_ops.diff
       - 50_kfreebsd_build_fix.diff
+  * Leave shlibs at (>= 4.4.0) since 4.4.1 is supposed to be backwards and
+    forward compatible with 4.4.0.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 09 Jul 2008 02:53:33 +0200
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 02 Aug 2008 22:49:17 +0300
 
 qt4-x11 (4.4.0-4) unstable; urgency=low
 
