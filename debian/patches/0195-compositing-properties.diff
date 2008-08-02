@@ -9,7 +9,7 @@ so they can be used when compositing.
 
 --- a/src/gui/kernel/qwidget_x11.cpp
 +++ b/src/gui/kernel/qwidget_x11.cpp
-@@ -662,6 +662,11 @@ void QWidgetPrivate::create_sys(WId window, bool initializeWindow, bool destroyO
+@@ -662,6 +662,11 @@
          Q_ASSERT(id);
          XChangeWindowAttributes(dpy, id, CWOverrideRedirect | CWSaveUnder,
                                  &wsa);
@@ -21,7 +21,7 @@ so they can be used when compositing.
      } else if (topLevel && !desktop) {        // top-level widget
          if (!X11->wm_client_leader)
              create_wm_client_leader();
-@@ -710,13 +715,21 @@ void QWidgetPrivate::create_sys(WId window, bool initializeWindow, bool destroyO
+@@ -710,13 +715,21 @@
          // set EWMH window types
          setNetWmWindowTypes();
  
@@ -45,7 +45,7 @@ so they can be used when compositing.
  
          // declare the widget's window role
          QByteArray windowRole;
-@@ -736,10 +749,6 @@ void QWidgetPrivate::create_sys(WId window, bool initializeWindow, bool destroyO
+@@ -736,10 +749,6 @@
          XChangeProperty(dpy, id, ATOM(WM_CLIENT_LEADER),
                          XA_WINDOW, 32, PropModeReplace,
                          (unsigned char *)&X11->wm_client_leader, 1);

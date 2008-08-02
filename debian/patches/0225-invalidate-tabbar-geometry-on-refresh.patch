@@ -19,10 +19,8 @@ of 0, which will be kept in the cache and so the tab bar will never be shown.
 
 This patch fixes the problem by calling updateGeometry() whenever the tab bar's layout is refreshed.
 
-Index: src/gui/widgets/qtabbar.cpp
-===================================================================
---- a/src/gui/widgets/qtabbar.cpp	(revision 796858)
-+++ b/src/gui/widgets/qtabbar.cpp	(working copy)
+--- a/src/gui/widgets/qtabbar.cpp
++++ b/src/gui/widgets/qtabbar.cpp
 @@ -533,8 +533,8 @@
          layoutTabs();
          makeVisible(currentIndex);

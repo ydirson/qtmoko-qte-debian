@@ -14,10 +14,8 @@ This patch avoids the expensive image->pixmap conversion by simply discarding
 the old pixmap, creating a new one with the correct format, and doing the
 fill server side.
 
-Index: src/gui/image/qpixmap_x11.cpp
-===================================================================
---- a/src/gui/image/qpixmap_x11.cpp	(revision 798574)
-+++ b/src/gui/image/qpixmap_x11.cpp	(working copy)
+--- a/src/gui/image/qpixmap_x11.cpp
++++ b/src/gui/image/qpixmap_x11.cpp
 @@ -1107,7 +1107,26 @@
  {
      if (fillColor.alpha() != 255) {

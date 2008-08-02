@@ -5,9 +5,9 @@ author: Rafael Fernández López <ereslibre@kde.org>
 
 Links are assigned a foreground color according to the system current color scheme.
 
---- a/src/gui/text/qtexthtmlparser.cpp	(revisión: 745183)
-+++ b/src/gui/text/qtexthtmlparser.cpp	(copia de trabajo)
-@@ -1053,7 +1053,7 @@ void QTextHtmlParserNode::initializeProp
+--- a/src/gui/text/qtexthtmlparser.cpp
++++ b/src/gui/text/qtexthtmlparser.cpp
+@@ -1053,7 +1053,7 @@
                      && !attributes.at(i + 1).isEmpty()) {
                      hasHref = true;
                      charFormat.setUnderlineStyle(QTextCharFormat::SingleUnderline);

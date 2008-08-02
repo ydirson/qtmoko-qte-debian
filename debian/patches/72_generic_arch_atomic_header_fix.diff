@@ -2,8 +2,6 @@ http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=475767
 
 This mostly affects hppa, but hppa is "community supported" - meaning that the Trolls doesn't care much.
 
-Index: b/src/corelib/arch/qatomic_generic.h
-===================================================================
 --- a/src/corelib/arch/qatomic_generic.h
 +++ b/src/corelib/arch/qatomic_generic.h
 @@ -223,7 +223,7 @@

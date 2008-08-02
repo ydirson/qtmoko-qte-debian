@@ -7,8 +7,8 @@ author: Dirk Mueller <mueller@kde.org>
 in big user environments, getgrgid_r() needs more memory than sysconf() returns.
 Try a bit harder.
 
---- a/src/corelib//io/qfsfileengine_unix.cpp
-+++ b/src/corelib//io/qfsfileengine_unix.cpp
+--- a/src/corelib/io/qfsfileengine_unix.cpp
++++ b/src/corelib/io/qfsfileengine_unix.cpp
 @@ -835,9 +835,13 @@
          size_max = sysconf(_SC_GETGR_R_SIZE_MAX);
          if (size_max == -1)

@@ -7,11 +7,6 @@ author: Michael Leupold <lemma@confuego.org>
 This patch fixes some characters in a tabbar being cut-off due
 to a wrong size hint (visible if using a kstyle).
 
-More info here.
-http://lists.kde.org/?l=kde-core-devel&m=121526335523921&w=2
-It might very well very soon be a qtcopy patch
-Index: b/src/gui/widgets/qtabbar.cpp
-===================================================================
 --- a/src/gui/widgets/qtabbar.cpp
 +++ b/src/gui/widgets/qtabbar.cpp
 @@ -1084,7 +1084,7 @@
@@ -19,7 +14,7 @@ Index: b/src/gui/widgets/qtabbar.cpp
          initStyleOption(&opt, index);
          opt.text = d->tabList.at(index).text;
 -        QSize iconSize = tab->icon.isNull() ? QSize() : opt.iconSize;
-+        QSize iconSize = tab->icon.isNull() ? QSize(0,0) : opt.iconSize;
++        QSize iconSize = tab->icon.isNull() ? QSize(0, 0) : opt.iconSize;
          int hframe  = style()->pixelMetric(QStyle::PM_TabBarTabHSpace, &opt, this);
          int vframe  = style()->pixelMetric(QStyle::PM_TabBarTabVSpace, &opt, this);
          const QFontMetrics fm = fontMetrics();

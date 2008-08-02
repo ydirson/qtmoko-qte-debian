@@ -1,11 +1,15 @@
 qt4-x11 (4.4.1-0r2) UNRELEASED; urgency=low
 
-  * New upstream release.
+  * New upstream release. (Closes: #483790)
+
+  +++ Changes by Fathi Boudra:
+
+  * Add 0241-fix-null-stylesheet-warning.diff from qt-copy.
 
   +++ Changes by Sune Vuorela:
 
   * Remove watchfile. it doesn't work.
-  * mention qmake-qt4 in description of libqt4-dev. (Closes: 415816) 
+  * mention qmake-qt4 in description of libqt4-dev. (Closes: 415816)
   * Apply patch from friendly hurd porters. (Closes: 485931)
   * Make the rules file parallel build safe.
 

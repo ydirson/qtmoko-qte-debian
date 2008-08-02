@@ -7,11 +7,9 @@ author: TT
 QMainWindow::restoreState doesn't layout toolbars properly, regression
 from Qt-4.4
 
-Index: src/gui/widgets/qtoolbararealayout.cpp
-===================================================================
---- a/src/gui/widgets/qtoolbararealayout.cpp	(revision 829449)
-+++ b/src/gui/widgets/qtoolbararealayout.cpp	(working copy)
-@@ -1323,7 +1323,8 @@ bool QToolBarAreaLayout::restoreState(QD
+--- a/src/gui/widgets/qtoolbararealayout.cpp
++++ b/src/gui/widgets/qtoolbararealayout.cpp
+@@ -1323,7 +1323,8 @@
                  toolBar->setVisible(shown);
                  toolBar->d_func()->setWindowState(floating, true, rect);
  

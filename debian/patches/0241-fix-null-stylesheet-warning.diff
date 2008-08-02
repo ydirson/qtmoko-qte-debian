@@ -1,0 +1,22 @@
+qt-bugs@ issue : none
+Trolltech task ID : none
+bugs.kde.org number : none
+applied: no
+author: Robert Knight <robertknight@gmail.com>
+
+Fix a QObject::connect() warning when calling QWidget::setFont()
+on a widget which does not have its own style sheet and which has
+children with Qt::WA_StyleSheet set (as a result of being polished
+by a style sheet style)
+
+--- a/src/gui/kernel/qwidget.cpp
++++ b/src/gui/kernel/qwidget.cpp
+@@ -4001,7 +4001,7 @@
+         QWidget *w = qobject_cast<QWidget*>(children.at(i));
+         if (w) {
+ #ifndef QT_NO_STYLE_STYLESHEET
+-            if (w->testAttribute(Qt::WA_StyleSheet))
++            if (cssStyle && w->testAttribute(Qt::WA_StyleSheet))
+                 cssStyle->updateStyleSheetFont(w);
+             else
+ #endif

@@ -8,8 +8,8 @@ This patch dispatches synthesized timeout messages directly
 after handling them. This is neccessary in order to receive timeout
 errors to asynchroneous messages.
 
---- a/src/dbus/qdbusintegrator.cpp	(Revision 827848)
-+++ b/src/dbus/qdbusintegrator.cpp	(Arbeitskopie)
+--- a/src/dbus/qdbusintegrator.cpp
++++ b/src/dbus/qdbusintegrator.cpp
 @@ -988,6 +988,7 @@
  {
      DBusTimeout *timeout = timeouts.value(e->timerId(), 0);

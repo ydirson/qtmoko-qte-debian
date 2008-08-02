@@ -7,8 +7,8 @@ author: Tobias Koenig <tokoe@kde.org>
 This patch will fix the handling of connections to
 mysql server in a multithreaded environment
 
---- a/src/sql/drivers/mysql/qsql_mysql.cpp	(revision 804421)
-+++ b/src/sql/drivers/mysql/qsql_mysql.cpp	(working copy)
+--- a/src/sql/drivers/mysql/qsql_mysql.cpp
++++ b/src/sql/drivers/mysql/qsql_mysql.cpp
 @@ -1215,6 +1215,10 @@
      d->preparedQuerysEnabled = false;
  #endif

@@ -16,26 +16,22 @@ a
 This patch assures that if no header is shown, or if we only have one column (so
 no other columns become shrinked), the contents will be visible.
 
-Index: src/gui/itemviews/qtreeview.h
-===================================================================
---- a/src/gui/itemviews/qtreeview.h	(revisión: 803370)
-+++ b/src/gui/itemviews/qtreeview.h	(copia de trabajo)
+--- a/src/gui/itemviews/qtreeview.h
++++ b/src/gui/itemviews/qtreeview.h
 @@ -229,6 +229,7 @@
      Q_PRIVATE_SLOT(d_func(), void _q_columnsAboutToBeRemoved(const QModelIndex &, int, int))
      Q_PRIVATE_SLOT(d_func(), void _q_columnsRemoved(const QModelIndex &, int, int))
      Q_PRIVATE_SLOT(d_func(), void _q_modelAboutToBeReset())
 +    Q_PRIVATE_SLOT(d_func(), void _q_forceColumnResizeToFitContents())
  };
-
+ 
  #endif // QT_NO_TREEVIEW
-Index: src/gui/itemviews/qtreeview.cpp
-===================================================================
---- a/src/gui/itemviews/qtreeview.cpp	(revisión: 803370)
-+++ b/src/gui/itemviews/qtreeview.cpp	(copia de trabajo)
+--- a/src/gui/itemviews/qtreeview.cpp
++++ b/src/gui/itemviews/qtreeview.cpp
 @@ -246,6 +246,19 @@
-
+ 
      connect(d->model, SIGNAL(modelAboutToBeReset()), SLOT(_q_modelAboutToBeReset()));
-
+ 
 +    // we connect these signals from the model to a slot that will call
 +    // resizeColumnToContents. This is important because if we call it only on
 +    // expand() method, when we expand a node, the filling of the model can be
@@ -59,7 +55,7 @@ Index: src/gui/itemviews/qtreeview.cpp
 +
 +    _q_forceColumnResizeToFitContents();
  }
-
+ 
  void QTreeViewPrivate::collapse(int item, bool emitSignal)
 @@ -2836,6 +2851,8 @@
          else
@@ -68,12 +64,12 @@ Index: src/gui/itemviews/qtreeview.cpp
 +
 +    _q_forceColumnResizeToFitContents();
  }
-
+ 
  void QTreeViewPrivate::prepareAnimatedOperation(int item, AnimatedOperation::Type type)
 @@ -2947,6 +2964,25 @@
      viewItems.clear();
  }
-
+ 
 +void QTreeViewPrivate::_q_forceColumnResizeToFitContents()
 +{
 +    Q_Q(QTreeView);
@@ -96,15 +92,13 @@ Index: src/gui/itemviews/qtreeview.cpp
  void QTreeViewPrivate::_q_columnsAboutToBeRemoved(const QModelIndex &parent, int start, int end)
  {
      Q_UNUSED(parent);
-Index: src/gui/itemviews/qtreeview_p.h
-===================================================================
---- a/src/gui/itemviews/qtreeview_p.h	(revision 803534)
-+++ b/src/gui/itemviews/qtreeview_p.h	(working copy)
+--- a/src/gui/itemviews/qtreeview_p.h
++++ b/src/gui/itemviews/qtreeview_p.h
 @@ -101,6 +101,7 @@
          QPixmap after;
      };
-
+ 
 +    void _q_forceColumnResizeToFitContents();
      void expand(int item, bool emitSignal);
      void collapse(int item, bool emitSignal);
-
+ 

@@ -1,5 +1,3 @@
-Index: b/src/3rdparty/webkit/WebKit.pri
-===================================================================
 --- a/src/3rdparty/webkit/WebKit.pri
 +++ b/src/3rdparty/webkit/WebKit.pri
 @@ -27,6 +27,7 @@
@@ -10,8 +8,6 @@ Index: b/src/3rdparty/webkit/WebKit.pri
  gtk-port:INCLUDEPATH += \
      $$BASE_DIR/WebCore/platform/gtk \
      $$BASE_DIR/WebCore/platform/network/curl \
-Index: b/src/3rdparty/webkit/symbols.filter
-===================================================================
 --- /dev/null
 +++ b/src/3rdparty/webkit/symbols.filter
 @@ -0,0 +1,5 @@

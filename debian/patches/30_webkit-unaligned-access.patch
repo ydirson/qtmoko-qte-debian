@@ -12,8 +12,6 @@ Some compiler warnings about alignment remain, but I don't know if they are
 a real problem yet.
 ---
 
-Index: b/src/3rdparty/webkit/JavaScriptCore/wtf/FastMalloc.cpp
-===================================================================
 --- a/src/3rdparty/webkit/JavaScriptCore/wtf/FastMalloc.cpp
 +++ b/src/3rdparty/webkit/JavaScriptCore/wtf/FastMalloc.cpp
 @@ -1267,14 +1267,14 @@
@@ -33,8 +31,6 @@ Index: b/src/3rdparty/webkit/JavaScriptCore/wtf/FastMalloc.cpp
      TCMalloc_PageHeap m_pageHeap;
  } PageHeapUnion;
  
-Index: b/src/3rdparty/webkit/JavaScriptCore/wtf/ListHashSet.h
-===================================================================
 --- a/src/3rdparty/webkit/JavaScriptCore/wtf/ListHashSet.h
 +++ b/src/3rdparty/webkit/JavaScriptCore/wtf/ListHashSet.h
 @@ -122,7 +122,7 @@
@@ -67,8 +63,6 @@ Index: b/src/3rdparty/webkit/JavaScriptCore/wtf/ListHashSet.h
      };
  
      template<typename ValueArg> struct ListHashSetNode {
-Index: b/src/3rdparty/webkit/JavaScriptCore/wtf/Platform.h
-===================================================================
 --- a/src/3rdparty/webkit/JavaScriptCore/wtf/Platform.h
 +++ b/src/3rdparty/webkit/JavaScriptCore/wtf/Platform.h
 @@ -167,6 +167,23 @@
@@ -95,8 +89,6 @@ Index: b/src/3rdparty/webkit/JavaScriptCore/wtf/Platform.h
  /* Compiler */
  
  /* COMPILER(MSVC) */
-Index: b/src/3rdparty/webkit/JavaScriptCore/wtf/Vector.h
-===================================================================
 --- a/src/3rdparty/webkit/JavaScriptCore/wtf/Vector.h
 +++ b/src/3rdparty/webkit/JavaScriptCore/wtf/Vector.h
 @@ -355,8 +355,7 @@
@@ -109,8 +101,6 @@ Index: b/src/3rdparty/webkit/JavaScriptCore/wtf/Vector.h
      };
  
      template<typename T, size_t inlineCapacity = 0>
-Index: b/src/3rdparty/webkit/WebCore/platform/AtomicString.cpp
-===================================================================
 --- a/src/3rdparty/webkit/WebCore/platform/AtomicString.cpp
 +++ b/src/3rdparty/webkit/WebCore/platform/AtomicString.cpp
 @@ -104,7 +104,7 @@
@@ -122,8 +112,6 @@ Index: b/src/3rdparty/webkit/WebCore/platform/AtomicString.cpp
          const UChar* strChars = str->characters();
          const UChar* bufChars = buf.s;
  
-Index: b/src/3rdparty/webkit/WebCore/platform/StringHash.h
-===================================================================
 --- a/src/3rdparty/webkit/WebCore/platform/StringHash.h
 +++ b/src/3rdparty/webkit/WebCore/platform/StringHash.h
 @@ -44,6 +44,15 @@

@@ -1,6 +1,6 @@
 # patches from upstream
-0002_https_lowercase.cpp
-0003_tab_text_cutoff.diff
+0002_https_lowercase.diff
+
 # qt-copy patches
 0167-fix-group-reading.diff
 0180-window-role.diff
@@ -18,6 +18,8 @@
 0234-fix-mysql-threaded.diff
 0235-qdbus-dispatch-async-timeout.diff
 0236-qtoolbararealayout-restore.diff
+0238-fix-qt-qttabbar-size.diff
+0241-fix-null-stylesheet-warning.diff
 
 # debian patches
 01_qmake_for_debian.diff

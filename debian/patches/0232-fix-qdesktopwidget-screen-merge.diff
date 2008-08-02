@@ -8,7 +8,7 @@ merge screens even if they're identical in size but overlaying
 
 --- a/src/gui/kernel/qdesktopwidget_x11.cpp
 +++ b/src/gui/kernel/qdesktopwidget_x11.cpp
-@@ -186,10 +186,11 @@ void QDesktopWidgetPrivate::init()
+@@ -186,10 +186,11 @@
          // merge a "cloned" screen with the previous, hiding all crtcs
          // that are currently showing a sub-rect of the previous screen
          rects[j].setRect(x, y, w, h);

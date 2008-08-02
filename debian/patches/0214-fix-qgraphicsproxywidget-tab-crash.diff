@@ -8,10 +8,8 @@ QGraphicsProxyWidget item in a QGraphicsScene had a QWidget associated
 with it. As soon as the user pressed <Tab>, QGraphicsProxyWidget
 attempted to give the focus to *some* QWidget (even if it was null).
 
-Index: src/gui/graphicsview/qgraphicsproxywidget.cpp
-===================================================================
---- a/src/gui/graphicsview/qgraphicsproxywidget.cpp	(revision 775038)
-+++ b/src/gui/graphicsview/qgraphicsproxywidget.cpp	(working copy)
+--- a/src/gui/graphicsview/qgraphicsproxywidget.cpp
++++ b/src/gui/graphicsview/qgraphicsproxywidget.cpp
 @@ -386,6 +386,10 @@
  	}
      }

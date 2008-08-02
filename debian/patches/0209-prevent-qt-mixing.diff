@@ -13,9 +13,9 @@ cause problems when mixed with upstream Qt.
 This patch does not make qt-copy binary incompatible with upstream Qt.
 It only further enforces using the same sources for the whole Qt build.
 
---- a/src/corelib/kernel/qobject_p.h.sav	2008-01-29 19:37:26.000000000 +0100
-+++ b/src/corelib/kernel/qobject_p.h	2008-01-30 14:08:15.000000000 +0100
-@@ -85,7 +85,9 @@ extern QSignalSpyCallbackSet Q_CORE_EXPO
+--- a/src/corelib/kernel/qobject_p.h
++++ b/src/corelib/kernel/qobject_p.h
+@@ -85,7 +85,9 @@
  
  inline QObjectData::~QObjectData() {}
  

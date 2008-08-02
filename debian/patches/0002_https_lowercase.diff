@@ -1,8 +1,6 @@
 Fetched from 4.4.2
 treat Https, HTtps, hTTps, ... as https as well
 
-Index: b/src/network/access/qnetworkaccesshttpbackend.cpp
-===================================================================
 --- a/src/network/access/qnetworkaccesshttpbackend.cpp
 +++ b/src/network/access/qnetworkaccesshttpbackend.cpp
 @@ -64,7 +64,7 @@
