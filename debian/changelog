@@ -38,7 +38,7 @@ qt4-x11 (4.4.1-0r1) UNRELEASED; urgency=low
       - 20_mips_atomic_ops.diff
       - 50_kfreebsd_build_fix.diff
 
- -- Modestas Vainius <modestas@vainius.eu>  Fri, 01 Aug 2008 21:15:03 +0300
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 09 Jul 2008 02:53:33 +0200
 
 qt4-x11 (4.4.0-4) unstable; urgency=low
 
