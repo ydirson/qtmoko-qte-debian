@@ -4,9 +4,11 @@ qt4-x11 (4.4.1-0r2) UNRELEASED; urgency=low
 
   +++ Changes by Fathi Boudra:
 
+  * Bump Standards-Version to 3.8.0 (no changes needed).
   * Add 0241-fix-null-stylesheet-warning.diff from qt-copy.
   * Update libqt4-dev.install: windows related files are not installed anymore.
   * Update Qt 4 designer short descriptions. (Closes: #493379)
+  * Replace libcupsys2-dev build dependency by libcups2-dev.
 
   +++ Changes by Sune Vuorela:
 
