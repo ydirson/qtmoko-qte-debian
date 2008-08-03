@@ -399,7 +399,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: libqt4-designer (<< 4.4.0~beta1-1)
 Replaces: qt4-dev-tools (<= 4.0.1-2), libqt4-designer (<< 4.4.0~beta1-1), libqt4-core (<< 4.4.0~beta1-1)
 Recommends: libqt4-dev
-Description: Qt 4 Designer
+Description: graphical designer for Qt 4 applications
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
