@@ -20,7 +20,7 @@
 0236-qtoolbararealayout-restore.diff
 0238-fix-qt-qttabbar-size.diff
 0241-fix-null-stylesheet-warning.diff
-0242-fix-systray.diff
+0243-fix-systray.diff
 
 # debian patches
 01_qmake_for_debian.diff

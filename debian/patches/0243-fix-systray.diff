@@ -6,8 +6,8 @@ author: Matthias Kretz
 
 Fix systray issue with Qt4.4.1.
 
---- a/src/gui/kernel/qwidget.cpp
-+++ b/src/gui/kernel/qwidget.cpp
+--- src/gui/kernel/qwidget.cpp
++++ src/gui/kernel/qwidget.cpp
 @@ -9095,8 +9095,6 @@
          break;
  #endif
