@@ -1,3 +1,12 @@
+qt4-x11 (4.4.1-2) UNRELEASED; urgency=low
+
+  +++ Changes by Fathi Boudra:
+
+  * Add patch to fix systray under KDE 4.
+    Thanks to Jonathan Riddell and Matthias Kretz.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 05 Aug 2008 17:05:29 +0200
+
 qt4-x11 (4.4.1-1) experimental; urgency=low
 
   * New upstream release. (Closes: #483790)

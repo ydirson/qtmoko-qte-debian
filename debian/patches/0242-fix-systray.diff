@@ -1,0 +1,19 @@
+qt-bugs@ issue : none
+Trolltech task ID : none
+bugs.kde.org number : 168007
+applied: no
+author: Matthias Kretz
+
+Fix systray issue with Qt4.4.1.
+
+--- a/src/gui/kernel/qwidget.cpp
++++ b/src/gui/kernel/qwidget.cpp
+@@ -9095,8 +9095,6 @@
+         break;
+ #endif
+     case Qt::WA_NativeWindow:
+-        if (!qApp->testAttribute(Qt::AA_DontCreateNativeWidgetSiblings) && parentWidget())
+-            parentWidget()->d_func()->enforceNativeChildren();
+         if (on && !internalWinId() && testAttribute(Qt::WA_WState_Created))
+             d->createWinId();
+         break;
