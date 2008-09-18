@@ -9,7 +9,7 @@ Try a bit harder.
 
 --- a/src/corelib/io/qfsfileengine_unix.cpp
 +++ b/src/corelib/io/qfsfileengine_unix.cpp
-@@ -835,9 +835,13 @@
+@@ -857,9 +857,13 @@
          size_max = sysconf(_SC_GETGR_R_SIZE_MAX);
          if (size_max == -1)
              size_max = 1024;

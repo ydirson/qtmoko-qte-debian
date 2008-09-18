@@ -2,6 +2,25 @@ qt4-x11 (4.4.2-1) UNRELEASED; urgency=low
 
   * New upstream release.
 
+  +++ Changes by Fathi Boudra:
+
+  * Remove upstream patches:
+    - 0002_https_lowercase.diff
+  * Remove Debian patches:
+    - 72_generic_arch_atomic_header_fix.diff
+  * Sync qt-copy patches:
+    * Add:
+      - 0245-fix-randr-changes-detecting.diff
+      - 0248-fix-qwidget-scroll-slowness.diff
+    * Remove:
+      - 0214-fix-qgraphicsproxywidget-tab-crash.diff
+      - 0230-qtextcontrol-selectnextword.diff
+      - 0232-fix-qdesktopwidget-screen-merge.diff
+      - 0233-fix-q3textbrowser-image.diff
+      - 0235-qdbus-dispatch-async-timeout.diff
+      - 0236-qtoolbararealayout-restore.diff
+      - 0241-fix-null-stylesheet-warning.diff
+
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 18 Sep 2008 18:22:04 +0200
 
 qt4-x11 (4.4.1-1) experimental; urgency=low
