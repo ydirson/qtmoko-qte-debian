@@ -6,6 +6,8 @@ qt4-x11 (4.4.2-1) UNRELEASED; urgency=low
 
   * Remove upstream patches:
     - 0002_https_lowercase.diff
+  * Add Debian patches:
+    - 17_add_postgresql_8.3_support.diff
   * Remove Debian patches:
     - 72_generic_arch_atomic_header_fix.diff
   * Sync qt-copy patches:

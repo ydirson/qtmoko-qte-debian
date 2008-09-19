@@ -26,6 +26,7 @@
 14_add_libraries_to_gui_build_where_actually_needed.diff
 15_fix_qmake_makefile_generation.diff
 16_hide_std_symbols_on_qtwebkit.diff
+17_add_postgresql_8.3_support.diff
 20_mips_atomic_ops.diff
 30_webkit_unaligned_access.diff
 40_alpha_ice.diff
