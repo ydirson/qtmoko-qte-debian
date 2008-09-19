@@ -1950,6 +1950,7 @@ usr/include/qt4/QtHelp/QHelpContentModel
 usr/include/qt4/QtHelp/QHelpContentWidget
 usr/include/qt4/QtHelp/QHelpEngine
 usr/include/qt4/QtHelp/QHelpEngineCore
+usr/include/qt4/QtHelp/QHelpGlobal
 usr/include/qt4/QtHelp/QHelpIndexModel
 usr/include/qt4/QtHelp/QHelpIndexWidget
 usr/include/qt4/QtHelp/QHelpSearchEngine
