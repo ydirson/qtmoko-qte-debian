@@ -12,6 +12,7 @@
 0238-fix-qt-qttabbar-size.diff
 0245-fix-randr-changes-detecting.diff
 0248-fix-qwidget-scroll-slowness.diff
+0249-webkit-stale-frame-pointer.diff
 
 # debian patches
 01_qmake_for_debian.diff

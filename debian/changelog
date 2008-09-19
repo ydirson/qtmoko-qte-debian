@@ -1,4 +1,4 @@
-qt4-x11 (4.4.2-1) UNRELEASED; urgency=low
+qt4-x11 (4.4.2-1) unstable; urgency=low
 
   * New upstream release.
 
@@ -14,6 +14,7 @@ qt4-x11 (4.4.2-1) UNRELEASED; urgency=low
     * Add:
       - 0245-fix-randr-changes-detecting.diff
       - 0248-fix-qwidget-scroll-slowness.diff
+      - 0249-webkit-stale-frame-pointer.diff (fix CVE-2008-3632)
     * Remove:
       - 0214-fix-qgraphicsproxywidget-tab-crash.diff
       - 0230-qtextcontrol-selectnextword.diff
@@ -26,7 +27,6 @@ qt4-x11 (4.4.2-1) UNRELEASED; urgency=low
   * Remove doxygen build dependency.
     It is useless to generate a tag file as Qt is shipped with qt.tags file.
   * Split qmake in its own qt4-qmake package. (Closes: #437354)
-    TODO: review description.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 18 Sep 2008 18:22:04 +0200
 
