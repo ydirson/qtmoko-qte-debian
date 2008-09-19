@@ -3,7 +3,7 @@ Section: libs
 Priority: optional
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Brian Nelson <pyro@debian.org>, Sune Vuorela <debian@pusling.com>, Fathi Boudra <fabo@debian.org>, Ana Beatriz Guerrero Lopez <ana@debian.org>, Modestas Vainius <modestas@vainius.eu>
-Build-Depends: cdbs, debhelper (>= 5), quilt, flex, sharutils, doxygen,
+Build-Depends: cdbs, debhelper (>= 5), quilt, flex, sharutils,
  firebird2.0-dev [i386 kfreebsd-i386 kfreebsd-amd64 knetbsd-i386 netbsd-i386 amd64 sparc powerpc],
  libaudio-dev, libcups2-dev, libdbus-1-dev, libfreetype6-dev,
  libgl1-mesa-dev | libgl-dev, libglib2.0-dev, libglu1-mesa-dev | libglu-dev,
