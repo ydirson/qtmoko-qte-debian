@@ -25,6 +25,8 @@ qt4-x11 (4.4.2-1) UNRELEASED; urgency=low
   * Add missing QHelpGlobal include in libqt4-dev package.
   * Remove doxygen build dependency.
     It is useless to generate a tag file as Qt is shipped with qt.tags file.
+  * Split qmake in its own qt4-qmake package. (Closes: #437354)
+    TODO: review description.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 18 Sep 2008 18:22:04 +0200
 

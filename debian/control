@@ -330,7 +330,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, libqtcore4 (= ${binary:Version}),
  libqt4-sql (= ${binary:Version}), libqt4-script (= ${binary:Version}),
  libqt4-xmlpatterns (= ${binary:Version}), libqt4-qt3support (= ${binary:Version}),
  libqt4-designer (= ${binary:Version}), libqt4-help (= ${binary:Version}),
- libqt4-assistant (= ${binary:Version}), libqt4-test (= ${binary:Version})
+ libqt4-assistant (= ${binary:Version}), libqt4-test (= ${binary:Version}),
+ qt4-qmake (= ${binary:Version})
 Recommends: libqt4-opengl-dev (= ${binary:Version})
 Conflicts: qt3-dev-tools (<= 3:3.3.4-7), libqtwebkit-dev
 Replaces: libqtwebkit-dev, libqt4-opengl-dev (<< 4.4.0-2)
@@ -340,7 +341,7 @@ Description: Qt 4 development files
  is its rich set of widgets that provide standard GUI functionality.
  .
  This package contains the header development files and development programs
- such as qmake (qmake-qt4) used for building Qt4 applications.
+ used for building Qt4 applications.
 
 Package: libqt4-opengl-dev
 Architecture: any
@@ -419,6 +420,16 @@ Description: Qt 4 development tools
  .
  This packages contains tools used to assist in Qt 4 development, including
  the Qt Assistant, Linguist, D-Bus Viewer and Pixel Tool applications.
+
+Package: qt4-qmake
+Architecture: any
+Section: devel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt 4 qmake
+ Qt is a cross-platform C++ application framework. Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This package contains Qt 4 qmake.
 
 Package: qt4-qtconfig
 Architecture: any
