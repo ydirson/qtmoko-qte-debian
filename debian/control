@@ -445,7 +445,7 @@ Description: Qt 4 configuration tool
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
- The Qt Configuration program allows endusers to configure the look and
+ The Qt Configuration program allows end users to configure the look and
  behavior of any Qt 4 application.
 
 Package: qt4-demos
