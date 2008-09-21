@@ -486,4 +486,5 @@ Description: Qt 4 API documentation (HTML format)
  This package contains the complete Qt 4 API documentation (HTML format).
  .
  The documentation is provided in HTML format; the HTML version can be viewed
- in conjunction with the Qt Assistant found in the qt4-dev-tools package.
+ in conjunction with the Qt Assistant Document Profile (.adp) found in the 
+ qt4-dev-tools package.
