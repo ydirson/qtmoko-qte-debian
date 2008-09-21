@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Brian Nelson <pyro@debian.org>, Sune Vuorela <debian@pusling.com>, Fathi Boudra <fabo@debian.org>, Ana Beatriz Guerrero Lopez <ana@debian.org>, Modestas Vainius <modestas@vainius.eu>
 Build-Depends: cdbs, debhelper (>= 5), quilt, flex, sharutils,
- firebird2.0-dev [i386 kfreebsd-i386 kfreebsd-amd64 knetbsd-i386 netbsd-i386 amd64 sparc powerpc],
+ firebird2.0-dev [i386 kfreebsd-i386 kfreebsd-amd64 amd64 sparc powerpc],
  libaudio-dev, libcups2-dev, libdbus-1-dev, libfreetype6-dev,
  libgl1-mesa-dev | libgl-dev, libglib2.0-dev, libglu1-mesa-dev | libglu-dev,
  libice-dev, libiodbc2-dev, libjpeg62-dev, libmng-dev, libmysqlclient15-dev,
@@ -66,9 +66,9 @@ Description: transitional package for Qt 4 GUI runtime libraries
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
- This is a dummy transitional package depending on the Qt4 GUI library
+ This is a dummy transitional package depending on the Qt 4 GUI library
  packages which the package of the same name used to provide in Qt 4.3.4
- and earlier Debian packages of Qt4.
+ and earlier Debian packages of Qt 4.
 
 Package: libqt4-network
 Architecture: any
@@ -113,7 +113,7 @@ Package: libqt4-sql
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: libqt4-sql-mysql | libqt4-sql-odbc | libqt4-sql-psql | libqt4-sql-sqlite | libqt4-sql-sqlite2 | libqt4-sql-ibase [i386 kfreebsd-i386 kfreebsd-amd64 knetbsd-i386 netbsd-i386 amd64 sparc powerpc]
+Recommends: libqt4-sql-mysql | libqt4-sql-odbc | libqt4-sql-psql | libqt4-sql-sqlite | libqt4-sql-sqlite2 | libqt4-sql-ibase [i386 kfreebsd-i386 kfreebsd-amd64 amd64 sparc powerpc]
 Suggests: libqt4-dev
 Description: Qt 4 SQL module
  Qt is a cross-platform C++ application framework. Qt's primary feature
@@ -126,7 +126,7 @@ Description: Qt 4 SQL module
  libqt4-dev package.
 
 Package: libqt4-sql-ibase
-Architecture: i386 kfreebsd-i386 kfreebsd-amd64 knetbsd-i386 netbsd-i386 amd64 sparc powerpc
+Architecture: i386 kfreebsd-i386 kfreebsd-amd64 amd64 sparc powerpc
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Suggests: libqt4-dev
@@ -341,7 +341,7 @@ Description: Qt 4 development files
  is its rich set of widgets that provide standard GUI functionality.
  .
  This package contains the header development files and development programs
- used for building Qt4 applications.
+ used for building Qt 4 applications.
 
 Package: libqt4-opengl-dev
 Architecture: any
@@ -354,7 +354,7 @@ Description: Qt 4 OpenGL library development files
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
- This package contains the development files needed to build Qt4 applications
+ This package contains the development files needed to build Qt 4 applications
  using QtOpenGL library.
 
 Package: libqt4-dbg
@@ -433,7 +433,7 @@ Description: Qt 4 qmake Makefile generator tool
  the build process for development project across different platforms.
  qmake automates the generation of Makefiles so that only a few lines of
  information are needed to create each Makefile. qmake can be used for any
- software project, whether it is written in Qt or not.
+ software project, whether it is written using Qt or not.
 
 Package: qt4-qtconfig
 Architecture: any
@@ -446,7 +446,7 @@ Description: Qt 4 configuration tool
  is its rich set of widgets that provide standard GUI functionality.
  .
  The Qt Configuration program allows endusers to configure the look and
- behavior of any Qt4 application.
+ behavior of any Qt 4 application.
 
 Package: qt4-demos
 Architecture: any
@@ -486,4 +486,4 @@ Description: Qt 4 API documentation (HTML format)
  This package contains the complete Qt 4 API documentation (HTML format).
  .
  The documentation is provided in HTML format; the HTML version can be viewed
- in conjunction with the Qt Assistant adp found in the qt4-dev-tools package.
+ in conjunction with the Qt Assistant found in the qt4-dev-tools package.

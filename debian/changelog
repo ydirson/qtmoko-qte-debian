@@ -1,3 +1,11 @@
+qt4-x11 (4.4.2-2) UNRELEASED; urgency=low
+
+  * Small updates in debian/control:
+    - Use always Qt 4 instead of Qt4.
+    - Remove architectures that are not being worked on anymore.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 18 Sep 2008 18:22:04 +0200
+
 qt4-x11 (4.4.2-1) unstable; urgency=low
 
   * New upstream release.
