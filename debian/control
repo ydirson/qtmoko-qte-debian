@@ -425,6 +425,7 @@ Package: qt4-qmake
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Replaces: libqt4-dev (<< 4.4.2-1)
 Description: Qt 4 qmake Makefile generator tool
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
