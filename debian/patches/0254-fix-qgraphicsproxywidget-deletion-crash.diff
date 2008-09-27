@@ -1,0 +1,23 @@
+qt-bugs@ issue : none
+Trolltech task ID : None
+applied: no
+author: Alexis Menard <alexis.menard@trolltech.com>
+
+Fix deletion of a qgraphicsproxywidget if it is in a layout
+
+Will be included in 4.4.4 
+
+--- a/src/gui/graphicsview/qgraphicsproxywidget.cpp
++++ b/src/gui/graphicsview/qgraphicsproxywidget.cpp
+@@ -521,9 +521,8 @@
+ {
+     Q_D(QGraphicsProxyWidget);
+     if (d->widget) {
+-        QWidget *w = d->widget;
+-        setWidget(0);
+-        delete w;
++	QObject::disconnect(d->widget, SIGNAL(destroyed()), this, SLOT(_q_removeWidgetSlot()));
++       delete d->widget;
+     }
+ }
+ 
