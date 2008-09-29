@@ -6,6 +6,7 @@ qt4-x11 (4.4.3-1) UNRELEASED; urgency=low
 
   +++ Changes by Fathi Boudra:
 
+  * Update copyright.
   * Remove Debian patches:
     - 60_m68k_inotify_fix.diff (merged upstream)
 
