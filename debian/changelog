@@ -9,8 +9,13 @@ qt4-x11 (4.4.3-1) UNRELEASED; urgency=low
   * Update copyright.
   * Remove Debian patches:
     - 60_m68k_inotify_fix.diff (merged upstream)
+  
+  +++ Changes by Sune Vuorela
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 29 Sep 2008 10:02:32 +0200
+  * Bump shlibs to 4.4.3. Upstream had apparantly by mistake added at least
+    one symbol to 4.4.1 that wasn't in 4.4.0, but no way to fix it.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 29 Sep 2008 19:10:52 +0200
 
 qt4-x11 (4.4.2-2) unstable; urgency=low
 
