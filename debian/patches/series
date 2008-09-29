@@ -34,7 +34,6 @@
 40_alpha_ice.diff
 41_disable_opengl_visibility.diff
 50_kfreebsd_build_fix.diff
-60_m68k_inotify_fix.diff
 70_hppa_ldcw_fix.diff
 71_hppa_unaligned_access_fix_458133.diff
 80_hurd_max_path.diff

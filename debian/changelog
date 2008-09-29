@@ -1,3 +1,16 @@
+qt4-x11 (4.4.3-1) UNRELEASED; urgency=low
+
+  * New upstream release:
+    It includes updated copyright headers, as well as updated application icons
+    and other graphics to reflect the look and feel of the new Qt brand.
+
+  +++ Changes by Fathi Boudra:
+
+  * Remove Debian patches:
+    - 60_m68k_inotify_fix.diff (merged upstream)
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 29 Sep 2008 10:02:32 +0200
+
 qt4-x11 (4.4.2-2) unstable; urgency=low
 
   +++ Changes by Fathi Boudra:
