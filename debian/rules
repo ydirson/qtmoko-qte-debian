@@ -121,6 +121,8 @@ endif
 	            -svg \
 	            -webkit \
 	            -xmlpatterns \
+	            -qtnamespace QtCppIntegration \
+	            -qtlibinfix CppIntegration \
 	            $(EXTRA_CONFIGURE_OPTS)
 
 clean::
