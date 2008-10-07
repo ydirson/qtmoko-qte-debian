@@ -1,4 +1,4 @@
-qt4-x11 (4.4.3-1) UNRELEASED; urgency=low
+qt4-x11 (4.4.3-1) unstable; urgency=low
 
   * New upstream release:
     It includes updated copyright headers, as well as updated application icons
@@ -9,8 +9,8 @@ qt4-x11 (4.4.3-1) UNRELEASED; urgency=low
   * Update copyright.
   * Remove Debian patches:
     - 60_m68k_inotify_fix.diff (merged upstream)
-  
-  +++ Changes by Sune Vuorela
+
+  +++ Changes by Sune Vuorela:
 
   * Bump shlibs to 4.4.3. Upstream had apparantly by mistake added at least
     one symbol to 4.4.1 that wasn't in 4.4.0, but no way to fix it.
