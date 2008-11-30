@@ -14,7 +14,7 @@ a real problem yet.
 
 --- a/src/3rdparty/webkit/JavaScriptCore/wtf/FastMalloc.cpp
 +++ b/src/3rdparty/webkit/JavaScriptCore/wtf/FastMalloc.cpp
-@@ -1267,14 +1267,14 @@
+@@ -1267,14 +1267,14 @@ static TCMalloc_Central_FreeListPadded c
  
  // Page-level allocator
  static SpinLock pageheap_lock = SPINLOCK_INITIALIZER;
@@ -33,7 +33,7 @@ a real problem yet.
  
 --- a/src/3rdparty/webkit/JavaScriptCore/wtf/ListHashSet.h
 +++ b/src/3rdparty/webkit/JavaScriptCore/wtf/ListHashSet.h
-@@ -122,7 +122,7 @@
+@@ -122,7 +122,7 @@ namespace WTF {
              : m_freeList(pool())
              , m_isDoneWithInitialFreeList(false)
          { 
@@ -42,7 +42,7 @@ a real problem yet.
          }
  
          Node* allocate()
-@@ -166,7 +166,7 @@
+@@ -166,7 +166,7 @@ namespace WTF {
          }
  
      private:
@@ -51,7 +51,7 @@ a real problem yet.
          Node* pastPool() { return pool() + m_poolSize; }
  
          bool inPool(Node* node)
-@@ -177,10 +177,7 @@
+@@ -177,10 +177,7 @@ namespace WTF {
          Node* m_freeList;
          bool m_isDoneWithInitialFreeList;
          static const size_t m_poolSize = 256;
@@ -91,7 +91,7 @@ a real problem yet.
  /* COMPILER(MSVC) */
 --- a/src/3rdparty/webkit/JavaScriptCore/wtf/Vector.h
 +++ b/src/3rdparty/webkit/JavaScriptCore/wtf/Vector.h
-@@ -355,8 +355,7 @@
+@@ -355,8 +355,7 @@ namespace WTF {
          static const size_t m_inlineBufferSize = inlineCapacity * sizeof(T);
          T* inlineBuffer() { return reinterpret_cast<T*>(&m_inlineBuffer); }
  
@@ -103,7 +103,7 @@ a real problem yet.
      template<typename T, size_t inlineCapacity = 0>
 --- a/src/3rdparty/webkit/WebCore/platform/AtomicString.cpp
 +++ b/src/3rdparty/webkit/WebCore/platform/AtomicString.cpp
-@@ -104,7 +104,7 @@
+@@ -104,7 +104,7 @@ struct UCharBufferTranslator {
          if (strLength != bufLength)
              return false;
  
@@ -114,7 +114,7 @@ a real problem yet.
  
 --- a/src/3rdparty/webkit/WebCore/platform/StringHash.h
 +++ b/src/3rdparty/webkit/WebCore/platform/StringHash.h
-@@ -44,6 +44,15 @@
+@@ -44,6 +44,15 @@ namespace WTF {
              if (aLength != bLength)
                  return false;
  
@@ -130,7 +130,7 @@ a real problem yet.
              const uint32_t* aChars = reinterpret_cast<const uint32_t*>(a->characters());
              const uint32_t* bChars = reinterpret_cast<const uint32_t*>(b->characters());
  
-@@ -56,6 +65,7 @@
+@@ -56,6 +65,7 @@ namespace WTF {
                  return false;
  
              return true;

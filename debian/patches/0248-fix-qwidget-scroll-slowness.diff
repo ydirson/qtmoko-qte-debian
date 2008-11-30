@@ -11,7 +11,7 @@ and non-blitting QWidget::scroll calls.
 
 --- a/src/gui/painting/qbackingstore.cpp
 +++ b/src/gui/painting/qbackingstore.cpp
-@@ -523,7 +523,8 @@
+@@ -517,7 +517,8 @@ void QWidgetPrivate::scrollRect(const QR
      }
  
      bool overlapped = false;
@@ -21,7 +21,7 @@ and non-blitting QWidget::scroll calls.
  
  #if defined(Q_WS_QWS)
      QWSWindowSurface *surface;
-@@ -558,13 +559,13 @@
+@@ -552,13 +553,13 @@ void QWidgetPrivate::scrollRect(const QR
  #ifdef Q_WS_QWS
          QWSWindowSurface *surface = static_cast<QWSWindowSurface*>(wbs->windowSurface);
          const QRegion clip = surface->clipRegion().translated(-toplevelOffset)

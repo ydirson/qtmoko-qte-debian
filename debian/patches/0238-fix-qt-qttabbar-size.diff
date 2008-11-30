@@ -9,7 +9,7 @@ to a wrong size hint (visible if using a kstyle).
 
 --- a/src/gui/widgets/qtabbar.cpp
 +++ b/src/gui/widgets/qtabbar.cpp
-@@ -1084,7 +1084,7 @@
+@@ -1078,7 +1078,7 @@ QSize QTabBar::tabSizeHint(int index) co
          QStyleOptionTabV2 opt;
          initStyleOption(&opt, index);
          opt.text = d->tabList.at(index).text;

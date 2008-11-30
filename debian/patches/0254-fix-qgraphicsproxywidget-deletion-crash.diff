@@ -9,7 +9,7 @@ Will be included in 4.4.4
 
 --- a/src/gui/graphicsview/qgraphicsproxywidget.cpp
 +++ b/src/gui/graphicsview/qgraphicsproxywidget.cpp
-@@ -521,9 +521,8 @@
+@@ -515,9 +515,8 @@ QGraphicsProxyWidget::~QGraphicsProxyWid
  {
      Q_D(QGraphicsProxyWidget);
      if (d->widget) {

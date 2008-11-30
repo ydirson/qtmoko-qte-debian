@@ -4,7 +4,7 @@ Ensures qmake generates Makefiles that use the -qt4 tools.
 
 --- a/mkspecs/common/linux.conf
 +++ b/mkspecs/common/linux.conf
-@@ -23,8 +23,8 @@
+@@ -23,8 +23,8 @@ QMAKE_LIBS_OPENGL     = -lGLU -lGL
  QMAKE_LIBS_OPENGL_QT  = -lGL
  QMAKE_LIBS_THREAD     = -lpthread
  

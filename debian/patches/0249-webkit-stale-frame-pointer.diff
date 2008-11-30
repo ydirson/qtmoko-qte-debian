@@ -14,7 +14,7 @@ Cascading Style Sheets (CSS) import statements.
 
 --- a/src/3rdparty/webkit/WebCore/dom/Document.cpp
 +++ b/src/3rdparty/webkit/WebCore/dom/Document.cpp
-@@ -291,9 +291,8 @@
+@@ -291,9 +291,8 @@ Document::Document(DOMImplementation* im
      m_renderArena = 0;
  
      m_axObjectCache = 0;
@@ -26,7 +26,7 @@ Cascading Style Sheets (CSS) import statements.
  
      visuallyOrdered = false;
      m_bParsing = false;
-@@ -1169,15 +1168,23 @@
+@@ -1169,15 +1168,23 @@ void Document::detach()
      if (render)
          render->destroy();
  
@@ -55,7 +55,7 @@ Cascading Style Sheets (CSS) import statements.
      m_windowEventListeners.clear();
 --- a/src/3rdparty/webkit/WebCore/dom/Document.h
 +++ b/src/3rdparty/webkit/WebCore/dom/Document.h
-@@ -344,6 +344,8 @@
+@@ -344,6 +344,8 @@ public:
      virtual void attach();
      virtual void detach();
  
@@ -78,7 +78,7 @@ Cascading Style Sheets (CSS) import statements.
      , m_doc(doc)
      , m_requestCount(0)
      , m_autoLoadImages(true)
-@@ -53,6 +52,11 @@
+@@ -53,6 +52,11 @@ DocLoader::DocLoader(Frame *frame, Docum
      m_cache->addDocLoader(this);
  }
  
@@ -90,7 +90,7 @@ Cascading Style Sheets (CSS) import statements.
  DocLoader::~DocLoader()
  {
      HashMap<String, CachedResource*>::iterator end = m_docResources.end();
-@@ -146,7 +150,7 @@
+@@ -146,7 +150,7 @@ CachedResource* DocLoader::requestResour
          }
      }
                                                            
@@ -99,7 +99,7 @@ Cascading Style Sheets (CSS) import statements.
          setCachePolicy(CachePolicyReload);
  
      checkForReload(fullURL);
-@@ -197,8 +201,8 @@
+@@ -197,8 +201,8 @@ void DocLoader::removeCachedResource(Cac
  void DocLoader::setLoadInProgress(bool load)
  {
      m_loadInProgress = load;
@@ -110,7 +110,7 @@ Cascading Style Sheets (CSS) import statements.
  }
  
  void DocLoader::checkCacheObjectStatus(CachedResource* resource)
-@@ -217,7 +221,7 @@
+@@ -217,7 +221,7 @@ void DocLoader::checkCacheObjectStatus(C
      }
      
      // Notify the caller that we "loaded".
@@ -119,7 +119,7 @@ Cascading Style Sheets (CSS) import statements.
          return;
      
      ResourceRequest request(resource->url());
-@@ -226,9 +230,9 @@
+@@ -226,9 +230,9 @@ void DocLoader::checkCacheObjectStatus(C
      
      if (resource->sendResourceLoadCallbacks()) {
          // FIXME: If the WebKit client changes or cancels the request, WebCore does not respect this and continues the load.
@@ -133,7 +133,7 @@ Cascading Style Sheets (CSS) import statements.
  void DocLoader::incrementRequestCount()
 --- a/src/3rdparty/webkit/WebCore/loader/DocLoader.h
 +++ b/src/3rdparty/webkit/WebCore/loader/DocLoader.h
-@@ -49,7 +49,7 @@
+@@ -49,7 +49,7 @@ friend class Cache;
  friend class HTMLImageLoader;
  
  public:
@@ -142,7 +142,7 @@ Cascading Style Sheets (CSS) import statements.
      ~DocLoader();
  
      CachedImage* requestImage(const String& url);
-@@ -73,7 +73,7 @@
+@@ -73,7 +73,7 @@ public:
      CachePolicy cachePolicy() const { return m_cachePolicy; }
      void setCachePolicy(CachePolicy);
      
@@ -151,7 +151,7 @@ Cascading Style Sheets (CSS) import statements.
      Document* doc() const { return m_doc; }
  
      void removeCachedResource(CachedResource*) const;
-@@ -100,7 +100,6 @@
+@@ -100,7 +100,6 @@ private:
      HashSet<String> m_reloadedURLs;
      mutable HashMap<String, CachedResource*> m_docResources;
      CachePolicy m_cachePolicy;

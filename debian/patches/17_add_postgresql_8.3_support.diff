@@ -2,7 +2,7 @@ Enable PostgreSQL 8.3 support.
 
 --- a/src/sql/drivers/psql/qsql_psql.cpp
 +++ b/src/sql/drivers/psql/qsql_psql.cpp
-@@ -639,9 +639,12 @@
+@@ -633,9 +633,12 @@ static QPSQLDriver::Protocol getPSQLVers
                      serverVersion = QPSQLDriver::Version81;
                      break;
                  case 2:
@@ -16,7 +16,7 @@ Enable PostgreSQL 8.3 support.
                  }
                  break;
              default:
-@@ -922,6 +925,7 @@
+@@ -916,6 +919,7 @@ QSqlIndex QPSQLDriver::primaryIndex(cons
      case QPSQLDriver::Version8:
      case QPSQLDriver::Version81:
      case QPSQLDriver::Version82:
@@ -24,7 +24,7 @@ Enable PostgreSQL 8.3 support.
          stmt = QLatin1String("SELECT pg_attribute.attname, pg_attribute.atttypid::int, "
                  "pg_class.relname "
                  "FROM pg_attribute, pg_class "
-@@ -995,6 +999,7 @@
+@@ -989,6 +993,7 @@ QSqlRecord QPSQLDriver::record(const QSt
      case QPSQLDriver::Version8:
      case QPSQLDriver::Version81:
      case QPSQLDriver::Version82:
@@ -34,7 +34,7 @@ Enable PostgreSQL 8.3 support.
                  "pg_attrdef.adsrc "
 --- a/src/sql/drivers/psql/qsql_psql.h
 +++ b/src/sql/drivers/psql/qsql_psql.h
-@@ -106,7 +106,8 @@
+@@ -100,7 +100,8 @@ public:
          Version74 = 10,
          Version8 = 11,
          Version81 = 12,

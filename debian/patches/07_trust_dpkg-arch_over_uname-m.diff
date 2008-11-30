@@ -2,7 +2,7 @@ author: Sune Vuorela
 Reported to trolltech as N180631 - and task 181882
 --- a/configure
 +++ b/configure
-@@ -93,7 +93,50 @@
+@@ -94,7 +94,50 @@ getQMakeConf()
  #-------------------------------------------------------------------------------
  
  # need that throughout the script

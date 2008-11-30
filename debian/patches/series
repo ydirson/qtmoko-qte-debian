@@ -14,6 +14,12 @@
 0248-fix-qwidget-scroll-slowness.diff
 0249-webkit-stale-frame-pointer.diff
 0254-fix-qgraphicsproxywidget-deletion-crash.diff
+0255-qtreeview-selection-columns-hidden.diff
+0256-fix-recursive-backingstore-sync-crash.diff
+0257-qurl-validate-speedup.diff
+0260-fix-qgraphicswidget-deletionclearFocus.diff
+0261-sync-before-reset-errorhandler.patch
+0262-fix-treeview-animation-crash.diff
 
 # debian patches
 01_qmake_for_debian.diff

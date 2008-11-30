@@ -1,12 +1,16 @@
-qt4-x11 (4.4.3-2) UNRELEASED; urgency=low
+qt4-x11 (4.4.3-2.1) UNRELEASED; urgency=low
+
+  +++ Changes by Armin Berres:
+
+  * Fix offsets in all patches.
 
   +++ Changes by Fathi Boudra:
 
   * Add Qt Eclipse Integration for C++. Configure Qt with
     '-qtnamespace QtCppIntegration -qtlibinfix CppIntegration'
     to create custom designer plugins.
-
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 07 Oct 2008 14:58:01 +0200
+ 
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 01 Dec 2008 00:15:06 +0100
 
 qt4-x11 (4.4.3-1) unstable; urgency=low
 

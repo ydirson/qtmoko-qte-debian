@@ -1,6 +1,6 @@
 --- a/src/gui/kernel/kernel.pri
 +++ b/src/gui/kernel/kernel.pri
-@@ -141,6 +141,8 @@
+@@ -141,6 +141,8 @@ embedded {
              HEADERS += \
                  kernel/qeventdispatcher_glib_qws_p.h
              QMAKE_CXXFLAGS += $$QT_CFLAGS_GLIB
@@ -11,7 +11,7 @@
  
 --- a/src/gui/painting/painting.pri
 +++ b/src/gui/painting/painting.pri
-@@ -63,6 +63,8 @@
+@@ -63,6 +63,8 @@ SOURCES += \
          painting/qpathclipper.cpp \
  	painting/qmemrotate.cpp
  

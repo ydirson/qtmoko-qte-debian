@@ -4,7 +4,7 @@ Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
 
 --- a/src/corelib/global/qglobal.h
 +++ b/src/corelib/global/qglobal.h
-@@ -210,6 +210,12 @@
+@@ -204,6 +204,12 @@ namespace QT_NAMESPACE {}
  #  define Q_OS_RELIANT
  #elif defined(__linux__) || defined(__linux)
  #  define Q_OS_LINUX
@@ -17,7 +17,7 @@ Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
  #elif defined(__FreeBSD__) || defined(__DragonFly__)
  #  define Q_OS_FREEBSD
  #  define Q_OS_BSD4
-@@ -230,8 +236,6 @@
+@@ -224,8 +230,6 @@ namespace QT_NAMESPACE {}
  #  define Q_OS_AIX
  #elif defined(__Lynx__)
  #  define Q_OS_LYNX
@@ -28,7 +28,7 @@ Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
  #elif defined(__QNXNTO__)
 --- a/src/corelib/plugin/qlibrary.cpp
 +++ b/src/corelib/plugin/qlibrary.cpp
-@@ -292,13 +292,13 @@
+@@ -286,13 +286,13 @@ static bool qt_parse_pattern(const char 
  
  #if defined(Q_OS_UNIX) && !defined(Q_OS_MAC) && !defined(QT_NO_PLUGIN_CHECK)
  
@@ -46,7 +46,7 @@ Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
                               const char *pattern, ulong p_len)
 --- a/src/corelib/tools/qlocale.cpp
 +++ b/src/corelib/tools/qlocale.cpp
-@@ -80,7 +80,7 @@
+@@ -74,7 +74,7 @@ QT_END_NAMESPACE
  #include <qdebug.h>
  #include <time.h>
  
@@ -55,7 +55,7 @@ Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
  #    include <fenv.h>
  #endif
  
-@@ -6259,7 +6259,7 @@
+@@ -6253,7 +6253,7 @@ Q_CORE_EXPORT char *qdtoa ( double d, in
      _control87(MCW_EM, MCW_EM);
  #endif
  
@@ -64,7 +64,7 @@ Fixes FTBFS on GNU/kFreeBSD by creating new Q_OS_GLIBC.
      fenv_t envp;
      feholdexcept(&envp);
  #endif
-@@ -6275,7 +6275,7 @@
+@@ -6269,7 +6269,7 @@ Q_CORE_EXPORT char *qdtoa ( double d, in
  #endif //_M_X64
  #endif //Q_OS_WIN
  

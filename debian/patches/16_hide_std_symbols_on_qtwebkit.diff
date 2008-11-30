@@ -1,6 +1,6 @@
 --- a/src/3rdparty/webkit/WebKit.pri
 +++ b/src/3rdparty/webkit/WebKit.pri
-@@ -27,6 +27,7 @@
+@@ -27,6 +27,7 @@ CONFIG(release) {
  BASE_DIR = $$PWD
  qt-port:INCLUDEPATH += \
      $$PWD/WebKit/qt/Api
