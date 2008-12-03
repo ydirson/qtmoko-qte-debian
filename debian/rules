@@ -37,6 +37,10 @@ DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
 
 DEB_INSTALL_DOCS_ALL := GPL_EXCEPTION_ADDENDUM.TXT
 
+# Disable Qt Eclipse Integration for C++.
+# TODO: Fix it as it breaks current code.
+#EXTRA_CONFIGURE_OPTS += -qtnamespace QtCppIntegration -qtlibinfix CppIntegration
+
 ibase_architectures := i386 kfreebsd-i386 kfreebsd-amd64 knetbsd-i386 netbsd-i386 amd64 sparc powerpc
 ifeq ($(DEB_HOST_ARCH),$(findstring $(DEB_HOST_ARCH), $(ibase_architectures)))
 	EXTRA_CONFIGURE_OPTS += -plugin-sql-ibase
