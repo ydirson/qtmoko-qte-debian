@@ -1,7 +1,7 @@
 qt-bugs@ issue : None
 Trolltech task ID : None
 bugs.kde.org number : 159014
-applied: yes
+applied: no
 author: Robert Knight <robertknight@gmail.com>
 
 When tabs are inserted or removed in a QTabBar, QTabBarPrivate::refresh()

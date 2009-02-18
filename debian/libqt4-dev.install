@@ -3,7 +3,6 @@ usr/bin/lupdate-qt4
 usr/bin/moc-qt4
 usr/bin/qdbuscpp2xml
 usr/bin/qdbusxml2cpp
-usr/bin/qmake-qt4
 usr/bin/qt3to4
 usr/bin/rcc
 usr/bin/uic-qt4
@@ -171,8 +170,6 @@ usr/include/qt4/Qt/qatomic_parisc.h
 usr/include/qt4/Qt/qatomic_powerpc.h
 usr/include/qt4/Qt/qatomic_s390.h
 usr/include/qt4/Qt/qatomic_sparc.h
-usr/include/qt4/Qt/qatomic_windows.h
-usr/include/qt4/Qt/qatomic_windowsce.h
 usr/include/qt4/Qt/qatomic_x86_64.h
 usr/include/qt4/Qt/qauthenticator.h
 usr/include/qt4/Qt/qbasicatomic.h
@@ -481,7 +478,6 @@ usr/include/qt4/Qt/qsvgwidget.h
 usr/include/qt4/Qt/qsyntaxhighlighter.h
 usr/include/qt4/Qt/qsystemsemaphore.h
 usr/include/qt4/Qt/qsystemtrayicon.h
-usr/include/qt4/Qt/qt_windows.h
 usr/include/qt4/Qt/qtabbar.h
 usr/include/qt4/Qt/qtableview.h
 usr/include/qt4/Qt/qtablewidget.h
@@ -1137,8 +1133,6 @@ usr/include/qt4/QtCore/qatomic_parisc.h
 usr/include/qt4/QtCore/qatomic_powerpc.h
 usr/include/qt4/QtCore/qatomic_s390.h
 usr/include/qt4/QtCore/qatomic_sparc.h
-usr/include/qt4/QtCore/qatomic_windows.h
-usr/include/qt4/QtCore/qatomic_windowsce.h
 usr/include/qt4/QtCore/qatomic_x86_64.h
 usr/include/qt4/QtCore/qbasicatomic.h
 usr/include/qt4/QtCore/qbasictimer.h
@@ -1221,7 +1215,6 @@ usr/include/qt4/QtCore/qstring.h
 usr/include/qt4/QtCore/qstringlist.h
 usr/include/qt4/QtCore/qstringmatcher.h
 usr/include/qt4/QtCore/qsystemsemaphore.h
-usr/include/qt4/QtCore/qt_windows.h
 usr/include/qt4/QtCore/qtconcurrentcompilertest.h
 usr/include/qt4/QtCore/qtconcurrentexception.h
 usr/include/qt4/QtCore/qtconcurrentfilter.h
@@ -1956,6 +1949,7 @@ usr/include/qt4/QtHelp/QHelpContentModel
 usr/include/qt4/QtHelp/QHelpContentWidget
 usr/include/qt4/QtHelp/QHelpEngine
 usr/include/qt4/QtHelp/QHelpEngineCore
+usr/include/qt4/QtHelp/QHelpGlobal
 usr/include/qt4/QtHelp/QHelpIndexModel
 usr/include/qt4/QtHelp/QHelpIndexWidget
 usr/include/qt4/QtHelp/QHelpSearchEngine

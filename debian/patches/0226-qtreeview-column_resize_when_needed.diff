@@ -28,7 +28,7 @@ no other columns become shrinked), the contents will be visible.
  #endif // QT_NO_TREEVIEW
 --- a/src/gui/itemviews/qtreeview.cpp
 +++ b/src/gui/itemviews/qtreeview.cpp
-@@ -246,6 +246,19 @@
+@@ -248,6 +248,19 @@
  
      connect(d->model, SIGNAL(modelAboutToBeReset()), SLOT(_q_modelAboutToBeReset()));
  
@@ -48,7 +48,7 @@ no other columns become shrinked), the contents will be visible.
      if (d->sortingEnabled)
          sortByColumn(header()->sortIndicatorSection());
  }
-@@ -2787,6 +2800,8 @@
+@@ -2815,6 +2828,8 @@
      }
      if (model->canFetchMore(index))
          model->fetchMore(index);
@@ -57,7 +57,7 @@ no other columns become shrinked), the contents will be visible.
  }
  
  void QTreeViewPrivate::collapse(int item, bool emitSignal)
-@@ -2826,6 +2841,8 @@
+@@ -2854,6 +2869,8 @@
          else
              emit q->collapsed(modelIndex);
      }
@@ -66,7 +66,7 @@ no other columns become shrinked), the contents will be visible.
  }
  
  void QTreeViewPrivate::prepareAnimatedOperation(int item, AnimatedOperation::Type type)
-@@ -2937,6 +2954,25 @@
+@@ -2965,6 +2982,25 @@
      viewItems.clear();
  }
  

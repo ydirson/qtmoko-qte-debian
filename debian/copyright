@@ -5,11 +5,13 @@ It was downloaded from ftp://ftp.trolltech.com/qt/source
 
 Upstream Author:
 
-    Trolltech AS
+    Nokia Corporation and/or its subsidiary(-ies)
+    Trolltech ASA
 
 Copyright:
 
-    © 1994-2007 Trolltech AS.
+    © 2008 Nokia Corporation and/or its subsidiary(-ies).
+    © 1994-2008 Trolltech ASA.
 
 License:
 
@@ -31,31 +33,34 @@ On Debian systems, the complete text of the GNU General Public License
 can be found in `/usr/share/common-licenses/GPL-2' and
 `/usr/share/common-licenses/GPL-3'.
 
-Since Qt4.3.4, Qt is triple licensed under the QPL, GPL 2 and GPL 3.
+Since Qt 4.4.3, copyright of Qt has been transferred to Nokia Corporation.
 
-Since Qt4.3.1, a Trolltech GPL exception was added to allow linking
+Since Qt 4.3.4, Qt is triple licensed under the QPL, GPL 2 and GPL 3.
+
+Since Qt 4.3.1, a Trolltech GPL exception was added to allow linking
 against non-GPL libraries and applications:
 
-Trolltech GPL Exception version 1.1
-===================================
+Nokia Corporation Qt GPL Exception version 1.3
+==============================================
 
 Additional rights granted beyond the GPL (the "Exception").
 
-As a special exception to the terms and conditions of version 2.0 of the GPL,
-Trolltech hereby grants you the rights described below, provided you agree to
-the terms and conditions in this Exception, including its obligations and
-restrictions on use.
+As a special exception to the terms and conditions of GPL version 2.0 or GPL
+version 3.0, Nokia Corporation hereby grants you the rights described below,
+provided you agree to the terms and conditions in this Exception, including its
+obligations and restrictions on use.
 
 Nothing in this Exception gives you or anyone else the right to change the
 licensing terms of the Qt Open Source Edition.
 
 Below, "Licensed Software" shall refer to the software licensed under the GPL
-and this exception.
+version 2.0 or GPL version 3.0 and this exception.
 
-1) The right to use Open Source Licenses not compatible with the GNU
-General Public License: You may link software (hereafter referred to as "Your
-Software") against the Licensed Software and/or distribute binaries of Your
-Software linked against the Licensed Software, provided that:
+1) The right to use open source licenses not compatible with the GNU
+General Public License version 2.0 or GNU General Public License version
+3.0: You may link software (hereafter referred to as "Your Software")
+against the Licensed Software and/or distribute binaries of Your Software
+linked against the Licensed Software, provided that:
 
 A) Your Software is licensed under one of the following licenses:
 
@@ -65,14 +70,14 @@ Academic Free License                   2.0, 2.1, 3.0
 Apache Software License                 1.0 or 1.1
 Apache License                          2.0
 Apple Public Source License             2.0
-Artistic license                        From Perl 5.8.0
+Artistic license                        (as set forth in the addendum file)
 BSD license                             "July 22 1999"
-Common Development and
-  Distribution License (CDDL)		1.0
+Common Development and Distribution
+  License (CDDL)                        1.0
 Common Public License                   1.0
 Eclipse Public License                  1.0
 GNU Library or "Lesser"
-General Public License (LGPL)           2.0 or 2.1
+General Public License (LGPL)           2.0, 2.1, 3.0
 Jabber Open Source License              1.0
 MIT License                             (as set forth in the addendum file)
 Mozilla Public License (MPL)            1.0 or 1.1
@@ -82,7 +87,7 @@ SSLeay license)                         "2003" ("1998")
 PHP License                             3.0
 Python license (CNRI Python License)    (as set forth in the addendum file)
 Python Software Foundation License      2.1.1
-Q Public License                        v1.0
+Q Public License                        1.0
 Sleepycat License                       "1999"
 W3C License                             "2001"
 X11 License                             X11R6.6
@@ -93,41 +98,37 @@ Zope Public License                     2.0, 2.1
 (Licenses without a specific version number or date are reproduced
 in the file GPL_Exception_Addendum.txt in your source package).
 
-
 and
 
-B) You must, on request, make a complete package including
-    the complete source code of Your Software (as defined
-    in the GNU General Public License version 2, section 3,
-    but excluding anything excluded by the special
-    exception in the same section) available to Trolltech
-    under the same license as that granted to other
-    recipients of the source code of Your Software.
+B) You must, on request, make a complete package including the complete
+source code of Your Software (as defined in the GNU General Public License
+version 2, section 3, but excluding anything excluded by the special
+exception in the same section) available to Nokia Corporation under the
+same license as that granted to other recipients of the source code of Your
+Software.
 
 and
 
 C) Your or any other contributor's rights to:
 
-        i) distribute the source code of Your Software to anyone for
-        any purpose;
+  i) distribute the source code of Your Software to anyone for any purpose;
 
-        and
+          and
 
-        ii) publicly discuss the development project for Your
-        Software and its goals in any form and in any forum
-
-are not prohibited by any legal instrument, including but not limited to
-contracts, non-disclosure agreements, and employee contracts.
+  ii) publicly discuss the development project for Your Software and its
+      goals in any form and in any forum are not prohibited by any legal
+      instrument, including but not limited to contracts, non-disclosure
+      agreements, and employee contracts.
 
 
-2) The right to link non-Open Source applications with pre-installed versions of
+2) The right to link non-open source applications with pre-installed versions of
 the Licensed Software: You may link applications with binary pre-installed
 versions of the Licensed Software, provided that such applications have been
-developed and are deployed in ac cordance with the terms and conditions of the
-Qt Commercial License Agreement.
+developed and are deployed in accordance with the terms and conditions of the Qt
+Commercial License Agreement.
 
-Addendum to the Trolltech GPL Exception version 1.0
-===================================================
+Addendum to the Nokia Corporation GPL Exception version 1.3
+===========================================================
 
 
 --------------------------------------------------------------------------
@@ -183,36 +184,36 @@ that you insert a prominent notice in each changed file stating how and
 when you changed that file, and provided that you do at least ONE of the
 following:
 
-a) place your modifications in the Public Domain or otherwise make them
-Freely Available, such as by posting said modifications to Usenet or
-an equivalent medium, or placing the modifications on a major archive
-site such as uunet.uu.net, or by allowing the Copyright Holder to include
-your modifications in the Standard Version of the Package.
+    a) place your modifications in the Public Domain or otherwise make them
+    Freely Available, such as by posting said modifications to Usenet or
+    an equivalent medium, or placing the modifications on a major archive
+    site such as uunet.uu.net, or by allowing the Copyright Holder to include
+    your modifications in the Standard Version of the Package.
 
-b) use the modified Package only within your corporation or organization.
+    b) use the modified Package only within your corporation or organization.
 
-c) rename any non-standard executables so the names do not conflict
-with standard executables, which must also be provided, and provide
-a separate manual page for each non-standard executable that clearly
-documents how it differs from the Standard Version.
+    c) rename any non-standard executables so the names do not conflict
+    with standard executables, which must also be provided, and provide
+    a separate manual page for each non-standard executable that clearly
+    documents how it differs from the Standard Version.
 
-d) make other distribution arrangements with the Copyright Holder.
+    d) make other distribution arrangements with the Copyright Holder.
 
 4. You may distribute the programs of this Package in object code or
 executable form, provided that you do at least ONE of the following:
 
-a) distribute a Standard Version of the executables and library files,
-together with instructions (in the manual page or equivalent) on where
-to get the Standard Version.
+    a) distribute a Standard Version of the executables and library files,
+    together with instructions (in the manual page or equivalent) on where
+    to get the Standard Version.
 
-b) accompany the distribution with the machine-readable source of
-the Package with your modifications.
+    b) accompany the distribution with the machine-readable source of
+    the Package with your modifications.
 
-c) give non-standard executables non-standard names, and clearly
-document the differences in manual pages (or equivalent), together
-with instructions on where to get the Standard Version.
+    c) give non-standard executables non-standard names, and clearly
+    document the differences in manual pages (or equivalent), together
+    with instructions on where to get the Standard Version.
 
-d) make other distribution arrangements with the Copyright Holder.
+    d) make other distribution arrangements with the Copyright Holder.
 
 5. You may charge a reasonable copying fee for any distribution of this
 Package.  You may charge any fee you choose for support of this
@@ -279,7 +280,7 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --------------------------------------------------------------------------
 
@@ -334,12 +335,12 @@ ADVISED OF THE POSSIBILITY THEREOF.
 its terms and conditions.
 
 7. This License Agreement shall be governed by and interpreted in all respects
-by the law of the State of Virginia, excluding conflict of law provisions.
-Nothing in this License Agreement shall be deemed to create any relationship of
-agency, partnership, or joint venture between CNRI and Licensee. This License
-Agreement does not grant permission to use CNRI trademarks or trade name in a
-trademark sense to endorse or promote products or services of Licensee, or any
-third party.
+by the law of the State of Virginia, excluding conflict of law
+provisions. Nothing in this License Agreement shall be deemed to create any
+relationship of agency, partnership, or joint venture between CNRI and
+Licensee. This License Agreement does not grant permission to use CNRI
+trademarks or trade name in a trademark sense to endorse or promote products or
+services of Licensee, or any third party.
 
 8. By clicking on the "ACCEPT" button where indicated, or by copying, installing
 or otherwise using Python 1.6b1, Licensee agrees to be bound by the terms and
@@ -356,22 +357,22 @@ The zlib/libpng License
 Copyright (c) <year> <copyright holders>
 
 This software is provided 'as-is', without any express or implied warranty. In
-no event will the authors be held liable for any damages arising from the use of
-this software.
+no event will the authors be held liable for any damages arising from the use
+of this software.
 
 Permission is granted to anyone to use this software for any purpose, including
 commercial applications, and to alter it and redistribute it freely, subject to
 the following restrictions:
 
-1. The origin of this software must not be misrepresented; you must not claim
-that you wrote the original software. If you use this software in a product, an
-acknowledgment in the product documentation would be appreciated but is not
-required.
+    1. The origin of this software must not be misrepresented; you must not
+    claim that you wrote the original software. If you use this software in a
+    product, an acknowledgment in the product documentation would be
+    appreciated but is not required.
 
-2. Altered source versions must be plainly marked as such, and must not be
-misrepresented as being the original software.
+    2. Altered source versions must be plainly marked as such, and must not be
+    misrepresented as being the original software.
 
-3. This notice may not be removed or altered from any source distribution.
+    3. This notice may not be removed or altered from any source distribution.
 
 --------------------------------------------------------------------------
 

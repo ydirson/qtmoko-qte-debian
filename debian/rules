@@ -22,7 +22,12 @@ DEB_DH_INSTALL_SOURCEDIR := debian/tmp
 DEB_DH_INSTALL_ARGS := --exclude=.debug
 
 DEB_MAKE_CLEAN_TARGET := confclean distclean
-DEB_DH_MAKESHLIBS_ARGS_ALL := -V
+
+# Shlibs of the current upstream version
+#DEB_DH_MAKESHLIBS_ARGS_ALL := -V
+# Specific shlibs version
+SHLIBSVERSION := 4.4.3
+$(foreach libpkg,$(filter-out %-dev %-dbg,$(filter lib%,$(DEB_ARCH_PACKAGES))),$(eval DEB_DH_MAKESHLIBS_ARGS_$(libpkg) := -V'$(libpkg) (>= $(SHLIBSVERSION))'))
 
 DEB_DH_STRIP_ARGS_libqt4-dbg := --exclude=.debug
 
@@ -31,6 +36,10 @@ DEB_DH_SHLIBDEPS_ARGS_ALL := --exclude=.debug
 DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
 
 DEB_INSTALL_DOCS_ALL := GPL_EXCEPTION_ADDENDUM.TXT
+
+# Disable Qt Eclipse Integration for C++.
+# TODO: Fix it as it breaks current code.
+#EXTRA_CONFIGURE_OPTS += -qtnamespace QtCppIntegration -qtlibinfix CppIntegration
 
 ibase_architectures := i386 kfreebsd-i386 kfreebsd-amd64 knetbsd-i386 netbsd-i386 amd64 sparc powerpc
 ifeq ($(DEB_HOST_ARCH),$(findstring $(DEB_HOST_ARCH), $(ibase_architectures)))
@@ -242,8 +251,8 @@ binary-install/libqt4-xmlpatterns-dbg::
 	dh_install -plibqt4-xmlpatterns-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
 
 binary-post-install/libqt4-dev::
-	doxytag -t debian/$(cdbs_curpkg)/usr/share/qt4/doc/qt4.tag \
-		$(DEB_DESTDIR)/usr/share/qt4/doc/html
+	install -D -p -m0644 doc/html/qt.tags \
+		$(DEB_DESTDIR)/usr/share/qt4/doc/html/qt.tags
 
 # Automatically install lintian overrides, stolen from debian-qt-kde.mk
 $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:

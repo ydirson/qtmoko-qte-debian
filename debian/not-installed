@@ -17,3 +17,40 @@ usr/lib/libQtHelp.la
 usr/lib/libQtCore.la
 usr/lib/libQtDBus.la
 
+# Include files for the platforms Debian does not support
+usr/include/qt4/Qt/qmacstyle_mac.h
+usr/include/qt4/Qt/qwindowdefs_win.h
+usr/include/qt4/Qt/qatomic_macosx.h
+usr/include/qt4/QtCore/qatomic_macosx.h
+usr/include/qt4/QtGui/qmacstyle_mac.h
+usr/include/qt4/QtGui/qwindowdefs_win.h
+usr/include/qt4/QtGui/QMacStyle
+
+# Debugging symbols of binaries and a few designer plugins
+usr/bin/uic3.debug
+usr/bin/qdbusviewer.debug
+usr/bin/qhelpgenerator.debug
+usr/bin/pixeltool.debug
+usr/bin/qtconfig-qt4.debug
+usr/bin/assistant_adp.debug
+usr/bin/lrelease-qt4.debug
+usr/bin/qcollectiongenerator.debug
+usr/bin/qhelpconverter.debug
+usr/bin/qdbusxml2cpp.debug
+usr/bin/qt3to4.debug
+usr/bin/qtdemo.debug
+usr/bin/lupdate-qt4.debug
+usr/bin/xmlpatterns.debug
+usr/bin/rcc.debug
+usr/bin/qdbuscpp2xml.debug
+usr/bin/linguist-qt4.debug
+usr/bin/designer-qt4.debug
+usr/bin/uic-qt4.debug
+usr/bin/assistant-qt4.debug
+usr/bin/moc-qt4.debug
+usr/bin/qdbus.debug
+usr/lib/qt4/plugins/designer/libtaskmenuextension.so.debug
+usr/lib/qt4/plugins/designer/libcustomwidgetplugin.so.debug
+usr/lib/qt4/plugins/designer/libcontainerextension.so.debug
+usr/lib/qt4/plugins/designer/libworldtimeclockplugin.so.debug
+usr/lib/qt4/plugins/designer/libarthurplugin.so.debug

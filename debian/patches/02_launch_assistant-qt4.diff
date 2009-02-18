@@ -1,6 +1,6 @@
 --- a/demos/qtdemo/menumanager.cpp
 +++ b/demos/qtdemo/menumanager.cpp
-@@ -291,7 +291,7 @@
+@@ -285,7 +285,7 @@ void MenuManager::showDocInAssistant(con
      if (this->assistantProcess.state() != QProcess::Running){
          QString app = QLibraryInfo::location(QLibraryInfo::BinariesPath) + QDir::separator();
  #if !defined(Q_OS_MAC)
@@ -11,7 +11,7 @@
  #endif
 --- a/tools/designer/src/designer/assistantclient.cpp
 +++ b/tools/designer/src/designer/assistantclient.cpp
-@@ -115,7 +115,7 @@
+@@ -109,7 +109,7 @@ QString AssistantClient::binary()
  {
      QString app = QLibraryInfo::location(QLibraryInfo::BinariesPath) + QDir::separator();
  #if !defined(Q_OS_MAC)

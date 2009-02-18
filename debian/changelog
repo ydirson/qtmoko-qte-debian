@@ -1,13 +1,139 @@
-qt4-x11 (4.4.0-5) UNRELEASED; urgency=low
+qt4-x11 (4.4.3-2) unstable; urgency=low
+
+  +++ Changes by Armin Berres:
+
+  * Fix offsets in all patches.
+  * Add qt-copy patches:
+    - 0255-qtreeview-selection-columns-hidden.diff
+    - 0256-fix-recursive-backingstore-sync-crash.diff
+    - 0257-qurl-validate-speedup.diff
+    - 0260-fix-qgraphicswidget-deletionclearFocus.diff
+    - 0261-sync-before-reset-errorhandler.patch
+    - 0262-fix-treeview-animation-crash.diff
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 03 Dec 2008 00:54:18 +0100
+
+qt4-x11 (4.4.3-1) unstable; urgency=low
+
+  * New upstream release:
+    It includes updated copyright headers, as well as updated application icons
+    and other graphics to reflect the look and feel of the new Qt brand.
+
+  +++ Changes by Fathi Boudra:
+
+  * Update copyright.
+  * Remove Debian patches:
+    - 60_m68k_inotify_fix.diff (merged upstream)
+
+  +++ Changes by Sune Vuorela:
+
+  * Bump shlibs to 4.4.3. Upstream had apparantly by mistake added at least
+    one symbol to 4.4.1 that wasn't in 4.4.0, but no way to fix it.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 29 Sep 2008 19:10:52 +0200
+
+qt4-x11 (4.4.2-2) unstable; urgency=low
+
+  +++ Changes by Fathi Boudra:
+
+  * Add missing Replaces to qt4-qmake.
+  * Add qt-copy patches:
+    - 0254-fix-qgraphicsproxywidget-deletion-crash.diff
+      Fix deletion of a qgraphicsproxywidget if it is in a layout.
+      It Will be included in Qt 4.4.4.
+
+  +++ Changes by Ana Beatriz Guerrero Lopez:
+
+  * Small updates in debian/control:
+    - Use always Qt 4 instead of Qt4.
+    - Remove architectures that are not being worked on anymore.
+    - Some typo.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 23 Sep 2008 10:19:36 +0200
+
+qt4-x11 (4.4.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+  +++ Changes by Fathi Boudra:
+
+  * Remove upstream patches:
+    - 0002_https_lowercase.diff
+  * Add Debian patches:
+    - 17_add_postgresql_8.3_support.diff
+  * Remove Debian patches:
+    - 72_generic_arch_atomic_header_fix.diff
+  * Sync qt-copy patches:
+    * Add:
+      - 0245-fix-randr-changes-detecting.diff
+      - 0248-fix-qwidget-scroll-slowness.diff
+      - 0249-webkit-stale-frame-pointer.diff (fix CVE-2008-3632)
+    * Remove:
+      - 0214-fix-qgraphicsproxywidget-tab-crash.diff
+      - 0230-qtextcontrol-selectnextword.diff
+      - 0232-fix-qdesktopwidget-screen-merge.diff
+      - 0233-fix-q3textbrowser-image.diff
+      - 0235-qdbus-dispatch-async-timeout.diff
+      - 0236-qtoolbararealayout-restore.diff
+      - 0241-fix-null-stylesheet-warning.diff
+  * Add missing QHelpGlobal include in libqt4-dev package.
+  * Remove doxygen build dependency.
+    It is useless to generate a tag file as Qt is shipped with qt.tags file.
+  * Split qmake in its own qt4-qmake package. (Closes: #437354)
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 18 Sep 2008 18:22:04 +0200
+
+qt4-x11 (4.4.1-1) experimental; urgency=low
+
+  * New upstream release. (Closes: #483790)
+
+  +++ Changes by Fathi Boudra:
+
+  * Bump Standards-Version to 3.8.0 (no changes needed).
+  * Add 0241-fix-null-stylesheet-warning.diff from qt-copy.
+  * Update libqt4-dev.install: windows related files are not installed anymore.
+  * Update Qt 4 designer short descriptions. (Closes: #493379)
+  * Replace libcupsys2-dev build dependency by libcups2-dev.
 
   +++ Changes by Sune Vuorela:
 
   * Remove watchfile. it doesn't work.
-  * mention qmake-qt4 in description of libqt4-dev. (Closes: 415816) 
+  * mention qmake-qt4 in description of libqt4-dev. (Closes: 415816)
   * Apply patch from friendly hurd porters. (Closes: 485931)
   * Make the rules file parallel build safe.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 18 Jul 2008 00:57:42 +0200
+  +++ Changes by Modestas Vainius:
+
+  * Resync our qt-copy patches with KDE svn:
+    * add:
+      - 0232-fix-qdesktopwidget-screen-merge.diff
+    * removed from qt-copy KDE svn:
+      - 0210-fix-crash-q3stylesheet-font-size.diff
+      - 0220-no-x-recursion-in-xerrhandler.diff
+      - 0223-fix-qpixmap-hasalpha.diff
+      - 0227-qdatastream-regression.diff
+      - 0228-qsortfilterproxymodel-invalidate-noscroll.diff
+    * refresh:
+      0167, 0180, 0195, 0203, 0209, 0214, 0216,
+      0224, 0226, 0230, 0233, 0235, 0236.
+    * other qt-copy patches are in 4.4.1.
+  * Resync our patches:
+    * remove, merged (stolen from) upstream:
+      - 0001_webkit_backround_in_scrollbars_webkit-5b0ea6b840a6e25e97b886e185...
+      - 21_qprintdialog_honour_fileprintersadded.diff
+      - 73_from4.4.1_no_AAAA_when_ipv6_disabled.diff
+      - 90_gcc43.diff
+    * partially merged upstream, leave unmerged parts:
+      - 71_hppa_unaligned_access_fix_458133.diff
+    * refresh:
+      - 05_append_qt4_target.diff
+      - 14_add_libraries_to_gui_build_where_actually_needed.diff
+      - 20_mips_atomic_ops.diff
+      - 50_kfreebsd_build_fix.diff
+  * Leave shlibs at (>= 4.4.0) since 4.4.1 is supposed to be backwards and
+    forward compatible with 4.4.0.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 02 Aug 2008 22:49:17 +0300
 
 qt4-x11 (4.4.0-4) unstable; urgency=low
 

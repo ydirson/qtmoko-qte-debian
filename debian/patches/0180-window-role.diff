@@ -14,7 +14,7 @@ this makes the window role set in many cases (which KWin uses for window identif
 
 --- a/src/corelib/kernel/qobject.cpp
 +++ b/src/corelib/kernel/qobject.cpp
-@@ -1016,9 +1016,18 @@
+@@ -1037,9 +1037,18 @@
  {
      Q_D(QObject);
      d->objectName = name;
@@ -47,7 +47,7 @@ this makes the window role set in many cases (which KWin uses for window identif
      struct Connection
 --- a/src/gui/kernel/qwidget_p.h
 +++ b/src/gui/kernel/qwidget_p.h
-@@ -328,6 +328,7 @@
+@@ -333,6 +333,7 @@
  
  #if defined(Q_WS_X11)
      void setWindowRole();
@@ -57,7 +57,7 @@ this makes the window role set in many cases (which KWin uses for window identif
  #endif
 --- a/src/gui/kernel/qwidget_x11.cpp
 +++ b/src/gui/kernel/qwidget_x11.cpp
-@@ -714,13 +714,17 @@
+@@ -719,13 +719,17 @@
          data.fstrut_dirty = 1;
  
          // declare the widget's window role
@@ -81,7 +81,7 @@ this makes the window role set in many cases (which KWin uses for window identif
          }
  
          // set client leader property
-@@ -2857,6 +2861,17 @@
+@@ -2719,6 +2723,17 @@
                      (unsigned char *)windowRole.constData(), windowRole.length());
  }
  

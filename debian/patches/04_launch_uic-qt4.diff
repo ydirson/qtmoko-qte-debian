@@ -2,7 +2,7 @@ author: Fathi Boudra <fabo@debian.org>
 
 --- a/tools/designer/src/lib/shared/qdesigner_utils.cpp
 +++ b/tools/designer/src/lib/shared/qdesigner_utils.cpp
-@@ -488,7 +488,7 @@
+@@ -482,7 +482,7 @@ namespace qdesigner_internal
          binary += QDir::separator();
          switch (mode) {
          case UIC_GenerateCode:
