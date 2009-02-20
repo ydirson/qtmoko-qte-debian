@@ -1,3 +1,16 @@
+qt4-x11 (4.5.0~rc1-2) UNRELEASED; urgency=low
+
+  UNRELEASED
+
+  * Fix shlibs version. It should be 4.5.0~rc1.
+  * Update debian/rules:
+    - Build with -phonon and -no-phonon-backend configure options.
+    - Remove built phonon and use system phonon.
+  * Update debian/control:
+    - Add libphonon-dev build dependency.
+
+ -- Fathi Boudra <fabo@debian.org>  Fri, 20 Feb 2009 21:32:16 +0100
+
 qt4-x11 (4.5.0~rc1-1) experimental; urgency=low
 
   * New upstream release:

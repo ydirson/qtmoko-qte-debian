@@ -28,7 +28,7 @@ DEB_MAKE_CLEAN_TARGET := confclean distclean
 # Shlibs of the current upstream version
 #DEB_DH_MAKESHLIBS_ARGS_ALL := -V
 # Specific shlibs version
-SHLIBSVERSION := 4.5.0
+SHLIBSVERSION := 4.5.0~rc1
 $(foreach libpkg,$(filter-out %-dev %-dbg,$(filter lib%,$(DEB_ARCH_PACKAGES))),$(eval DEB_DH_MAKESHLIBS_ARGS_$(libpkg) := -V'$(libpkg) (>= $(SHLIBSVERSION))'))
 
 DEB_DH_STRIP_ARGS_libqt4-dbg := --exclude=.debug
@@ -128,7 +128,8 @@ endif
 	            -exceptions \
 	            -dbus \
 	            -pch \
-	            -no-phonon \
+	            -phonon \
+	            -no-phonon-backend \
 	            -svg \
 	            -webkit \
 	            -xmlpatterns \
@@ -209,6 +210,9 @@ common-install-arch::
 # Fix wrong path in prl files
 	find $(DEB_DESTDIR)/usr/lib -type f -name '*.prl' \
 		-exec sed -i -e "/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/" {} \;
+
+	# Use system phonon
+	rm -f lib/*phonon* debian/tmp/usr/lib/*phonon*
 
 install/libqtcore4::
 	$(CURDIR)/bin/lrelease-qt4 debian/translations/qt_ca.ts \
