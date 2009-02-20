@@ -14,7 +14,7 @@ a real problem yet.
 
 --- a/src/3rdparty/webkit/JavaScriptCore/wtf/FastMalloc.cpp
 +++ b/src/3rdparty/webkit/JavaScriptCore/wtf/FastMalloc.cpp
-@@ -1267,14 +1267,14 @@ static TCMalloc_Central_FreeListPadded c
+@@ -1936,13 +1936,13 @@ static TCMalloc_Central_FreeListPadded c
  
  // Page-level allocator
  static SpinLock pageheap_lock = SPINLOCK_INITIALIZER;
@@ -24,16 +24,15 @@ a real problem yet.
  
  // Avoid extra level of indirection by making "pageheap" be just an alias
  // of pageheap_memory.
- 
  typedef union {
 -    void* m_memory;
 +    uint64_t* m_memory;
-     TCMalloc_PageHeap m_pageHeap;
+     TCMalloc_PageHeap* m_pageHeap;
  } PageHeapUnion;
  
 --- a/src/3rdparty/webkit/JavaScriptCore/wtf/ListHashSet.h
 +++ b/src/3rdparty/webkit/JavaScriptCore/wtf/ListHashSet.h
-@@ -122,7 +122,7 @@ namespace WTF {
+@@ -127,7 +127,7 @@ namespace WTF {
              : m_freeList(pool())
              , m_isDoneWithInitialFreeList(false)
          { 
@@ -42,7 +41,7 @@ a real problem yet.
          }
  
          Node* allocate()
-@@ -166,7 +166,7 @@ namespace WTF {
+@@ -171,7 +171,7 @@ namespace WTF {
          }
  
      private:
@@ -51,7 +50,7 @@ a real problem yet.
          Node* pastPool() { return pool() + m_poolSize; }
  
          bool inPool(Node* node)
-@@ -177,10 +177,7 @@ namespace WTF {
+@@ -182,10 +182,7 @@ namespace WTF {
          Node* m_freeList;
          bool m_isDoneWithInitialFreeList;
          static const size_t m_poolSize = 256;
@@ -65,8 +64,8 @@ a real problem yet.
      template<typename ValueArg> struct ListHashSetNode {
 --- a/src/3rdparty/webkit/JavaScriptCore/wtf/Platform.h
 +++ b/src/3rdparty/webkit/JavaScriptCore/wtf/Platform.h
-@@ -167,6 +167,23 @@
- #define WTF_PLATFORM_X86_64 1
+@@ -233,6 +233,23 @@
+ #   endif
  #endif
  
 +/* PLATFORM(SPARC) */
@@ -89,32 +88,20 @@ a real problem yet.
  /* Compiler */
  
  /* COMPILER(MSVC) */
---- a/src/3rdparty/webkit/JavaScriptCore/wtf/Vector.h
-+++ b/src/3rdparty/webkit/JavaScriptCore/wtf/Vector.h
-@@ -355,8 +355,7 @@ namespace WTF {
-         static const size_t m_inlineBufferSize = inlineCapacity * sizeof(T);
-         T* inlineBuffer() { return reinterpret_cast<T*>(&m_inlineBuffer); }
- 
--        // FIXME: Nothing guarantees this buffer is appropriately aligned to hold objects of type T.
--        char m_inlineBuffer[m_inlineBufferSize];
-+        uint64_t m_inlineBuffer[(m_inlineBufferSize + sizeof(uint64_t) - 1) / sizeof(uint64_t)];
-     };
- 
-     template<typename T, size_t inlineCapacity = 0>
---- a/src/3rdparty/webkit/WebCore/platform/AtomicString.cpp
-+++ b/src/3rdparty/webkit/WebCore/platform/AtomicString.cpp
-@@ -104,7 +104,7 @@ struct UCharBufferTranslator {
-         if (strLength != bufLength)
-             return false;
+--- a/src/3rdparty/webkit/WebCore/platform/text/AtomicString.cpp
++++ b/src/3rdparty/webkit/WebCore/platform/text/AtomicString.cpp
+@@ -101,7 +101,7 @@ static inline bool equal(StringImpl* str
+     if (string->length() != length)
+         return false;
  
 -#if PLATFORM(ARM)
 +#if PLATFORM(ARM) || PLATFORM(SPARC)
-         const UChar* strChars = str->characters();
-         const UChar* bufChars = buf.s;
- 
---- a/src/3rdparty/webkit/WebCore/platform/StringHash.h
-+++ b/src/3rdparty/webkit/WebCore/platform/StringHash.h
-@@ -44,6 +44,15 @@ namespace WTF {
+     const UChar* stringCharacters = string->characters();
+     for (unsigned i = 0; i != length; ++i) {
+         if (*stringCharacters++ != *characters++)
+--- a/src/3rdparty/webkit/WebCore/platform/text/StringHash.h
++++ b/src/3rdparty/webkit/WebCore/platform/text/StringHash.h
+@@ -47,6 +47,15 @@ namespace WebCore {
              if (aLength != bLength)
                  return false;
  
@@ -130,11 +117,11 @@ a real problem yet.
              const uint32_t* aChars = reinterpret_cast<const uint32_t*>(a->characters());
              const uint32_t* bChars = reinterpret_cast<const uint32_t*>(b->characters());
  
-@@ -56,6 +65,7 @@ namespace WTF {
+@@ -59,6 +68,7 @@ namespace WebCore {
                  return false;
  
              return true;
 +#endif
          }
-     };
-     
+ 
+         static unsigned hash(const RefPtr<StringImpl>& key) { return key->hash(); }

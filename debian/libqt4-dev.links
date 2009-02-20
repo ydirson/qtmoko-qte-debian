@@ -5,4 +5,3 @@ usr/bin/moc-qt4         usr/share/qt4/bin/moc
 usr/bin/uic-qt4         usr/share/qt4/bin/uic
 usr/bin/rcc             usr/share/qt4/bin/rcc
 usr/lib/qt4/plugins     usr/share/qt4/plugins
-usr/share/qt4/mkspecs/linux-g++ usr/share/qt4/mkspecs/default

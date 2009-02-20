@@ -2,11 +2,11 @@ temporary fix because of alpha, has to be dropped as soon as gcc's bug is fixed.
 
 --- a/src/opengl/opengl.pro
 +++ b/src/opengl/opengl.pro
-@@ -6,6 +6,7 @@ DEFINES   += QT_NO_USING_NAMESPACE
- win32-msvc*|win32-icc:QMAKE_LFLAGS += /BASE:0x63000000
- solaris-cc*:QMAKE_CXXFLAGS_RELEASE -= -O2
+@@ -53,6 +53,7 @@ contains(QT_CONFIG, opengles2) {
+                 gl2paintengineex/qpaintengineex_opengl2_p.h
+ }
  
 +QMAKE_CXXFLAGS_HIDESYMS -= -fvisibility-inlines-hidden
  
- include(../qbase.pri)
- 
+ x11 {
+     contains(QT_CONFIG, opengles1)|contains(QT_CONFIG, opengles1cl)|contains(QT_CONFIG, opengles2) {

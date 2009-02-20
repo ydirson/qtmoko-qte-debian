@@ -24,7 +24,7 @@ directory at the end of the compiler's header search path.
 
 --- a/configure
 +++ b/configure
-@@ -833,6 +833,11 @@
+@@ -845,6 +845,11 @@ while [ "$#" -gt 0 ]; do
              VAL=`echo $1 | sed 's,-D,,'`
          fi
          ;;
@@ -36,7 +36,7 @@ directory at the end of the compiler's header search path.
      -I?*|-I)
          VAR="add_ipath"
          if [ "$1" = "-I" ]; then
-@@ -1740,6 +1745,9 @@
+@@ -1805,6 +1810,9 @@ while [ "$#" -gt 0 ]; do
      add_ipath)
          I_FLAGS="$I_FLAGS -I\"${VAL}\""
          ;;

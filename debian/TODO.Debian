@@ -1,0 +1,15 @@
+  +++ TODO:
+
+  * Review bug reports.
+  * Update debian/copyright.
+  * Use pkgkde-symbolshelper. Add pkg-kde-tools (>= 0.3.1) b-d.
+  * Merge Ubuntu changes ? (IMHO, no)
+    - Fix binary-post-install/libqt4-dev:: to install qt.tags to libqt4-dev
+    - Add missing depends to libqt4-dev based on Qt build dependencies
+  * what to do with phonon and webkit ?
+    - webkit links against phonon.
+  * TT changed the build key generation and added backwards compatibility.
+    We need to re-add 07_trust_dpkg-arch_over_uname-m.diff patch for our
+    backward compatibility *and* figure out what to do with the new build key
+    generation.
+

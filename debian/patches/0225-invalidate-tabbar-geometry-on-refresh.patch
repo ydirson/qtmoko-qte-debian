@@ -1,5 +1,5 @@
-qt-bugs@ issue : None
-Trolltech task ID : None
+qt-bugs@ issue : 208185 
+Trolltech task ID : 208349
 bugs.kde.org number : 159014
 applied: no
 author: Robert Knight <robertknight@gmail.com>
@@ -21,7 +21,7 @@ This patch fixes the problem by calling updateGeometry() whenever the tab bar's 
 
 --- a/src/gui/widgets/qtabbar.cpp
 +++ b/src/gui/widgets/qtabbar.cpp
-@@ -533,8 +533,8 @@
+@@ -673,8 +673,8 @@ void QTabBarPrivate::refresh()
          layoutTabs();
          makeVisible(currentIndex);
          q->update();

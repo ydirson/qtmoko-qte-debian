@@ -7,12 +7,12 @@ Build-Depends: cdbs, debhelper (>= 5), quilt, flex, sharutils,
  firebird2.0-dev [i386 kfreebsd-i386 kfreebsd-amd64 amd64 sparc powerpc],
  libaudio-dev, libcups2-dev, libdbus-1-dev, libfreetype6-dev,
  libgl1-mesa-dev | libgl-dev, libglib2.0-dev, libglu1-mesa-dev | libglu-dev,
- libice-dev, libiodbc2-dev, libjpeg62-dev, libmng-dev, libmysqlclient15-dev,
- libpam0g-dev, libpng12-dev, libpq-dev, libreadline5-dev, libsm-dev,
- libsqlite0-dev, libsqlite3-dev, libtiff4-dev, libx11-dev, libxcursor-dev,
- libxext-dev, libxft-dev, libxi-dev, libxinerama-dev, libxmu-dev,
- libxrandr-dev, libxrender-dev, libxslt1-dev, libxt-dev, x11proto-core-dev,
- zlib1g-dev
+ libgtk2.0-dev, libice-dev, libiodbc2-dev, libjpeg62-dev, libmng-dev,
+ libmysqlclient15-dev, libpam0g-dev, libpng12-dev, libpq-dev, libreadline5-dev,
+ libsm-dev, libsqlite0-dev, libsqlite3-dev, libtiff4-dev, libx11-dev,
+ libxcursor-dev, libxext-dev, libxft-dev, libxi-dev, libxinerama-dev,
+ libxmu-dev, libxrandr-dev, libxrender-dev, libxslt1-dev, libxt-dev,
+ x11proto-core-dev, zlib1g-dev
 Standards-Version: 3.8.0
 Homepage: http://www.trolltech.com
 Vcs-Svn: svn://svn.debian.org/svn/pkg-kde/trunk/packages/qt4-x11
@@ -32,7 +32,7 @@ Description: Qt 4 core module
 Package: libqt4-core
 Architecture: any
 Section: libs
-Depends: libqtcore4 (= ${binary:Version}), libqt4-network (= ${binary:Version}),
+Depends: ${misc:Depends}, libqtcore4 (= ${binary:Version}), libqt4-network (= ${binary:Version}),
  libqt4-script (= ${binary:Version}), libqt4-xml (= ${binary:Version}),
  libqt4-dbus (= ${binary:Version}), libqt4-test (= ${binary:Version})
 Description: transitional package for Qt 4 core non-GUI runtime libraries
@@ -60,7 +60,7 @@ Description: Qt 4 GUI module
 Package: libqt4-gui
 Architecture: any
 Section: libs
-Depends: libqtgui4 (= ${binary:Version}), libqt4-svg (= ${binary:Version}), libqt4-opengl (= ${binary:Version}),
+Depends: ${misc:Depends}, libqtgui4 (= ${binary:Version}), libqt4-svg (= ${binary:Version}), libqt4-opengl (= ${binary:Version}),
  libqt4-designer (= ${binary:Version}), libqt4-assistant (= ${binary:Version})
 Description: transitional package for Qt 4 GUI runtime libraries
  Qt is a cross-platform C++ application framework.  Qt's primary feature
@@ -108,6 +108,20 @@ Description: Qt 4 script module
  is its rich set of widgets that provide standard GUI functionality.
  .
  The QtScript module provides classes for making Qt applications scriptable.
+
+Package: libqt4-scripttools
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Qt 4 script tools module
+ Qt is a cross-platform C++ application framework. Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ The QtScriptTools module provides additional components for applications that
+ use Qt Script.
+ .
+ This package contains the Qt Script debugger, a tool for debugging script
+ execution in Qt applications that use Qt Script.
 
 Package: libqt4-sql
 Architecture: any
@@ -328,10 +342,10 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, libqtcore4 (= ${binary:Version}),
  libqtgui4 (= ${binary:Version}), libqt4-svg (= ${binary:Version}),
  libqt4-webkit (= ${binary:Version}), libqt4-xml (= ${binary:Version}),
  libqt4-sql (= ${binary:Version}), libqt4-script (= ${binary:Version}),
- libqt4-xmlpatterns (= ${binary:Version}), libqt4-qt3support (= ${binary:Version}),
- libqt4-designer (= ${binary:Version}), libqt4-help (= ${binary:Version}),
- libqt4-assistant (= ${binary:Version}), libqt4-test (= ${binary:Version}),
- qt4-qmake (= ${binary:Version})
+ libqt4-scripttools (= ${binary:Version}), libqt4-xmlpatterns (= ${binary:Version}),
+ libqt4-qt3support (= ${binary:Version}), libqt4-designer (= ${binary:Version}),
+ libqt4-help (= ${binary:Version}), libqt4-assistant (= ${binary:Version}),
+ libqt4-test (= ${binary:Version}), qt4-qmake (= ${binary:Version})
 Recommends: libqt4-opengl-dev (= ${binary:Version})
 Conflicts: qt3-dev-tools (<= 3:3.3.4-7), libqtwebkit-dev
 Replaces: libqtwebkit-dev, libqt4-opengl-dev (<< 4.4.0-2)
@@ -425,7 +439,7 @@ Package: qt4-qmake
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: libqt4-dev (<< 4.4.2-1)
+Replaces: libqt4-dev (<< 4.5.0~beta1+snapshot20090114-1)
 Description: Qt 4 qmake Makefile generator tool
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -435,6 +449,11 @@ Description: Qt 4 qmake Makefile generator tool
  qmake automates the generation of Makefiles so that only a few lines of
  information are needed to create each Makefile. qmake can be used for any
  software project, whether it is written using Qt or not.
+ .
+ Qt 4 qmake requires a platform and compiler description file which contains
+ many default values used to generate appropriate Makefiles.
+ .
+ This package contains also these platform specifications.
 
 Package: qt4-qtconfig
 Architecture: any
@@ -489,3 +508,4 @@ Description: Qt 4 API documentation (HTML format)
  The documentation is provided in HTML format; the HTML version can be viewed
  in conjunction with the legacy Qt Assistant (assistant_adp) found in the
  qt4-dev-tools package.
+

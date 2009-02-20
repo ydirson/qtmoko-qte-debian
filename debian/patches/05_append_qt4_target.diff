@@ -57,7 +57,7 @@ author: Fathi Boudra <fabo@debian.org>
      if [ "$VERBOSE" = "yes" ]; then
 --- a/configure
 +++ b/configure
-@@ -3789,7 +3789,7 @@ END {
+@@ -3935,7 +3935,7 @@ END {
  }
  
  # build qmake
@@ -66,7 +66,7 @@ author: Fathi Boudra <fabo@debian.org>
      echo "Creating qmake. Please wait..."
  
      OLD_QCONFIG_H=
-@@ -6031,8 +6031,8 @@ QMAKE_ABSOLUTE_SOURCE_ROOT = \$\$QT_SOUR
+@@ -6511,8 +6511,8 @@ QMAKE_ABSOLUTE_SOURCE_ROOT = \$\$QT_SOUR
  QMAKE_MOC_SRC    = \$\$QT_BUILD_TREE/src/moc
  
  #local paths that cannot be queried from the QT_INSTALL_* properties while building QTDIR
@@ -77,7 +77,7 @@ author: Fathi Boudra <fabo@debian.org>
  QMAKE_UIC3       = \$\$QT_BUILD_TREE/bin/uic3
  QMAKE_RCC        = \$\$QT_BUILD_TREE/bin/rcc
  QMAKE_QDBUSXML2CPP = \$\$QT_BUILD_TREE/bin/qdbusxml2cpp
-@@ -6333,11 +6333,11 @@ EXEC=""
+@@ -6861,11 +6861,11 @@ EXEC=""
  #-------------------------------------------------------------------------------
  
  echo "Finding project files. Please wait..."
@@ -91,7 +91,7 @@ author: Fathi Boudra <fabo@debian.org>
  fi
  
  # .projects      -> projects to process
-@@ -6510,7 +6510,7 @@ for file in .projects .projects.3; do
+@@ -7038,7 +7038,7 @@ for file in .projects .projects.3; do
              echo "  for $a\c"
          fi
  
@@ -102,7 +102,7 @@ author: Fathi Boudra <fabo@debian.org>
              if echo '\c' | grep '\c' >/dev/null; then
 --- a/projects.pro
 +++ b/projects.pro
-@@ -116,7 +116,7 @@ qmake.path=$$[QT_INSTALL_BINS]
+@@ -115,7 +115,7 @@ qmake.path=$$[QT_INSTALL_BINS]
  win32 {
     qmake.files=$$QT_BUILD_TREE/bin/qmake.exe
  } else {
@@ -113,7 +113,7 @@ author: Fathi Boudra <fabo@debian.org>
  
 --- a/qmake/Makefile.unix
 +++ b/qmake/Makefile.unix
-@@ -98,17 +98,17 @@ CPPFLAGS = -I. -Igenerators -Igenerators
+@@ -99,17 +99,17 @@ CPPFLAGS = -I. -Igenerators -Igenerators
  
  CXXFLAGS = @QMAKE_CXXFLAGS@ $(CPPFLAGS)
  
@@ -137,26 +137,22 @@ author: Fathi Boudra <fabo@debian.org>
  	makedepend -D__MAKEDEPEND__ $(CPPFLAGS) $(DEPEND_SRC)
 --- a/tools/linguist/lrelease/lrelease.pro
 +++ b/tools/linguist/lrelease/lrelease.pro
-@@ -29,7 +29,7 @@ HEADERS += $$PROPARSERPATH/proitems.h \
- SOURCES += $$PROPARSERPATH/proitems.cpp \
-         $$PROPARSERPATH/proreader.cpp
- 
+@@ -1,5 +1,5 @@
+ TEMPLATE        = app
 -TARGET          = lrelease
 +TARGET          = lrelease-qt4
- INCLUDEPATH     += ../shared
  DESTDIR         = ../../../bin
  
+ QT              -= gui
 --- a/tools/linguist/lupdate/lupdate.pro
 +++ b/tools/linguist/lupdate/lupdate.pro
-@@ -42,7 +42,7 @@ SOURCES += $$PROPARSERPATH/proitems.cpp 
-         $$PROPARSERPATH/proreader.cpp
- 
- 
+@@ -1,5 +1,5 @@
+ TEMPLATE        = app
 -TARGET          = lupdate
 +TARGET          = lupdate-qt4
- INCLUDEPATH     += ../shared
  DESTDIR          = ../../../bin
  
+ QT              -= gui
 --- a/src/tools/moc/moc.pro
 +++ b/src/tools/moc/moc.pro
 @@ -1,5 +1,5 @@
@@ -164,19 +160,17 @@ author: Fathi Boudra <fabo@debian.org>
 -TARGET		= moc
 +TARGET		= moc-qt4
  
- CONFIG 	       += console qtinc
- CONFIG         -= qt
+ DEFINES	       += QT_MOC
+ DESTDIR         = ../../../bin
 --- a/src/tools/uic/uic.pro
 +++ b/src/tools/uic/uic.pro
-@@ -9,7 +9,7 @@ build_all:!build_pass {
- 
- unix:!contains(QT_CONFIG, zlib):LIBS        += -lz
- 
+@@ -1,5 +1,5 @@
+ TEMPLATE = app
 -TARGET = uic
 +TARGET = uic-qt4
- DESTDIR = ../../../bin
  
- DEFINES	       += QT_BOOTSTRAPPED QT_UIC QT_LITE_UNICODE QT_NO_DATASTREAM \
+ DESTDIR = ../../../bin
+ DEFINES += QT_UIC
 --- a/tools/assistant/tools/assistant/assistant.pro
 +++ b/tools/assistant/tools/assistant/assistant.pro
 @@ -2,7 +2,7 @@ include($$QT_SOURCE_TREE/tools/shared/fo
@@ -201,10 +195,10 @@ author: Fathi Boudra <fabo@debian.org>
  include($$QT_SOURCE_TREE/tools/shared/qttoolbardialog/qttoolbardialog.pri)
 --- a/tools/linguist/linguist/linguist.pro
 +++ b/tools/linguist/linguist/linguist.pro
-@@ -67,7 +67,7 @@ HEADERS += batchtranslationdialog.h \
+@@ -68,7 +68,7 @@ HEADERS += \
+ 
  contains(QT_PRODUCT, OpenSource.*):DEFINES *= QT_OPENSOURCE
  DEFINES += QT_KEYWORDS
- DESTDIR = ../../../bin
 -TARGET = linguist
 +TARGET = linguist-qt4
  win32:RC_FILE = linguist.rc

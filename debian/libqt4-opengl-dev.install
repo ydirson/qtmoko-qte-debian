@@ -1,4 +1,5 @@
 usr/include/qt4/Qt/QtOpenGL
+usr/include/qt4/Qt/glgc_shader_source.h
 usr/include/qt4/Qt/qgl.h
 usr/include/qt4/Qt/qglcolormap.h
 usr/include/qt4/Qt/qglframebufferobject.h
@@ -14,6 +15,7 @@ usr/include/qt4/QtOpenGL/QMacCompatGLint
 usr/include/qt4/QtOpenGL/QMacCompatGLuint
 usr/include/qt4/QtOpenGL/QMacGLCompatTypes
 usr/include/qt4/QtOpenGL/QtOpenGL
+usr/include/qt4/QtOpenGL/glgc_shader_source.h
 usr/include/qt4/QtOpenGL/qgl.h
 usr/include/qt4/QtOpenGL/qglcolormap.h
 usr/include/qt4/QtOpenGL/qglframebufferobject.h

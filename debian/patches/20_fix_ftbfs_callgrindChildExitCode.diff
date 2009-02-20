@@ -1,0 +1,28 @@
+--- a/src/testlib/qtestcase.cpp
++++ b/src/testlib/qtestcase.cpp
+@@ -1359,6 +1359,9 @@ int QTest::qExec(QObject *testObject, in
+     QBenchmarkGlobalData benchmarkData;
+     QBenchmarkGlobalData::current = &benchmarkData;
+ 
++#ifdef QTESTLIB_USE_VALGRIND
++    int callgrindChildExitCode = 0;
++#endif
+ 
+ #ifdef Q_WS_MAC
+      bool macNeedsActivate = qApp && qstrcmp(qApp->metaObject()->className(), "QApplicaion");
+@@ -1411,7 +1414,6 @@ int QTest::qExec(QObject *testObject, in
+     QTestResult::setCurrentTestObject(metaObject->className());
+     qParseArgs(argc, argv);
+ #ifdef QTESTLIB_USE_VALGRIND
+-    int callgrindChildExitCode;
+     if (QBenchmarkGlobalData::current->mode() == QBenchmarkGlobalData::CallgrindParentProcess) {
+         const QStringList origAppArgs(QCoreApplication::arguments());
+         if (!QBenchmarkValgrindUtils::rerunThroughCallgrind(origAppArgs, callgrindChildExitCode))
+@@ -1436,6 +1438,7 @@ int QTest::qExec(QObject *testObject, in
+              QTestResult::setCurrentTestFunction(0);
+          }
+ 
++        QTestLog::stopLogging();
+ #ifdef QT_MAC_USE_COCOA
+          if (macNeedsActivate) {
+              IOPMAssertionRelease(powerID);

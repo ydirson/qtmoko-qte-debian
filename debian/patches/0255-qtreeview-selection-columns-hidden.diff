@@ -31,10 +31,10 @@ range (even when there are hidden columns).
 
 --- a/src/gui/itemviews/qtreeview.cpp
 +++ b/src/gui/itemviews/qtreeview.cpp
-@@ -3530,7 +3530,7 @@ QList<QPair<int, int> > QTreeViewPrivate
+@@ -3526,7 +3526,7 @@ QList<QPair<int, int> > QTreeViewPrivate
      current.first = -2; // -1 is not enough because -1+1 = 0
      current.second = -2;
-     foreach(int logicalColumn, logicalIndexes) {
+     foreach (int logicalColumn, logicalIndexes) {
 -        if (current.second + 1 != logicalColumn) {
 +        if (current.second + 1 != logicalColumn && !header->isSectionHidden(current.second + 1)) {
              if (current.first != -2) {

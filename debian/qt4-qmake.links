@@ -1,1 +1,2 @@
 usr/bin/qmake-qt4       usr/share/qt4/bin/qmake
+usr/share/qt4/mkspecs/linux-g++ usr/share/qt4/mkspecs/default

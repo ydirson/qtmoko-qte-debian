@@ -14,7 +14,7 @@ this makes the window role set in many cases (which KWin uses for window identif
 
 --- a/src/corelib/kernel/qobject.cpp
 +++ b/src/corelib/kernel/qobject.cpp
-@@ -1037,9 +1037,18 @@
+@@ -988,9 +988,18 @@ void QObject::setObjectName(const QStrin
  {
      Q_D(QObject);
      d->objectName = name;
@@ -35,7 +35,7 @@ this makes the window role set in many cases (which KWin uses for window identif
      QObject::child is compat but needs to call itself recursively,
 --- a/src/corelib/kernel/qobject_p.h
 +++ b/src/corelib/kernel/qobject_p.h
-@@ -146,6 +146,9 @@
+@@ -139,6 +139,9 @@ public:
      mutable quint32 connectedSignals;
  
      QString objectName;
@@ -47,17 +47,17 @@ this makes the window role set in many cases (which KWin uses for window identif
      struct Connection
 --- a/src/gui/kernel/qwidget_p.h
 +++ b/src/gui/kernel/qwidget_p.h
-@@ -333,6 +333,7 @@
+@@ -355,6 +355,7 @@ public:
  
  #if defined(Q_WS_X11)
      void setWindowRole();
 +    virtual void checkWindowRole();
      void sendStartupMessage(const char *message) const;
      void setNetWmWindowTypes();
- #endif
+     void x11UpdateIsOpaque();
 --- a/src/gui/kernel/qwidget_x11.cpp
 +++ b/src/gui/kernel/qwidget_x11.cpp
-@@ -719,13 +719,17 @@
+@@ -761,13 +761,17 @@ void QWidgetPrivate::create_sys(WId wind
          data.fstrut_dirty = 1;
  
          // declare the widget's window role
@@ -81,7 +81,7 @@ this makes the window role set in many cases (which KWin uses for window identif
          }
  
          // set client leader property
-@@ -2719,6 +2723,17 @@
+@@ -2733,6 +2737,17 @@ void QWidgetPrivate::setWindowRole()
                      (unsigned char *)windowRole.constData(), windowRole.length());
  }
  

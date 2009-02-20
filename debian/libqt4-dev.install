@@ -14,6 +14,7 @@ usr/include/qt4/Qt/QtGui
 usr/include/qt4/Qt/QtHelp
 usr/include/qt4/Qt/QtNetwork
 usr/include/qt4/Qt/QtScript
+usr/include/qt4/Qt/QtScriptTools
 usr/include/qt4/Qt/QtSql
 usr/include/qt4/Qt/QtSvg
 usr/include/qt4/Qt/QtTest
@@ -134,6 +135,7 @@ usr/include/qt4/Qt/qabstractitemdelegate.h
 usr/include/qt4/Qt/qabstractitemmodel.h
 usr/include/qt4/Qt/qabstractitemview.h
 usr/include/qt4/Qt/qabstractmessagehandler.h
+usr/include/qt4/Qt/qabstractnetworkcache.h
 usr/include/qt4/Qt/qabstractpagesetupdialog.h
 usr/include/qt4/Qt/qabstractprintdialog.h
 usr/include/qt4/Qt/qabstractproxymodel.h
@@ -159,6 +161,7 @@ usr/include/qt4/Qt/qatomic.h
 usr/include/qt4/Qt/qatomic_alpha.h
 usr/include/qt4/Qt/qatomic_arch.h
 usr/include/qt4/Qt/qatomic_arm.h
+usr/include/qt4/Qt/qatomic_armv6.h
 usr/include/qt4/Qt/qatomic_avr32.h
 usr/include/qt4/Qt/qatomic_bfin.h
 usr/include/qt4/Qt/qatomic_bootstrap.h
@@ -169,11 +172,14 @@ usr/include/qt4/Qt/qatomic_mips.h
 usr/include/qt4/Qt/qatomic_parisc.h
 usr/include/qt4/Qt/qatomic_powerpc.h
 usr/include/qt4/Qt/qatomic_s390.h
+usr/include/qt4/Qt/qatomic_sh.h
+usr/include/qt4/Qt/qatomic_sh4a.h
 usr/include/qt4/Qt/qatomic_sparc.h
 usr/include/qt4/Qt/qatomic_x86_64.h
 usr/include/qt4/Qt/qauthenticator.h
 usr/include/qt4/Qt/qbasicatomic.h
 usr/include/qt4/Qt/qbasictimer.h
+usr/include/qt4/Qt/qbenchmark.h
 usr/include/qt4/Qt/qbitarray.h
 usr/include/qt4/Qt/qbitmap.h
 usr/include/qt4/Qt/qboxlayout.h
@@ -224,6 +230,8 @@ usr/include/qt4/Qt/qdbusinterface.h
 usr/include/qt4/Qt/qdbusmacros.h
 usr/include/qt4/Qt/qdbusmessage.h
 usr/include/qt4/Qt/qdbusmetatype.h
+usr/include/qt4/Qt/qdbuspendingcall.h
+usr/include/qt4/Qt/qdbuspendingreply.h
 usr/include/qt4/Qt/qdbusreply.h
 usr/include/qt4/Qt/qdbusserver.h
 usr/include/qt4/Qt/qdebug.h
@@ -281,6 +289,7 @@ usr/include/qt4/Qt/qgraphicsview.h
 usr/include/qt4/Qt/qgraphicswidget.h
 usr/include/qt4/Qt/qgridlayout.h
 usr/include/qt4/Qt/qgroupbox.h
+usr/include/qt4/Qt/qgtkstyle.h
 usr/include/qt4/Qt/qhash.h
 usr/include/qt4/Qt/qheaderview.h
 usr/include/qt4/Qt/qhelp_global.h
@@ -347,6 +356,7 @@ usr/include/qt4/Qt/qmutex.h
 usr/include/qt4/Qt/qnamespace.h
 usr/include/qt4/Qt/qnetworkaccessmanager.h
 usr/include/qt4/Qt/qnetworkcookie.h
+usr/include/qt4/Qt/qnetworkdiskcache.h
 usr/include/qt4/Qt/qnetworkinterface.h
 usr/include/qt4/Qt/qnetworkproxy.h
 usr/include/qt4/Qt/qnetworkreply.h
@@ -367,6 +377,7 @@ usr/include/qt4/Qt/qpicture.h
 usr/include/qt4/Qt/qpictureformatplugin.h
 usr/include/qt4/Qt/qpixmap.h
 usr/include/qt4/Qt/qpixmapcache.h
+usr/include/qt4/Qt/qpixmapfilter.h
 usr/include/qt4/Qt/qplaintextedit.h
 usr/include/qt4/Qt/qplastiquestyle.h
 usr/include/qt4/Qt/qplugin.h
@@ -402,6 +413,7 @@ usr/include/qt4/Qt/qscriptcontext.h
 usr/include/qt4/Qt/qscriptcontextinfo.h
 usr/include/qt4/Qt/qscriptengine.h
 usr/include/qt4/Qt/qscriptengineagent.h
+usr/include/qt4/Qt/qscriptenginedebugger.h
 usr/include/qt4/Qt/qscriptextensioninterface.h
 usr/include/qt4/Qt/qscriptextensionplugin.h
 usr/include/qt4/Qt/qscriptstring.h
@@ -415,6 +427,8 @@ usr/include/qt4/Qt/qset.h
 usr/include/qt4/Qt/qsettings.h
 usr/include/qt4/Qt/qshareddata.h
 usr/include/qt4/Qt/qsharedmemory.h
+usr/include/qt4/Qt/qsharedpointer.h
+usr/include/qt4/Qt/qsharedpointer_impl.h
 usr/include/qt4/Qt/qshortcut.h
 usr/include/qt4/Qt/qsignalmapper.h
 usr/include/qt4/Qt/qsignalspy.h
@@ -520,6 +534,7 @@ usr/include/qt4/Qt/qtextcodecplugin.h
 usr/include/qt4/Qt/qtextcursor.h
 usr/include/qt4/Qt/qtextdocument.h
 usr/include/qt4/Qt/qtextdocumentfragment.h
+usr/include/qt4/Qt/qtextdocumentwriter.h
 usr/include/qt4/Qt/qtextedit.h
 usr/include/qt4/Qt/qtextformat.h
 usr/include/qt4/Qt/qtextlayout.h
@@ -554,12 +569,14 @@ usr/include/qt4/Qt/qvariant.h
 usr/include/qt4/Qt/qvarlengtharray.h
 usr/include/qt4/Qt/qvector.h
 usr/include/qt4/Qt/qwaitcondition.h
+usr/include/qt4/Qt/qwebdatabase.h
 usr/include/qt4/Qt/qwebframe.h
 usr/include/qt4/Qt/qwebhistory.h
 usr/include/qt4/Qt/qwebhistoryinterface.h
 usr/include/qt4/Qt/qwebkitglobal.h
 usr/include/qt4/Qt/qwebpage.h
 usr/include/qt4/Qt/qwebpluginfactory.h
+usr/include/qt4/Qt/qwebsecurityorigin.h
 usr/include/qt4/Qt/qwebsettings.h
 usr/include/qt4/Qt/qwebview.h
 usr/include/qt4/Qt/qwhatsthis.h
@@ -950,6 +967,7 @@ usr/include/qt4/QtCore/QHashDummyValue
 usr/include/qt4/QtCore/QHashIterator
 usr/include/qt4/QtCore/QHashNode
 usr/include/qt4/QtCore/QIODevice
+usr/include/qt4/QtCore/QIncompatibleFlag
 usr/include/qt4/QtCore/QIntForSize
 usr/include/qt4/QtCore/QIntForType
 usr/include/qt4/QtCore/QInternal
@@ -970,10 +988,13 @@ usr/include/qt4/QtCore/QLocale
 usr/include/qt4/QtCore/QMap
 usr/include/qt4/QtCore/QMapData
 usr/include/qt4/QtCore/QMapIterator
+usr/include/qt4/QtCore/QMapNode
+usr/include/qt4/QtCore/QMapPayloadNode
 usr/include/qt4/QtCore/QMetaClassInfo
 usr/include/qt4/QtCore/QMetaEnum
 usr/include/qt4/QtCore/QMetaMethod
 usr/include/qt4/QtCore/QMetaObject
+usr/include/qt4/QtCore/QMetaObjectExtraData
 usr/include/qt4/QtCore/QMetaProperty
 usr/include/qt4/QtCore/QMetaType
 usr/include/qt4/QtCore/QMetaTypeId
@@ -1023,6 +1044,7 @@ usr/include/qt4/QtCore/QSettings
 usr/include/qt4/QtCore/QSharedData
 usr/include/qt4/QtCore/QSharedDataPointer
 usr/include/qt4/QtCore/QSharedMemory
+usr/include/qt4/QtCore/QSharedPointer
 usr/include/qt4/QtCore/QSignalMapper
 usr/include/qt4/QtCore/QSize
 usr/include/qt4/QtCore/QSizeF
@@ -1067,6 +1089,7 @@ usr/include/qt4/QtCore/QUuid
 usr/include/qt4/QtCore/QVarLengthArray
 usr/include/qt4/QtCore/QVariant
 usr/include/qt4/QtCore/QVariantComparisonHelper
+usr/include/qt4/QtCore/QVariantHash
 usr/include/qt4/QtCore/QVariantList
 usr/include/qt4/QtCore/QVariantMap
 usr/include/qt4/QtCore/QVector
@@ -1074,6 +1097,7 @@ usr/include/qt4/QtCore/QVectorData
 usr/include/qt4/QtCore/QVectorIterator
 usr/include/qt4/QtCore/QVectorTypedData
 usr/include/qt4/QtCore/QWaitCondition
+usr/include/qt4/QtCore/QWeakPointer
 usr/include/qt4/QtCore/QWriteLocker
 usr/include/qt4/QtCore/QXmlStreamAttribute
 usr/include/qt4/QtCore/QXmlStreamAttributes
@@ -1122,6 +1146,7 @@ usr/include/qt4/QtCore/qatomic.h
 usr/include/qt4/QtCore/qatomic_alpha.h
 usr/include/qt4/QtCore/qatomic_arch.h
 usr/include/qt4/QtCore/qatomic_arm.h
+usr/include/qt4/QtCore/qatomic_armv6.h
 usr/include/qt4/QtCore/qatomic_avr32.h
 usr/include/qt4/QtCore/qatomic_bfin.h
 usr/include/qt4/QtCore/qatomic_bootstrap.h
@@ -1132,6 +1157,8 @@ usr/include/qt4/QtCore/qatomic_mips.h
 usr/include/qt4/QtCore/qatomic_parisc.h
 usr/include/qt4/QtCore/qatomic_powerpc.h
 usr/include/qt4/QtCore/qatomic_s390.h
+usr/include/qt4/QtCore/qatomic_sh.h
+usr/include/qt4/QtCore/qatomic_sh4a.h
 usr/include/qt4/QtCore/qatomic_sparc.h
 usr/include/qt4/QtCore/qatomic_x86_64.h
 usr/include/qt4/QtCore/qbasicatomic.h
@@ -1207,6 +1234,8 @@ usr/include/qt4/QtCore/qset.h
 usr/include/qt4/QtCore/qsettings.h
 usr/include/qt4/QtCore/qshareddata.h
 usr/include/qt4/QtCore/qsharedmemory.h
+usr/include/qt4/QtCore/qsharedpointer.h
+usr/include/qt4/QtCore/qsharedpointer_impl.h
 usr/include/qt4/QtCore/qsignalmapper.h
 usr/include/qt4/QtCore/qsize.h
 usr/include/qt4/QtCore/qsocketnotifier.h
@@ -1259,6 +1288,10 @@ usr/include/qt4/QtDBus/QDBusInterface
 usr/include/qt4/QtDBus/QDBusMessage
 usr/include/qt4/QtDBus/QDBusMetaType
 usr/include/qt4/QtDBus/QDBusObjectPath
+usr/include/qt4/QtDBus/QDBusPendingCall
+usr/include/qt4/QtDBus/QDBusPendingCallWatcher
+usr/include/qt4/QtDBus/QDBusPendingReply
+usr/include/qt4/QtDBus/QDBusPendingReplyData
 usr/include/qt4/QtDBus/QDBusReply
 usr/include/qt4/QtDBus/QDBusServer
 usr/include/qt4/QtDBus/QDBusSignature
@@ -1276,6 +1309,8 @@ usr/include/qt4/QtDBus/qdbusinterface.h
 usr/include/qt4/QtDBus/qdbusmacros.h
 usr/include/qt4/QtDBus/qdbusmessage.h
 usr/include/qt4/QtDBus/qdbusmetatype.h
+usr/include/qt4/QtDBus/qdbuspendingcall.h
+usr/include/qt4/QtDBus/qdbuspendingreply.h
 usr/include/qt4/QtDBus/qdbusreply.h
 usr/include/qt4/QtDBus/qdbusserver.h
 usr/include/qt4/QtDesigner/QAbstractExtensionFactory
@@ -1485,6 +1520,7 @@ usr/include/qt4/QtGui/QGraphicsView
 usr/include/qt4/QtGui/QGraphicsWidget
 usr/include/qt4/QtGui/QGridLayout
 usr/include/qt4/QtGui/QGroupBox
+usr/include/qt4/QtGui/QGtkStyle
 usr/include/qt4/QtGui/QHBoxLayout
 usr/include/qt4/QtGui/QHeaderView
 usr/include/qt4/QtGui/QHelpEvent
@@ -1566,6 +1602,10 @@ usr/include/qt4/QtGui/QPictureFormatPlugin
 usr/include/qt4/QtGui/QPictureIO
 usr/include/qt4/QtGui/QPixmap
 usr/include/qt4/QtGui/QPixmapCache
+usr/include/qt4/QtGui/QPixmapColorizeFilter
+usr/include/qt4/QtGui/QPixmapConvolutionFilter
+usr/include/qt4/QtGui/QPixmapDropShadowFilter
+usr/include/qt4/QtGui/QPixmapFilter
 usr/include/qt4/QtGui/QPlainTextDocumentLayout
 usr/include/qt4/QtGui/QPlainTextEdit
 usr/include/qt4/QtGui/QPlastiqueStyle
@@ -1627,6 +1667,7 @@ usr/include/qt4/QtGui/QStyleOptionDockWidgetV2
 usr/include/qt4/QtGui/QStyleOptionFocusRect
 usr/include/qt4/QtGui/QStyleOptionFrame
 usr/include/qt4/QtGui/QStyleOptionFrameV2
+usr/include/qt4/QtGui/QStyleOptionFrameV3
 usr/include/qt4/QtGui/QStyleOptionGraphicsItem
 usr/include/qt4/QtGui/QStyleOptionGroupBox
 usr/include/qt4/QtGui/QStyleOptionHeader
@@ -1642,7 +1683,9 @@ usr/include/qt4/QtGui/QStyleOptionSlider
 usr/include/qt4/QtGui/QStyleOptionSpinBox
 usr/include/qt4/QtGui/QStyleOptionTab
 usr/include/qt4/QtGui/QStyleOptionTabBarBase
+usr/include/qt4/QtGui/QStyleOptionTabBarBaseV2
 usr/include/qt4/QtGui/QStyleOptionTabV2
+usr/include/qt4/QtGui/QStyleOptionTabV3
 usr/include/qt4/QtGui/QStyleOptionTabWidgetFrame
 usr/include/qt4/QtGui/QStyleOptionTitleBar
 usr/include/qt4/QtGui/QStyleOptionToolBar
@@ -1674,6 +1717,7 @@ usr/include/qt4/QtGui/QTextCharFormat
 usr/include/qt4/QtGui/QTextCursor
 usr/include/qt4/QtGui/QTextDocument
 usr/include/qt4/QtGui/QTextDocumentFragment
+usr/include/qt4/QtGui/QTextDocumentWriter
 usr/include/qt4/QtGui/QTextEdit
 usr/include/qt4/QtGui/QTextFormat
 usr/include/qt4/QtGui/QTextFragment
@@ -1816,6 +1860,7 @@ usr/include/qt4/QtGui/qgraphicsview.h
 usr/include/qt4/QtGui/qgraphicswidget.h
 usr/include/qt4/QtGui/qgridlayout.h
 usr/include/qt4/QtGui/qgroupbox.h
+usr/include/qt4/QtGui/qgtkstyle.h
 usr/include/qt4/QtGui/qheaderview.h
 usr/include/qt4/QtGui/qicon.h
 usr/include/qt4/QtGui/qiconengine.h
@@ -1861,6 +1906,7 @@ usr/include/qt4/QtGui/qpicture.h
 usr/include/qt4/QtGui/qpictureformatplugin.h
 usr/include/qt4/QtGui/qpixmap.h
 usr/include/qt4/QtGui/qpixmapcache.h
+usr/include/qt4/QtGui/qpixmapfilter.h
 usr/include/qt4/QtGui/qplaintextedit.h
 usr/include/qt4/QtGui/qplastiquestyle.h
 usr/include/qt4/QtGui/qpolygon.h
@@ -1911,6 +1957,7 @@ usr/include/qt4/QtGui/qtextbrowser.h
 usr/include/qt4/QtGui/qtextcursor.h
 usr/include/qt4/QtGui/qtextdocument.h
 usr/include/qt4/QtGui/qtextdocumentfragment.h
+usr/include/qt4/QtGui/qtextdocumentwriter.h
 usr/include/qt4/QtGui/qtextedit.h
 usr/include/qt4/QtGui/qtextformat.h
 usr/include/qt4/QtGui/qtextlayout.h
@@ -1965,6 +2012,7 @@ usr/include/qt4/QtHelp/qhelpindexwidget.h
 usr/include/qt4/QtHelp/qhelpsearchengine.h
 usr/include/qt4/QtHelp/qhelpsearchquerywidget.h
 usr/include/qt4/QtHelp/qhelpsearchresultwidget.h
+usr/include/qt4/QtNetwork/QAbstractNetworkCache
 usr/include/qt4/QtNetwork/QAbstractSocket
 usr/include/qt4/QtNetwork/QAuthenticator
 usr/include/qt4/QtNetwork/QFtp
@@ -1979,10 +2027,14 @@ usr/include/qt4/QtNetwork/QLocalServer
 usr/include/qt4/QtNetwork/QLocalSocket
 usr/include/qt4/QtNetwork/QNetworkAccessManager
 usr/include/qt4/QtNetwork/QNetworkAddressEntry
+usr/include/qt4/QtNetwork/QNetworkCacheMetaData
 usr/include/qt4/QtNetwork/QNetworkCookie
 usr/include/qt4/QtNetwork/QNetworkCookieJar
+usr/include/qt4/QtNetwork/QNetworkDiskCache
 usr/include/qt4/QtNetwork/QNetworkInterface
 usr/include/qt4/QtNetwork/QNetworkProxy
+usr/include/qt4/QtNetwork/QNetworkProxyFactory
+usr/include/qt4/QtNetwork/QNetworkProxyQuery
 usr/include/qt4/QtNetwork/QNetworkReply
 usr/include/qt4/QtNetwork/QNetworkRequest
 usr/include/qt4/QtNetwork/QSsl
@@ -1998,6 +2050,7 @@ usr/include/qt4/QtNetwork/QUdpSocket
 usr/include/qt4/QtNetwork/QUrlInfo
 usr/include/qt4/QtNetwork/Q_IPV6ADDR
 usr/include/qt4/QtNetwork/QtNetwork
+usr/include/qt4/QtNetwork/qabstractnetworkcache.h
 usr/include/qt4/QtNetwork/qabstractsocket.h
 usr/include/qt4/QtNetwork/qauthenticator.h
 usr/include/qt4/QtNetwork/qftp.h
@@ -2008,6 +2061,7 @@ usr/include/qt4/QtNetwork/qlocalserver.h
 usr/include/qt4/QtNetwork/qlocalsocket.h
 usr/include/qt4/QtNetwork/qnetworkaccessmanager.h
 usr/include/qt4/QtNetwork/qnetworkcookie.h
+usr/include/qt4/QtNetwork/qnetworkdiskcache.h
 usr/include/qt4/QtNetwork/qnetworkinterface.h
 usr/include/qt4/QtNetwork/qnetworkproxy.h
 usr/include/qt4/QtNetwork/qnetworkreply.h
@@ -2033,6 +2087,7 @@ usr/include/qt4/QtScript/QScriptEngineAgent
 usr/include/qt4/QtScript/QScriptExtensionInterface
 usr/include/qt4/QtScript/QScriptExtensionPlugin
 usr/include/qt4/QtScript/QScriptString
+usr/include/qt4/QtScript/QScriptSyntaxCheckResult
 usr/include/qt4/QtScript/QScriptValue
 usr/include/qt4/QtScript/QScriptValueIterator
 usr/include/qt4/QtScript/QScriptValueList
@@ -2050,6 +2105,9 @@ usr/include/qt4/QtScript/qscriptextensionplugin.h
 usr/include/qt4/QtScript/qscriptstring.h
 usr/include/qt4/QtScript/qscriptvalue.h
 usr/include/qt4/QtScript/qscriptvalueiterator.h
+usr/include/qt4/QtScriptTools/QScriptEngineDebugger
+usr/include/qt4/QtScriptTools/QtScriptTools
+usr/include/qt4/QtScriptTools/qscriptenginedebugger.h
 usr/include/qt4/QtSql/QIBaseDriver
 usr/include/qt4/QtSql/QIBaseResult
 usr/include/qt4/QtSql/QMYSQLDriver
@@ -2124,6 +2182,7 @@ usr/include/qt4/QtTest/QTestKeyClicksEvent
 usr/include/qt4/QtTest/QTestKeyEvent
 usr/include/qt4/QtTest/QTestMouseEvent
 usr/include/qt4/QtTest/QtTest
+usr/include/qt4/QtTest/qbenchmark.h
 usr/include/qt4/QtTest/qsignalspy.h
 usr/include/qt4/QtTest/qtest.h
 usr/include/qt4/QtTest/qtest_global.h
@@ -2141,6 +2200,7 @@ usr/include/qt4/QtTest/qtestsystem.h
 usr/include/qt4/QtUiTools/QUiLoader
 usr/include/qt4/QtUiTools/QtUiTools
 usr/include/qt4/QtUiTools/quiloader.h
+usr/include/qt4/QtWebKit/QWebDatabase
 usr/include/qt4/QtWebKit/QWebFrame
 usr/include/qt4/QtWebKit/QWebHistory
 usr/include/qt4/QtWebKit/QWebHistoryInterface
@@ -2148,15 +2208,18 @@ usr/include/qt4/QtWebKit/QWebHistoryItem
 usr/include/qt4/QtWebKit/QWebHitTestResult
 usr/include/qt4/QtWebKit/QWebPage
 usr/include/qt4/QtWebKit/QWebPluginFactory
+usr/include/qt4/QtWebKit/QWebSecurityOrigin
 usr/include/qt4/QtWebKit/QWebSettings
 usr/include/qt4/QtWebKit/QWebView
 usr/include/qt4/QtWebKit/QtWebKit
+usr/include/qt4/QtWebKit/qwebdatabase.h
 usr/include/qt4/QtWebKit/qwebframe.h
 usr/include/qt4/QtWebKit/qwebhistory.h
 usr/include/qt4/QtWebKit/qwebhistoryinterface.h
 usr/include/qt4/QtWebKit/qwebkitglobal.h
 usr/include/qt4/QtWebKit/qwebpage.h
 usr/include/qt4/QtWebKit/qwebpluginfactory.h
+usr/include/qt4/QtWebKit/qwebsecurityorigin.h
 usr/include/qt4/QtWebKit/qwebsettings.h
 usr/include/qt4/QtWebKit/qwebview.h
 usr/include/qt4/QtXml/QDomAttr
@@ -2255,6 +2318,8 @@ usr/lib/libQtNetwork.prl
 usr/lib/libQtNetwork.so
 usr/lib/libQtScript.prl
 usr/lib/libQtScript.so
+usr/lib/libQtScriptTools.prl
+usr/lib/libQtScriptTools.so
 usr/lib/libQtSql.prl
 usr/lib/libQtSql.so
 usr/lib/libQtSvg.prl
@@ -2280,6 +2345,7 @@ usr/lib/pkgconfig/QtGui.pc
 usr/lib/pkgconfig/QtHelp.pc
 usr/lib/pkgconfig/QtNetwork.pc
 usr/lib/pkgconfig/QtScript.pc
+usr/lib/pkgconfig/QtScriptTools.pc
 usr/lib/pkgconfig/QtSql.pc
 usr/lib/pkgconfig/QtSvg.pc
 usr/lib/pkgconfig/QtTest.pc
@@ -2287,5 +2353,4 @@ usr/lib/pkgconfig/QtUiTools.pc
 usr/lib/pkgconfig/QtWebKit.pc
 usr/lib/pkgconfig/QtXml.pc
 usr/lib/pkgconfig/QtXmlPatterns.pc
-usr/share/qt4/mkspecs/*
 usr/share/qt4/q3porting.xml

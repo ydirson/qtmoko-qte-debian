@@ -1,9 +1,11 @@
 usr/bin/assistant-qt4
 usr/bin/assistant_adp
+usr/bin/lconvert
 usr/bin/linguist-qt4
 usr/bin/pixeltool
 usr/bin/qcollectiongenerator
 usr/bin/qdbusviewer
+usr/bin/qdoc3
 usr/bin/qhelpconverter
 usr/bin/qhelpgenerator
 usr/bin/xmlpatterns
@@ -15,11 +17,11 @@ usr/share/qt4/translations/assistant_adp_zh_CN.qm
 usr/share/qt4/translations/assistant_adp_zh_TW.qm
 usr/share/qt4/translations/assistant_de.qm
 usr/share/qt4/translations/assistant_pl.qm
-usr/share/qt4/translations/assistant_zh_CN.qm
-usr/share/qt4/translations/assistant_zh_TW.qm
+# Disable for unofficial release like snapshots
+#usr/share/qt4/translations/assistant_zh_CN.qm
+#usr/share/qt4/translations/assistant_zh_TW.qm
 usr/share/qt4/translations/linguist_de.qm
 usr/share/qt4/translations/linguist_ja.qm
 usr/share/qt4/translations/linguist_pl.qm
 usr/share/qt4/translations/linguist_zh_CN.qm
 usr/share/qt4/translations/linguist_zh_TW.qm
-

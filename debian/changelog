@@ -1,3 +1,51 @@
+qt4-x11 (4.5.0~rc1-1) experimental; urgency=low
+
+  * New upstream release:
+    - QGtkStyle is part of Qt 4.5 release. (Closes: #507143)
+    - Fix useless warning flood when sockets > 1024. (Closes: #511700)
+  * Add libgtk2.0-dev build dependency to enable GTK theme support.
+  * Add package libqt4-scripttools: The QtScriptTools module provides
+    additional components for applications that use Qt Script.
+  * Clean up the prl postprocessing.
+  * Build documentations if current version is a snapshot.
+  * Update *.install and *.lintian files.
+  * Move mkspecs in qt4-qmake package to use qt4-qmake standalone.
+  * Add qdoc3 to qt4-dev-tools package.
+  * Add Debian patches:
+    - 18_enable_qt3support_qtwebkit_debug_info.diff
+      On Qt >= 4.5, debug info are disabled for Qt3Support and QtWebkit.
+      This patch enable them.
+    - 19_install_qdoc3.diff
+      Install qdoc3 binary. It is used by Qt Creator.
+    - 20_fix_ftbfs_callgrindChildExitCode.diff
+      Fix ftfbs on qtestcase.cpp. Stolen from snapshot 20090206.
+  * Remove Debian patches:
+    - 07_trust_dpkg-arch_over_uname-m.diff - Fixed upstream.
+    - 12_fix_qmake_pkgconfig.diff
+    - 20_mips_atomic_ops.diff - Fixed upstream.
+      In memory of Thiemo Seufer.
+      Thanks for his invaluable help on MIPS. He will be missed.
+  * Update Debian patches:
+    - 02, 03, 04, 05, 09, 14, 15, 16, 17, 30, 40, 41, 50, 71, 80.
+  * Remove qt-copy patches:
+    - 0167-fix-group-reading.diff - Merged upstream.
+    - 0203-qtexthtmlparser-link-color.diff - Merged upstream.
+    - 0224-fast-qpixmap-fill.diff - Fixed upstream.
+    - 0226-qtreeview-column_resize_when_needed.diff - Fixed upstream.
+    - 0238-fix-qt-qttabbar-size.diff - Merged upstream.
+    - 0248-fix-qwidget-scroll-slowness.diff - Fixed upstream.
+    - 0249-webkit-stale-frame-pointer.diff - Merged upstream.
+    - 0254-fix-qgraphicsproxywidget-deletion-crash.diff - Merged upstream.
+    - 0256-fix-recursive-backingstore-sync-crash.diff - Fixed upstream.
+    - 0257-qurl-validate-speedup.diff - Fixed upstream.
+    - 0260-fix-qgraphicswidget-deletionclearFocus.diff - Merged upstream.
+    - 0261-sync-before-reset-errorhandler.patch - Merged upstream.
+    - 0262-fix-treeview-animation-crash.diff - Merged upstream.
+  * Refresh qt-copy patches:
+    0180, 0195, 0209, 0216, 0225, 0234, 0245, 0255.
+
+ -- Fathi Boudra <fabo@debian.org>  Fri, 06 Feb 2009 10:03:16 +0100
+
 qt4-x11 (4.4.3-2) unstable; urgency=low
 
   +++ Changes by Armin Berres:
@@ -170,7 +218,7 @@ qt4-x11 (4.4.0-3) unstable; urgency=low
   +++ Changes by Sune Vuorela:
 
   * Fix generic atomic header. (Closes: #475767)
-    This is enough to fix building of kdelibs, but there should be a proper 
+    This is enough to fix building of kdelibs, but there should be a proper
     hppa fix modelled over the other "real" archs.
 
   +++ Changes by Fathi Boudra:
@@ -185,7 +233,7 @@ qt4-x11 (4.4.0-3) unstable; urgency=low
 
   * Steal 73_from4.4.1_no_AAAA_when_ipv6_disabled.diff patch from 4.4.1
     snapshot, which disables IPv6 DNS queries (AAAA) when IPv6 is disabled on
-    the system. 
+    the system.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 08 Jun 2008 13:17:02 +0300
 
@@ -355,7 +403,7 @@ qt4-x11 (4.4.0~rc1-2) unstable; urgency=low
 
   * Add patch for Explicit template specialization cannot have a storage class
     with gcc-4.3. Specializations of templates cannot explicitly specify
-    a storage class, and have the same storage as the primary template. 
+    a storage class, and have the same storage as the primary template.
 
  -- Fathi Boudra <fabo@debian.org>  Wed, 09 Apr 2008 09:40:00 +0200
 
@@ -868,7 +916,7 @@ qt4-x11 (4.2.1-2) unstable; urgency=low
 
 qt4-x11 (4.2.1-1) unstable; urgency=high
 
-  * New upstream release    
+  * New upstream release
     - Fixes integer overflow in pixmap handling [CVE-2006-4811]
       (Closes: #394192)
 
@@ -905,7 +953,7 @@ qt4-x11 (4.2.0-1) unstable; urgency=low
     - No longer includes "CONFIG = ... debug" in the mkspecs/qconfig.pri
       (Closes: #357136)
     - Fixes QFontDialog assert() failures (Closes: #380418)
-    
+
   * debian/control: made libqt4-gui conflict/replace libqt4-designer, to
     ensure that old package is removed (Closes: #380253)
 
@@ -1111,7 +1159,7 @@ qt4-x11 (4.1.0-1) unstable; urgency=low
   * New upstream release
     - Fixes missing QBitArray operators (Closes: #341658)
     - Fixes qmake problem with including bad build path (Closes: #327359)
-  
+
   * Added the new QTestLib unit testing framework to the libqt4-core
     package
 
@@ -1200,11 +1248,11 @@ qt4-x11 (4.0.1-2) unstable; urgency=low
     qmake.conf so that qmake generates Makefiles that use the -qt4 tools.
     This way, it can cope with systems that have alternatives set to use
     the -qt3 versions.
-  
+
   * Increased the conflicting Qt3 package versions to <= 3.3.4-7, since
     the Qt3 packages still don't use the alternatives system as needed to
     coexist with Qt4.
-  
+
   * debian/libqt4-core.install: added /usr/lib/qt4/plugins/codecs
 
   * debian/patches/11_launch_assistant-qt4: new patch that modifies the
@@ -1233,7 +1281,7 @@ qt4-x11 (4.0.1-1) unstable; urgency=low
   * New upstream release
 
   * Install changes-4.0.1 as upstream changelog
-  
+
   * debian/manpages/assistant-qt4.1: new manpage written from scratch
     based on the output of "assistant -help"
 
@@ -1277,7 +1325,7 @@ qt4-x11 (4.0.0-3) unstable; urgency=low
     plugin (Closes: #321582)
 
   * debian/libqt4-debug.install: added the libqjpeg_debug.so plugin
-  
+
   * debian/rules: don't hardcode the /usr/include/postgresql/8.0 path,
     instead of the output of `pg_config --includedir`, stolen from Qt3
     packages
