@@ -377,7 +377,6 @@ usr/include/qt4/Qt/qpicture.h
 usr/include/qt4/Qt/qpictureformatplugin.h
 usr/include/qt4/Qt/qpixmap.h
 usr/include/qt4/Qt/qpixmapcache.h
-usr/include/qt4/Qt/qpixmapfilter.h
 usr/include/qt4/Qt/qplaintextedit.h
 usr/include/qt4/Qt/qplastiquestyle.h
 usr/include/qt4/Qt/qplugin.h
@@ -1602,10 +1601,6 @@ usr/include/qt4/QtGui/QPictureFormatPlugin
 usr/include/qt4/QtGui/QPictureIO
 usr/include/qt4/QtGui/QPixmap
 usr/include/qt4/QtGui/QPixmapCache
-usr/include/qt4/QtGui/QPixmapColorizeFilter
-usr/include/qt4/QtGui/QPixmapConvolutionFilter
-usr/include/qt4/QtGui/QPixmapDropShadowFilter
-usr/include/qt4/QtGui/QPixmapFilter
 usr/include/qt4/QtGui/QPlainTextDocumentLayout
 usr/include/qt4/QtGui/QPlainTextEdit
 usr/include/qt4/QtGui/QPlastiqueStyle
@@ -1906,7 +1901,6 @@ usr/include/qt4/QtGui/qpicture.h
 usr/include/qt4/QtGui/qpictureformatplugin.h
 usr/include/qt4/QtGui/qpixmap.h
 usr/include/qt4/QtGui/qpixmapcache.h
-usr/include/qt4/QtGui/qpixmapfilter.h
 usr/include/qt4/QtGui/qplaintextedit.h
 usr/include/qt4/QtGui/qplastiquestyle.h
 usr/include/qt4/QtGui/qpolygon.h

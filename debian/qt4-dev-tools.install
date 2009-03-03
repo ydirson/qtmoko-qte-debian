@@ -18,8 +18,8 @@ usr/share/qt4/translations/assistant_adp_zh_TW.qm
 usr/share/qt4/translations/assistant_de.qm
 usr/share/qt4/translations/assistant_pl.qm
 # Disable for unofficial release like snapshots
-#usr/share/qt4/translations/assistant_zh_CN.qm
-#usr/share/qt4/translations/assistant_zh_TW.qm
+usr/share/qt4/translations/assistant_zh_CN.qm
+usr/share/qt4/translations/assistant_zh_TW.qm
 usr/share/qt4/translations/linguist_de.qm
 usr/share/qt4/translations/linguist_ja.qm
 usr/share/qt4/translations/linguist_pl.qm
