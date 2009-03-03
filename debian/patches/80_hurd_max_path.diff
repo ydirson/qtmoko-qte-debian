@@ -2,7 +2,7 @@ author: Brian Nelson <pyro@debian.org>
 
 --- a/src/corelib/io/qfsfileengine_unix.cpp
 +++ b/src/corelib/io/qfsfileengine_unix.cpp
-@@ -59,6 +59,10 @@
+@@ -64,6 +64,10 @@
  
  QT_BEGIN_NAMESPACE
  

@@ -1,6 +1,6 @@
 --- a/src/corelib/arch/qatomic_powerpc.h
 +++ b/src/corelib/arch/qatomic_powerpc.h
-@@ -188,7 +188,7 @@ inline bool QBasicAtomicInt::testAndSetR
+@@ -193,7 +193,7 @@ inline bool QBasicAtomicInt::testAndSetR
                   "lwarx  %[result]," _Q_VALUE "\n"
                   "xor.   %[result], %[result], %[expectedValue]\n"
                   "bne    $+12\n"

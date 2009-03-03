@@ -21,7 +21,7 @@ This patch fixes the problem by calling updateGeometry() whenever the tab bar's 
 
 --- a/src/gui/widgets/qtabbar.cpp
 +++ b/src/gui/widgets/qtabbar.cpp
-@@ -673,8 +673,8 @@ void QTabBarPrivate::refresh()
+@@ -678,8 +678,8 @@ void QTabBarPrivate::refresh()
          layoutTabs();
          makeVisible(currentIndex);
          q->update();

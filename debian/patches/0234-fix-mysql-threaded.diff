@@ -9,7 +9,7 @@ mysql server in a multithreaded environment
 
 --- a/src/sql/drivers/mysql/qsql_mysql.cpp
 +++ b/src/sql/drivers/mysql/qsql_mysql.cpp
-@@ -1252,6 +1252,10 @@ bool QMYSQLDriver::open(const QString& d
+@@ -1257,6 +1257,10 @@ bool QMYSQLDriver::open(const QString& d
      d->preparedQuerysEnabled = false;
  #endif
  
@@ -20,7 +20,7 @@ mysql server in a multithreaded environment
      setOpen(true);
      setOpenError(false);
      return true;
-@@ -1260,6 +1264,9 @@ bool QMYSQLDriver::open(const QString& d
+@@ -1265,6 +1269,9 @@ bool QMYSQLDriver::open(const QString& d
  void QMYSQLDriver::close()
  {
      if (isOpen()) {

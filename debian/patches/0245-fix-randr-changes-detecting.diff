@@ -9,7 +9,7 @@ Fix QDesktopWidget not detecting some changes in multiscreen setups
 
 --- a/src/gui/kernel/qapplication_x11.cpp
 +++ b/src/gui/kernel/qapplication_x11.cpp
-@@ -3339,11 +3339,11 @@ int QApplication::x11ProcessEvent(XEvent
+@@ -3350,11 +3350,11 @@ int QApplication::x11ProcessEvent(XEvent
          QSize oldSize(w->size());
          w->data->crect.setWidth(DisplayWidth(X11->display, scr));
          w->data->crect.setHeight(DisplayHeight(X11->display, scr));

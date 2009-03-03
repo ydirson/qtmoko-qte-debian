@@ -28,7 +28,7 @@ DEB_MAKE_CLEAN_TARGET := confclean distclean
 # Shlibs of the current upstream version
 #DEB_DH_MAKESHLIBS_ARGS_ALL := -V
 # Specific shlibs version
-SHLIBSVERSION := 4.5.0~rc1
+SHLIBSVERSION := 4.5.0
 $(foreach libpkg,$(filter-out %-dev %-dbg,$(filter lib%,$(DEB_ARCH_PACKAGES))),$(eval DEB_DH_MAKESHLIBS_ARGS_$(libpkg) := -V'$(libpkg) (>= $(SHLIBSVERSION))'))
 
 DEB_DH_STRIP_ARGS_libqt4-dbg := --exclude=.debug
@@ -36,7 +36,7 @@ DEB_DH_STRIP_ARGS_libqt4-dbg := --exclude=.debug
 DEB_DH_SHLIBDEPS_ARGS_ALL := --exclude=.debug
 
 # Disable for rc
-#DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
+DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
 
 DEB_INSTALL_DOCS_ALL := GPL_EXCEPTION_ADDENDUM.TXT
 

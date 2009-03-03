@@ -1,3 +1,13 @@
+qt4-x11 (4.5.0-1) UNRELEASED; urgency=low
+
+  * New upstream released.
+  * Remove patches:
+    - 20_fix_ftbfs_callgrindChildExitCode.diff - Merged upstream.
+    - 21_fix_ppc_build.diff - Reverted upstream.
+    - 22_fix_qiconvcodec.diff - Merged upstream.
+
+ -- Fathi Boudra <fabo@debian.org>  Tue, 03 Mar 2009 16:40:52 +0100
+
 qt4-x11 (4.5.0~rc1-2) experimental; urgency=low
 
   * Fix shlibs version. It should be 4.5.0~rc1.

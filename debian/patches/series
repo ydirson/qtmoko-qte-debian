@@ -24,9 +24,6 @@
 17_add_postgresql_8.3_support.diff
 18_enable_qt3support_qtwebkit_debug_info.diff
 19_install_qdoc3.diff
-20_fix_ftbfs_callgrindChildExitCode.diff
-21_fix_ppc_build.diff
-22_fix_qiconvcodec.diff
 30_webkit_unaligned_access.diff
 40_alpha_ice.diff
 41_disable_opengl_visibility.diff

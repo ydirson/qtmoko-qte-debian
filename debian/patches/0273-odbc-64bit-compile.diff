@@ -5,7 +5,7 @@ author: Alex Merry
 
 --- a/src/sql/drivers/odbc/qsql_odbc.cpp
 +++ b/src/sql/drivers/odbc/qsql_odbc.cpp
-@@ -64,13 +64,13 @@ QT_BEGIN_NAMESPACE
+@@ -69,13 +69,13 @@ QT_BEGIN_NAMESPACE
  #endif
  
  // newer platform SDKs use SQLLEN instead of SQLINTEGER
