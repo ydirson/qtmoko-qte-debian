@@ -8,6 +8,7 @@
 0245-fix-randr-changes-detecting.diff
 0255-qtreeview-selection-columns-hidden.diff
 0273-odbc-64bit-compile.diff
+0274-shm-native-image-fix.diff
 
 # debian patches
 01_qmake_for_debian.diff

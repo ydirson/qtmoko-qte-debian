@@ -5,6 +5,10 @@ qt4-x11 (4.5.0-1) UNRELEASED; urgency=low
     - 20_fix_ftbfs_callgrindChildExitCode.diff - Merged upstream.
     - 21_fix_ppc_build.diff - Reverted upstream.
     - 22_fix_qiconvcodec.diff - Merged upstream.
+  * Add qt-copy patches:
+    - 0274-shm-native-image-fix.diff
+      This patch makes the raster graphics system use shared images instead of
+      shared pixmaps.
 
  -- Fathi Boudra <fabo@debian.org>  Tue, 03 Mar 2009 16:40:52 +0100
 
