@@ -1,6 +1,11 @@
 qt4-x11 (4.5.0-1) UNRELEASED; urgency=low
 
-  * New upstream released.
+  * New upstream released:
+    - Fix knode 4.2.x crash. (Closes: #516740)
+  * Update copyright:
+    - Add LGPL license support.
+    - Add a sentence about QPL license dropped from Qt 4.4.0.
+      (Closes: #508190, #500905)
   * Remove patches:
     - 20_fix_ftbfs_callgrindChildExitCode.diff - Merged upstream.
     - 21_fix_ppc_build.diff - Reverted upstream.

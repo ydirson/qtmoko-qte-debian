@@ -38,7 +38,7 @@ DEB_DH_SHLIBDEPS_ARGS_ALL := --exclude=.debug
 # Disable for rc
 DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
 
-DEB_INSTALL_DOCS_ALL := GPL_EXCEPTION_ADDENDUM.TXT
+DEB_INSTALL_DOCS_ALL := LGPL_EXCEPTION.txt
 
 ibase_architectures := i386 kfreebsd-i386 kfreebsd-amd64 knetbsd-i386 netbsd-i386 amd64 sparc powerpc
 ifeq ($(DEB_HOST_ARCH),$(findstring $(DEB_HOST_ARCH), $(ibase_architectures)))
