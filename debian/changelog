@@ -1,4 +1,4 @@
-qt4-x11 (4.5.0-1) UNRELEASED; urgency=low
+qt4-x11 (4.5.0-1) experimental; urgency=low
 
   * New upstream released:
     - Fix knode 4.2.x crash. (Closes: #516740)
