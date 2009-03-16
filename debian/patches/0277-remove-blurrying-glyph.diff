@@ -1,0 +1,23 @@
+qt-bugs@ issue : none
+Qt Software task ID : 195256
+bugs.kde.org number : none
+applied: no
+author: M G Berberich <berberic@fmi.uni-passau.de>
+
+This patch removes blurrying glyph.
+See http://bugs.debian.org/448555 for more informations.
+
+--- a/src/gui/text/qfontengine_ft.cpp
++++ b/src/gui/text/qfontengine_ft.cpp
+@@ -1041,10 +1041,7 @@ QFontEngineFT::Glyph *QFontEngineFT::loa
+         if (hsubpixel) {
+             Q_ASSERT (bitmap.pixel_mode == FT_PIXEL_MODE_GRAY);
+             Q_ASSERT(antialias);
+-            uchar *convoluted = new uchar[bitmap.rows*bitmap.pitch];
+-            convoluteBitmap(bitmap.buffer, convoluted, bitmap.width, info.height, bitmap.pitch);
+-            convertRGBToARGB(convoluted + 1, (uint *)glyph_buffer, info.width, info.height, bitmap.pitch, subpixelType != QFontEngineFT::Subpixel_RGB);
+-            delete [] convoluted;
++            convertRGBToARGB(bitmap.buffer + 1, (uint *)glyph_buffer, info.width, info.height, bitmap.pitch, subpixelType != QFontEngineFT::Subpixel_RGB);
+         } else if (vfactor != 1) {
+             convertRGBToARGB_V(bitmap.buffer, (uint *)glyph_buffer, info.width, info.height, bitmap.pitch, subpixelType != QFontEngineFT::Subpixel_VRGB);
+         }

@@ -9,6 +9,9 @@
 0255-qtreeview-selection-columns-hidden.diff
 0273-odbc-64bit-compile.diff
 0274-shm-native-image-fix.diff
+0275-qtconcurrent-threadcount.diff
+0276-webkit-pedantic.diff
+0277-remove-blurrying-glyph.diff
 
 # debian patches
 01_qmake_for_debian.diff

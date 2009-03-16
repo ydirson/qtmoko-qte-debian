@@ -1,0 +1,30 @@
+qt-bugs@ issue : none
+Qt Software task ID : none
+bugs.kde.org number : none
+applied: no
+author: Laurent Montel <montel@kde.org>
+
+Just a little patch to fix playground/base/plasma/applet/welcome compile with -pedantic
+
+--- a/src/3rdparty/webkit/WebKit/qt/Api/qwebsecurityorigin.h
++++ b/src/3rdparty/webkit/WebKit/qt/Api/qwebsecurityorigin.h
+@@ -28,7 +28,7 @@
+ namespace WebCore {
+     class SecurityOrigin;
+     class ChromeClientQt;
+-};
++}
+ 
+ class QWebSecurityOriginPrivate;
+ class QWebDatabase;
+--- a/src/3rdparty/webkit/WebKit/qt/Api/qwebdatabase.h
++++ b/src/3rdparty/webkit/WebKit/qt/Api/qwebdatabase.h
+@@ -26,7 +26,7 @@
+ 
+ namespace WebCore {
+     class DatabaseDetails;
+-};
++}
+ 
+ class QWebDatabasePrivate;
+ class QWebSecurityOrigin;
