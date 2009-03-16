@@ -56,3 +56,10 @@
  
  win32:!contains( LIBS, .*gds.* ):!contains( LIBS, .*fbclient.* ) {
  	!win32-borland:LIBS *= -lgds32_ms
+--- a/config.tests/unix/sqlite/sqlite.pro
++++ b/config.tests/unix/sqlite/sqlite.pro
+@@ -1,3 +1,4 @@
+ SOURCES = sqlite.cpp
+ CONFIG -= qt dylib
+ mac:CONFIG -= app_bundle
++LIBS += -ldl

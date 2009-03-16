@@ -11,7 +11,7 @@
 0274-shm-native-image-fix.diff
 0275-qtconcurrent-threadcount.diff
 0276-webkit-pedantic.diff
-0277-remove-blurrying-glyph.diff
+0278-X11-Use-legacy-LCD-filtering-if-specified-in-font-c.diff
 
 # debian patches
 01_qmake_for_debian.diff

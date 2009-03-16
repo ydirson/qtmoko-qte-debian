@@ -1,4 +1,4 @@
-qt4-x11 (4.5.0-2) UNRELEASED; urgency=low
+qt4-x11 (4.5.0-2) experimental; urgency=low
 
   * Add qt-copy patches:
     - 0275-qtconcurrent-threadcount.diff
@@ -6,9 +6,10 @@ qt4-x11 (4.5.0-2) UNRELEASED; urgency=low
       ignoring the configured number of threads for the main thread pool.
     - 0276-webkit-pedantic.diff
       Fix playground/base/plasma/applet/welcome compile with -pedantic.
-    - 0277-remove-blurrying-glyph.diff (Closes: #448555)
-      This patch removes blurrying glyph.
-      Thanks to M G Berberich.
+    - 0278-X11-Use-legacy-LCD-filtering-if-specified-in-font-c.diff
+      If Freetype is built without subpixel rendering, we should use
+      the Qt 3 intrapixel filter instead of the bitmap convolution
+      when the Legacy LCD filter is chosen. (Closes: #448555)
 
  -- Fathi Boudra <fabo@debian.org>  Mon, 16 Mar 2009 11:59:24 +0100
 
