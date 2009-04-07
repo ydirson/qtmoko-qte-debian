@@ -1,3 +1,16 @@
+qt4-x11 (4.5.0-3) UNRELEASED; urgency=low
+
+  * Add patches:
+    - 89_powerpc_opts.diff
+      Build with -fno-optimize-sibling-calls on powerpc, since it causes a
+      build failure with GCC 4.3. Thanks to Colin Watson.
+    - 90_ia64_boilerplate.diff
+      Don't try to use special hand assembly for printing the boilerplate
+      message on ia64, since it causes a build failure due to undefined
+      symbols. Thanks to Steve Langasek.
+
+ -- Fathi Boudra <fabo@debian.org>  Tue, 07 Apr 2009 21:09:54 +0200
+
 qt4-x11 (4.5.0-2) experimental; urgency=low
 
   * Add qt-copy patches:

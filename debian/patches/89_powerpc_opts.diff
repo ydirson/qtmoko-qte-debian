@@ -1,0 +1,14 @@
+powerpc needs -O2 -fno-optimize-sibling-calls for qstring.cpp, not just -O2.
+Not needed long-term as the relevant g++ bug is fixed in GCC 4.4.
+
+--- a/mkspecs/linux-g++/qmake.conf
++++ b/mkspecs/linux-g++/qmake.conf
+@@ -11,3 +11,8 @@ QMAKE_INCREMENTAL_STYLE = sublib
+ include(../common/g++.conf)
+ include(../common/linux.conf)
+ load(qt_config)
++
++equals(QT_ARCH, powerpc) {
++    QMAKE_CFLAGS_RELEASE   += -fno-optimize-sibling-calls
++    QMAKE_CXXFLAGS_RELEASE += -fno-optimize-sibling-calls
++}

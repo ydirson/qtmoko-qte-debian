@@ -36,3 +36,5 @@
 71_hppa_unaligned_access_fix_458133.diff
 80_hurd_max_path.diff
 81_hurd_more_max_path.diff
+89_powerpc_opts.diff
+90_ia64_boilerplate.diff
