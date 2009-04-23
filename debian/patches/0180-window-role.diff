@@ -47,7 +47,7 @@ this makes the window role set in many cases (which KWin uses for window identif
      struct Connection
 --- a/src/gui/kernel/qwidget_p.h
 +++ b/src/gui/kernel/qwidget_p.h
-@@ -360,6 +360,7 @@ public:
+@@ -358,6 +358,7 @@ public:
  
  #if defined(Q_WS_X11)
      void setWindowRole();
@@ -57,7 +57,7 @@ this makes the window role set in many cases (which KWin uses for window identif
      void x11UpdateIsOpaque();
 --- a/src/gui/kernel/qwidget_x11.cpp
 +++ b/src/gui/kernel/qwidget_x11.cpp
-@@ -765,13 +765,17 @@ void QWidgetPrivate::create_sys(WId wind
+@@ -778,13 +778,17 @@ void QWidgetPrivate::create_sys(WId wind
          data.fstrut_dirty = 1;
  
          // declare the widget's window role
@@ -81,7 +81,7 @@ this makes the window role set in many cases (which KWin uses for window identif
          }
  
          // set client leader property
-@@ -2737,6 +2741,17 @@ void QWidgetPrivate::setWindowRole()
+@@ -2768,6 +2772,17 @@ void QWidgetPrivate::setWindowRole()
                      (unsigned char *)windowRole.constData(), windowRole.length());
  }
  

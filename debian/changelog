@@ -1,4 +1,4 @@
-qt4-x11 (4.5.1-1) UNRELEASED; urgency=low
+qt4-x11 (4.5.1-1) unstable; urgency=low
 
   * New upstream release:
     - QHostAddress: Fixed compilation by adding a missing QPair include.
@@ -11,6 +11,12 @@ qt4-x11 (4.5.1-1) UNRELEASED; urgency=low
       Don't try to use special hand assembly for printing the boilerplate
       message on ia64, since it causes a build failure due to undefined
       symbols. Thanks to Steve Langasek.
+  * Remove qt-copy patches:
+    - 0245-fix-randr-changes-detecting.diff - Fixed upstream.
+    - 0275-qtconcurrent-threadcount.diff - Fixed upstream.
+    - 0276-webkit-pedantic.diff - Fixed upstream.
+    - 0278-X11-Use-legacy-LCD-filtering-if-specified-in-font-c.diff - Fixed
+      upstream.
 
  -- Fathi Boudra <fabo@debian.org>  Thu, 23 Apr 2009 14:23:06 +0200
 

@@ -57,7 +57,7 @@ author: Fathi Boudra <fabo@debian.org>
      if [ "$VERBOSE" = "yes" ]; then
 --- a/configure
 +++ b/configure
-@@ -3923,7 +3923,7 @@ END {
+@@ -4014,7 +4014,7 @@ END {
  }
  
  # build qmake
@@ -66,7 +66,7 @@ author: Fathi Boudra <fabo@debian.org>
      echo "Creating qmake. Please wait..."
  
      OLD_QCONFIG_H=
-@@ -6499,8 +6499,8 @@ QMAKE_ABSOLUTE_SOURCE_ROOT = \$\$QT_SOUR
+@@ -6643,8 +6643,8 @@ QMAKE_ABSOLUTE_SOURCE_ROOT = \$\$QT_SOUR
  QMAKE_MOC_SRC    = \$\$QT_BUILD_TREE/src/moc
  
  #local paths that cannot be queried from the QT_INSTALL_* properties while building QTDIR
@@ -77,7 +77,7 @@ author: Fathi Boudra <fabo@debian.org>
  QMAKE_UIC3       = \$\$QT_BUILD_TREE/bin/uic3
  QMAKE_RCC        = \$\$QT_BUILD_TREE/bin/rcc
  QMAKE_QDBUSXML2CPP = \$\$QT_BUILD_TREE/bin/qdbusxml2cpp
-@@ -6849,11 +6849,11 @@ EXEC=""
+@@ -6993,11 +6993,11 @@ EXEC=""
  #-------------------------------------------------------------------------------
  
  echo "Finding project files. Please wait..."
@@ -91,7 +91,7 @@ author: Fathi Boudra <fabo@debian.org>
  fi
  
  # .projects      -> projects to process
-@@ -7026,7 +7026,7 @@ for file in .projects .projects.3; do
+@@ -7170,7 +7170,7 @@ for file in .projects .projects.3; do
              echo "  for $a\c"
          fi
  

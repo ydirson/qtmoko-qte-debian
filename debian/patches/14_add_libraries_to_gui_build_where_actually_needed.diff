@@ -11,7 +11,7 @@
  
 --- a/src/gui/painting/painting.pri
 +++ b/src/gui/painting/painting.pri
-@@ -78,6 +78,8 @@ SOURCES += \
+@@ -79,6 +79,8 @@ SOURCES += \
          painting/qtextureglyphcache.cpp \
          painting/qtransform.cpp \
  

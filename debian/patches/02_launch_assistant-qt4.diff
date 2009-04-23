@@ -1,6 +1,6 @@
 --- a/demos/qtdemo/menumanager.cpp
 +++ b/demos/qtdemo/menumanager.cpp
-@@ -289,7 +289,7 @@ void MenuManager::showDocInAssistant(con
+@@ -286,7 +286,7 @@ void MenuManager::showDocInAssistant(con
      if (this->assistantProcess.state() != QProcess::Running){
          QString app = QLibraryInfo::location(QLibraryInfo::BinariesPath) + QDir::separator();
  #if !defined(Q_OS_MAC)

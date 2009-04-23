@@ -5,7 +5,7 @@ Bug reported to Trolltech.
 
 --- a/configure
 +++ b/configure
-@@ -495,6 +495,8 @@ mkdir -p "$outpath/config.tests"
+@@ -583,6 +583,8 @@ mkdir -p "$outpath/config.tests"
  rm -f "$outpath/config.tests/.qmake.cache"
  cp "$QMAKE_VARS_FILE" "$outpath/config.tests/.qmake.cache"
  

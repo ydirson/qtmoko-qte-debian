@@ -2,7 +2,7 @@ temporary fix because of alpha, has to be dropped as soon as gcc's bug is fixed.
 
 --- a/src/opengl/opengl.pro
 +++ b/src/opengl/opengl.pro
-@@ -53,6 +53,7 @@ contains(QT_CONFIG, opengles2) {
+@@ -51,6 +51,7 @@ contains(QT_CONFIG, opengles2) {
                  gl2paintengineex/qpaintengineex_opengl2_p.h
  }
  

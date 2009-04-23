@@ -31,7 +31,7 @@ range (even when there are hidden columns).
 
 --- a/src/gui/itemviews/qtreeview.cpp
 +++ b/src/gui/itemviews/qtreeview.cpp
-@@ -3532,7 +3532,7 @@ QList<QPair<int, int> > QTreeViewPrivate
+@@ -3575,7 +3575,7 @@ QList<QPair<int, int> > QTreeViewPrivate
      current.first = -2; // -1 is not enough because -1+1 = 0
      current.second = -2;
      foreach (int logicalColumn, logicalIndexes) {

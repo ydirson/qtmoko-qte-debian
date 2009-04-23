@@ -23,7 +23,7 @@ drivers and can be disabled in the latest version of the NVidia driver.
  #elif defined(Q_WS_MAC)
 --- a/src/gui/image/qnativeimage.cpp
 +++ b/src/gui/image/qnativeimage.cpp
-@@ -145,7 +145,6 @@ QNativeImage::QNativeImage(int width, in
+@@ -147,7 +147,6 @@ QNativeImage::QNativeImage(int width, in
  {
      if (!X11->use_mitshm) {
          xshmimg = 0;
@@ -31,7 +31,7 @@ drivers and can be disabled in the latest version of the NVidia driver.
          image = QImage(width, height, format);
          return;
      }
-@@ -189,11 +188,6 @@ QNativeImage::QNativeImage(int width, in
+@@ -191,11 +190,6 @@ QNativeImage::QNativeImage(int width, in
              shmctl(xshminfo.shmid, IPC_RMID, 0);
          return;
      }
@@ -43,7 +43,7 @@ drivers and can be disabled in the latest version of the NVidia driver.
  }
  
  
-@@ -202,10 +196,6 @@ QNativeImage::~QNativeImage()
+@@ -204,10 +198,6 @@ QNativeImage::~QNativeImage()
      if (!xshmimg)
          return;
  
@@ -78,7 +78,7 @@ drivers and can be disabled in the latest version of the NVidia driver.
  #endif
 --- a/src/gui/kernel/qapplication_x11.cpp
 +++ b/src/gui/kernel/qapplication_x11.cpp
-@@ -1943,7 +1943,7 @@ void qt_init(QApplicationPrivate *priv, 
+@@ -1952,7 +1952,7 @@ void qt_init(QApplicationPrivate *priv, 
              // to determine whether the display is local or not (not 100 % accurate)
              bool local = displayName.isEmpty() || displayName.lastIndexOf(QLatin1Char(':')) == 0;
              if (local && (qgetenv("QT_X11_NO_MITSHM").toInt() == 0))
