@@ -32,6 +32,7 @@ qt4-demos: image-file-in-usr-lib usr/lib/qt4/demos/mainwindow/qt.png
 qt4-demos: image-file-in-usr-lib usr/lib/qt4/demos/mainwindow/titlebarCenter.png
 qt4-demos: image-file-in-usr-lib usr/lib/qt4/demos/mainwindow/titlebarLeft.png
 qt4-demos: image-file-in-usr-lib usr/lib/qt4/demos/mainwindow/titlebarRight.png
+qt4-demos: image-file-in-usr-lib usr/lib/qt4/demos/mediaplayer/images/screen.png
 qt4-demos: image-file-in-usr-lib usr/lib/qt4/demos/qtdemo/images/demobg.png
 qt4-demos: image-file-in-usr-lib usr/lib/qt4/demos/qtdemo/images/qtlogo_small.png
 qt4-demos: image-file-in-usr-lib usr/lib/qt4/demos/qtdemo/images/trolltech-logo.png

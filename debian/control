@@ -13,7 +13,7 @@ Build-Depends: cdbs, debhelper (>= 5), quilt, flex, sharutils,
  libxcursor-dev, libxext-dev, libxft-dev, libxi-dev, libxinerama-dev,
  libxmu-dev, libxrandr-dev, libxrender-dev, libxslt1-dev, libxt-dev,
  x11proto-core-dev, zlib1g-dev, libphonon-dev
-Standards-Version: 3.8.0
+Standards-Version: 3.8.1
 Homepage: http://www.trolltech.com
 Vcs-Svn: svn://svn.debian.org/svn/pkg-kde/trunk/packages/qt4-x11
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-kde/trunk/packages/qt4-x11
@@ -374,6 +374,7 @@ Description: Qt 4 OpenGL library development files
 Package: libqt4-dbg
 Priority: extra
 Architecture: any
+Section: debug
 Depends: ${shlibs:Depends}, ${misc:Depends},
  libqtcore4 (= ${binary:Version})
 Conflicts: libqt4-debug (<< 4.4.0~beta1-1)
@@ -387,6 +388,7 @@ Description: Qt 4 library debugging symbols
 Package: libqt4-webkit-dbg
 Priority: extra
 Architecture: any
+Section: debug
 Depends: ${shlibs:Depends}, ${misc:Depends},
  libqt4-webkit (= ${binary:Version})
 Description: Qt 4 WebKit library debugging symbols
@@ -398,6 +400,7 @@ Description: Qt 4 WebKit library debugging symbols
 Package: libqt4-xmlpatterns-dbg
 Priority: extra
 Architecture: any
+Section: debug
 Depends: ${shlibs:Depends}, ${misc:Depends},
  libqt4-xmlpatterns (= ${binary:Version})
 Description: Qt 4 XML patterns library debugging symbols
