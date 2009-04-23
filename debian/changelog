@@ -5,6 +5,7 @@ qt4-x11 (4.5.1-1) unstable; urgency=low
       (Closes: #524944)
   * Bump Standards-Version to 3.8.1 (no changes needed).
   * Use section debug for -dbg packages.
+  * Update Qt homepage.
   * Add patches:
     - 89_powerpc_opts.diff
       Build with -fno-optimize-sibling-calls on powerpc, since it causes a

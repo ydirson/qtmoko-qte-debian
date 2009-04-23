@@ -14,7 +14,7 @@ Build-Depends: cdbs, debhelper (>= 5), quilt, flex, sharutils,
  libxmu-dev, libxrandr-dev, libxrender-dev, libxslt1-dev, libxt-dev,
  x11proto-core-dev, zlib1g-dev, libphonon-dev
 Standards-Version: 3.8.1
-Homepage: http://www.trolltech.com
+Homepage: http://www.qtsoftware.com
 Vcs-Svn: svn://svn.debian.org/svn/pkg-kde/trunk/packages/qt4-x11
 Vcs-Browser: http://svn.debian.org/wsvn/pkg-kde/trunk/packages/qt4-x11
 
