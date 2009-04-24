@@ -14,6 +14,10 @@ qt4-x11 (4.5.1-1) unstable; urgency=low
       Don't try to use special hand assembly for printing the boilerplate
       message on ia64, since it causes a build failure due to undefined
       symbols. Thanks to Steve Langasek.
+    - 0279-svg-rendering-regression.diff
+      This patch fix the regression introduced in 4.5.1 with SVG rendering.
+      The problem appear when a gradient reference an another gradient which
+      is after in the svg. Plasma cache should be cleared.
   * Remove qt-copy patches:
     - 0245-fix-randr-changes-detecting.diff - Fixed upstream.
     - 0275-qtconcurrent-threadcount.diff - Fixed upstream.
