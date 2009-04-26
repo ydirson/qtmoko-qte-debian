@@ -1,7 +1,7 @@
 2009-04-26  Aurelien Jarno  <aurelien@aurel32.net>
-        
-	* src/corelib/arch/qatomic_mips.h: set the mips instruction set
-	  to MIPS II around ll/sc.
+
+* src/corelib/arch/qatomic_mips.h: set the mips instruction set
+  to MIPS II around ll/sc.
 
 --- a/src/corelib/arch/qatomic_mips.h
 +++ b/src/corelib/arch/qatomic_mips.h
