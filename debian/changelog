@@ -1,5 +1,7 @@
 qt4-x11 (4.5.1-2) UNRELEASED; urgency=low
 
+  +++ Changes by Fathi Boudra:
+
   * Update debian/rules:
     - Build with -opensource configure option to avoid Qt edition question
       triggered on some build setups caused by a bug in configure script.
@@ -8,6 +10,13 @@ qt4-x11 (4.5.1-2) UNRELEASED; urgency=low
     - 21_fix_quiloader_wrong_header_translated.diff
       The header of the QTableWidgets loaded with QUiLoader are not
       translated when the language change. This patch fix the issue.
+  
+  +++ Changes by Aurelien Jarno:
+  
+  * Add patch:
+    - 20_mips_atomic_ops.diff
+      Set the mips instruction set to MIPS II around ll/sc in 
+      qatomic_mips.h. (Closes: #525707)
 
  -- Fathi Boudra <fabo@debian.org>  Sat, 25 Apr 2009 18:52:20 +0200
 
