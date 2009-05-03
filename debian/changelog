@@ -18,7 +18,7 @@ qt4-x11 (4.5.1-2) UNRELEASED; urgency=low
       Set the mips instruction set to MIPS II around ll/sc in
       qatomic_mips.h. (Closes: #525707)
 
- -- Fathi Boudra <fabo@debian.org>  Sat, 25 Apr 2009 18:52:20 +0200
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 03 May 2009 14:22:26 +0200
 
 qt4-x11 (4.5.1-1) unstable; urgency=low
 
