@@ -4,6 +4,30 @@
   * Use pkgkde-symbolshelper. Add pkg-kde-tools (>= 0.3.1) b-d.
   * what to do with phonon and webkit ?
     - webkit links against phonon.
+
+< Riddell> fabo: so it seems to be easy enough to move phonon to build from qt
+           and have the phonon package just compile the backends
+< Riddell> they get installed to /usr/lib/kde4/plugins though so I don't know
+           if that should be /usr/lib/qt4/plugins
+< Riddell> but the main problem is package versioning, phonon has an epoch, qt
+           doesn't
+< Riddell> we could just add phonon to libqtcore4
+< Riddell> otherwise come up with a new package name like libphonon-qt4
+           libphonon-qt-dev
+< Riddell> (or add an epoch to qt but that's not pretty)
+< Riddell> oh and qt seems to install the headers into both
+           /usr/include/qt4/phonon and /usr/include/qt4/Qt which is a bit strange
+< Riddell> can't add to libqtcore4, it depends on lots of core things
+< Riddell> lots of non-core things rather
+< Riddell> maybe call it libqt4-phonon
+< ScottK> Riddell: I'm not sure what we want to do, but I'm sure add an epoch
+          where Debian hasn't isn't it.
+< Riddell> ScottK: yep, I just mention it for completeness
+< Riddell> fabo: for phonon I just commented out #add_subdirectory(phonon) in
+           CMakeLists.txt and it comiles fine against the phonon installed from qt
+< Riddell> and for qt I just copied over the libphonon4 libphonon-dev entries
+           in debian/control and adjusted the .install files
+
   * TT changed the build key generation and added backwards compatibility.
     We need to re-add 07_trust_dpkg-arch_over_uname-m.diff patch for our
     backward compatibility *and* figure out what to do with the new build key
