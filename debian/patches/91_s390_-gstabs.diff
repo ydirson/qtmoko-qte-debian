@@ -1,0 +1,17 @@
+--- a/src/3rdparty/webkit/WebKit.pri
++++ b/src/3rdparty/webkit/WebKit.pri
+@@ -24,6 +24,14 @@ CONFIG(release) {
+     DEFINES += NDEBUG
+ }
+ 
++arch=$$system(dpkg-architecture -qDEB_BUILD_ARCH)
++equals(arch, s390) {
++	message("S/390 workaround: is not building with -g, but with -gstabs")
++	QMAKE_CXXFLAGS -= -g
++	QMAKE_CXXFLAGS += -gstabs
++}
++
++
+ BASE_DIR = $$PWD
+ INCLUDEPATH += $$PWD/WebKit/qt/Api
+ QMAKE_LFLAGS += -Wl,--version-script,$$BASE_DIR/symbols.filter
