@@ -1,10 +1,18 @@
-qt4-x11 (4.5.1-3) UNRELEASED; urgency=low
+qt4-x11 (4.5.2-1) UNRELEASED; urgency=low
+
+  * New uupstream release.
+
+  +++ Changes by Sune Vuorela:
 
   * Add patch to build s390 debugging symbols with -gstabs instead of with -g,
     to make them a bit smaller. Noone can use a 1G file with debugging
-    symbols. (Closes: 528485) 
+    symbols. (Closes: 528485)
 
- -- Sune Vuorela <debian@pusling.com>  Sat, 06 Jun 2009 20:00:20 +0200
+  +++ Changes by Fathi Boudra:
+
+  * Bump Standards-Version to 3.8.2 (no changes needed).
+
+ -- Fathi Boudra <fabo@debian.org>  Thu, 25 Jun 2009 15:23:55 +0200
 
 qt4-x11 (4.5.1-2) unstable; urgency=low
 
