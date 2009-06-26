@@ -1,6 +1,6 @@
 qt4-x11 (4.5.2-1) UNRELEASED; urgency=low
 
-  * New uupstream release.
+  * New upstream release.
 
   +++ Changes by Sune Vuorela:
 
@@ -11,6 +11,10 @@ qt4-x11 (4.5.2-1) UNRELEASED; urgency=low
   +++ Changes by Fathi Boudra:
 
   * Bump Standards-Version to 3.8.2 (no changes needed).
+
+  +++ Changes by Didier Raboud:
+
+  * Add debian/watch file.
 
  -- Fathi Boudra <fabo@debian.org>  Thu, 25 Jun 2009 15:23:55 +0200
 
