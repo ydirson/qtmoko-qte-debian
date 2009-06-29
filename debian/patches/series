@@ -24,8 +24,6 @@
 17_add_postgresql_8.3_support.diff
 18_enable_qt3support_qtwebkit_debug_info.diff
 19_install_qdoc3.diff
-20_mips_atomic_ops.diff
-21_fix_quiloader_wrong_header_translated.diff
 30_webkit_unaligned_access.diff
 40_alpha_ice.diff
 41_disable_opengl_visibility.diff
@@ -35,5 +33,4 @@
 80_hurd_max_path.diff
 81_hurd_more_max_path.diff
 89_powerpc_opts.diff
-90_ia64_boilerplate.diff
 91_s390_-gstabs.diff

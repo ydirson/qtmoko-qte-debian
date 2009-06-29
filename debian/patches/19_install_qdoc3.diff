@@ -1,10 +1,9 @@
 --- a/tools/qdoc3/qdoc3.pro
 +++ b/tools/qdoc3/qdoc3.pro
-@@ -106,3 +106,8 @@ win32 {
-         QT_WINCONFIG = debug
-     }    
- }
-+
+@@ -99,3 +99,7 @@ SOURCES += apigenerator.cpp \
+            webxmlgenerator.cpp \
+ 	   yyindent.cpp
+ 
 +TARGET = qdoc3
 +target.path = $$[QT_INSTALL_BINS]
 +INSTALLS += target
@@ -18,4 +17,4 @@
 +     SUBDIRS     += qdoc3
       wince*: SUBDIRS = qtestlib designer
       unix:!mac:!embedded:contains(QT_CONFIG, qt3support):SUBDIRS += qtconfig
-      win32:!wince*:!contains(QT_EDITION, OpenSource|Console):SUBDIRS += activeqt
+      win32:!wince*:SUBDIRS += activeqt

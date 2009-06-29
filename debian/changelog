@@ -6,18 +6,27 @@ qt4-x11 (4.5.2-1) UNRELEASED; urgency=low
 
   * Add patch to build s390 debugging symbols with -gstabs instead of with -g,
     to make them a bit smaller. Noone can use a 1G file with debugging
-    symbols. (Closes: 528485)
+    symbols. (Closes: #528485)
 
   +++ Changes by Fathi Boudra:
 
-  * Sync qt-copy patches from kde-qt git repository:
-    - Remove: 0234, 0273 and 0279.
-    - Add:
-      - 0280-deserialization-custom-dbus-properties.diff
-        Fix deserialization of values with custom types when setting properties
-        on dbus adaptors.
-      - 0286-fix-error-string.diff
-        Fix #error line not to have a ' as it's not correct.
+  * Sync qt-copy patches from kde-qt git repository.
+  * Refresh patches:
+    - 05_append_qt4_target
+    - 19_install_qdoc3.diff
+  * Remove patches:
+    - 20_mips_atomic_ops - Merged upstream.
+    - 21_fix_quiloader_wrong_header_translated - Merged upstream.
+    - 90_ia64_boilerplate - Fixed upstream.
+    - 0234-fix-mysql-threaded - Fixed upstream.
+    - 0273-odbc-64bit-compile - Fixed upstream.
+    - 0279-svg-rendering-regression - Fixed upstream.
+  * Add patches:
+    - 0280-deserialization-custom-dbus-properties.diff
+      Fix deserialization of values with custom types when setting properties
+      on dbus adaptors.
+    - 0286-fix-error-string.diff
+      Fix #error line not to have a ' as it's not correct.
   * Bump Standards-Version to 3.8.2 (no changes needed).
 
   +++ Changes by Didier Raboud:

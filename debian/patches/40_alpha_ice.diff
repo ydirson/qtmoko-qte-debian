@@ -34,7 +34,7 @@
      settings = QLibraryInfoPrivate::findConfiguration();
 --- a/src/corelib/tools/qhash.h
 +++ b/src/corelib/tools/qhash.h
-@@ -497,7 +497,7 @@ Q_INLINE_TEMPLATE void QHash<Key, T>::de
+@@ -494,7 +494,7 @@ Q_INLINE_TEMPLATE void QHash<Key, T>::de
  }
  
  template <class Key, class T>
