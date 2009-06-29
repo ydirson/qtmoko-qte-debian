@@ -17,6 +17,7 @@ qt4-x11 (4.5.2-1) UNRELEASED; urgency=low
   * Remove patches:
     - 20_mips_atomic_ops - Merged upstream.
     - 21_fix_quiloader_wrong_header_translated - Merged upstream.
+    - 81_hurd_more_max_path - Merged in 80_hurd_max_path.
     - 90_ia64_boilerplate - Fixed upstream.
     - 0234-fix-mysql-threaded - Fixed upstream.
     - 0273-odbc-64bit-compile - Fixed upstream.

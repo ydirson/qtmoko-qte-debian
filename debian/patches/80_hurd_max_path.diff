@@ -1,15 +1,16 @@
-author: Brian Nelson <pyro@debian.org>
+author: Michael Banck <mbanck@debian.org>
 
---- a/src/corelib/io/qfsfileengine_unix.cpp
-+++ b/src/corelib/io/qfsfileengine_unix.cpp
-@@ -64,6 +64,10 @@
+define MAX_PATH if not defined. This is needed on hurd.
+http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=485931
+
+--- a/src/3rdparty/clucene/src/CLucene/config/compiler.h
++++ b/src/3rdparty/clucene/src/CLucene/config/compiler.h
+@@ -147,7 +147,7 @@
+ #elif defined(_MAX_PATH)
+ #define CL_MAX_PATH _MAX_PATH
+ #else
+- #error "CL_MAX_PATH could not be determined"
++ #define CL_MAX_PATH 4096
+ #endif
  
- QT_BEGIN_NAMESPACE
- 
-+#ifndef PATH_MAX
-+#define PATH_MAX 4096
-+#endif
-+
- /*!
-     \internal
- 
+ //this is the max filename... for now its just the same,
