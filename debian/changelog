@@ -10,6 +10,14 @@ qt4-x11 (4.5.2-1) UNRELEASED; urgency=low
 
   +++ Changes by Fathi Boudra:
 
+  * Sync qt-copy patches from kde-qt git repository:
+    - Remove: 0234, 0273 and 0279.
+    - Add:
+      - 0280-deserialization-custom-dbus-properties.diff
+        Fix deserialization of values with custom types when setting properties
+        on dbus adaptors.
+      - 0286-fix-error-string.diff
+        Fix #error line not to have a ' as it's not correct.
   * Bump Standards-Version to 3.8.2 (no changes needed).
 
   +++ Changes by Didier Raboud:

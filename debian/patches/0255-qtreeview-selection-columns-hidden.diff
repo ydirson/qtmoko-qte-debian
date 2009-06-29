@@ -1,9 +1,7 @@
-qt-bugs@ issue : N232819
-Trolltech task ID : 232831
-applied: no
-author: Rafael Fernández López <ereslibre@kde.org>
-
-In a treeview with columns like this:
+From 1ec9dd029abaa0f00798535fdb1722154b1c63f6 Mon Sep 17 00:00:00 2001
+From: =?utf-8?q?Rafael=20Fern=C3=A1ndez=20L=C3=B3pez?= <ereslibre@kde.org>
+Date: Sun, 26 Oct 2008 10:40:51 +0100
+Subject: [PATCH 08/16] In a treeview with columns like this:
 
 Column 1 | Column 2 | ... | Column k | ... | Column n
 
@@ -29,9 +27,16 @@ you won't be able to reproduce, since you need the hidden column to be between t
 the last one. The reason is that columnRanges returns two ranges when there is supposed to return 1
 range (even when there are hidden columns).
 
+qt-bugs@ issue : N232819
+Trolltech task ID : 232831
+bugs.kde.org number : 171436
+---
+ src/gui/itemviews/qtreeview.cpp |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
 --- a/src/gui/itemviews/qtreeview.cpp
 +++ b/src/gui/itemviews/qtreeview.cpp
-@@ -3575,7 +3575,7 @@ QList<QPair<int, int> > QTreeViewPrivate
+@@ -3577,7 +3577,7 @@ QList<QPair<int, int> > QTreeViewPrivate
      current.first = -2; // -1 is not enough because -1+1 = 0
      current.second = -2;
      foreach (int logicalColumn, logicalIndexes) {

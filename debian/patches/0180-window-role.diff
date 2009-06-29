@@ -1,20 +1,27 @@
-qt-bugs@ issue : 167704
-Trolltech task ID : 168283 (status: "fixed" for Qt 4.4.0, but effectively refused)
-bugs.kde.org number : none
-applied: no
-author: Lubos Lunak <l.lunak@kde.org>
+From b48e2091871516496cf0b133249fbf5326a55831 Mon Sep 17 00:00:00 2001
+From: Lubos Lunak <l.lunak@kde.org>
+Date: Sat, 23 Feb 2008 16:44:52 +0100
+Subject: [PATCH 01/16] This patch uses object name as a fallback for window role if no window
+ role is set explicitly using setWindowRole(). Since Qt3 always used
+ the object name as the window role and most Qt3/KDE3 code is ported to
+ call setObjectName(),
+
+this makes the window role set in many cases (which KWin uses for window identifying).
 
 NOTE: It is suggested to apply patch #0209 as well when this patch is used.
 
-This patch uses object name as a fallback for window role if no window role
-is set explicitly using setWindowRole(). Since Qt3 always used the object
-name as the window role and most Qt3/KDE3 code is ported to call setObjectName(),
-this makes the window role set in many cases (which KWin uses for window identifying).
-
+qt-bugs@ issue : 167704
+Trolltech task ID : 168283 (status: "fixed" for Qt 4.4.0, but effectively refused)
+---
+ src/corelib/kernel/qobject.cpp |    8 ++++++++
+ src/corelib/kernel/qobject_p.h |    3 +++
+ src/gui/kernel/qwidget_p.h     |    1 +
+ src/gui/kernel/qwidget_x11.cpp |   27 +++++++++++++++++++++------
+ 4 files changed, 33 insertions(+), 6 deletions(-)
 
 --- a/src/corelib/kernel/qobject.cpp
 +++ b/src/corelib/kernel/qobject.cpp
-@@ -993,9 +993,18 @@ void QObject::setObjectName(const QStrin
+@@ -986,8 +986,16 @@ void QObject::setObjectName(const QStrin
  {
      Q_D(QObject);
      d->objectName = name;
@@ -23,16 +30,14 @@ this makes the window role set in many cases (which KWin uses for window identif
 +#endif
  }
  
- 
 +#if defined(Q_WS_X11)
 +void QObjectPrivate::checkWindowRole()
 +{
 +}
 +#endif
-+
+ 
  #ifdef QT3_SUPPORT
  /*! \internal
-     QObject::child is compat but needs to call itself recursively,
 --- a/src/corelib/kernel/qobject_p.h
 +++ b/src/corelib/kernel/qobject_p.h
 @@ -144,6 +144,9 @@ public:
@@ -47,7 +52,7 @@ this makes the window role set in many cases (which KWin uses for window identif
      struct Connection
 --- a/src/gui/kernel/qwidget_p.h
 +++ b/src/gui/kernel/qwidget_p.h
-@@ -358,6 +358,7 @@ public:
+@@ -360,6 +360,7 @@ public:
  
  #if defined(Q_WS_X11)
      void setWindowRole();
@@ -81,7 +86,7 @@ this makes the window role set in many cases (which KWin uses for window identif
          }
  
          // set client leader property
-@@ -2768,6 +2772,17 @@ void QWidgetPrivate::setWindowRole()
+@@ -2763,6 +2767,17 @@ void QWidgetPrivate::setWindowRole()
                      (unsigned char *)windowRole.constData(), windowRole.length());
  }
  

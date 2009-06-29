@@ -1,8 +1,8 @@
-qt-bugs@ issue : 199610
-Trolltech task ID : 
-bugs.kde.org number : 
-applied: no
-author: Benjamin Reed <rangerrick@befunk.com>
+From 86fc0d43cdcf3232ae0e4e6f4f28cf8f1a45ede5 Mon Sep 17 00:00:00 2001
+From: Benjamin Reed <rangerrick@befunk.com>
+Date: Tue, 19 Feb 2008 17:37:37 +0100
+Subject: [PATCH 04/16] This patch adds support for using -isystem to allow putting an include
+ directory at the end of the compiler's header search path.
 
 I don't have the exact output anymore (I've since patched Qt's configure) but
 essentially, since I have pcre.h in /opt/kde4-deps/include, it was
@@ -18,13 +18,16 @@ any platform with a regular, system-installed pcre.h (or clucene headers),
 adding -I /usr/include would exhibit this bug, just as a custom-installed
 pcre/clucene in another root would.
 
-This patch adds support for using -isystem to allow putting an include
-directory at the end of the compiler's header search path.
-
+qt-bugs@ issue : 199610
+Trolltech task ID :
+bugs.kde.org number :
+---
+ configure |    8 ++++++++
+ 1 files changed, 8 insertions(+), 0 deletions(-)
 
 --- a/configure
 +++ b/configure
-@@ -927,6 +927,11 @@ while [ "$#" -gt 0 ]; do
+@@ -928,6 +928,11 @@ while [ "$#" -gt 0 ]; do
              VAL=`echo $1 | sed 's,-D,,'`
          fi
          ;;
@@ -36,7 +39,7 @@ directory at the end of the compiler's header search path.
      -I?*|-I)
          VAR="add_ipath"
          if [ "$1" = "-I" ]; then
-@@ -1890,6 +1895,9 @@ while [ "$#" -gt 0 ]; do
+@@ -1891,6 +1896,9 @@ while [ "$#" -gt 0 ]; do
      add_ipath)
          I_FLAGS="$I_FLAGS -I\"${VAL}\""
          ;;
