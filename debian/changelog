@@ -1,6 +1,12 @@
 qt4-x11 (4.5.2-1) UNRELEASED; urgency=low
 
-  * New upstream release.
+  * New upstream release:
+    - QtWebKit
+      * Backported various security fixes (r41262, r41568,
+        r41741, r41854, r42081, r42216, r42223, r42333,
+        r42365, r42532, r42533, r44010)
+      (Closes: #532718, #534947) Related to CVE-2009-0945, CVE-2009-1687,
+      CVE-2009-1698, CVE-2009-1690 and CVE-2009-1709.
 
   +++ Changes by Sune Vuorela:
 
