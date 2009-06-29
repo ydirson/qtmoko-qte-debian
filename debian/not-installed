@@ -12,6 +12,7 @@ usr/bin/qdbus.debug
 usr/bin/qdbuscpp2xml.debug
 usr/bin/qdbusviewer.debug
 usr/bin/qdbusxml2cpp.debug
+usr/bin/qdoc3.debug
 usr/bin/qhelpconverter.debug
 usr/bin/qhelpgenerator.debug
 usr/bin/qt3to4.debug
@@ -37,6 +38,7 @@ usr/lib/libQtTest.la
 usr/lib/libQtWebKit.la
 usr/lib/libQtXml.la
 usr/lib/libQtXmlPatterns.la
+usr/lib/libphonon.la
 usr/lib/qt4/demos/affine/affine.debug
 usr/lib/qt4/demos/books/books.debug
 usr/lib/qt4/demos/boxes/boxes.debug
@@ -48,6 +50,7 @@ usr/lib/qt4/demos/embeddeddialogs/embeddeddialogs.debug
 usr/lib/qt4/demos/gradients/gradients.debug
 usr/lib/qt4/demos/interview/interview.debug
 usr/lib/qt4/demos/mainwindow/mainwindow.debug
+usr/lib/qt4/demos/mediaplayer/mediaplayer.debug
 usr/lib/qt4/demos/pathstroke/pathstroke.debug
 usr/lib/qt4/demos/spreadsheet/spreadsheet.debug
 usr/lib/qt4/demos/sqlbrowser/sqlbrowser.debug
@@ -103,6 +106,7 @@ usr/lib/qt4/examples/itemviews/combowidgetmapper/combowidgetmapper.debug
 usr/lib/qt4/examples/itemviews/customsortfiltermodel/customsortfiltermodel.debug
 usr/lib/qt4/examples/itemviews/dirview/dirview.debug
 usr/lib/qt4/examples/itemviews/editabletreemodel/editabletreemodel.debug
+usr/lib/qt4/examples/itemviews/fetchmore/fetchmore.debug
 usr/lib/qt4/examples/itemviews/pixelator/pixelator.debug
 usr/lib/qt4/examples/itemviews/puzzle/puzzle.debug
 usr/lib/qt4/examples/itemviews/simpledommodel/simpledommodel.debug
@@ -134,8 +138,10 @@ usr/lib/qt4/examples/network/downloadmanager/downloadmanager.debug
 usr/lib/qt4/examples/network/fortuneclient/fortuneclient.debug
 usr/lib/qt4/examples/network/fortuneserver/fortuneserver.debug
 usr/lib/qt4/examples/network/ftp/ftp.debug
+usr/lib/qt4/examples/network/googlesuggest/googlesuggest.debug
 usr/lib/qt4/examples/network/http/http.debug
 usr/lib/qt4/examples/network/loopback/loopback.debug
+usr/lib/qt4/examples/network/network-chat/network-chat.debug
 usr/lib/qt4/examples/network/securesocketclient/securesocketclient.debug
 usr/lib/qt4/examples/network/threadedfortuneserver/threadedfortuneserver.debug
 usr/lib/qt4/examples/network/torrent/torrent.debug
@@ -155,8 +161,11 @@ usr/lib/qt4/examples/painting/fontsampler/fontsampler.debug
 usr/lib/qt4/examples/painting/imagecomposition/imagecomposition.debug
 usr/lib/qt4/examples/painting/painterpaths/painterpaths.debug
 usr/lib/qt4/examples/painting/pixmapfilters/pixmapfilters.debug
+usr/lib/qt4/examples/painting/svggenerator/svggenerator.debug
 usr/lib/qt4/examples/painting/svgviewer/svgviewer.debug
 usr/lib/qt4/examples/painting/transformations/transformations.debug
+usr/lib/qt4/examples/phonon/capabilities/capabilities.debug
+usr/lib/qt4/examples/phonon/musicplayer/musicplayer.debug
 usr/lib/qt4/examples/qtconcurrent/imagescaling/imagescaling.debug
 usr/lib/qt4/examples/qtconcurrent/map/mapdemo.debug
 usr/lib/qt4/examples/qtconcurrent/progressdialog/progressdialog.debug
@@ -170,6 +179,7 @@ usr/lib/qt4/examples/qtestlib/tutorial5/tutorial5.debug
 usr/lib/qt4/examples/richtext/calendar/calendar.debug
 usr/lib/qt4/examples/richtext/orderform/orderform.debug
 usr/lib/qt4/examples/richtext/syntaxhighlighter/syntaxhighlighter.debug
+usr/lib/qt4/examples/richtext/textobject/textobject.debug
 usr/lib/qt4/examples/script/calculator/calculator.debug
 usr/lib/qt4/examples/script/context2d/context2d.debug
 usr/lib/qt4/examples/script/customclass/customclass.debug
@@ -183,6 +193,7 @@ usr/lib/qt4/examples/sql/drilldown/drilldown.debug
 usr/lib/qt4/examples/sql/masterdetail/masterdetail.debug
 usr/lib/qt4/examples/sql/querymodel/querymodel.debug
 usr/lib/qt4/examples/sql/relationaltablemodel/relationaltablemodel.debug
+usr/lib/qt4/examples/sql/sqlwidgetmapper/sqlwidgetmapper.debug
 usr/lib/qt4/examples/sql/tablemodel/tablemodel.debug
 usr/lib/qt4/examples/threads/mandelbrot/mandelbrot.debug
 usr/lib/qt4/examples/threads/semaphores/semaphores.debug
@@ -210,7 +221,9 @@ usr/lib/qt4/examples/tutorials/addressbook/part6/part6.debug
 usr/lib/qt4/examples/tutorials/addressbook/part7/part7.debug
 usr/lib/qt4/examples/uitools/multipleinheritance/multipleinheritance.debug
 usr/lib/qt4/examples/uitools/textfinder/textfinder.debug
+usr/lib/qt4/examples/webkit/fancybrowser/fancybrowser.debug
 usr/lib/qt4/examples/webkit/formextractor/formExtractor.debug
+usr/lib/qt4/examples/webkit/googlechat/googlechat.debug
 usr/lib/qt4/examples/webkit/previewer/previewer.debug
 usr/lib/qt4/examples/widgets/analogclock/analogclock.debug
 usr/lib/qt4/examples/widgets/calculator/calculator.debug
@@ -243,12 +256,13 @@ usr/lib/qt4/examples/xml/xmlstreamlint/xmlstreamlint.debug
 usr/lib/qt4/examples/xmlpatterns/filetree/filetree.debug
 usr/lib/qt4/examples/xmlpatterns/qobjectxmlmodel/qobjectxmlmodel.debug
 usr/lib/qt4/examples/xmlpatterns/recipes/recipes.debug
+usr/lib/qt4/examples/xmlpatterns/trafficinfo/trafficinfo.debug
 usr/lib/qt4/plugins/designer/libarthurplugin.so.debug
 usr/lib/qt4/plugins/designer/libcontainerextension.so.debug
 usr/lib/qt4/plugins/designer/libcustomwidgetplugin.so.debug
 usr/lib/qt4/plugins/designer/libtaskmenuextension.so.debug
 usr/lib/qt4/plugins/designer/libworldtimeclockplugin.so.debug
-usr/lib/qt4/plugins/graphicssystems/libqglgraphicssystem.so.debug
 usr/share/qt4/translations/qvfb_pl.qm
+usr/share/qt4/translations/qvfb_untranslated.qm
 usr/share/qt4/translations/qvfb_zh_CN.qm
 usr/share/qt4/translations/qvfb_zh_TW.qm

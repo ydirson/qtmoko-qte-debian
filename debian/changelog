@@ -39,6 +39,7 @@ qt4-x11 (4:4.5.2-1) UNRELEASED; urgency=low
     - Remove libphonon-dev build dependency.
     - Do not remove phonon files anymore.
   * Bump Standards-Version to 3.8.2 (no changes needed).
+  * Update installed files.
 
   +++ Changes by Didier Raboud:
 

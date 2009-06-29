@@ -1,6 +1,7 @@
 usr/lib/libQtHelp.so.*
 usr/share/qt4/translations/qt_help_de.qm
+usr/share/qt4/translations/qt_help_ja.qm
 usr/share/qt4/translations/qt_help_pl.qm
-# Disable for unofficial release like snapshots
+usr/share/qt4/translations/qt_help_untranslated.qm
 usr/share/qt4/translations/qt_help_zh_CN.qm
 usr/share/qt4/translations/qt_help_zh_TW.qm

@@ -1,2 +1,2 @@
-usr/lib/libphonon*.so.*
-
+usr/lib/libphonon.so.*
+usr/lib/qt4/plugins/designer/libphononwidgets.so
