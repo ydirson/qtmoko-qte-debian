@@ -212,9 +212,6 @@ common-install-arch::
 	find $(DEB_DESTDIR)/usr/lib -type f -name '*.prl' \
 		-exec sed -i -e "/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/" {} \;
 
-	# Use system phonon
-	rm -f lib/*phonon* debian/tmp/usr/lib/*phonon*
-
 install/libqtcore4::
 	$(CURDIR)/bin/lrelease-qt4 debian/translations/qt_ca.ts \
 		-qm $(DEB_DESTDIR)/usr/share/qt4/translations/qt_ca.qm

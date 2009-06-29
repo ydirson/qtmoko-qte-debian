@@ -12,7 +12,7 @@ Build-Depends: cdbs, debhelper (>= 5), quilt, flex, sharutils,
  libsm-dev, libsqlite0-dev, libsqlite3-dev, libtiff4-dev, libx11-dev,
  libxcursor-dev, libxext-dev, libxft-dev, libxi-dev, libxinerama-dev,
  libxmu-dev, libxrandr-dev, libxrender-dev, libxslt1-dev, libxt-dev,
- x11proto-core-dev, zlib1g-dev, libphonon-dev
+ x11proto-core-dev, zlib1g-dev
 Standards-Version: 3.8.2
 Homepage: http://www.qtsoftware.com
 Vcs-Svn: svn://svn.debian.org/svn/pkg-kde/trunk/packages/qt4-x11
