@@ -435,6 +435,17 @@ Description: Qt 4 XML patterns library debugging symbols
  This packages contains the debugging symbols for the Qt 4 XML patterns
  library.
 
+Package: phonon-dbg
+Priority: extra
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ libphonon4 (= ${binary:Version})
+Description: Qt 4 Phonon library debugging symbols
+ Qt is a cross-platform C++ application framework. Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ This package contains the debugging symbols for the Qt 4 Phonon library.
+
 Package: qt4-designer
 Architecture: any
 Section: devel

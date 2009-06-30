@@ -15,7 +15,6 @@ usr/lib/libQtSql.so.*.debug
 usr/lib/libQtSvg.so.*.debug
 usr/lib/libQtTest.so.*.debug
 usr/lib/libQtXml.so.*.debug
-usr/lib/libphonon.so.*.debug
 usr/lib/qt4/plugins/accessible/libqtaccessiblecompatwidgets.so.debug
 usr/lib/qt4/plugins/accessible/libqtaccessiblewidgets.so.debug
 usr/lib/qt4/plugins/codecs/libqcncodecs.so.debug
@@ -23,7 +22,6 @@ usr/lib/qt4/plugins/codecs/libqjpcodecs.so.debug
 usr/lib/qt4/plugins/codecs/libqkrcodecs.so.debug
 usr/lib/qt4/plugins/codecs/libqtwcodecs.so.debug
 usr/lib/qt4/plugins/designer/libphononwidgets.so.debug
-usr/lib/qt4/plugins/designer/libqt3supportwidgets.so.debug
 usr/lib/qt4/plugins/graphicssystems/libqglgraphicssystem.so.debug
 usr/lib/qt4/plugins/iconengines/libqsvgicon.so.debug
 usr/lib/qt4/plugins/imageformats/libqgif.so.debug
