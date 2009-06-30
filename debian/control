@@ -548,3 +548,16 @@ Description: Qt 4 API documentation (HTML format)
  in conjunction with the legacy Qt Assistant (assistant_adp) found in the
  qt4-dev-tools package.
 
+Package: phonon
+Architecture: all
+Depends: libphonon4 (>= ${source:Version}),
+ phonon-backend-xine | phonon-backend
+Suggests: phonon-backend-gstreamer, phonon-backend-vlc, phonon-backend-mplayer
+Description: Qt 4 Phonon module metapackage
+ Qt is a cross-platform C++ application framework. Qt's primary feature
+ is its rich set of widgets that provide standard GUI functionality.
+ .
+ The Qt Phonon module provides a cross-platform multimedia framework that
+ enables the use of audio and video content in Qt applications.
+ .
+ This metapackage ensures a working Qt 4 Phonon (library and a backend).

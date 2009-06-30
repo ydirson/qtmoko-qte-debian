@@ -37,6 +37,7 @@ DEB_DH_STRIP_ARGS_libqt4-xmlpatterns-dbg := --exclude=.debug
 DEB_DH_STRIP_ARGS_phonon-dbg := --exclude=.debug
 
 DEB_DH_SHLIBDEPS_ARGS_ALL := --exclude=.debug
+#DEB_DH_SHLIBDEPS_ARGS_ALL := -- -xphonon
 
 # Disable for rc
 DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
