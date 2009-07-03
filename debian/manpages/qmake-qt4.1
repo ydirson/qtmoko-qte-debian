@@ -1,4 +1,4 @@
-.TH QMAKE 1 "2005-07-23"
+.TH QMAKE 1 "2005-07-23" "Nokia Corporation and/or its subsidiary(-ies)" ""
 .SH NAME
 qmake \- cross-platform makefile generator for Qt
 
@@ -7,7 +7,7 @@ qmake \- cross-platform makefile generator for Qt
 .I "[mode] [options] [files]"
 .br
 .SH "DESCRIPTION"
-.B qmake
+.B QMake
 has two modes, one mode for generating project files based on some
 heuristics, and the other for generating makefiles. Normally you
 shouldn't need to specify a mode, as makefile generation is the default
@@ -17,14 +17,14 @@ project.
 .SH MODE
 .TP
 .B "\-project"
-Put qmake into project file generation mode In this mode qmake
+Put qmake into project file generation mode. In this mode qmake
 interprets files as files to be built, defaults to *.c; *.ui; *.y; *.l;
-*.ts; *.qrc; *.h; *.hpp; *.hh; *.hxx; *.H; *.cpp; *.cc; *.cxx; *.C
+*.ts; *.xlf; *.qrc; *.h; *.hpp; *.hh; *.hxx; *.H; *.cpp; *.cc; *.cxx; *.C.
 .TP
 .B "\-makefile"
-Put qmake into makefile generation mode (default) In this mode qmake
+Put qmake into makefile generation mode (default). In this mode qmake
 interprets files as project files to be processed, if skipped qmake will
-try to find a project file in your current working directory
+try to find a project file in your current working directory.
 
 .SH WARNINGS OPTIONS
 .TP
@@ -61,11 +61,10 @@ Increase debug level
 Overrides TEMPLATE as templ
 .TP
 .BI "\-tp" prefix
-Overrides TEMPLATE so that prefix is prefixed
+Overrides TEMPLATE so that prefix is prefixed into the value
 .TP
-into the value
 .BI "\-help"
-This help
+Displays a help text
 .TP
 .BI "\-v"
 Version information
@@ -74,10 +73,15 @@ Version information
 All variable assignments after this will be parsed after [files]
 .TP
 .BI "\-norecursive"
-Don't do a recursive search
+Do not do a recursive search
 .TP
 .BI "\-recursive"
 Do a recursive search
+.TP
+.BI "\-set <prop> <value>"
+Set persistent property
+.TP "\-query <prop>"
+Query persistent property. Show all if <prop> is empty.
 .TP
 .BI "\-cache file"
 Use file as cache [makefile mode only]
@@ -86,16 +90,16 @@ Use file as cache [makefile mode only]
 Use spec as QMAKESPEC [makefile mode only]
 .TP
 .BI "\-nocache"
-Don't use a cache file [makefile mode only]
+Do not use a cache file [makefile mode only]
 .TP
 .BI "\-nodepend"
-Don't generate dependencies [makefile mode only]
+Do not generate dependencies [makefile mode only]
 .TP
 .BI "\-nomoc"
-Don't generate moc targets [makefile mode only]
+Do not generate moc targets [makefile mode only]
 .TP
 .BI "\-nopwd"
-Don't look for files in pwd [project mode only]
+Do not look for files in pwd [project mode only]
 
 .SH SEE ALSO
 .PP
@@ -105,3 +109,4 @@ Don't look for files in pwd [project mode only]
 This manual page was written by Brian Nelson <pyro@debian.org> based on
 the output of
 .B "qmake -help".
+Frederik Schwarzer <schwarzerf@gmail.com> updated it for Qt 4.5.2.
