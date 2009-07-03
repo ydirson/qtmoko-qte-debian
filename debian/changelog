@@ -45,6 +45,10 @@ qt4-x11 (4:4.5.2-1) UNRELEASED; urgency=low
 
   * Add debian/watch file.
 
+  +++ Changes by Frederik Schwarzer:
+
+  * Update manpages
+
  -- Fathi Boudra <fabo@debian.org>  Thu, 25 Jun 2009 15:23:55 +0200
 
 qt4-x11 (4.5.1-2) unstable; urgency=low
