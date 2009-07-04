@@ -34,6 +34,9 @@ qt4-x11 (4.5.2-1) UNRELEASED; urgency=low
       on dbus adaptors.
     - 0286-fix-error-string.diff
       Fix #error line not to have a ' as it's not correct.
+    - 0287-attempt-to-fix-header-installation-for-phonon.diff
+      This is the long-standing issue of whether Phonon headers should be
+      written with a capital P or a lowercase one.
   * Build Phonon from Qt sources:
     - Add epoch to Phonon packages and set it to 4
       (to upgrade phonon provided previously by KDE).

@@ -8,6 +8,7 @@
 0274-shm-native-image-fix.diff
 0280-deserialization-custom-dbus-properties.diff
 0286-fix-error-string.diff
+0287-attempt-to-fix-header-installation-for-phonon.diff
 
 # debian patches
 01_qmake_for_debian.diff
