@@ -25,6 +25,9 @@ DEB_DH_INSTALL_ARGS := --exclude=.debug
 
 DEB_MAKE_CLEAN_TARGET := confclean distclean
 
+# Add epoch to Phonon packages only
+DEB_DH_GENCONTROL_ARGS_libphonon4 := -- -v4:$(CURRENTVERSION)
+
 # Shlibs of the current upstream version
 #DEB_DH_MAKESHLIBS_ARGS_ALL := -V
 # Specific shlibs version
@@ -36,8 +39,7 @@ DEB_DH_STRIP_ARGS_libqt4-webkit-dbg := --exclude=.debug
 DEB_DH_STRIP_ARGS_libqt4-xmlpatterns-dbg := --exclude=.debug
 DEB_DH_STRIP_ARGS_phonon-dbg := --exclude=.debug
 
-DEB_DH_SHLIBDEPS_ARGS_ALL := --exclude=.debug
-#DEB_DH_SHLIBDEPS_ARGS_ALL := -- -xphonon
+DEB_DH_SHLIBDEPS_ARGS_ALL := -- -xphonon --exclude=.debug
 
 # Disable for rc
 DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
@@ -205,6 +207,7 @@ clean::
 	| cut -d ':' -f 1 | xargs rm -f
 
 	# Generated on build
+	rm -f debian/libphonon4.symbols
 	rm -f debian/shlibs.local
 	rm -f debian/stamp-makefile-build-tools
 
@@ -279,6 +282,7 @@ $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:
 
 # Generate shlibs local files
 $(patsubst %,binary-fixup/%,$(DEB_ALL_PACKAGES)) :: binary-fixup/%: binary-strip/%
+	pkgkde-symbolshelper symbolfile -p libphonon4 -o debian/libphonon4.symbols
 	if test -e debian/$(cdbs_curpkg)/DEBIAN/shlibs ; then \
 		sed 's/>=[^)]*/= $(CURRENTVERSION)/' debian/$(cdbs_curpkg)/DEBIAN/shlibs >> debian/shlibs.local ;\
 	fi

@@ -1,4 +1,4 @@
-qt4-x11 (4:4.5.2-1) UNRELEASED; urgency=low
+qt4-x11 (4.5.2-1) UNRELEASED; urgency=low
 
   * New upstream release:
     - QtWebKit
@@ -35,9 +35,11 @@ qt4-x11 (4:4.5.2-1) UNRELEASED; urgency=low
     - 0286-fix-error-string.diff
       Fix #error line not to have a ' as it's not correct.
   * Build Phonon from Qt sources:
-    - Add epoch and set it to 4 (to upgrade phonon provided previously by KDE).
+    - Add epoch to Phonon packages and set it to 4
+      (to upgrade phonon provided previously by KDE).
     - Remove libphonon-dev build dependency.
     - Do not remove phonon files anymore.
+    - Keep libphonon4 symbols file and add pkg-kde-tools build dependency.
   * Bump Standards-Version to 3.8.2 (no changes needed).
   * Update installed files.
 
