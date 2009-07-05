@@ -1,4 +1,4 @@
-qt4-x11 (4.5.2-1) UNRELEASED; urgency=low
+qt4-x11 (4:4.5.2-1) UNRELEASED; urgency=low
 
   * New upstream release:
     - QtWebKit

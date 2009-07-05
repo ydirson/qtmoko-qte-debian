@@ -7,7 +7,9 @@ export LD_LIBRARY_PATH := $(QTDIR)/lib:$(LD_LIBRARY_PATH)
 # workaround to use qhelpgenerator
 export QT_PLUGIN_PATH := $(QTDIR)/plugins
 
+# Qt upstream version (e.g.: 4.5.2)
 QTVERSION := $(shell ls changes-* | cut -f2 -d '-')
+# Current debian version (e.g.: 4:4.5.2-1)
 CURRENTVERSION := $(shell dpkg-parsechangelog | sed -n 's/^Version: //p')
 
 include /usr/share/cdbs/1/rules/debhelper.mk
@@ -26,15 +28,16 @@ DEB_DH_INSTALL_ARGS := --exclude=.debug
 DEB_MAKE_CLEAN_TARGET := confclean distclean
 
 # Add epoch to Phonon packages only
-DEB_DH_GENCONTROL_ARGS_libphonon4 := -- -v4:$(CURRENTVERSION)
-DEB_DH_GENCONTROL_ARGS_libphonon-dev := -- -v4:$(CURRENTVERSION)
-DEB_DH_GENCONTROL_ARGS_phonon-dbg := -- -v4:$(CURRENTVERSION)
-DEB_DH_GENCONTROL_ARGS_phonon := -- -v4:$(CURRENTVERSION)
+#DEB_DH_GENCONTROL_ARGS_libphonon4 := -- -v4:$(CURRENTVERSION)
+#DEB_DH_GENCONTROL_ARGS_libphonon-dev := -- -v4:$(CURRENTVERSION)
+#DEB_DH_GENCONTROL_ARGS_phonon-dbg := -- -v4:$(CURRENTVERSION)
+#DEB_DH_GENCONTROL_ARGS_phonon := -- -v4:$(CURRENTVERSION)
 
 # Shlibs of the current upstream version
 #DEB_DH_MAKESHLIBS_ARGS_ALL := -V
 # Specific shlibs version
-SHLIBSVERSION := 4.5.2
+#SHLIBSVERSION := 4.5.2
+SHLIBSVERSION := 4:4.5.2
 $(foreach libpkg,$(filter-out %-dev %-dbg,$(filter lib%,$(DEB_ARCH_PACKAGES))),$(eval DEB_DH_MAKESHLIBS_ARGS_$(libpkg) := -V'$(libpkg) (>= $(SHLIBSVERSION))'))
 
 DEB_DH_STRIP_ARGS_libqt4-dbg := --exclude=.debug
