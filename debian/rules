@@ -27,6 +27,9 @@ DEB_MAKE_CLEAN_TARGET := confclean distclean
 
 # Add epoch to Phonon packages only
 DEB_DH_GENCONTROL_ARGS_libphonon4 := -- -v4:$(CURRENTVERSION)
+DEB_DH_GENCONTROL_ARGS_libphonon-dev := -- -v4:$(CURRENTVERSION)
+DEB_DH_GENCONTROL_ARGS_phonon-dbg := -- -v4:$(CURRENTVERSION)
+DEB_DH_GENCONTROL_ARGS_phonon := -- -v4:$(CURRENTVERSION)
 
 # Shlibs of the current upstream version
 #DEB_DH_MAKESHLIBS_ARGS_ALL := -V
