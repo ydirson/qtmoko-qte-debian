@@ -282,6 +282,9 @@ binary-post-install/libqt4-dev::
 	install -D -p -m0644 doc/html/qt.tags \
 		$(DEB_DESTDIR)/usr/share/qt4/doc/html/qt.tags
 
+binary-fixup/libphonon4::
+	pkgkde-symbolshelper symbolfile -p libphonon4 -o debian/libphonon4.symbols
+
 # Automatically install lintian overrides, stolen from debian-qt-kde.mk
 $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:
 	if test -e debian/$(cdbs_curpkg).lintian; then \
@@ -291,7 +294,6 @@ $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:
 
 # Generate shlibs local files
 $(patsubst %,binary-fixup/%,$(DEB_ALL_PACKAGES)) :: binary-fixup/%: binary-strip/%
-	pkgkde-symbolshelper symbolfile -p libphonon4 -o debian/libphonon4.symbols
 	if test -e debian/$(cdbs_curpkg)/DEBIAN/shlibs ; then \
 		sed 's/>=[^)]*/= $(CURRENTVERSION)/' debian/$(cdbs_curpkg)/DEBIAN/shlibs >> debian/shlibs.local ;\
 	fi
