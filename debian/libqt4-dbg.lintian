@@ -21,7 +21,6 @@ libqt4-dbg: binary-with-bad-dynamic-table ./usr/lib/qt4/plugins/codecs/libqcncod
 libqt4-dbg: binary-with-bad-dynamic-table ./usr/lib/qt4/plugins/codecs/libqjpcodecs.so.debug
 libqt4-dbg: binary-with-bad-dynamic-table ./usr/lib/qt4/plugins/codecs/libqkrcodecs.so.debug
 libqt4-dbg: binary-with-bad-dynamic-table ./usr/lib/qt4/plugins/codecs/libqtwcodecs.so.debug
-libqt4-dbg: binary-with-bad-dynamic-table ./usr/lib/qt4/plugins/designer/libqt3supportwidgets.so.debug
 libqt4-dbg: binary-with-bad-dynamic-table ./usr/lib/qt4/plugins/graphicssystems/libqglgraphicssystem.so.debug
 libqt4-dbg: binary-with-bad-dynamic-table ./usr/lib/qt4/plugins/iconengines/libqsvgicon.so.debug
 libqt4-dbg: binary-with-bad-dynamic-table ./usr/lib/qt4/plugins/imageformats/libqgif.so.debug
@@ -61,7 +60,6 @@ libqt4-dbg: shared-lib-without-dependency-information ./usr/lib/qt4/plugins/code
 libqt4-dbg: shared-lib-without-dependency-information ./usr/lib/qt4/plugins/codecs/libqjpcodecs.so.debug
 libqt4-dbg: shared-lib-without-dependency-information ./usr/lib/qt4/plugins/codecs/libqkrcodecs.so.debug
 libqt4-dbg: shared-lib-without-dependency-information ./usr/lib/qt4/plugins/codecs/libqtwcodecs.so.debug
-libqt4-dbg: shared-lib-without-dependency-information ./usr/lib/qt4/plugins/designer/libqt3supportwidgets.so.debug
 libqt4-dbg: shared-lib-without-dependency-information ./usr/lib/qt4/plugins/graphicssystems/libqglgraphicssystem.so.debug
 libqt4-dbg: shared-lib-without-dependency-information ./usr/lib/qt4/plugins/iconengines/libqsvgicon.so.debug
 libqt4-dbg: shared-lib-without-dependency-information ./usr/lib/qt4/plugins/imageformats/libqgif.so.debug

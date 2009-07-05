@@ -38,6 +38,7 @@ DEB_DH_STRIP_ARGS_libqt4-dbg := --exclude=.debug
 DEB_DH_STRIP_ARGS_libqt4-webkit-dbg := --exclude=.debug
 DEB_DH_STRIP_ARGS_libqt4-xmlpatterns-dbg := --exclude=.debug
 DEB_DH_STRIP_ARGS_phonon-dbg := --exclude=.debug
+DEB_DH_STRIP_ARGS_qt4-demos-dbg := --exclude=.debug
 
 DEB_DH_SHLIBDEPS_ARGS_ALL := --exclude=.debug
 #DEB_DH_SHLIBDEPS_ARGS_ALL := -- -xphonon
@@ -269,6 +270,10 @@ binary-install/libqt4-xmlpatterns-dbg::
 binary-install/phonon-dbg::
 # Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files
 	dh_install -pphonon-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
+
+binary-install/qt4-demos-dbg::
+# Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files
+	dh_install -pqt4-demos-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
 
 binary-post-install/libqt4-dev::
 	install -D -p -m0644 doc/html/qt.tags \

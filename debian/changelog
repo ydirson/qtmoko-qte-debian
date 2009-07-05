@@ -44,6 +44,7 @@ qt4-x11 (4.5.2-1) UNRELEASED; urgency=low
     - Do not remove phonon files anymore.
     - Keep libphonon4 symbols file and add pkg-kde-tools build dependency.
   * Bump Standards-Version to 3.8.2 (no changes needed).
+  * Add qt4-demos-dbg package.
   * Update installed files.
 
   +++ Changes by Didier Raboud:
