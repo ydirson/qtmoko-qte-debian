@@ -37,9 +37,8 @@ qt4-x11 (4:4.5.2-1) UNRELEASED; urgency=low
     - 0287-attempt-to-fix-header-installation-for-phonon.diff
       This is the long-standing issue of whether Phonon headers should be
       written with a capital P or a lowercase one.
+  * Add epoch 4 to avoid headache for Phonon handling.
   * Build Phonon from Qt sources:
-    - Add epoch to Phonon packages and set it to 4
-      (to upgrade phonon provided previously by KDE).
     - Remove libphonon-dev build dependency.
     - Do not remove phonon files anymore.
     - Keep libphonon4 symbols file and add pkg-kde-tools build dependency.
