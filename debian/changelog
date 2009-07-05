@@ -1,4 +1,4 @@
-qt4-x11 (4:4.5.2-1) UNRELEASED; urgency=low
+qt4-x11 (4:4.5.2-1) unstable; urgency=low
 
   * New upstream release:
     - QtWebKit
@@ -37,6 +37,8 @@ qt4-x11 (4:4.5.2-1) UNRELEASED; urgency=low
     - 0287-attempt-to-fix-header-installation-for-phonon.diff
       This is the long-standing issue of whether Phonon headers should be
       written with a capital P or a lowercase one.
+    - 81_hurd_clock_gettime.diff
+      Fix FTBFS on hurd-i386. Thanks to Samuel Thibault. (Closes #533526)
   * Add epoch 4 to avoid headache for Phonon handling.
   * Build Phonon from Qt sources:
     - Remove libphonon-dev build dependency.

@@ -1,8 +1,4 @@
   +++ TODO:
 
   * Review bug reports.
-  * TT changed the build key generation and added backwards compatibility.
-    We need to re-add 07_trust_dpkg-arch_over_uname-m.diff patch for our
-    backward compatibility *and* figure out what to do with the new build key
-    generation.
 

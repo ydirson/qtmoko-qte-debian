@@ -1,0 +1,20 @@
+author: Samuel Thibault <sthibault@debian.org>
+
+FTBFS on hurd-i386 because since clock_gettime is not available there
+qt4-x11 reverts to using gettimeofday, but it doesn't include <sys/time.h>
+where the latter is defined.
+
+Debian bug #533526
+
+--- a/src/corelib/concurrent/qtconcurrentiteratekernel.cpp
++++ b/src/corelib/concurrent/qtconcurrentiteratekernel.cpp
+@@ -49,6 +49,9 @@
+ 
+ #elif defined(Q_OS_UNIX)
+ 
++#if defined(Q_OS_HURD)
++#include <sys/time.h>
++#endif
+ #include <time.h>
+ #include <unistd.h>
+ 

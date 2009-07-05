@@ -1,3 +1,11 @@
+author: Sune Vuorela <sune@debian.org>
+
+Build s390 debugging symbols with -gstabs instead of with -g
+to reduce linker memory usage.
+Thanks to Oswald Buddenhagen for the hint.
+
+Debian bug 528485
+
 --- a/src/3rdparty/webkit/WebKit.pri
 +++ b/src/3rdparty/webkit/WebKit.pri
 @@ -24,6 +24,14 @@ CONFIG(release) {

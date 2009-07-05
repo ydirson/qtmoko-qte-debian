@@ -32,5 +32,6 @@
 70_hppa_ldcw_fix.diff
 71_hppa_unaligned_access_fix_458133.diff
 80_hurd_max_path.diff
+81_hurd_clock_gettime.diff
 89_powerpc_opts.diff
 91_s390_-gstabs.diff

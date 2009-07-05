@@ -1,1 +1,4 @@
+# They are harmless .when dpkg-dev has everything needed for c++ symbols,
+# the symbols file will be converted and dpkg-gensymbols will no longer complain.
+libphonon4: symbols-file-contains-current-version-with-debian-revision on symbol _Z6qDebugv@Base and 12 others
 libphonon4: symbols-declares-dependency-on-other-package phonon #MINVER#
