@@ -439,6 +439,7 @@ Description: Qt 4 XML patterns library debugging symbols
 Package: phonon-dbg
 Priority: extra
 Architecture: any
+Section: debug
 Depends: ${shlibs:Depends}, ${misc:Depends},
  libphonon4 (= ${binary:Version})
 Description: Qt 4 Phonon library debugging symbols
@@ -551,7 +552,7 @@ Description: Qt 4 API documentation (HTML format)
 
 Package: phonon
 Architecture: all
-Depends: libphonon4 (>= ${source:Version}),
+Depends: ${misc:Depends}, libphonon4 (>= ${source:Version}),
  phonon-backend-xine | phonon-backend
 Suggests: phonon-backend-gstreamer, phonon-backend-vlc, phonon-backend-mplayer
 Description: Qt 4 Phonon module metapackage
