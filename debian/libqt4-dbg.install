@@ -21,7 +21,6 @@ usr/lib/qt4/plugins/codecs/libqcncodecs.so.debug
 usr/lib/qt4/plugins/codecs/libqjpcodecs.so.debug
 usr/lib/qt4/plugins/codecs/libqkrcodecs.so.debug
 usr/lib/qt4/plugins/codecs/libqtwcodecs.so.debug
-usr/lib/qt4/plugins/designer/libphononwidgets.so.debug
 usr/lib/qt4/plugins/graphicssystems/libqglgraphicssystem.so.debug
 usr/lib/qt4/plugins/iconengines/libqsvgicon.so.debug
 usr/lib/qt4/plugins/imageformats/libqgif.so.debug
