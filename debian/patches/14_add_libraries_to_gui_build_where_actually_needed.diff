@@ -1,11 +1,10 @@
 --- a/src/gui/kernel/kernel.pri
 +++ b/src/gui/kernel/kernel.pri
-@@ -146,6 +146,8 @@ embedded {
+@@ -146,6 +146,7 @@ embedded {
              HEADERS += \
                  kernel/qeventdispatcher_glib_qws_p.h
              QMAKE_CXXFLAGS += $$QT_CFLAGS_GLIB
-+            LIBS +=$$QT_LIBS_GLIB
-+	    LIBS +=$$QT_LIBS_GLIB
++             LIBS +=$$QT_LIBS_GLIB
  	}
  
  
@@ -15,7 +14,7 @@
          painting/qtextureglyphcache.cpp \
          painting/qtransform.cpp \
  
-+LIBS += -lz
++         LIBS += -lz
 +
          DEFINES += QT_RASTER_IMAGEENGINE
          win32:DEFINES += QT_RASTER_PAINTENGINE
