@@ -1,3 +1,5 @@
+author: Sune Vuorela <sune@debian.org>
+
 --- a/src/gui/kernel/kernel.pri
 +++ b/src/gui/kernel/kernel.pri
 @@ -146,6 +146,7 @@ embedded {
