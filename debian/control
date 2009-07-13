@@ -526,7 +526,7 @@ Package: qt4-demos
 Architecture: any
 Section: x11
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: qt4-doc (= ${source:Version})
+Recommends: qt4-doc (= ${source:Version}), qt4-dev-tools (= ${source:Version})
 Description: Qt 4 examples and demos
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
