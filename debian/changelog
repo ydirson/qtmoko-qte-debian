@@ -6,7 +6,14 @@ qt4-x11 (4:4.5.2-2) UNRELEASED; urgency=low
     to actually use the documentation from the demo application. 
     (Closes: 536558)
 
- -- Sune Vuorela <debian@pusling.com>  Sat, 11 Jul 2009 11:15:19 +0200
+  +++ Changes by Modestas Vainius:
+
+  * Add patch 20_phonon_header_path_fix.diff: Phonon/* class headers should
+    include phonon headers from the parent directory where they really are
+    rather than rely on the pure luck that phonon include directory is present
+    in the include path (Closes: #537304).
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 17 Jul 2009 01:28:11 +0300
 
 qt4-x11 (4:4.5.2-1) unstable; urgency=low
 
