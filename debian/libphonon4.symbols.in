@@ -1,5 +1,5 @@
 libphonon.so.4 libphonon4 #MINVER#
-| phonon #MINVER#, libphonon4 #MINVER#
+| phonon (>= 4:4.5.2), libphonon4 #MINVER#
 * Build-Depends-Package: libphonon-dev
  _ZN6Phonon10SeekSlider11qt_metacallEN11QMetaObject4CallEiPPv@Base 4:4.2.0
  _ZN6Phonon10SeekSlider11qt_metacastEPKc@Base 4:4.2.0

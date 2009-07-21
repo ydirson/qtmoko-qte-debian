@@ -12,8 +12,11 @@ qt4-x11 (4:4.5.2-2) UNRELEASED; urgency=low
     include phonon headers from the parent directory where they really are
     rather than rely on the pure luck that phonon include directory is present
     in the include path (Closes: #537304).
+  * Loosen requirements of the phonon metapackage in the libphonon4 symbols
+    file. Too tight dependency causes unnecessary complications installing
+    build dependencies on arches which lag behind on Qt4 builds.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 17 Jul 2009 01:28:11 +0300
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 21 Jul 2009 22:35:31 +0300
 
 qt4-x11 (4:4.5.2-1) unstable; urgency=low
 
