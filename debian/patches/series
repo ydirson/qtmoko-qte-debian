@@ -16,6 +16,7 @@
 03_launch_moc-qt4.diff
 04_launch_uic-qt4.diff
 05_append_qt4_target.diff
+06_CVE-2009-1725.diff
 07_trust_dpkg-arch_over_uname-m.diff
 09_qmake_lflags_as-needed.diff
 10_config_tests_fixes.diff
