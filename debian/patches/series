@@ -18,7 +18,6 @@
 05_append_qt4_target.diff
 06_CVE-2009-1725.diff
 07_trust_dpkg-arch_over_uname-m.diff
-08_add_kde4_plugins_path_539623.diff
 09_qmake_lflags_as-needed.diff
 10_config_tests_fixes.diff
 14_add_libraries_to_gui_build_where_actually_needed.diff
