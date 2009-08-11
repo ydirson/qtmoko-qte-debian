@@ -23,8 +23,12 @@ qt4-x11 (4:4.5.2-2) UNRELEASED; urgency=low
   * Loosen requirements of the phonon metapackage in the libphonon4 symbols
     file. Too tight dependency causes unnecessary complications installing
     build dependencies on arches which lag behind on Qt4 builds.
+  * Build depend on libmysqlclient-dev rather than libmysqlclient15-dev.
+    Backports friendly as libmysqlclient-dev is a virtual package in lenny.
+  * Likewise, make libqt4-dev suggest libmysqlclient-dev rather than
+    libmysqlclient15-dev.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 21 Jul 2009 22:35:31 +0300
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 11 Aug 2009 12:57:45 +0300
 
 qt4-x11 (4:4.5.2-1) unstable; urgency=low
 
