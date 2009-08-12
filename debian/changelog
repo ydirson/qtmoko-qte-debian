@@ -1,4 +1,4 @@
-qt4-x11 (4:4.5.2-2) UNRELEASED; urgency=low
+qt4-x11 (4:4.5.2-2) unstable; urgency=low
 
   +++ Changes by Fathi Boudra:
 
@@ -28,7 +28,7 @@ qt4-x11 (4:4.5.2-2) UNRELEASED; urgency=low
   * Likewise, make libqt4-dev suggest libmysqlclient-dev rather than
     libmysqlclient15-dev.
 
- -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 11 Aug 2009 12:57:45 +0300
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 12 Aug 2009 23:19:06 +0200
 
 qt4-x11 (4:4.5.2-1) unstable; urgency=low
 
