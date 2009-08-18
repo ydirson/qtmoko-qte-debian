@@ -16,10 +16,6 @@ qt4-x11 (4:4.5.2-2) UNRELEASED; urgency=low
 
   +++ Changes by Modestas Vainius:
 
-  * Add patch 20_phonon_header_path_fix.diff: Phonon/* class headers should
-    include phonon headers from the parent directory where they really are
-    rather than rely on the pure luck that phonon include directory is present
-    in the include path (Closes: #537304).
   * Loosen requirements of the phonon metapackage in the libphonon4 symbols
     file. Too tight dependency causes unnecessary complications installing
     build dependencies on arches which lag behind on Qt4 builds.
