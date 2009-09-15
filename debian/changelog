@@ -1,3 +1,9 @@
+qt4-x11 (4:4.5.2-3) UNRELEASED; urgency=low
+
+  * Switch from libreadline5-dev to libreadline-dev.
+
+ -- Ana Beatriz Guerrero Lopez <ana@debian.org>  Tue, 15 Sep 2009 15:27:39 +0200
+
 qt4-x11 (4:4.5.2-2) unstable; urgency=low
 
   +++ Changes by Fathi Boudra:

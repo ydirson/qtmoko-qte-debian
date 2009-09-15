@@ -8,7 +8,7 @@ Build-Depends: cdbs, debhelper (>= 5), quilt, pkg-kde-tools (>= 0.4), flex, shar
  libaudio-dev, libcups2-dev, libdbus-1-dev, libfreetype6-dev,
  libgl1-mesa-dev | libgl-dev, libglib2.0-dev, libglu1-mesa-dev | libglu-dev,
  libgtk2.0-dev, libice-dev, libiodbc2-dev, libjpeg62-dev, libmng-dev,
- libmysqlclient-dev, libpam0g-dev, libpng12-dev, libpq-dev, libreadline5-dev,
+ libmysqlclient-dev, libpam0g-dev, libpng12-dev, libpq-dev, libreadline-dev,
  libsm-dev, libsqlite0-dev, libsqlite3-dev, libtiff4-dev, libx11-dev,
  libxcursor-dev, libxext-dev, libxft-dev, libxi-dev, libxinerama-dev,
  libxmu-dev, libxrandr-dev, libxrender-dev, libxslt1-dev, libxt-dev,
