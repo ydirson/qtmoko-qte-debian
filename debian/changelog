@@ -1,8 +1,14 @@
 qt4-x11 (4:4.5.2-3) UNRELEASED; urgency=low
 
+  +++ Changes by Ana Beatriz Guerrero Lopez:
+
   * Switch from libreadline5-dev to libreadline-dev.
 
- -- Ana Beatriz Guerrero Lopez <ana@debian.org>  Tue, 15 Sep 2009 15:27:39 +0200
+  +++ Changes by Modestas Vainius:
+
+  * VCS changed to git, adjust Vcs-* field in debian/control accordingly.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 15 Sep 2009 15:27:39 +0200
 
 qt4-x11 (4:4.5.2-2) unstable; urgency=low
 

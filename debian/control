@@ -15,8 +15,8 @@ Build-Depends: cdbs, debhelper (>= 5), quilt, pkg-kde-tools (>= 0.4), flex, shar
  x11proto-core-dev, zlib1g-dev
 Standards-Version: 3.8.2
 Homepage: http://www.qtsoftware.com
-Vcs-Svn: svn://svn.debian.org/svn/pkg-kde/trunk/packages/qt4-x11
-Vcs-Browser: http://svn.debian.org/wsvn/pkg-kde/trunk/packages/qt4-x11
+Vcs-Git: git://git.debian.org/pkg-kde/qt4-x11.git
+Vcs-Browser: http://git.debian.org/?p=pkg-kde/qt4-x11.git;a=summary
 
 Package: libqtcore4
 Architecture: any
