@@ -1,0 +1,129 @@
+Patches to the original source code
+-----------------------------------
+
+Debian patches to the package original source must be stored in debian/patches
+directory. Debian patches are applied when the package is built and unapplied
+when the package is cleaned. The package uses quilt [1] for managing those
+patches. Various tasks of patch management (adding, removing etc.) are
+described in detail in /usr/share/doc/quilt/README.source (provided by quilt
+package of version 0.46-4.1 or later).
+
+Public VCS repository of Debian packaging
+-----------------------------------------
+
+Debian packaging history of this package is stored in Git [2] repository.
+Repository policy and packaging workflow are described below. This information
+is mostly for Debian package maintainers or people following packaging process.
+If you are merely preparing a NMU which changes upstream code, feel free to
+follow a standard patch creation procedure with quilt as described in the
+section above.
+
+Pushing permissions and occasional contributions
+------------------------------------------------
+
+* People in debian/control Maintainer and Uploaders (co-maintainers) fields may
+  freely push changes to public repository.
+* Other members of packaging group should request permission of current
+  co-maintainers (via IRC or mailing list) before adding yourself to the list of
+  Uploaders or pushing any other kind of changes.
+* Occasional contributors may send patches. Preferably, patches should be
+  formatted with `git format-patch` in order to maintain commit origin
+  information.
+* Pushed commits and patches must not violate repository policy as defined
+  below.
+
+Committing policy and guidelines
+--------------------------------
+
+* Work-in-progress debian/changelog entry must have its distribution field set to
+  UNRELEASED. That's DEBCHANGE_RELEASE_HEURISTIC=changelog setting for dch.
+* New packaging changes must be committed together with the change description
+  in the debian/changelog entry (if applicable). Sentences should end with dots.
+* The guidelines above are *highly* recommended to follow in order to reduce
+  conflicts in debian/changelog when cherry-picking and merging between
+  branches:
+  * Commits should be atomic (i.e. one change - one commit).
+  * It is a good idea to open a new revision with an empty changelog entry (two
+    empty lines between entry header and trailer) as its own commit. When
+    packaging a new upstream release, such first commit should include a new
+    changelog entry with "New upstream release." as the only change.
+  * dch should be configured with DEBCHANGE_MULTIMAINT_MERGE=yes or called with
+    --mainttrailer/-t option in order to reduce maintainer trailer changes.
+    As a result, dch --release should be used to update the date in the trailer
+    when releasing the package to Debian.
+* Commit message must be meaningful (typically, debchange is OK). The first
+  commit message line must be short (up to 72-80 characters) and end with a
+  dot. More detailed description might be provided in paragraphs wrapped at 80
+  characters after a empty line (e.g. like a well formatted standard Git commit
+  message).
+
+Branching policy
+----------------
+
+Debian packaging branches must not contain original source and must not have
+been merged with a branch containing original source code (referred by name
+"upstream" in the rest of this document) in any point of their history. If
+necessary, it is recommended to keep a private upstream branch in the private
+local repository or just track upstream remote Git repository locally.
+
+Debian packaging branches must only contain debian/ subdirectory in their root
+directory in order to avoid potential conflicts with upstream source. This
+restriction applies even to Git-specific files like .gitignore.
+
+Branches should be named as follows:
+
+  * master - main packaging branch. It typically contains packaging aimed at
+    unstable. However, if unstable is (semi-)frozen, it may even contain
+    packaging for experimental. It is up package maintainers what is considered
+    "current" release.
+  * Other mainline packaging branches must be named after Debian release
+    codenames (e.g. lenny, squeeze, sid, experimental etc.) that they contain
+    packaging of. When such a branch (e.g. experimental) is merged to master,
+    it does not need to be deleted from the remote repository.
+  * Other packaging "work" branches may be pushed to the remote repository at
+    discretion of package mantainer(s). These branches should be deleted from
+    the public repository when they are no longer needed.
+
+Non fast forwarding pushes (e.g. rebase of already published history) are
+forbidden to all mainline packaging branches unless they are absolutely
+necessary and have previously been agreed upon by co-maintainers of the
+package.
+
+Tagging policy
+--------------
+
+Tag namespace "debian" is reserved for tagging package releases to Debian.
+Preferably, public repository should not contain any other tags unless
+otherwise agreed upon.
+
+Each official package release must be tagged. The tag must meet the following
+requirements:
+
+  * The tag must mark the state of packaging as uploaded to Debian archive.
+    Re-tagging is allowed if necessary.
+  * The tag must be annotated and preferably signed with the key of uploader.
+  * The tag must be named like "debian/<version>" where <version> is a full
+    debian package version without epoch. All occurrences of the ~ character in
+    <version> should be replaced with the - character because Git does not
+    support ~ character in tag names.
+  * The tag must be assigned the message with content like
+    "<version>/<distribution>" where <version> is a full debian version of the
+    package (without any modifications including epoch) and <distribution>
+    is the distribution this package is uploaded to (as per the latest debian
+    changelog entry).
+
+For example, in order to tag the tip of current packaging branch as upload of
+the package version 4:4.6.0~beta1-1 to experimental, the following command may
+be used:
+
+  $ git tag debian/4.6.0-beta1-1 -sm "4:4.6.0~beta1-1/experimental"
+
+Suggested packaging workflows
+-----------------------------
+
+TODO
+
+
+[1] Available in the quilt package on Debian based systems. quilt must be
+    invoked with QUILT_PATCHES environment variables set to debian/patches.
+[2] Available in the git-core package on Debian based systems.
