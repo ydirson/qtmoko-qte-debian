@@ -1,2 +1,2 @@
 version=3
-http://get.qtsoftware.com/qt/source/ qt-x11-opensource-src-(.*)\.tar.bz2
+http://get.qt.nokia.com/qt/source/ qt-x11-opensource-src-(.*)\.tar.gz
