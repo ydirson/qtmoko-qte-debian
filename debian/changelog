@@ -16,7 +16,7 @@ qt4-x11 (4:4.5.3-1) UNRELEASED; urgency=low
   * Bump Standards-Version to 3.8.3: no changes needed.
 
   +++ Changes by Fathi Boudra:
-  
+
   * Add qt-coy patches:
     - 0288-more-x-keycodes.diff
       Fill gap of X.org/XFree multimedia/special/launcher keys. Qt up to 4.5.x

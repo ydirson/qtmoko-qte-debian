@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 
+#export DH_VERBOSE=1
+
 export QTDIR := $(shell pwd)
 export PATH := $(QTDIR)/bin:$(PATH)
 # workaround to use lrelease.
@@ -67,14 +69,15 @@ common-build-arch::  debian/stamp-makefile-build-tools
 
 debian/stamp-makefile-build-tools: debian/stamp-makefile-build
 	$(MAKE) sub-tools
-	# Test current version is a snapshot
-ifeq (snapshot, $(findstring snapshot, $(CURRENTVERSION)))
 	# Build documentations
 	$(MAKE) docs
+	# Build translations
+	$(MAKE) ts
+	$(MAKE) qm
 	# Workaround: It's a known qmake limitation.
 	# It can't generate install rules for files that don't exist yet like docs.
 	./config.status
-endif
+
 	touch $@
 
 common-configure-arch:: config.status
@@ -99,6 +102,9 @@ endif
 	# we cannot use directly linux-g++ due to src/corelib/io/io.pri
 	rm -rf mkspecs/glibc-g++
 	cp -a mkspecs/linux-g++ mkspecs/glibc-g++
+
+	# Generate include
+	rm -rf include && QTDIR=. perl bin/syncqt
 
 	./configure -confirm-license \
 	            -prefix "/usr" \
@@ -184,7 +190,7 @@ clean::
 
 	# Leftover files and all symlinks
 	find \( -false \
-	  -o -name \*.a \
+	  -o -type f -name \*.a \
 	  -o -name Makefile.Debug \
 	  -o -name Makefile.Release \
 	  -o -name \*.o \
@@ -220,6 +226,7 @@ common-install-arch::
 		-exec sed -i -e "/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/" {} \;
 
 install/libqtcore4::
+	mkdir -p $(DEB_DESTDIR)/usr/share/qt4/translations
 	$(CURDIR)/bin/lrelease-qt4 debian/translations/qt_ca.ts \
 		-qm $(DEB_DESTDIR)/usr/share/qt4/translations/qt_ca.qm
 
