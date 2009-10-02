@@ -34,6 +34,8 @@ qt4-x11 (4:4.5.3-1) UNRELEASED; urgency=low
     - 0286-fix-error-string - Merged upstream.
     - 0287-attempt-to-fix-header-installation-for-phonon - Merged upstream.
     - 06_CVE-2009-1725 - Merged upstream.
+  * Update debian/control:
+    - Switch from iodbc to unixodbc. (Closes: #548976)
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 15 Sep 2009 15:27:39 +0200
 
