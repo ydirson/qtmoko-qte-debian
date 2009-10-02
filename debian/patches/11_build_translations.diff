@@ -1,0 +1,167 @@
+author: Fathi Boudra <fabo@debian.org>
+
+translations fails to build under autobuilders.
+Use case: Qt sources comes from git and we need to build them.
+
+--- a/tools/assistant/translations/qt_help.pro
++++ b/tools/assistant/translations/qt_help.pro
+@@ -39,12 +39,12 @@ HEADERS += ../lib/qhelpcollectionhandler
+            ../lib/qhelp_global.h
+ 
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/qt_help_de.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_ja.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_pl.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_ru.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_untranslated.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_zh_CN.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_zh_TW.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_da.ts
++TRANSLATIONS=../../../translations/qt_help_de.ts \
++             ../../../translations/qt_help_ja.ts \
++             ../../../translations/qt_help_pl.ts \
++             ../../../translations/qt_help_ru.ts \
++             ../../../translations/qt_help_untranslated.ts \
++             ../../../translations/qt_help_zh_CN.ts \
++             ../../../translations/qt_help_zh_TW.ts \
++             ../../../translations/qt_help_da.ts
+ error("This is a dummy profile to be used for translations ONLY.")
+--- a/tools/assistant/translations/translations.pro
++++ b/tools/assistant/translations/translations.pro
+@@ -40,11 +40,11 @@ HEADERS += ../tools/assistant/aboutdialo
+            ../tools/assistant/searchwidget.h \
+            ../tools/assistant/topicchooser.h \
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/assistant_de.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_ja.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_pl.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_ru.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_untranslated.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_zh_CN.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_zh_TW.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_da.ts
++TRANSLATIONS=../../../translations/assistant_de.ts \
++             ../../../translations/assistant_ja.ts \
++             ../../../translations/assistant_pl.ts \
++             ../../../translations/assistant_ru.ts \
++             ../../../translations/assistant_untranslated.ts \
++             ../../../translations/assistant_zh_CN.ts \
++             ../../../translations/assistant_zh_TW.ts \
++             ../../../translations/assistant_da.ts
+--- a/tools/assistant/translations/translations_adp.pro
++++ b/tools/assistant/translations/translations_adp.pro
+@@ -31,11 +31,11 @@ HEADERS += ../compat/helpwindow.h \
+            ../compat/fontsettingsdialog.h
+ 
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/assistant_adp_de.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_adp_ja.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_adp_pl.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_adp_ru.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_adp_untranslated.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_adp_zh_CN.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_adp_zh_TW.ts
++TRANSLATIONS=../../../translations/assistant_adp_de.ts \
++             ../../../translations/assistant_adp_ja.ts \
++             ../../../translations/assistant_adp_pl.ts \
++             ../../../translations/assistant_adp_ru.ts \
++             ../../../translations/assistant_adp_untranslated.ts \
++             ../../../translations/assistant_adp_zh_CN.ts \
++             ../../../translations/assistant_adp_zh_TW.ts
+ error("This is a dummy profile to be used for translations ONLY.")
+--- a/tools/designer/translations/translations.pro
++++ b/tools/designer/translations/translations.pro
+@@ -130,10 +130,10 @@ HEADERS += ../../shared/findwidget/abstr
+            ../../shared/findwidget/itemviewfindwidget.h \
+            ../../shared/findwidget/texteditfindwidget.h
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/designer_de.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/designer_ja.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/designer_pl.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/designer_zh_CN.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/designer_zh_TW.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/designer_untranslated.ts
++TRANSLATIONS=../../../translations/designer_de.ts \
++             ../../../translations/designer_ja.ts \
++             ../../../translations/designer_pl.ts \
++             ../../../translations/designer_zh_CN.ts \
++             ../../../translations/designer_zh_TW.ts \
++             ../../../translations/designer_untranslated.ts
+ 
+--- a/tools/linguist/linguist/linguist.pro
++++ b/tools/linguist/linguist/linguist.pro
+@@ -98,11 +98,11 @@ FORMS += statistics.ui \
+     finddialog.ui
+ RESOURCES += linguist.qrc
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/linguist_ja.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/linguist_pl.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/linguist_ru.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/linguist_untranslated.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/linguist_zh_CN.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/linguist_zh_TW.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/linguist_de.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/linguist_fr.ts
++TRANSLATIONS=../../../translations/linguist_ja.ts \
++             ../../../translations/linguist_pl.ts \
++             ../../../translations/linguist_ru.ts \
++             ../../../translations/linguist_untranslated.ts \
++             ../../../translations/linguist_zh_CN.ts \
++             ../../../translations/linguist_zh_TW.ts \
++             ../../../translations/linguist_de.ts \
++             ../../../translations/linguist_fr.ts
+--- a/tools/qtconfig/translations/translations.pro
++++ b/tools/qtconfig/translations/translations.pro
+@@ -7,8 +7,8 @@ HEADERS        += ../colorbutton.h ../pr
+ 
+ FORMS        = ../mainwindowbase.ui ../paletteeditoradvancedbase.ui ../previewwidgetbase.ui
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/qtconfig_pl.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qtconfig_ru.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qtconfig_untranslated.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qtconfig_zh_CN.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qtconfig_zh_TW.ts
++TRANSLATIONS=../../../translations/qtconfig_pl.ts \
++             ../../../translations/qtconfig_ru.ts \
++             ../../../translations/qtconfig_untranslated.ts \
++             ../../../translations/qtconfig_zh_CN.ts \
++             ../../../translations/qtconfig_zh_TW.ts
+--- a/tools/qvfb/translations/translations.pro
++++ b/tools/qvfb/translations/translations.pro
+@@ -26,8 +26,8 @@ SOURCES =  ../qvfb.cpp \
+            ../qwssignalhandler.cpp \
+            ../../shared/deviceskin/deviceskin.cpp
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/qvfb_pl.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qvfb_ru.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qvfb_untranslated.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qvfb_zh_CN.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qvfb_zh_TW.ts
++TRANSLATIONS=../../../translations/qvfb_pl.ts \
++             ../../../translations/qvfb_ru.ts \
++             ../../../translations/qvfb_untranslated.ts \
++             ../../../translations/qvfb_zh_CN.ts \
++             ../../../translations/qvfb_zh_TW.ts
+--- a/translations/translations.pri
++++ b/translations/translations.pri
+@@ -39,10 +39,10 @@ ts-qt.commands = (cd $$QT_SOURCE_TREE/sr
+                                     svg \
+                                     xml \
+                                     xmlpatterns \
+-                                -ts $$prependAll($$[QT_INSTALL_TRANSLATIONS]/qt_,$$QT_TS,.ts))
++                                -ts $$prependAll($$QT_SOURCE_TREE/translations/qt_,$$QT_TS,.ts))
+ ts-qt.depends = sub-tools
+ 
+-qm-qt.commands = $$LRELEASE $$prependAll($$[QT_INSTALL_TRANSLATIONS]/qt_,$$QT_TS,.ts)
++qm-qt.commands = $$LRELEASE $$prependAll($$QT_SOURCE_TREE/translations/qt_,$$QT_TS,.ts)
+ qm-qt.depends = sub-tools
+ 
+ ###### Designer
+--- a/tools/assistant/compat/translations/translations.pro
++++ b/tools/assistant/compat/translations/translations.pro
+@@ -31,4 +31,4 @@ HEADERS += ../helpwindow.h \
+            ../fontsettingsdialog.h
+ 
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/assistant_de.ts $$[QT_INSTALL_TRANSLATIONS]/assistant_untranslated.ts
++TRANSLATIONS=$$QT_SOURCE_TREE/translations/assistant_de.ts $$QT_SOURCE_TREE/translations/assistant_untranslated.ts

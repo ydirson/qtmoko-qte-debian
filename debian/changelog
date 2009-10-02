@@ -17,6 +17,9 @@ qt4-x11 (4:4.5.3-1) UNRELEASED; urgency=low
 
   +++ Changes by Fathi Boudra:
 
+  * Add Debian patches:
+    - 99_build_translations
+      Fix translations build when sources comes from git.
   * Add qt-coy patches:
     - 0288-more-x-keycodes.diff
       Fill gap of X.org/XFree multimedia/special/launcher keys. Qt up to 4.5.x
@@ -57,7 +60,7 @@ qt4-x11 (4:4.5.2-2) unstable; urgency=low
   +++ Changes by Sune Vuorela:
 
   * Add qt4-dev-tools to -demo recommends just like qt4-doc to make it possible
-    to actually use the documentation from the demo application. 
+    to actually use the documentation from the demo application.
     (Closes: #536558)
 
   +++ Changes by Modestas Vainius:
