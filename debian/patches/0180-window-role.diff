@@ -86,7 +86,7 @@ Trolltech task ID : 168283 (status: "fixed" for Qt 4.4.0, but effectively refuse
          }
  
          // set client leader property
-@@ -2763,6 +2767,17 @@ void QWidgetPrivate::setWindowRole()
+@@ -2765,6 +2769,17 @@ void QWidgetPrivate::setWindowRole()
                      (unsigned char *)windowRole.constData(), windowRole.length());
  }
  

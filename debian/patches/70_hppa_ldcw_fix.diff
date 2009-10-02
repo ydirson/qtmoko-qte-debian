@@ -4,7 +4,10 @@ patch from Ubuntu to properly support hppa.
 
 --- a/src/corelib/arch/parisc/q_ldcw.s
 +++ b/src/corelib/arch/parisc/q_ldcw.s
-@@ -1,17 +1,7 @@
+@@ -38,20 +38,10 @@
+ ;** $QT_END_LICENSE$
+ ;**
+ ;****************************************************************************/
 -	.SPACE $PRIVATE$
 -	.SUBSPA $DATA$,QUAD=1,ALIGN=8,ACCESS=31
 -	.SUBSPA $BSS$,QUAD=1,ALIGN=8,ACCESS=31,ZERO,SORT=82

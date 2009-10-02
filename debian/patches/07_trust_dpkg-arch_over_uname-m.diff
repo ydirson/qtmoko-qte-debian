@@ -4,7 +4,7 @@ Trolltech task ID : 181882
 
 --- a/configure
 +++ b/configure
-@@ -94,7 +94,50 @@ getQMakeConf()
+@@ -125,7 +125,50 @@ getQMakeConf()
  #-------------------------------------------------------------------------------
  
  # need that throughout the script

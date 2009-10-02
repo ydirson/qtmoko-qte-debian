@@ -7,8 +7,9 @@
 0255-qtreeview-selection-columns-hidden.diff
 0274-shm-native-image-fix.diff
 0280-deserialization-custom-dbus-properties.diff
-0286-fix-error-string.diff
-0287-attempt-to-fix-header-installation-for-phonon.diff
+0288-more-x-keycodes.diff
+0289-context-for-shortcuts-tr.diff
+0287-qmenu-respect-minwidth.diff
 
 # debian patches
 01_qmake_for_debian.diff
@@ -16,7 +17,6 @@
 03_launch_moc-qt4.diff
 04_launch_uic-qt4.diff
 05_append_qt4_target.diff
-06_CVE-2009-1725.diff
 07_trust_dpkg-arch_over_uname-m.diff
 09_qmake_lflags_as-needed.diff
 10_config_tests_fixes.diff

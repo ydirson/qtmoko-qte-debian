@@ -1,6 +1,10 @@
 qt4-x11 (4:4.5.3-1) UNRELEASED; urgency=low
 
-  * New upstream release.
+  * New upstream release:
+    - Fix CVE-2009-2700 - QSSlCertificate  incorrect verification of SSL
+      certificate with NUL in subjectAltName. (Closes: #545793)
+    - Fix a regresion in Qt 4.5.2 causing a broken clipboard with scim.
+      (Closes: #544764, #546282)
 
   +++ Changes by Ana Beatriz Guerrero Lopez:
 
@@ -10,6 +14,26 @@ qt4-x11 (4:4.5.3-1) UNRELEASED; urgency=low
 
   * VCS changed to git, adjust Vcs-* field in debian/control accordingly.
   * Bump Standards-Version to 3.8.3: no changes needed.
+
+  +++ Changes by Fathi Boudra:
+  
+  * Add qt-coy patches:
+    - 0288-more-x-keycodes.diff
+      Fill gap of X.org/XFree multimedia/special/launcher keys. Qt up to 4.5.x
+      is missing whole setup of multimedia keys already defined by X.
+    - 0289-context-for-shortcuts-tr.diff
+      Some languages have special rules for using "+" to concatenate strings
+      and for example it needs to be Ctrl + Shift instead of Ctrl+Shift,
+      adding context to these strings helps creating a more correct translation
+    - 0287-qmenu-respect-minwidth.diff
+      If one sets a minimum width on a QMenu and that size is larger than the
+      smallest size needed by the large menu item, it ignores the minimum width
+      and just uses the largest menu item size.
+  * Refresh and adjust patches.
+  * Remove patches:
+    - 0286-fix-error-string - Merged upstream.
+    - 0287-attempt-to-fix-header-installation-for-phonon - Merged upstream.
+    - 06_CVE-2009-1725 - Merged upstream.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 15 Sep 2009 15:27:39 +0200
 

@@ -1,6 +1,6 @@
 --- a/qmake/generators/makefile.cpp
 +++ b/qmake/generators/makefile.cpp
-@@ -2334,7 +2334,7 @@ MakefileGenerator::writeSubTargets(QText
+@@ -2333,7 +2333,7 @@ MakefileGenerator::writeSubTargets(QText
  
          QString mkfile = subtarget->makefile;
          if(!in_directory.isEmpty())
