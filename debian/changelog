@@ -14,6 +14,8 @@ qt4-x11 (4:4.5.3-1) UNRELEASED; urgency=low
 
   * VCS changed to git, adjust Vcs-* field in debian/control accordingly.
   * Bump Standards-Version to 3.8.3: no changes needed.
+  * Document Git repository policy and packaging workflows in
+    debian/README.source.
 
   +++ Changes by Fathi Boudra:
 
