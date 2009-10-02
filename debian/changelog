@@ -36,6 +36,9 @@ qt4-x11 (4:4.5.3-1) UNRELEASED; urgency=low
     - 06_CVE-2009-1725 - Merged upstream.
   * Update debian/control:
     - Switch from iodbc to unixodbc. (Closes: #548976)
+  * Update debian/copyright:
+    - Update Nokia Qt url.
+    - Update Nokia Qt LGPL Exception from version 1.0 to version 1.1.
 
  -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 15 Sep 2009 15:27:39 +0200
 
