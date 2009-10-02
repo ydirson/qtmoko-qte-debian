@@ -42,6 +42,12 @@ qt4-x11 (4:4.5.3-1) UNRELEASED; urgency=low
   * Update debian/copyright:
     - Update Nokia Qt url.
     - Update Nokia Qt LGPL Exception from version 1.0 to version 1.1.
+  * Update debian/rules:
+    - Build translations
+    - Generate include directory before configure call.
+    - Test file type on *.a cleaning. tests directory contains *.a in their
+      names.
+    - Make sure translations directory is created before calling lrelease.
   * Update debian/watch:
     - Update Nokia Qt url.
 
