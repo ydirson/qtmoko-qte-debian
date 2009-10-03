@@ -83,6 +83,7 @@ qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/itemviews/customs
 qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/itemviews/dirview/dirview.debug
 qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/itemviews/editabletreemodel/editabletreemodel.debug
 qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/itemviews/fetchmore/fetchmore.debug
+qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/itemviews/frozencolumn/frozencolumn.debug
 qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/itemviews/pixelator/pixelator.debug
 qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/itemviews/puzzle/puzzle.debug
 qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/itemviews/simpledommodel/simpledommodel.debug
