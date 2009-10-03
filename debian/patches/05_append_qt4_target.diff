@@ -215,3 +215,16 @@ author: Fathi Boudra <fabo@debian.org>
  DESTDIR                = ../../bin
  
  target.path=$$[QT_INSTALL_BINS]
+--- a/translations/translations.pri
++++ b/translations/translations.pri
+@@ -16,8 +16,8 @@ WIN {
+ }
+ }
+ 
+-LUPDATE = $$fixPath($$QT_BUILD_TREE/bin/lupdate) -locations relative -no-ui-lines
+-LRELEASE = $$fixPath($$QT_BUILD_TREE/bin/lrelease)
++LUPDATE = $$fixPath($$QT_BUILD_TREE/bin/lupdate-qt4) -locations relative -no-ui-lines
++LRELEASE = $$fixPath($$QT_BUILD_TREE/bin/lrelease-qt4)
+ 
+ ###### Qt Libraries
+ 

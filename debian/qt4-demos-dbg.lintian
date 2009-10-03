@@ -191,7 +191,7 @@ qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/tutorials/address
 qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/uitools/multipleinheritance/multipleinheritance.debug
 qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/uitools/textfinder/textfinder.debug
 qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/webkit/fancybrowser/fancybrowser.debug
-qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/webkit/formextractor/formExtractor.debug
+qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/webkit/formextractor/formextractor.debug
 qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/webkit/googlechat/googlechat.debug
 qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/webkit/previewer/previewer.debug
 qt4-demos-dbg: statically-linked-binary ./usr/lib/qt4/examples/widgets/analogclock/analogclock.debug
