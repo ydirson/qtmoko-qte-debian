@@ -1,4 +1,4 @@
-qt4-x11 (4:4.5.3-1) UNRELEASED; urgency=low
+qt4-x11 (4:4.5.3-0r1) UNRELEASED; urgency=low
 
   * New upstream release:
     - Fix CVE-2009-2700 - QSSlCertificate  incorrect verification of SSL
@@ -44,6 +44,7 @@ qt4-x11 (4:4.5.3-1) UNRELEASED; urgency=low
   * Update debian/copyright:
     - Update Nokia Qt url.
     - Update Nokia Qt LGPL Exception from version 1.0 to version 1.1.
+  * Update *.install and *.lintian files.
   * Update debian/rules:
     - Build translations
     - Generate include directory before configure call.
