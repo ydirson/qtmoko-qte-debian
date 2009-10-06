@@ -1,4 +1,4 @@
-qt4-x11 (4:4.5.3-0r1) UNRELEASED; urgency=low
+qt4-x11 (4:4.5.3-0r2) UNRELEASED; urgency=low
 
   * New upstream release:
     - Fix CVE-2009-2700 - QSSlCertificate  incorrect verification of SSL
