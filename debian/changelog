@@ -19,6 +19,9 @@ qt4-x11 (4:4.5.3-0r1) UNRELEASED; urgency=low
 
   +++ Changes by Fathi Boudra:
 
+  * Add upstream patches:
+    - 0078-Fix-regressions-in-qeventloop-qtimer-and-qsocketnoti.patch
+      Fix regressions in qeventloop, qtimer, and qsocketnotifier autotests.
   * Add Debian patches:
     - 99_build_translations
       Fix translations build when sources comes from git.

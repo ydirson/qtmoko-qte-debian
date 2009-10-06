@@ -1,3 +1,6 @@
+# upstream patches
+0078-Fix-regressions-in-qeventloop-qtimer-and-qsocketnoti.patch
+
 # qt-copy patches
 0180-window-role.diff
 0195-compositing-properties.diff
