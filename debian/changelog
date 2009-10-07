@@ -1,10 +1,11 @@
-qt4-x11 (4:4.5.3-0r2) UNRELEASED; urgency=low
+qt4-x11 (4:4.5.3-1) unstable; urgency=low
 
   * New upstream release:
     - Fix CVE-2009-2700 - QSSlCertificate  incorrect verification of SSL
       certificate with NUL in subjectAltName. (Closes: #545793)
     - Fix a regresion in Qt 4.5.2 causing a broken clipboard with scim.
       (Closes: #544764, #546282)
+    - Fix phonon wrong #include paths. (Closes: #537304)
 
   +++ Changes by Ana Beatriz Guerrero Lopez:
 
