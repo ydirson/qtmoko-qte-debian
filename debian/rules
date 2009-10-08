@@ -20,7 +20,6 @@ include /usr/share/cdbs/1/rules/patchsys-quilt.mk
 include /usr/share/cdbs/1/rules/utils.mk
 
 DEB_MAKE_INVOKE := $(MAKE)
-DEB_MAKE_BUILD_TARGET := sub-src
 DEB_MAKE_INSTALL_TARGET := INSTALL_ROOT=$(DEB_DESTDIR) install
 DEB_DH_INSTALL_SOURCEDIR := debian/tmp
 
@@ -68,7 +67,6 @@ endif
 common-build-arch::  debian/stamp-makefile-build-tools
 
 debian/stamp-makefile-build-tools: debian/stamp-makefile-build
-	$(MAKE) sub-tools
 	# Build documentations
 	$(MAKE) docs
 	# Build translations

@@ -1,3 +1,11 @@
+qt4-x11 (4:4.5.3-2) unstable; urgency=low
+
+  * Update debian/rules: cleanup make target usage by removing sub-src and
+    sub-tools call. Fix a FTBFS on buildds caused by make target ordering.
+    (Closes: #550127)
+
+ -- Fathi Boudra <fabo@debian.org>  Thu, 08 Oct 2009 15:31:52 +0200
+
 qt4-x11 (4:4.5.3-1) unstable; urgency=low
 
   * New upstream release:
