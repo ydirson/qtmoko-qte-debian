@@ -1,6 +1,8 @@
 qt4-x11 (4:4.5.3-3) UNRELEASED; urgency=low
 
-  * qrap, it's still not fixed (Closes: #550127)
+  * Remove -fast configure option. Qt configure has -no-fast as default value
+    and will generate Makefiles for all project files, including bootstrap.
+    (Closes: #550127)
 
  -- Fathi Boudra <fabo@debian.org>  Fri, 09 Oct 2009 13:53:57 +0200
 
