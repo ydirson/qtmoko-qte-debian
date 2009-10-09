@@ -1,3 +1,9 @@
+qt4-x11 (4:4.5.3-3) UNRELEASED; urgency=low
+
+  * qrap, it's still not fixed (Closes: #550127)
+
+ -- Fathi Boudra <fabo@debian.org>  Fri, 09 Oct 2009 13:53:57 +0200
+
 qt4-x11 (4:4.5.3-2) unstable; urgency=low
 
   * Update debian/rules: cleanup make target usage by removing sub-src and
