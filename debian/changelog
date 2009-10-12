@@ -1,4 +1,4 @@
-qt4-x11 (4:4.5.3-3) UNRELEASED; urgency=low
+qt4-x11 (4:4.5.3-3) unstable; urgency=low
 
   * Remove -fast configure option. Qt configure has -no-fast as default value
     and will generate Makefiles for all project files, including bootstrap.

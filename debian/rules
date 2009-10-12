@@ -136,6 +136,7 @@ endif
 	            -system-libpng \
 	            -system-libjpeg \
 	            -no-rpath \
+	            -verbose \
 	            -optimized-qmake \
 	            -dbus \
 	            -gtkstyle \
