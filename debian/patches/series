@@ -21,6 +21,7 @@
 04_launch_uic-qt4.diff
 05_append_qt4_target.diff
 07_trust_dpkg-arch_over_uname-m.diff
+08_configure_quilt_compat.diff
 09_qmake_lflags_as-needed.diff
 10_config_tests_fixes.diff
 11_build_translations.diff

@@ -117,6 +117,7 @@ endif
 	            -demosdir "/usr/lib/qt4/demos" \
 	            -examplesdir "/usr/lib/qt4/examples" \
 	            -opensource \
+	            -fast \
 	            -plugin-sql-mysql \
 	            -plugin-sql-odbc \
 	            -plugin-sql-psql \

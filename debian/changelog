@@ -1,3 +1,11 @@
+qt4-x11 (4:4.5.3-4) unstable; urgency=low
+
+  * Add 08_configure_quilt_compat.diff patch. (Closes: #550127)
+    quilt creates '.pc' directory. It breaks qmake projects search.
+  * Update debian/rules: re-add -fast configure option.
+
+ -- Fathi Boudra <fabo@debian.org>  Thu, 15 Oct 2009 22:32:28 +0200
+
 qt4-x11 (4:4.5.3-3) unstable; urgency=low
 
   * Remove -fast configure option. Qt configure has -no-fast as default value
