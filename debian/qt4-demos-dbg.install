@@ -19,9 +19,9 @@ usr/lib/qt4/demos/undo/undo.debug
 usr/lib/qt4/examples/assistant/simpletextviewer/simpletextviewer.debug
 usr/lib/qt4/examples/dbus/chat/dbus-chat.debug
 usr/lib/qt4/examples/dbus/complexpingpong/complexping.debug
-# known bug when using -no-fast usr/lib/qt4/examples/dbus/complexpingpong/complexpong.debug
+usr/lib/qt4/examples/dbus/complexpingpong/complexpong.debug
 usr/lib/qt4/examples/dbus/listnames/listnames.debug
-# known bug when using -no-fast usr/lib/qt4/examples/dbus/pingpong/ping.debug
+usr/lib/qt4/examples/dbus/pingpong/ping.debug
 usr/lib/qt4/examples/dbus/pingpong/pong.debug
 usr/lib/qt4/examples/dbus/remotecontrolledcar/car/car.debug
 usr/lib/qt4/examples/dbus/remotecontrolledcar/controller/controller.debug
