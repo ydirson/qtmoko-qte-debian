@@ -409,7 +409,7 @@ Description: Qt 4 library debugging symbols
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
- This packages contains the debugging symbols for the Qt 4 libraries.
+ This package contains the debugging symbols for the Qt 4 libraries.
 
 Package: libqt4-webkit-dbg
 Priority: extra
@@ -421,7 +421,7 @@ Description: Qt 4 WebKit library debugging symbols
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
- This packages contains the debugging symbols for the Qt 4 WebKit library.
+ This package contains the debugging symbols for the Qt 4 WebKit library.
 
 Package: libqt4-xmlpatterns-dbg
 Priority: extra
@@ -433,7 +433,7 @@ Description: Qt 4 XML patterns library debugging symbols
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
- This packages contains the debugging symbols for the Qt 4 XML patterns
+ This package contains the debugging symbols for the Qt 4 XML patterns
  library.
 
 Package: phonon-dbg
@@ -458,7 +458,7 @@ Description: Qt 4 examples and demos debugging symbols
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
- This packages contains the debugging symbols for the Qt 4 examples and
+ This package contains the debugging symbols for the Qt 4 examples and
  demos.
 
 Package: qt4-designer
@@ -486,7 +486,7 @@ Description: Qt 4 development tools
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
- This packages contains tools used to assist in Qt 4 development, including
+ This package contains tools used to assist in Qt 4 development, including
  the Qt Assistant, Linguist, D-Bus Viewer and Pixel Tool applications.
 
 Package: qt4-qmake

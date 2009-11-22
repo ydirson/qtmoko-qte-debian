@@ -1,3 +1,12 @@
+qt4-x11 (4:4.5.3-5) UNRELEASED; urgency=low
+
+  +++ Changes by Frederik Schwarzer:
+
+  * Fix typos in package descriptions.
+    (Closes: #557397, #557396, #557374, #557375, #557376)
+
+ -- Fathi Boudra <fabo@debian.org>  Thu, 15 Oct 2009 22:32:28 +0200
+
 qt4-x11 (4:4.5.3-4) unstable; urgency=low
 
   * Add 08_configure_quilt_compat.diff patch. (Closes: #550127)
