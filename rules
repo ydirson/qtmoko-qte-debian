@@ -2,6 +2,35 @@
 
 #export DH_VERBOSE=1
 
+ifneq ($(DEB_HOST_GNU_TYPE),$(DEB_BUILD_GNU_TYPE))
+CROSS=$(DEB_HOST_GNU_TYPE)-
+CROSS_CPPFLAGS=-I/usr/$(DEB_HOST_GNU_TYPE)/include/$(DEB_HOST_GNU_TYPE)
+CROSS_INCDIR=/usr/$(DEB_HOST_GNU_TYPE)/include /usr/$(DEB_HOST_GNU_TYPE)/include/$(DEB_HOST_GNU_TYPE) /usr/$(DEB_HOST_GNU_TYPE)/include/dbus-1.0 /usr/$(DEB_HOST_GNU_TYPE)/lib/dbus-1.0/include
+CROSS_LIBDIR=/usr/$(DEB_HOST_GNU_TYPE)/lib
+else
+CROSS_CPPFLAGS=
+CROSS_INCDIR=/usr/include/dbus-1.0 /usr/lib/dbus-1.0/include
+CROSS_LIBDIR=
+endif
+CC=$(CROSS)gcc
+CXX=$(CROSS)g++
+AR=$(CROSS)ar
+OBJCOPY=$(CROSS)objcopy
+STRIP=$(CROSS)strip
+
+ifeq (arm-linux-gnueabi,$(DEB_HOST_GNU_TYPE))
+CROSS_CPPFLAGS+=-march=armv4t
+ifeq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
+CROSS_CPPFLAGS+=-fomit-frame-pointer -finline-functions -falign-functions=2 -falign-loops=2 -falign-jumps=2 -mtune=arm920t -msoft-float
+endif
+endif
+
+# FIXME: will need adjustment for non-linux
+XTOOLCHAIN_NAME=linux-debian-g++
+
+CFLAGS=-pipe $(shell dpkg-buildflags --get CFLAGS) $(CROSS_CPPFLAGS)
+LDFLAGS=$(shell dpkg-buildflags --get LDFLAGS)
+
 export QTDIR := $(shell pwd)
 export PATH := $(QTDIR)/bin:$(PATH)
 # workaround to use lrelease.
@@ -46,13 +75,6 @@ DEB_DH_SHLIBDEPS_ARGS_ALL := --exclude=.debug
 DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
 
 DEB_INSTALL_DOCS_ALL := LGPL_EXCEPTION.txt
-
-ibase_architectures := i386 kfreebsd-i386 kfreebsd-amd64 knetbsd-i386 netbsd-i386 amd64 sparc powerpc
-ifeq ($(DEB_HOST_ARCH),$(findstring $(DEB_HOST_ARCH), $(ibase_architectures)))
-	EXTRA_CONFIGURE_OPTS += -plugin-sql-ibase
-else
-	EXTRA_CONFIGURE_OPTS += -no-sql-ibase
-endif
 
 ifeq ($(DEB_HOST_ARCH),arm)
 	EXTRA_CONFIGURE_OPTS += -DQT_QLOCALE_USES_FCVT
@@ -104,32 +126,49 @@ endif
 	# Generate include
 	rm -rf include && QTDIR=. perl bin/syncqt
 
+	# Generate xplatform definition
+	sed < debian/toolchain/qmake.conf.in > debian/toolchain/qmake.conf \
+		-e 's:@CC@:$(CC):' -e 's:@CXX@:$(CXX):' -e 's:@AR@:$(AR):' \
+		-e 's:@OBJCOPY@:$(OBJCOPY):' -e 's:@STRIP@:$(STRIP):' \
+		-e 's:@CFLAGS@:$(CFLAGS):' -e 's:@LDFLAGS@:$(LDFLAGS):' \
+		-e 's:@INCDIR@:$(CROSS_INCDIR):' -e 's:@LIBDIR@:$(CROSS_LIBDIR):'
+	rm -rf mkspecs/qws/$(XTOOLCHAIN_NAME)
+	cp -a debian/toolchain mkspecs/qws/$(XTOOLCHAIN_NAME)
 	./configure -confirm-license \
-	            -prefix "/usr" \
-	            -bindir "/usr/bin" \
-	            -libdir "/usr/lib" \
-	            -docdir "/usr/share/qt4/doc" \
-	            -headerdir "/usr/include/qt4" \
-	            -datadir "/usr/share/qt4" \
-	            -plugindir "/usr/lib/qt4/plugins" \
-	            -translationdir "/usr/share/qt4/translations" \
+	            -embedded $(DEB_HOST_GNU_CPU) -little-endian -xplatform qws/$(XTOOLCHAIN_NAME) \
+			-release \
+			-depths 8,16,18,24,32 -qconfig qpe \
+			-no-stl -no-exceptions -no-qt3support \
+			-no-glib -no-cups -no-accessibility \
+			-no-gfx-qvfb -no-mouse-qvfb -no-kbd-qvfb \
+			-nomake tools -nomake examples -nomake demos -nomake docs \
+			-DQT_QWS_DISABLE_FLUSHCLIPPING -DQT_NO_PLUGIN_CHECK \
+			-DQT_EXTERNAL_SOUND_SERVER -DQT_QWS_KEYEVENT_SINGLECLIENT \
+			-DMEDIA_SERVER -DQT_KEYPAD_NAVIGATION \
+			-DQT_QWS_DYNAMIC_TRANSFORMATION -DQT_QWS_CLIENTBLIT \
+			-qt-mouse-tslib \
+	            -prefix "/opt/qtmoko" \
+	            -bindir "/opt/qtmoko/bin" \
+	            -libdir "/opt/qtmoko/lib" \
+	            -docdir "/opt/qtmoko/share/qt4/doc" \
+	            -headerdir "/opt/qtmoko/include/qt4" \
+	            -datadir "/opt/qtmoko/share/qt4" \
+	            -plugindir "/opt/qtmoko/lib/qt4/plugins" \
+	            -translationdir "/opt/qtmoko/share/qt4/translations" \
 	            -sysconfdir "/etc/xdg" \
-	            -demosdir "/usr/lib/qt4/demos" \
-	            -examplesdir "/usr/lib/qt4/examples" \
+	            -demosdir "/opt/qtmoko/lib/qt4/demos" \
+	            -examplesdir "/opt/qtmoko/lib/qt4/examples" \
 	            -opensource \
 	            -fast \
-	            -plugin-sql-mysql \
-	            -plugin-sql-odbc \
-	            -plugin-sql-psql \
-	            -plugin-sql-sqlite \
-	            -plugin-sql-sqlite2 \
+			-no-sql-db2 -no-sql-ibase -no-sql-mysql -no-sql-oci \
+			-no-sql-odbc -no-sql-psql -no-sql-sqlite -no-sql-sqlite2 -no-sql-tds \
 	            -system-sqlite \
-	            -xmlpatterns \
+	            -no-xmlpatterns \
 	            -phonon \
 	            -no-phonon-backend \
 	            -svg \
 	            -webkit \
-	            -scripttools \
+	            -no-scripttools \
 	            -platform $(PLATFORM_ARG) \
 	            -system-zlib \
 	            -qt-gif \
@@ -140,9 +179,8 @@ endif
 	            -verbose \
 	            -optimized-qmake \
 	            -dbus \
-	            -gtkstyle \
+	            -no-gtkstyle \
 	            -system-nas-sound \
-	            -lfontconfig \
 	            -I/usr/include/freetype2 \
 	            $(EXTRA_CONFIGURE_OPTS)
 
