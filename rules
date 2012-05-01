@@ -184,6 +184,7 @@ endif
 	            -I/usr/include/freetype2 \
 	            $(EXTRA_CONFIGURE_OPTS)
 
+DEB_CLEAN_EXCLUDE=*.bak
 clean::
 # Extra stuff missed by confclean/distclean
 
@@ -201,7 +202,6 @@ clean::
 	  doc-build/ \
 	  examples/tools/plugandpaint/plugins/ \
 	  examples/tools/styleplugin/styles/ \
-	  lib/ \
 	  mkspecs/glibc-g++/ \
 	  plugins/ \
 	;
@@ -226,21 +226,24 @@ clean::
 
 	# Leftover files and all symlinks
 	find \( -false \
-	  -o -type f -name \*.a \
+	  -o -type f -name \*.a -not -path ./tests/auto/qdir/types/\* \
 	  -o -name Makefile.Debug \
 	  -o -name Makefile.Release \
 	  -o -name \*.o \
+	  -o -name \*.so -not -path ./tests/auto/qlibrary/library_path/invalid.so \
 	  -o -name \*.prl \
-	  -o -name \*.so \
 	  -o -name \*.so.debug \
 	  -o -type l \
 	\) -delete
+
 
 	# Delete all Makefiles, excluding some from src/3rdparty
 	find $(CURDIR) -name Makefile \
 	  ! -path $(CURDIR)/src/3rdparty/Makefile \
 	  ! -path $(CURDIR)/src/3rdparty/freetype/\* \
 	  ! -path $(CURDIR)/src/3rdparty/zlib/\* \
+	  ! -path $(CURDIR)/src/3rdparty/ptmalloc/Makefile \
+	  ! -path $(CURDIR)/util/gencmap/Makefile \
 	-delete
 
 	# Any remaining executables
