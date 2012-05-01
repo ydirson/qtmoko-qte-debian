@@ -39,7 +39,7 @@ export LD_LIBRARY_PATH := $(QTDIR)/lib:$(LD_LIBRARY_PATH)
 export QT_PLUGIN_PATH := $(QTDIR)/plugins
 
 # Qt upstream version (e.g.: 4.5.2)
-QTVERSION := $(shell ls changes-* | cut -f2 -d '-')
+#QTVERSION := $(shell ls changes-* | cut -f2 -d '-')
 # Current debian version (e.g.: 4:4.5.2-1)
 CURRENTVERSION := $(shell dpkg-parsechangelog | sed -n 's/^Version: //p')
 
@@ -72,7 +72,7 @@ DEB_DH_STRIP_ARGS_qt4-demos-dbg := --exclude=.debug
 DEB_DH_SHLIBDEPS_ARGS_ALL := --exclude=.debug
 
 # Disable for rc
-DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
+#DEB_INSTALL_CHANGELOGS_ALL := changes-$(QTVERSION)
 
 DEB_INSTALL_DOCS_ALL := LGPL_EXCEPTION.txt
 
