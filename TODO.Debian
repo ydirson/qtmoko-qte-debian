@@ -1,4 +1,2 @@
-  +++ TODO:
-
-  * Review bug reports.
-
+* rename source package
+* use system qmake
