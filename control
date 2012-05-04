@@ -14,23 +14,23 @@ Homepage: http://www.qtsoftware.com
 Vcs-Git: git://git.debian.org/pkg-kde/qt4-x11.git
 Vcs-Browser: http://git.debian.org/?p=pkg-kde/qt4-x11.git;a=summary
 
-Package: libqtcore4
+Package: libqtecore4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: libqt4-core (<< 4.4.0~beta1-1), libqt4-gui (<< 4.4.0~beta1-1)
+Replaces: libqte4-core (<< 4.4.0~beta1-1), libqte4-gui (<< 4.4.0~beta1-1)
 Description: Qt 4 core module
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
  The QtCore module contains core non-GUI functionality.
 
-Package: libqt4-core
+Package: libqte4-core
 Architecture: any
 Section: libs
-Depends: ${misc:Depends}, libqtcore4 (= ${binary:Version}), libqt4-network (= ${binary:Version}),
- libqt4-script (= ${binary:Version}), libqt4-xml (= ${binary:Version}),
- libqt4-dbus (= ${binary:Version}), libqt4-test (= ${binary:Version})
+Depends: ${misc:Depends}, libqtecore4 (= ${binary:Version}), libqte4-network (= ${binary:Version}),
+ libqte4-script (= ${binary:Version}), libqte4-xml (= ${binary:Version}),
+ libqte4-dbus (= ${binary:Version}), libqte4-test (= ${binary:Version})
 Description: transitional package for Qt 4 core non-GUI runtime libraries
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -39,25 +39,25 @@ Description: transitional package for Qt 4 core non-GUI runtime libraries
  packages linked against Qt 4.3 or earlier Qt 4 releases previously shipped
  in Debian.
 
-Package: libqtgui4
+Package: libqtegui4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: qt4-qtconfig
-Conflicts: libqt4-designer (<< 4.4.0~beta1-1)
-Replaces: libqt4-core (<< 4.0.1-3), libqt4-gui (<< 4.4.0),
- qt4-designer (<< 4.1.4), libqt4-designer (<< 4.4.0~beta1-1)
+Conflicts: libqte4-designer (<< 4.4.0~beta1-1)
+Replaces: libqte4-core (<< 4.0.1-3), libqte4-gui (<< 4.4.0),
+ qt4-designer (<< 4.1.4), libqte4-designer (<< 4.4.0~beta1-1)
 Description: Qt 4 GUI module
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
  The QtGui module extends QtCore with GUI functionality.
 
-Package: libqt4-gui
+Package: libqte4-gui
 Architecture: any
 Section: libs
-Depends: ${misc:Depends}, libqtgui4 (= ${binary:Version}), libqt4-svg (= ${binary:Version}), libqt4-opengl (= ${binary:Version}),
- libqt4-designer (= ${binary:Version}), libqt4-assistant (= ${binary:Version})
+Depends: ${misc:Depends}, libqtegui4 (= ${binary:Version}), libqte4-svg (= ${binary:Version}),
+ libqte4-designer (= ${binary:Version}), libqte4-assistant (= ${binary:Version})
 Description: transitional package for Qt 4 GUI runtime libraries
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -66,11 +66,11 @@ Description: transitional package for Qt 4 GUI runtime libraries
  packages which the package of the same name used to provide in Qt 4.3.4
  and earlier Debian packages of Qt 4.
 
-Package: libqt4-network
+Package: libqte4-network
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: libqt4-core (<< 4.4.0~beta1-1)
+Replaces: libqte4-core (<< 4.4.0~beta1-1)
 Description: Qt 4 network module
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -78,34 +78,18 @@ Description: Qt 4 network module
  The QtNetwork module offers classes that allow you to write TCP/IP clients and
  servers. It provides classes to make network programming easier and portable.
 
-Package: libqt4-opengl
+Package: libqte4-script
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: libqt4-gui (<< 4.4.0~beta1-1)
-Replaces: libqt4-gui (<< 4.4.0~beta1-1)
-Description: Qt 4 OpenGL module
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- The QtOpenGL module offers classes that make it easy to use OpenGL in Qt
- applications.
- .
- OpenGL is a standard API for rendering 3D graphics. OpenGL only deals with 3D
- rendering and provides little or no support for GUI programming issues.
-
-Package: libqt4-script
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: libqt4-core (<< 4.4.0~beta1-1)
+Replaces: libqte4-core (<< 4.4.0~beta1-1)
 Description: Qt 4 script module
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
  The QtScript module provides classes for making Qt applications scriptable.
 
-Package: libqt4-scripttools
+Package: libqte4-scripttools
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
@@ -119,12 +103,12 @@ Description: Qt 4 script tools module
  This package contains the Qt Script debugger, a tool for debugging script
  execution in Qt applications that use Qt Script.
 
-Package: libqt4-sql
+Package: libqte4-sql
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: libqt4-sql-mysql | libqt4-sql-odbc | libqt4-sql-psql | libqt4-sql-sqlite | libqt4-sql-sqlite2 | libqt4-sql-ibase [i386 kfreebsd-i386 kfreebsd-amd64 amd64 sparc powerpc]
-Suggests: libqt4-dev
+Recommends: libqte4-sql-mysql | libqte4-sql-odbc | libqte4-sql-psql | libqte4-sql-sqlite | libqte4-sql-sqlite2 | libqte4-sql-ibase [i386 kfreebsd-i386 kfreebsd-amd64 amd64 sparc powerpc]
+Suggests: libqte4-dev
 Description: Qt 4 SQL module
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -133,80 +117,25 @@ Description: Qt 4 SQL module
  applications.
  .
  If you wish to use the SQL module for development, you should install the
- libqt4-dev package.
+ libqte4-dev package.
 
-Package: libqt4-sql-ibase
-Architecture: i386 kfreebsd-i386 kfreebsd-amd64 amd64 sparc powerpc
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: libqt4-dev
-Description: Qt 4 InterBase/FireBird database driver
- This package contains the InterBase/FireBird plugin for Qt 4.
- .
- Install it if you intend to use or write Qt programs that are to access an
- InterBase/FireBird DB.
-
-Package: libqt4-sql-mysql
+Package: libqte4-sql-sqlite
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: libqt4-dev
-Description: Qt 4 MySQL database driver
- This package contains the MySQL plugin for Qt 4.
- .
- Install it if you intend to use or write Qt programs that are to access a
- MySQL DB.
-
-Package: libqt4-sql-odbc
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: libqt4-dev
-Description: Qt 4 ODBC database driver
- This package contains the ODBC plugin for Qt 4.
- .
- Install it if you intend to use or write Qt programs that are to access an
- ODBC DB.
-
-Package: libqt4-sql-psql
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: libqt4-dev
-Description: Qt 4 PostgreSQL database driver
- This package contains the PostgreSQL plugin for Qt 4.
- .
- Install it if you intend to use or write Qt programs that are to access a
- PostgreSQL DB.
-
-Package: libqt4-sql-sqlite
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: libqt4-dev
+Suggests: libqte4-dev
 Description: Qt 4 SQLite 3 database driver
  This package contains the SQLite 3 plugin for Qt 4.
  .
  Install it if you intend to use or write Qt programs that are to access an
  SQLite 3 DB.
 
-Package: libqt4-sql-sqlite2
+Package: libqte4-svg
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: libqt4-dev
-Description: Qt 4 SQLite 2 database driver
- This package contains the SQLite 2 plugin for Qt 4.
- .
- Install it if you intend to use or write Qt programs that are to access an
- SQLite 2 DB.
-
-Package: libqt4-svg
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: libqt4-gui (<< 4.4.0~beta1-1)
-Replaces: libqt4-gui (<< 4.4.0~beta1-1)
+Conflicts: libqte4-gui (<< 4.4.0~beta1-1)
+Replaces: libqte4-gui (<< 4.4.0~beta1-1)
 Description: Qt 4 SVG module
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -216,7 +145,7 @@ Description: Qt 4 SVG module
  Scalable Vector Graphics (SVG) is a language for describing two-dimensional
  graphics and graphical applications in XML.
 
-Package: libqt4-webkit
+Package: libqte4-webkit
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
@@ -227,11 +156,11 @@ Description: Qt 4 WebKit module
  QtWebKit provides a Web browser engine that makes it easy to embed content
  from the World Wide Web into your Qt application.
 
-Package: libqt4-xml
+Package: libqte4-xml
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: libqt4-core (<< 4.4.0~beta1-1)
+Replaces: libqte4-core (<< 4.4.0~beta1-1)
 Description: Qt 4 XML module
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -239,21 +168,11 @@ Description: Qt 4 XML module
  The QtXml module provides a stream reader and writer for XML documents,
  and C++ implementations of SAX and DOM.
 
-Package: libqt4-xmlpatterns
+Package: libqte4-dbus
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Qt 4 XML patterns module
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- QtXmlPatterns is a XQuery and XPath engine for XML and custom data models.
-
-Package: libqt4-dbus
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: libqt4-core (<< 4.4.0~beta1-1)
+Replaces: libqte4-core (<< 4.4.0~beta1-1)
 Description: Qt 4 D-Bus module
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -265,27 +184,12 @@ Description: Qt 4 D-Bus module
  applications by exporting objects, as well as use services exported by those
  applications by placing calls and accessing properties.
 
-Package: libqt4-qt3support
+Package: libqte4-designer
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: libqt4-gui (<< 4.2.1-1), qt4-designer (<< 4.4.0~beta1-1)
-Description: Qt 3 compatibility library for Qt 4
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- The Qt3Support module provides classes that ease porting from Qt 3 to Qt 4.
- .
- It allows applications designed to use deprecated Qt 3 classes and functions
- to work with Qt 4, with help from the qt3to4 porting tool found in the
- libqt4-dev package.
-
-Package: libqt4-designer
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: libqt4-gui (<< 4.4.0~beta1-1)
-Replaces: libqt4-gui (<< 4.4.0~beta1-1)
+Conflicts: libqte4-gui (<< 4.4.0~beta1-1)
+Replaces: libqte4-gui (<< 4.4.0~beta1-1)
 Description: Qt 4 designer module
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -294,7 +198,7 @@ Description: Qt 4 designer module
  custom widget plugins for Qt Designer, and classes that enable you to access
  Qt Designer's components.
 
-Package: libqt4-help
+Package: libqte4-help
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
@@ -305,12 +209,12 @@ Description: Qt 4 help module
  The QtHelp module provides classes for integrating online documentation in
  applications.
 
-Package: libqt4-assistant
+Package: libqte4-assistant
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: libqt4-gui (<< 4.4.0~beta1-1)
-Replaces: libqt4-gui (<< 4.4.0~beta1-1)
+Conflicts: libqte4-gui (<< 4.4.0~beta1-1)
+Replaces: libqte4-gui (<< 4.4.0~beta1-1)
 Description: Qt 4 assistant module
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -318,11 +222,11 @@ Description: Qt 4 assistant module
  The QtAssistant module provides a means of launching Qt Assistant to provide
  online help.
 
-Package: libqt4-test
+Package: libqte4-test
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: libqt4-core (<< 4.4.0~beta1-1)
+Replaces: libqte4-core (<< 4.4.0~beta1-1)
 Description: Qt 4 test module
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -342,22 +246,20 @@ Description: Qt 4 Phonon module
  The Qt Phonon module provides a cross-platform multimedia framework that
  enables the use of audio and video content in Qt applications.
 
-Package: libqt4-dev
+Package: libqte4-dev
 Architecture: any
 Section: libdevel
-Depends: ${shlibs:Depends}, ${misc:Depends}, libqtcore4 (= ${binary:Version}),
- libqt4-network (= ${binary:Version}), libqt4-dbus (= ${binary:Version}),
- libqtgui4 (= ${binary:Version}), libqt4-svg (= ${binary:Version}),
- libqt4-webkit (= ${binary:Version}), libqt4-xml (= ${binary:Version}),
- libqt4-sql (= ${binary:Version}), libqt4-script (= ${binary:Version}),
- libqt4-scripttools (= ${binary:Version}), libqt4-xmlpatterns (= ${binary:Version}),
- libqt4-qt3support (= ${binary:Version}), libqt4-designer (= ${binary:Version}),
- libqt4-help (= ${binary:Version}), libqt4-assistant (= ${binary:Version}),
- libqt4-test (= ${binary:Version}), libphonon4 (= ${binary:Version}),
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqtecore4 (= ${binary:Version}),
+ libqte4-network (= ${binary:Version}), libqte4-dbus (= ${binary:Version}),
+ libqtegui4 (= ${binary:Version}), libqte4-svg (= ${binary:Version}),
+ libqte4-webkit (= ${binary:Version}), libqte4-xml (= ${binary:Version}),
+ libqte4-sql (= ${binary:Version}), libqte4-script (= ${binary:Version}),
+ libqte4-scripttools (= ${binary:Version}), libqte4-designer (= ${binary:Version}),
+ libqte4-help (= ${binary:Version}), libqte4-assistant (= ${binary:Version}),
+ libqte4-test (= ${binary:Version}), libphonon4 (= ${binary:Version}),
  qt4-qmake (= ${binary:Version})
-Recommends: libqt4-opengl-dev (= ${binary:Version})
-Conflicts: qt3-dev-tools (<= 3:3.3.4-7), libqtwebkit-dev
-Replaces: libqtwebkit-dev, libqt4-opengl-dev (<< 4.4.0-2)
+Conflicts: qt3-dev-tools (<= 3:3.3.4-7), libqtewebkit-dev
+Replaces: libqtewebkit-dev
 Suggests: qt4-dev-tools, qt4-doc, libmysqlclient-dev, libsqlite0-dev, libsqlite3-dev, libpq-dev, unixodbc-dev, firebird2.0-dev
 Description: Qt 4 development files
  Qt is a cross-platform C++ application framework. Qt's primary feature
@@ -365,20 +267,6 @@ Description: Qt 4 development files
  .
  This package contains the header development files and development programs
  used for building Qt 4 applications.
-
-Package: libqt4-opengl-dev
-Architecture: any
-Section: libdevel
-Depends: ${shlibs:Depends}, ${misc:Depends},
- libqt4-opengl (= ${binary:Version}), libqt4-dev (= ${binary:Version}),
- libgl1-mesa-dev | libgl-dev, libglu1-mesa-dev | libglu-dev
-Replaces: libqt4-dev (<< 4.4.0-2)
-Description: Qt 4 OpenGL library development files
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- This package contains the development files needed to build Qt 4 applications
- using QtOpenGL library.
 
 Package: libphonon-dev
 Architecture: any
@@ -393,44 +281,30 @@ Description: Qt 4 Phonon library development files
  This package contains the development files needed to build Qt 4 applications
  using Qt Phonon library.
 
-Package: libqt4-dbg
+Package: libqte4-dbg
 Priority: extra
 Architecture: any
 Section: debug
 Depends: ${shlibs:Depends}, ${misc:Depends},
- libqtcore4 (= ${binary:Version})
-Conflicts: libqt4-debug (<< 4.4.0~beta1-1)
-Replaces: libqt4-debug (<< 4.4.0~beta1-1)
+ libqtecore4 (= ${binary:Version})
+Conflicts: libqte4-debug (<< 4.4.0~beta1-1)
 Description: Qt 4 library debugging symbols
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
  This package contains the debugging symbols for the Qt 4 libraries.
 
-Package: libqt4-webkit-dbg
+Package: libqte4-webkit-dbg
 Priority: extra
 Architecture: any
 Section: debug
 Depends: ${shlibs:Depends}, ${misc:Depends},
- libqt4-webkit (= ${binary:Version})
+ libqte4-webkit (= ${binary:Version})
 Description: Qt 4 WebKit library debugging symbols
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
  This package contains the debugging symbols for the Qt 4 WebKit library.
-
-Package: libqt4-xmlpatterns-dbg
-Priority: extra
-Architecture: any
-Section: debug
-Depends: ${shlibs:Depends}, ${misc:Depends},
- libqt4-xmlpatterns (= ${binary:Version})
-Description: Qt 4 XML patterns library debugging symbols
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- This package contains the debugging symbols for the Qt 4 XML patterns
- library.
 
 Package: phonon-dbg
 Priority: extra
@@ -461,9 +335,9 @@ Package: qt4-designer
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: libqt4-designer (<< 4.4.0~beta1-1)
-Replaces: qt4-dev-tools (<= 4.0.1-2), libqt4-designer (<< 4.4.0~beta1-1), libqt4-core (<< 4.4.0~beta1-1)
-Recommends: libqt4-dev
+Conflicts: libqte4-designer (<< 4.4.0~beta1-1)
+Replaces: qt4-dev-tools (<= 4.0.1-2), libqte4-designer (<< 4.4.0~beta1-1), libqte4-core (<< 4.4.0~beta1-1)
+Recommends: libqte4-dev
 Description: graphical designer for Qt 4 applications
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -474,10 +348,10 @@ Description: graphical designer for Qt 4 applications
 Package: qt4-dev-tools
 Architecture: any
 Section: devel
-Depends: ${shlibs:Depends}, ${misc:Depends}, libqt4-sql-sqlite
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqte4-sql-sqlite
 Conflicts: qt3-assistant (<= 3:3.3.4-7), qt3-designer (<= 3:3.3.4-7), qt3-linguist (<= 3:3.3.4-7)
-Replaces: libqt4-core (<< 4.4.0~beta1-1)
-Recommends: libqt4-dev, qt4-doc, qt4-designer
+Replaces: libqte4-core (<< 4.4.0~beta1-1)
+Recommends: libqte4-dev, qt4-doc, qt4-designer
 Description: Qt 4 development tools
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -489,7 +363,7 @@ Package: qt4-qmake
 Architecture: any
 Section: devel
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: libqt4-dev (<< 4.5.0~beta1+snapshot20090114-1)
+Replaces: libqte4-dev (<< 4.5.0~beta1+snapshot20090114-1)
 Description: Qt 4 qmake Makefile generator tool
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -510,7 +384,7 @@ Architecture: any
 Section: x11
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Conflicts: qt3-qtconfig (<= 3:3.3.4-7)
-Replaces: libqt4-gui (<< 4.1.0), libqt4-core (<< 4.4.0~beta1-1)
+Replaces: libqte4-gui (<< 4.1.0), libqte4-core (<< 4.4.0~beta1-1)
 Description: Qt 4 configuration tool
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -533,7 +407,7 @@ Package: qt4-doc
 Architecture: all
 Section: doc
 Depends: ${misc:Depends}
-Suggests: w3m | www-browser, libqt4-dev, qt4-dev-tools
+Suggests: w3m | www-browser, libqte4-dev, qt4-dev-tools
 Description: Qt 4 API documentation
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -548,7 +422,7 @@ Package: qt4-doc-html
 Architecture: all
 Section: doc
 Depends: ${misc:Depends}
-Suggests: w3m | www-browser, libqt4-dev, qt4-dev-tools
+Suggests: w3m | www-browser, libqte4-dev, qt4-dev-tools
 Description: Qt 4 API documentation (HTML format)
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
