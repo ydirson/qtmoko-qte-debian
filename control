@@ -318,19 +318,6 @@ Description: Qt 4 Phonon library debugging symbols
  .
  This package contains the debugging symbols for the Qt 4 Phonon library.
 
-Package: qt4-demos-dbg
-Priority: extra
-Architecture: any
-Section: debug
-Depends: ${shlibs:Depends}, ${misc:Depends},
- qt4-demos (= ${binary:Version})
-Description: Qt 4 examples and demos debugging symbols
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- This package contains the debugging symbols for the Qt 4 examples and
- demos.
-
 Package: qt4-designer
 Architecture: any
 Section: devel
@@ -391,47 +378,6 @@ Description: Qt 4 configuration tool
  .
  The Qt Configuration program allows end users to configure the look and
  behavior of any Qt 4 application.
-
-Package: qt4-demos
-Architecture: any
-Section: x11
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: qt4-doc (= ${source:Version}), qt4-dev-tools (= ${source:Version})
-Description: Qt 4 examples and demos
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- This package contains Qt 4 examples and demos.
-
-Package: qt4-doc
-Architecture: all
-Section: doc
-Depends: ${misc:Depends}
-Suggests: w3m | www-browser, libqte4-dev, qt4-dev-tools
-Description: Qt 4 API documentation
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- This package contains the complete Qt 4 API documentation (new help format).
- .
- The documentation is provided in the new help format and manpage format;
- the new help format version can be viewed in conjunction with the Qt Assistant
- found in the qt4-dev-tools package.
-
-Package: qt4-doc-html
-Architecture: all
-Section: doc
-Depends: ${misc:Depends}
-Suggests: w3m | www-browser, libqte4-dev, qt4-dev-tools
-Description: Qt 4 API documentation (HTML format)
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- This package contains the complete Qt 4 API documentation (HTML format).
- .
- The documentation is provided in HTML format; the HTML version can be viewed
- in conjunction with the legacy Qt Assistant (assistant_adp) found in the
- qt4-dev-tools package.
 
 Package: phonon
 Architecture: all

@@ -90,7 +90,7 @@ common-build-arch::  debian/stamp-makefile-build-tools
 
 debian/stamp-makefile-build-tools: debian/stamp-makefile-build
 	# Build documentations
-	$(MAKE) docs
+	#$(MAKE) docs
 	# Build translations
 	$(MAKE) ts
 	$(MAKE) qm
