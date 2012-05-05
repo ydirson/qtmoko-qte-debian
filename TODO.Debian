@@ -1,2 +1,3 @@
 * rename source package
-* use system qmake
+* use system qmake (beware deprecation warnings...)
+* use system tools but still use translations

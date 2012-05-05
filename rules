@@ -141,7 +141,8 @@ endif
 			-no-stl -no-exceptions -no-qt3support \
 			-no-glib -no-cups -no-accessibility \
 			-no-gfx-qvfb -no-mouse-qvfb -no-kbd-qvfb \
-			-nomake tools -nomake examples -nomake demos -nomake docs \
+			-make tools -make translations \
+			-nomake examples -nomake demos -nomake docs \
 			-DQT_QWS_DISABLE_FLUSHCLIPPING -DQT_NO_PLUGIN_CHECK \
 			-DQT_EXTERNAL_SOUND_SERVER -DQT_QWS_KEYEVENT_SINGLECLIENT \
 			-DMEDIA_SERVER -DQT_KEYPAD_NAVIGATION \
