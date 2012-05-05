@@ -1,2 +1,2 @@
-usr/lib/libQtWebKit.so.*
-usr/lib/qt4/plugins/designer/libqwebview.so
+opt/qtmoko/lib/libQtWebKit.so.*
+opt/qtmoko/lib/qt4/plugins/designer/libqwebview.so

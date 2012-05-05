@@ -1,2 +1,2 @@
-usr/lib/libphonon.so.*.debug
-usr/lib/qt4/plugins/designer/libphononwidgets.so.debug
+opt/qtmoko/lib/libphonon.so.*.debug
+opt/qtmoko/lib/qt4/plugins/designer/libphononwidgets.so.debug

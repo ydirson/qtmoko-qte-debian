@@ -1,6 +1,6 @@
-usr/bin/qtconfig-qt4
-usr/share/qt4/translations/qtconfig_pl.qm
-usr/share/qt4/translations/qtconfig_ru.qm
-usr/share/qt4/translations/qtconfig_untranslated.qm
-usr/share/qt4/translations/qtconfig_zh_CN.qm
-usr/share/qt4/translations/qtconfig_zh_TW.qm
+opt/qtmoko/bin/qtconfig-qt4
+opt/qtmoko/share/qt4/translations/qtconfig_pl.qm
+opt/qtmoko/share/qt4/translations/qtconfig_ru.qm
+opt/qtmoko/share/qt4/translations/qtconfig_untranslated.qm
+opt/qtmoko/share/qt4/translations/qtconfig_zh_CN.qm
+opt/qtmoko/share/qt4/translations/qtconfig_zh_TW.qm

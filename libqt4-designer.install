@@ -1,2 +1,2 @@
-usr/lib/libQtDesigner.so.*
-usr/lib/libQtDesignerComponents.so.*
+opt/qtmoko/lib/libQtDesigner.so.*
+opt/qtmoko/lib/libQtDesignerComponents.so.*

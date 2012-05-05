@@ -1,2 +1,2 @@
-usr/bin/qmake-qt4
-usr/share/qt4/mkspecs/*
+opt/qtmoko/bin/qmake-qt4
+opt/qtmoko/share/qt4/mkspecs/*

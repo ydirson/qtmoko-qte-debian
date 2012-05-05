@@ -1,2 +1,2 @@
-usr/lib/libQtWebKit.so.*.debug
-usr/lib/qt4/plugins/designer/libqwebview.so.debug
+opt/qtmoko/lib/libQtWebKit.so.*.debug
+opt/qtmoko/lib/qt4/plugins/designer/libqwebview.so.debug

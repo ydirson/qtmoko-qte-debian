@@ -1,8 +1,8 @@
-usr/lib/libQtGui.so.*
-usr/lib/qt4/plugins/accessible/libqtaccessiblewidgets.so
-usr/lib/qt4/plugins/imageformats/libqgif.so
-usr/lib/qt4/plugins/imageformats/libqico.so
-usr/lib/qt4/plugins/imageformats/libqjpeg.so
-usr/lib/qt4/plugins/imageformats/libqmng.so
-usr/lib/qt4/plugins/imageformats/libqtiff.so
-usr/lib/qt4/plugins/inputmethods/libqimsw-multi.so
+opt/qtmoko/lib/libQtGui.so.*
+opt/qtmoko/lib/qt4/plugins/accessible/libqtaccessiblewidgets.so
+opt/qtmoko/lib/qt4/plugins/imageformats/libqgif.so
+opt/qtmoko/lib/qt4/plugins/imageformats/libqico.so
+opt/qtmoko/lib/qt4/plugins/imageformats/libqjpeg.so
+opt/qtmoko/lib/qt4/plugins/imageformats/libqmng.so
+opt/qtmoko/lib/qt4/plugins/imageformats/libqtiff.so
+opt/qtmoko/lib/qt4/plugins/inputmethods/libqimsw-multi.so

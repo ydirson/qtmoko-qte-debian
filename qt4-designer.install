@@ -1,8 +1,8 @@
-usr/bin/designer-qt4
-usr/share/qt4/translations/designer_de.qm
-usr/share/qt4/translations/designer_ja.qm
-usr/share/qt4/translations/designer_pl.qm
-usr/share/qt4/translations/designer_ru.qm
-usr/share/qt4/translations/designer_untranslated.qm
-usr/share/qt4/translations/designer_zh_CN.qm
-usr/share/qt4/translations/designer_zh_TW.qm
+opt/qtmoko/bin/designer-qt4
+opt/qtmoko/share/qt4/translations/designer_de.qm
+opt/qtmoko/share/qt4/translations/designer_ja.qm
+opt/qtmoko/share/qt4/translations/designer_pl.qm
+opt/qtmoko/share/qt4/translations/designer_ru.qm
+opt/qtmoko/share/qt4/translations/designer_untranslated.qm
+opt/qtmoko/share/qt4/translations/designer_zh_CN.qm
+opt/qtmoko/share/qt4/translations/designer_zh_TW.qm

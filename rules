@@ -258,45 +258,45 @@ clean::
 
 common-install-arch::
 # Fix wrong path in pkgconfig files
-	find $(DEB_DESTDIR)/usr/lib/pkgconfig -type f -name '*.pc' \
+	find $(DEB_DESTDIR)/opt/qtmoko/lib/pkgconfig -type f -name '*.pc' \
 		-exec perl -pi -e "s, -L$(CURDIR)/?\S+,,g" {} \;
 # Fix wrong path in prl files
-	find $(DEB_DESTDIR)/usr/lib -type f -name '*.prl' \
+	find $(DEB_DESTDIR)/opt/qtmoko/lib -type f -name '*.prl' \
 		-exec sed -i -e "/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/" {} \;
 
 install/libqtcore4::
-	mkdir -p $(DEB_DESTDIR)/usr/share/qt4/translations
+	mkdir -p $(DEB_DESTDIR)/opt/qtmoko/share/qt4/translations
 	$(CURDIR)/bin/lrelease-qt4 debian/translations/qt_ca.ts \
-		-qm $(DEB_DESTDIR)/usr/share/qt4/translations/qt_ca.qm
+		-qm $(DEB_DESTDIR)/opt/qtmoko/share/qt4/translations/qt_ca.qm
 
 install/qt4-demos::
-	mkdir -p debian/$(cdbs_curpkg)/usr/lib/qt4/demos/qtdemo
-	uudecode -o debian/$(cdbs_curpkg)/usr/lib/qt4/demos/qtdemo/qtdemo.qhc \
+	mkdir -p debian/$(cdbs_curpkg)/opt/qtmoko/lib/qt4/demos/qtdemo
+	uudecode -o debian/$(cdbs_curpkg)/opt/qtmoko/lib/qt4/demos/qtdemo/qtdemo.qhc \
 		debian/collection/qtdemo.qhc.uu
 
 install/qt4-designer::
 	install -D -p -m0644 debian/desktop/designer-qt4.desktop \
-		debian/$(cdbs_curpkg)/usr/share/applications/designer-qt4.desktop
-	mkdir -p debian/$(cdbs_curpkg)/usr/share/pixmaps
-	uudecode -o debian/$(cdbs_curpkg)/usr/share/pixmaps/designer.png \
+		debian/$(cdbs_curpkg)/opt/qtmoko/share/applications/designer-qt4.desktop
+	mkdir -p debian/$(cdbs_curpkg)/opt/qtmoko/share/pixmaps
+	uudecode -o debian/$(cdbs_curpkg)/opt/qtmoko/share/pixmaps/designer.png \
 		debian/desktop/designer.png.uu
 
 install/qt4-dev-tools::
 	install -D -p -m0644 debian/desktop/assistant-qt4.desktop \
-		debian/$(cdbs_curpkg)/usr/share/applications/assistant-qt4.desktop
+		debian/$(cdbs_curpkg)/opt/qtmoko/share/applications/assistant-qt4.desktop
 	install -D -p -m0644 debian/desktop/linguist-qt4.desktop \
-		debian/$(cdbs_curpkg)/usr/share/applications/linguist-qt4.desktop
-	mkdir -p debian/$(cdbs_curpkg)/usr/share/pixmaps
-	uudecode -o debian/$(cdbs_curpkg)/usr/share/pixmaps/assistant.png \
+		debian/$(cdbs_curpkg)/opt/qtmoko/share/applications/linguist-qt4.desktop
+	mkdir -p debian/$(cdbs_curpkg)/opt/qtmoko/share/pixmaps
+	uudecode -o debian/$(cdbs_curpkg)/opt/qtmoko/share/pixmaps/assistant.png \
 		debian/desktop/assistant.png.uu
-	uudecode -o debian/$(cdbs_curpkg)/usr/share/pixmaps/linguist.png \
+	uudecode -o debian/$(cdbs_curpkg)/opt/qtmoko/share/pixmaps/linguist.png \
 		debian/desktop/linguist.png.uu
 
 install/qt4-qtconfig::
 	install -D -p -m0644 debian/desktop/qt4config.desktop \
-		debian/$(cdbs_curpkg)/usr/share/applications/qt4config.desktop
-	mkdir -p debian/$(cdbs_curpkg)/usr/share/pixmaps
-	uudecode -o debian/$(cdbs_curpkg)/usr/share/pixmaps/qtconfig.png \
+		debian/$(cdbs_curpkg)/opt/qtmoko/share/applications/qt4config.desktop
+	mkdir -p debian/$(cdbs_curpkg)/opt/qtmoko/share/pixmaps
+	uudecode -o debian/$(cdbs_curpkg)/opt/qtmoko/share/pixmaps/qtconfig.png \
 		debian/desktop/qtconfig.png.uu
 
 binary-install/libqt4-dbg::
@@ -321,7 +321,7 @@ binary-install/qt4-demos-dbg::
 
 binary-post-install/libqt4-dev::
 	install -D -p -m0644 doc/html/qt.tags \
-		$(DEB_DESTDIR)/usr/share/qt4/doc/html/qt.tags
+		$(DEB_DESTDIR)/opt/qtmoko/share/qt4/doc/html/qt.tags
 
 binary-strip/libphonon4::
 	pkgkde-symbolshelper symbolfile -p libphonon4 -o debian/libphonon4.symbols
@@ -330,7 +330,7 @@ binary-strip/libphonon4::
 $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:
 	if test -e debian/$(cdbs_curpkg).lintian; then \
 	    install -p -D -m644 debian/$(cdbs_curpkg).lintian \
-	    debian/$(cdbs_curpkg)/usr/share/lintian/overrides/$(cdbs_curpkg); \
+	    debian/$(cdbs_curpkg)/opt/qtmoko/share/lintian/overrides/$(cdbs_curpkg); \
         fi
 
 # Generate shlibs local files
