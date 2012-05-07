@@ -51,6 +51,7 @@ include /usr/share/cdbs/1/rules/utils.mk
 DEB_MAKE_INVOKE := $(MAKE)
 DEB_MAKE_INSTALL_TARGET := INSTALL_ROOT=$(DEB_DESTDIR) install
 DEB_DH_INSTALL_SOURCEDIR := debian/tmp
+DEB_MAKE_BUILD_TARGET =
 
 # Ensure the *.debug files aren't included in any package other than *-dbg
 DEB_DH_INSTALL_ARGS := --exclude=.debug
