@@ -1,52 +1,29 @@
-author: Fathi Boudra <fabo@debian.org>
-
-translations fails to build under autobuilders.
-Use case: Qt sources comes from git and we need to build them.
-
---- /dev/null
+diff --git a/tools/assistant/compat/translations/translations.pro b/tools/assistant/compat/translations/translations.pro
+index 19fcc06..3daaa79 100644
+--- a/tools/assistant/compat/translations/translations.pro
++++ b/tools/assistant/compat/translations/translations.pro
+@@ -31,4 +31,4 @@ HEADERS += ../helpwindow.h \
+            ../fontsettingsdialog.h
+ 
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/assistant_de.ts $$[QT_INSTALL_TRANSLATIONS]/assistant_untranslated.ts
++TRANSLATIONS=$$QT_SOURCE_TREE/translations/assistant_de.ts $$QT_SOURCE_TREE/translations/assistant_untranslated.ts
+diff --git a/tools/assistant/translations/qt_help.pro b/tools/assistant/translations/qt_help.pro
+index 9f4d7d8..d65029c 100644
+--- a/tools/assistant/translations/qt_help.pro
 +++ b/tools/assistant/translations/qt_help.pro
-@@ -0,0 +1,50 @@
-+# Include those manually as they do not contain any directory specification
-+
-+SOURCES += ../lib/qhelpcollectionhandler.cpp \
-+           ../lib/qhelpcontentwidget.cpp \
-+           ../lib/qhelpdatainterface.cpp \
-+           ../lib/qhelpdbreader.cpp \
-+           ../lib/qhelpengine.cpp \
-+           ../lib/qhelpenginecore.cpp \
-+           ../lib/qhelpgenerator.cpp \
-+           ../lib/qhelpindexwidget.cpp \
-+           ../lib/qhelpprojectdata.cpp \
-+           ../lib/qhelpsearchengine.cpp \
-+           ../lib/qhelpsearchindexreader_clucene.cpp \
-+           ../lib/qhelpsearchindexreader_default.cpp \
-+           ../lib/qhelpsearchindexwriter_clucene.cpp \
-+           ../lib/qhelpsearchindexwriter_default.cpp \
-+           ../lib/qhelpsearchindex_default.cpp \
-+           ../lib/qhelpsearchquerywidget.cpp \
-+           ../lib/qhelpsearchresultwidget.cpp
-+
-+HEADERS += ../lib/qhelpcollectionhandler_p.h \
-+           ../lib/qhelpcontentwidget.h \
-+           ../lib/qhelpdatainterface_p.h \
-+           ../lib/qhelpdbreader_p.h \
-+           ../lib/qhelpengine.h \
-+           ../lib/qhelpenginecore.h \
-+           ../lib/qhelpengine_p.h \
-+           ../lib/qhelpgenerator_p.h \
-+           ../lib/qhelpindexwidget.h \
-+           ../lib/qhelpprojectdata_p.h \
-+           ../lib/qhelpsearchengine.h \
-+           ../lib/qhelpsearchindexreader_clucene_p.h \
-+           ../lib/qhelpsearchindexreader_default_p.h \
-+           ../lib/qhelpsearchindexwriter_clucene_p.h \
-+           ../lib/qhelpsearchindexwriter_default_p.h \
-+           ../lib/qhelpsearchindex_default_p.h \
-+           ../lib/qhelpsearchquerywidget.h \
-+           ../lib/qhelpsearchresultwidget.h \
-+           ../lib/qhelp_global.h
-+
-+
+@@ -39,12 +39,12 @@ HEADERS += ../lib/qhelpcollectionhandler_p.h \
+            ../lib/qhelp_global.h
+ 
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/qt_help_de.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_ja.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_pl.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_ru.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_untranslated.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_zh_CN.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_zh_TW.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/qt_help_da.ts
 +TRANSLATIONS=../../../translations/qt_help_de.ts \
 +             ../../../translations/qt_help_ja.ts \
 +             ../../../translations/qt_help_pl.ts \
@@ -55,52 +32,23 @@ Use case: Qt sources comes from git and we need to build them.
 +             ../../../translations/qt_help_zh_CN.ts \
 +             ../../../translations/qt_help_zh_TW.ts \
 +             ../../../translations/qt_help_da.ts
-+error("This is a dummy profile to be used for translations ONLY.")
---- /dev/null
+ error("This is a dummy profile to be used for translations ONLY.")
+diff --git a/tools/assistant/translations/translations.pro b/tools/assistant/translations/translations.pro
+index 4b836e6..35522db 100644
+--- a/tools/assistant/translations/translations.pro
 +++ b/tools/assistant/translations/translations.pro
-@@ -0,0 +1,50 @@
-+# Include those manually as they do not contain any directory specification
-+
-+FORMS += ../tools/assistant/filternamedialog.ui \
-+         ../tools/assistant/installdialog.ui \
-+         ../tools/assistant/preferencesdialog.ui \
-+         ../tools/assistant/topicchooser.ui \
-+         ../tools/assistant/bookmarkdialog.ui
-+
-+SOURCES += ../tools/assistant/aboutdialog.cpp \
-+           ../tools/assistant/bookmarkmanager.cpp \
-+           ../tools/assistant/centralwidget.cpp \
-+           ../tools/assistant/cmdlineparser.cpp \
-+           ../tools/assistant/contentwindow.cpp \
-+           ../tools/assistant/filternamedialog.cpp \
-+           ../tools/assistant/helpviewer.cpp \
-+           ../tools/assistant/indexwindow.cpp \
-+           ../tools/assistant/installdialog.cpp \
-+           ../tools/assistant/main.cpp \
-+           ../tools/assistant/mainwindow.cpp \
-+           ../tools/assistant/preferencesdialog.cpp \
-+           ../tools/assistant/remotecontrol.cpp \
-+           ../tools/assistant/searchwidget.cpp \
-+           ../tools/assistant/topicchooser.cpp \
-+
-+SOURCES += ../../shared/fontpanel/fontpanel.cpp
-+
-+HEADERS += ../tools/assistant/aboutdialog.h \
-+           ../tools/assistant/bookmarkmanager.h \
-+           ../tools/assistant/centralwidget.h \
-+           ../tools/assistant/cmdlineparser.h \
-+           ../tools/assistant/contentwindow.h \
-+           ../tools/assistant/filternamedialog.h \
-+           ../tools/assistant/helpviewer.h \
-+           ../tools/assistant/indexwindow.h \
-+           ../tools/assistant/installdialog.h \
-+           ../tools/assistant/mainwindow.h \
-+           ../tools/assistant/preferencesdialog.h \
-+           ../tools/assistant/remotecontrol.h \
-+           ../tools/assistant/remotecontrol_win.h \
-+           ../tools/assistant/searchwidget.h \
-+           ../tools/assistant/topicchooser.h \
-+
+@@ -40,11 +40,11 @@ HEADERS += ../tools/assistant/aboutdialog.h \
+            ../tools/assistant/searchwidget.h \
+            ../tools/assistant/topicchooser.h \
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/assistant_de.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_ja.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_pl.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_ru.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_untranslated.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_zh_CN.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_zh_TW.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_da.ts
 +TRANSLATIONS=../../../translations/assistant_de.ts \
 +             ../../../translations/assistant_ja.ts \
 +             ../../../translations/assistant_pl.ts \
@@ -109,42 +57,21 @@ Use case: Qt sources comes from git and we need to build them.
 +             ../../../translations/assistant_zh_CN.ts \
 +             ../../../translations/assistant_zh_TW.ts \
 +             ../../../translations/assistant_da.ts
---- /dev/null
+diff --git a/tools/assistant/translations/translations_adp.pro b/tools/assistant/translations/translations_adp.pro
+index c6f3e81..2f5c893 100644
+--- a/tools/assistant/translations/translations_adp.pro
 +++ b/tools/assistant/translations/translations_adp.pro
-@@ -0,0 +1,41 @@
-+# Include those manually as they do not contain any directory specification
-+
-+FORMS += ../compat/helpdialog.ui \
-+         ../compat/mainwindow.ui \
-+         ../compat/tabbedbrowser.ui \
-+         ../compat/topicchooser.ui
-+
-+SOURCES += ../compat/main.cpp \
-+           ../compat/helpwindow.cpp \
-+           ../compat/topicchooser.cpp \
-+           ../compat/docuparser.cpp \
-+           ../compat/index.cpp \
-+           ../compat/profile.cpp \
-+           ../compat/config.cpp \
-+           ../compat/helpdialog.cpp \
-+           ../compat/mainwindow.cpp \
-+           ../compat/tabbedbrowser.cpp \
-+           ../compat/fontsettingsdialog.cpp
-+
-+SOURCES += ../../shared/fontpanel/fontpanel.cpp
-+
-+HEADERS += ../compat/helpwindow.h \
-+           ../compat/topicchooser.h \
-+           ../compat/docuparser.h \
-+           ../compat/index.h \
-+           ../compat/profile.h \
-+           ../compat/helpdialog.h \
-+           ../compat/mainwindow.h \
-+           ../compat/tabbedbrowser.h \
-+           ../compat/config.h \
-+           ../compat/fontsettingsdialog.h
-+
-+
+@@ -31,11 +31,11 @@ HEADERS += ../compat/helpwindow.h \
+            ../compat/fontsettingsdialog.h
+ 
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/assistant_adp_de.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_adp_ja.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_adp_pl.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_adp_ru.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_adp_untranslated.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_adp_zh_CN.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/assistant_adp_zh_TW.ts
 +TRANSLATIONS=../../../translations/assistant_adp_de.ts \
 +             ../../../translations/assistant_adp_ja.ts \
 +             ../../../translations/assistant_adp_pl.ts \
@@ -152,127 +79,22 @@ Use case: Qt sources comes from git and we need to build them.
 +             ../../../translations/assistant_adp_untranslated.ts \
 +             ../../../translations/assistant_adp_zh_CN.ts \
 +             ../../../translations/assistant_adp_zh_TW.ts
-+error("This is a dummy profile to be used for translations ONLY.")
---- /dev/null
+ error("This is a dummy profile to be used for translations ONLY.")
+diff --git a/tools/designer/translations/translations.pro b/tools/designer/translations/translations.pro
+index c8cd76d..8e42af6 100644
+--- a/tools/designer/translations/translations.pro
 +++ b/tools/designer/translations/translations.pro
-@@ -0,0 +1,124 @@
-+include(../src/components/buddyeditor/buddyeditor.pri)
-+include(../src/components/component.pri)
-+include(../src/components/formeditor/formeditor.pri)
-+include(../src/components/objectinspector/objectinspector.pri)
-+include(../src/components/propertyeditor/propertyeditor.pri)
-+include(../src/components/signalsloteditor/signalsloteditor.pri)
-+include(../src/components/tabordereditor/tabordereditor.pri)
-+include(../src/components/taskmenu/taskmenu.pri)
-+include(../src/components/widgetbox/widgetbox.pri)
-+include(../src/lib/extension/extension.pri)
-+include(../src/lib/sdk/sdk.pri)
-+include(../src/lib/shared/shared.pri)
-+include(../src/lib/uilib/uilib.pri)
-+include(../../shared/qttoolbardialog/qttoolbardialog.pri)
-+include(../../shared/qtpropertybrowser/qtpropertybrowser.pri)
-+include(../../shared/qtgradienteditor/qtgradienteditor.pri)
-+
-+# Include Qt3Support plugin
-+
-+SOURCES += ../src/plugins/widgets/qt3supportwidgets.cpp
-+HEADERS += ../src/plugins/widgets/q3iconview/q3iconview_extrainfo.h \
-+           ../src/plugins/widgets/q3iconview/q3iconview_plugin.h \
-+           ../src/plugins/widgets/q3listview/q3listview_extrainfo.h \
-+           ../src/plugins/widgets/q3listview/q3listview_plugin.h \
-+           ../src/plugins/widgets/q3mainwindow/q3mainwindow_container.h \
-+           ../src/plugins/widgets/q3mainwindow/q3mainwindow_plugin.h \
-+           ../src/plugins/widgets/q3toolbar/q3toolbar_extrainfo.h \
-+           ../src/plugins/widgets/q3toolbar/q3toolbar_plugin.h \
-+           ../src/plugins/widgets/q3widgetstack/q3widgetstack_container.h \
-+           ../src/plugins/widgets/q3widgetstack/q3widgetstack_plugin.h \
-+           ../src/plugins/widgets/q3widgetstack/qdesigner_q3widgetstack_p.h \
-+           ../src/plugins/widgets/q3wizard/q3wizard_container.h \
-+           ../src/plugins/widgets/q3wizard/q3wizard_plugin.h \
-+           ../src/plugins/widgets/q3listbox/q3listbox_extrainfo.h \
-+           ../src/plugins/widgets/q3listbox/q3listbox_plugin.h \
-+           ../src/plugins/widgets/q3table/q3table_extrainfo.h \
-+           ../src/plugins/widgets/q3table/q3table_plugin.h \
-+           ../src/plugins/widgets/q3textedit/q3textedit_extrainfo.h \
-+           ../src/plugins/widgets/q3textedit/q3textedit_plugin.h \
-+           ../src/plugins/widgets/q3widgets/q3widget_plugins.h
-+
-+SOURCES += ../src/plugins/widgets/q3iconview/q3iconview_extrainfo.cpp \
-+           ../src/plugins/widgets/q3iconview/q3iconview_plugin.cpp \
-+           ../src/plugins/widgets/q3listview/q3listview_extrainfo.cpp \
-+           ../src/plugins/widgets/q3listview/q3listview_plugin.cpp \
-+           ../src/plugins/widgets/q3mainwindow/q3mainwindow_container.cpp \
-+           ../src/plugins/widgets/q3mainwindow/q3mainwindow_plugin.cpp \
-+           ../src/plugins/widgets/q3toolbar/q3toolbar_extrainfo.cpp \
-+           ../src/plugins/widgets/q3toolbar/q3toolbar_plugin.cpp \
-+           ../src/plugins/widgets/q3widgetstack/q3widgetstack_container.cpp \
-+           ../src/plugins/widgets/q3widgetstack/q3widgetstack_plugin.cpp \
-+           ../src/plugins/widgets/q3widgetstack/qdesigner_q3widgetstack.cpp \
-+           ../src/plugins/widgets/q3wizard/q3wizard_container.cpp \
-+           ../src/plugins/widgets/q3wizard/q3wizard_plugin.cpp \
-+           ../src/plugins/widgets/q3listbox/q3listbox_extrainfo.cpp \
-+           ../src/plugins/widgets/q3listbox/q3listbox_plugin.cpp \
-+           ../src/plugins/widgets/q3table/q3table_extrainfo.cpp \
-+           ../src/plugins/widgets/q3table/q3table_plugin.cpp \
-+           ../src/plugins/widgets/q3textedit/q3textedit_extrainfo.cpp \
-+           ../src/plugins/widgets/q3textedit/q3textedit_plugin.cpp \
-+           ../src/plugins/widgets/q3widgets/q3widget_plugins.cpp
-+
-+# Include those manually as they do not contain any directory specification
-+APP_DIR=../src/designer
-+SOURCES += $$APP_DIR/appfontdialog.cpp \
-+           $$APP_DIR/assistantclient.cpp \
-+           $$APP_DIR/main.cpp \
-+           $$APP_DIR/mainwindow.cpp \
-+           $$APP_DIR/newform.cpp \
-+           $$APP_DIR/plugindialog.cpp \
-+           $$APP_DIR/preferencesdialog.cpp \
-+           $$APP_DIR/qdesigner_actions.cpp \
-+           $$APP_DIR/qdesigner_appearanceoptions.cpp \
-+           $$APP_DIR/qdesigner.cpp \
-+           $$APP_DIR/qdesigner_formwindow.cpp \
-+           $$APP_DIR/qdesigner_server.cpp \
-+           $$APP_DIR/qdesigner_settings.cpp \
-+           $$APP_DIR/qdesigner_toolwindow.cpp \
-+           $$APP_DIR/qdesigner_workbench.cpp \
-+           $$APP_DIR/saveformastemplate.cpp \
-+           $$APP_DIR/versiondialog.cpp
-+
-+HEADERS+=  $$APP_DIR/appfontdialog.h \
-+           $$APP_DIR/assistantclient.h \
-+           $$APP_DIR/designer_enums.h \
-+           $$APP_DIR/mainwindow.h \
-+           $$APP_DIR/newform.h \
-+           $$APP_DIR/plugindialog.h \
-+           $$APP_DIR/preferencesdialog.h \
-+           $$APP_DIR/qdesigner_actions.h \
-+           $$APP_DIR/qdesigner_appearanceoptions.h \
-+           $$APP_DIR/qdesigner_formwindow.h \
-+           $$APP_DIR/qdesigner.h \
-+           $$APP_DIR/qdesigner_pch.h \
-+           $$APP_DIR/qdesigner_server.h \
-+           $$APP_DIR/qdesigner_settings.h \
-+           $$APP_DIR/qdesigner_toolwindow.h \
-+           $$APP_DIR/qdesigner_workbench.h \
-+           $$APP_DIR/saveformastemplate.h \
-+           $$APP_DIR/versiondialog.h
-+
-+FORMS +=   $$APP_DIR/plugindialog.ui \
-+           $$APP_DIR/preferencesdialog.ui \
-+           $$APP_DIR/qdesigner_appearanceoptions.ui \
-+           $$APP_DIR/saveformastemplate.ui
-+
-+# Shared solutions
-+SOURCES += ../../shared/fontpanel/fontpanel.cpp \
-+           ../../shared/deviceskin/deviceskin.cpp \
-+           ../../shared/findwidget/abstractfindwidget.cpp \
-+           ../../shared/findwidget/itemviewfindwidget.cpp \
-+           ../../shared/findwidget/texteditfindwidget.cpp \
-+
-+HEADERS += ../../shared/findwidget/abstractfindwidget.h \
-+           ../../shared/findwidget/itemviewfindwidget.h \
-+           ../../shared/findwidget/texteditfindwidget.h
-+
+@@ -130,10 +130,10 @@ HEADERS += ../../shared/findwidget/abstractfindwidget.h \
+            ../../shared/findwidget/itemviewfindwidget.h \
+            ../../shared/findwidget/texteditfindwidget.h
+ 
+-TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/designer_de.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/designer_ja.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/designer_pl.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/designer_ru.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/designer_zh_CN.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/designer_zh_TW.ts \
+-             $$[QT_INSTALL_TRANSLATIONS]/designer_untranslated.ts
 +TRANSLATIONS=../../../translations/designer_de.ts \
 +             ../../../translations/designer_ja.ts \
 +             ../../../translations/designer_pl.ts \
@@ -280,12 +102,14 @@ Use case: Qt sources comes from git and we need to build them.
 +             ../../../translations/designer_zh_CN.ts \
 +             ../../../translations/designer_zh_TW.ts \
 +             ../../../translations/designer_untranslated.ts
+diff --git a/tools/linguist/linguist/linguist.pro b/tools/linguist/linguist/linguist.pro
+index 9106ebe..7fd28b5 100644
 --- a/tools/linguist/linguist/linguist.pro
 +++ b/tools/linguist/linguist/linguist.pro
 @@ -96,11 +96,11 @@ FORMS += statistics.ui \
      finddialog.ui
  RESOURCES += linguist.qrc
-
+ 
 -TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/linguist_ja.ts \
 -             $$[QT_INSTALL_TRANSLATIONS]/linguist_pl.ts \
 -             $$[QT_INSTALL_TRANSLATIONS]/linguist_ru.ts \
@@ -302,12 +126,14 @@ Use case: Qt sources comes from git and we need to build them.
 +             ../../../translations/linguist_zh_TW.ts \
 +             ../../../translations/linguist_de.ts \
 +             ../../../translations/linguist_fr.ts
+diff --git a/tools/qtconfig/translations/translations.pro b/tools/qtconfig/translations/translations.pro
+index 1f9f572..eaf61d7 100644
 --- a/tools/qtconfig/translations/translations.pro
 +++ b/tools/qtconfig/translations/translations.pro
-@@ -7,8 +7,8 @@ HEADERS        += ../colorbutton.h ../pr
-
+@@ -7,8 +7,8 @@ HEADERS        += ../colorbutton.h ../previewframe.h ../previewwidget.h ../mainw
+ 
  FORMS        = ../mainwindowbase.ui ../paletteeditoradvancedbase.ui ../previewwidgetbase.ui
-
+ 
 -TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/qtconfig_pl.ts \
 -             $$[QT_INSTALL_TRANSLATIONS]/qtconfig_ru.ts \
 -             $$[QT_INSTALL_TRANSLATIONS]/qtconfig_untranslated.ts \
@@ -318,12 +144,14 @@ Use case: Qt sources comes from git and we need to build them.
 +             ../../../translations/qtconfig_untranslated.ts \
 +             ../../../translations/qtconfig_zh_CN.ts \
 +             ../../../translations/qtconfig_zh_TW.ts
+diff --git a/tools/qvfb/translations/translations.pro b/tools/qvfb/translations/translations.pro
+index f667bb8..3e27ec8 100644
 --- a/tools/qvfb/translations/translations.pro
 +++ b/tools/qvfb/translations/translations.pro
 @@ -26,8 +26,8 @@ SOURCES =  ../qvfb.cpp \
             ../qwssignalhandler.cpp \
             ../../shared/deviceskin/deviceskin.cpp
-
+ 
 -TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/qvfb_pl.ts \
 -             $$[QT_INSTALL_TRANSLATIONS]/qvfb_ru.ts \
 -             $$[QT_INSTALL_TRANSLATIONS]/qvfb_untranslated.ts \
@@ -334,9 +162,11 @@ Use case: Qt sources comes from git and we need to build them.
 +             ../../../translations/qvfb_untranslated.ts \
 +             ../../../translations/qvfb_zh_CN.ts \
 +             ../../../translations/qvfb_zh_TW.ts
+diff --git a/translations/translations.pri b/translations/translations.pri
+index 18f7896..6de6fa9 100644
 --- a/translations/translations.pri
 +++ b/translations/translations.pri
-@@ -26,7 +26,6 @@ QT_TS        = de fr zh_CN untranslated
+@@ -26,7 +26,6 @@ QT_TS        = de fr zh_CN untranslated ar es iw ja_JP pl pt ru sk sv uk zh_TW d
  ts-qt.commands = (cd $$QT_SOURCE_TREE/src && $$LUPDATE \
                                      3rdparty/phonon \
                                      3rdparty/webkit \
@@ -344,24 +174,16 @@ Use case: Qt sources comes from git and we need to build them.
                                      corelib \
                                      gui \
                                      network \
-@@ -38,10 +37,10 @@ ts-qt.commands = (cd $$QT_SOURCE_TREE/sr
+@@ -38,10 +37,10 @@ ts-qt.commands = (cd $$QT_SOURCE_TREE/src && $$LUPDATE \
                                      svg \
                                      xml \
                                      xmlpatterns \
 -                                -ts $$prependAll($$[QT_INSTALL_TRANSLATIONS]/qt_,$$QT_TS,.ts))
 +                                -ts $$prependAll($$QT_SOURCE_TREE/translations/qt_,$$QT_TS,.ts))
  ts-qt.depends = sub-tools
-
+ 
 -qm-qt.commands = $$LRELEASE $$prependAll($$[QT_INSTALL_TRANSLATIONS]/qt_,$$QT_TS,.ts)
 +qm-qt.commands = $$LRELEASE $$prependAll($$QT_SOURCE_TREE/translations/qt_,$$QT_TS,.ts)
  qm-qt.depends = sub-tools
-
+ 
  ###### Designer
---- a/tools/assistant/compat/translations/translations.pro
-+++ b/tools/assistant/compat/translations/translations.pro
-@@ -31,4 +31,4 @@ HEADERS += ../helpwindow.h \
-            ../fontsettingsdialog.h
-
-
--TRANSLATIONS=$$[QT_INSTALL_TRANSLATIONS]/assistant_de.ts $$[QT_INSTALL_TRANSLATIONS]/assistant_untranslated.ts
-+TRANSLATIONS=$$QT_SOURCE_TREE/translations/assistant_de.ts $$QT_SOURCE_TREE/translations/assistant_untranslated.ts

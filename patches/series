@@ -24,7 +24,7 @@
 08_configure_quilt_compat.diff
 09_qmake_lflags_as-needed.diff
 10_config_tests_fixes.diff
-#11_build_translations.diff
+11_build_translations.diff
 14_add_libraries_to_gui_build_where_actually_needed.diff
 15_fix_qmake_makefile_generation.diff
 16_hide_std_symbols_on_qtwebkit.diff
