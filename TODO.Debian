@@ -1,3 +1,7 @@
 * rename source package
-* use system qmake (beware deprecation warnings...)
-* use system tools but still use translations
+
+* use system qmake (beware deprecation warnings...) ("-nomake qmake"
+  is commented out ?)
+
+* use available system tools but still build embedded-specific ones
+  and still use translations
