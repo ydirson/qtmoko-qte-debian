@@ -2298,8 +2298,6 @@ opt/qtmoko/include/qt4/QtXmlPatterns/qxmlresultitems.h
 opt/qtmoko/include/qt4/QtXmlPatterns/qxmlserializer.h
 opt/qtmoko/lib/libQt3Support.prl
 opt/qtmoko/lib/libQt3Support.so
-opt/qtmoko/lib/libQtCLucene.prl
-opt/qtmoko/lib/libQtCLucene.so
 opt/qtmoko/lib/libQtCore.prl
 opt/qtmoko/lib/libQtCore.so
 opt/qtmoko/lib/libQtDBus.prl
