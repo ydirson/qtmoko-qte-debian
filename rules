@@ -137,7 +137,7 @@ endif
 	cp -a debian/toolchain mkspecs/qws/$(XTOOLCHAIN_NAME)
 	./configure -confirm-license \
 	            -embedded $(DEB_HOST_GNU_CPU) -little-endian -xplatform qws/$(XTOOLCHAIN_NAME) \
-			-release \
+			-release -separate-debug-info \
 			-depths 8,16,18,24,32 -qconfig qpe \
 			-no-stl -no-exceptions -no-qt3support \
 			-no-glib -no-cups -no-accessibility \
