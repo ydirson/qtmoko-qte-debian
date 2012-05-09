@@ -1,6 +1,5 @@
 opt/qtmoko/lib/libQtCLucene.so.*
 opt/qtmoko/lib/libQtCore.so.*
-opt/qtmoko/lib/qt4/plugins/codecs/*.so
 opt/qtmoko/share/qt4/translations/qt_ar.qm
 opt/qtmoko/share/qt4/translations/qt_ca.qm
 opt/qtmoko/share/qt4/translations/qt_da.qm

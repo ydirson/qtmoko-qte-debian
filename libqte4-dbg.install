@@ -1,5 +1,4 @@
 opt/qtmoko/lib/libQt3Support.so.*.debug
-opt/qtmoko/lib/libQtAssistantClient.so.*.debug
 opt/qtmoko/lib/libQtCLucene.so.*.debug
 opt/qtmoko/lib/libQtCore.so.*.debug
 opt/qtmoko/lib/libQtDBus.so.*.debug
@@ -15,13 +14,6 @@ opt/qtmoko/lib/libQtSql.so.*.debug
 opt/qtmoko/lib/libQtSvg.so.*.debug
 opt/qtmoko/lib/libQtTest.so.*.debug
 opt/qtmoko/lib/libQtXml.so.*.debug
-opt/qtmoko/lib/qt4/plugins/accessible/libqtaccessiblecompatwidgets.so.debug
-opt/qtmoko/lib/qt4/plugins/accessible/libqtaccessiblewidgets.so.debug
-opt/qtmoko/lib/qt4/plugins/codecs/libqcncodecs.so.debug
-opt/qtmoko/lib/qt4/plugins/codecs/libqjpcodecs.so.debug
-opt/qtmoko/lib/qt4/plugins/codecs/libqkrcodecs.so.debug
-opt/qtmoko/lib/qt4/plugins/codecs/libqtwcodecs.so.debug
-opt/qtmoko/lib/qt4/plugins/graphicssystems/libqglgraphicssystem.so.debug
 opt/qtmoko/lib/qt4/plugins/iconengines/libqsvgicon.so.debug
 opt/qtmoko/lib/qt4/plugins/imageformats/libqgif.so.debug
 opt/qtmoko/lib/qt4/plugins/imageformats/libqico.so.debug
@@ -29,6 +21,4 @@ opt/qtmoko/lib/qt4/plugins/imageformats/libqjpeg.so.debug
 opt/qtmoko/lib/qt4/plugins/imageformats/libqmng.so.debug
 opt/qtmoko/lib/qt4/plugins/imageformats/libqsvg.so.debug
 opt/qtmoko/lib/qt4/plugins/imageformats/libqtiff.so.debug
-opt/qtmoko/lib/qt4/plugins/inputmethods/libqimsw-multi.so.debug
 opt/qtmoko/lib/qt4/plugins/script/libqtscriptdbus.so.debug
-opt/qtmoko/lib/qt4/plugins/sqldrivers/libqsql*.so.debug

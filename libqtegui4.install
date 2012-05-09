@@ -1,8 +1,6 @@
 opt/qtmoko/lib/libQtGui.so.*
-opt/qtmoko/lib/qt4/plugins/accessible/libqtaccessiblewidgets.so
 opt/qtmoko/lib/qt4/plugins/imageformats/libqgif.so
 opt/qtmoko/lib/qt4/plugins/imageformats/libqico.so
 opt/qtmoko/lib/qt4/plugins/imageformats/libqjpeg.so
 opt/qtmoko/lib/qt4/plugins/imageformats/libqmng.so
 opt/qtmoko/lib/qt4/plugins/imageformats/libqtiff.so
-opt/qtmoko/lib/qt4/plugins/inputmethods/libqimsw-multi.so

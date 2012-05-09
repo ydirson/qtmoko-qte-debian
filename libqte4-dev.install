@@ -3,10 +3,8 @@ opt/qtmoko/bin/lupdate-qt4
 opt/qtmoko/bin/moc-qt4
 opt/qtmoko/bin/qdbuscpp2xml
 opt/qtmoko/bin/qdbusxml2cpp
-opt/qtmoko/bin/qt3to4
 opt/qtmoko/bin/rcc
 opt/qtmoko/bin/uic-qt4
-opt/qtmoko/bin/uic3
 opt/qtmoko/include/qt4/Qt/Qt3Support
 opt/qtmoko/include/qt4/Qt/QtCore
 opt/qtmoko/include/qt4/Qt/QtDBus
@@ -897,10 +895,6 @@ opt/qtmoko/include/qt4/Qt3Support/q3whatsthis.h
 opt/qtmoko/include/qt4/Qt3Support/q3widgetstack.h
 opt/qtmoko/include/qt4/Qt3Support/q3wizard.h
 opt/qtmoko/include/qt4/Qt3Support/qiconset.h
-opt/qtmoko/include/qt4/QtAssistant/QAssistantClient
-opt/qtmoko/include/qt4/QtAssistant/QtAssistant
-opt/qtmoko/include/qt4/QtAssistant/qassistantclient.h
-opt/qtmoko/include/qt4/QtAssistant/qassistantclient_global.h
 opt/qtmoko/include/qt4/QtCore/QAbstractEventDispatcher
 opt/qtmoko/include/qt4/QtCore/QAbstractFileEngine
 opt/qtmoko/include/qt4/QtCore/QAbstractFileEngineHandler
@@ -2304,8 +2298,6 @@ opt/qtmoko/include/qt4/QtXmlPatterns/qxmlresultitems.h
 opt/qtmoko/include/qt4/QtXmlPatterns/qxmlserializer.h
 opt/qtmoko/lib/libQt3Support.prl
 opt/qtmoko/lib/libQt3Support.so
-opt/qtmoko/lib/libQtAssistantClient.prl
-opt/qtmoko/lib/libQtAssistantClient.so
 opt/qtmoko/lib/libQtCLucene.prl
 opt/qtmoko/lib/libQtCLucene.so
 opt/qtmoko/lib/libQtCore.prl
@@ -2341,7 +2333,6 @@ opt/qtmoko/lib/libQtXml.so
 opt/qtmoko/lib/libQtXmlPatterns.prl
 opt/qtmoko/lib/libQtXmlPatterns.so
 opt/qtmoko/lib/pkgconfig/Qt3Support.pc
-opt/qtmoko/lib/pkgconfig/QtAssistantClient.pc
 opt/qtmoko/lib/pkgconfig/QtCLucene.pc
 opt/qtmoko/lib/pkgconfig/QtCore.pc
 opt/qtmoko/lib/pkgconfig/QtDBus.pc
