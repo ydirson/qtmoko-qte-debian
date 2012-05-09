@@ -321,10 +321,6 @@ binary-install/qt4-demos-dbg::
 # Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files
 	dh_install -pqt4-demos-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
 
-binary-post-install/libqte4-dev::
-	install -D -p -m0644 doc/html/qt.tags \
-		$(DEB_DESTDIR)/opt/qtmoko/share/qt4/doc/html/qt.tags
-
 # Automatically install lintian overrides, stolen from debian-qt-kde.mk
 $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:
 	if test -e debian/$(cdbs_curpkg).lintian; then \

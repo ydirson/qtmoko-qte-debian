@@ -1,11 +1,7 @@
-opt/qtmoko/lib/libQt3Support.so.*.debug
 opt/qtmoko/lib/libQtCore.so.*.debug
 opt/qtmoko/lib/libQtDBus.so.*.debug
-opt/qtmoko/lib/libQtDesigner.so.*.debug
-opt/qtmoko/lib/libQtDesignerComponents.so.*.debug
 opt/qtmoko/lib/libQtGui.so.*.debug
 opt/qtmoko/lib/libQtNetwork.so.*.debug
-opt/qtmoko/lib/libQtOpenGL.so.*.debug
 opt/qtmoko/lib/libQtScript.so.*.debug
 opt/qtmoko/lib/libQtSql.so.*.debug
 opt/qtmoko/lib/libQtSvg.so.*.debug
