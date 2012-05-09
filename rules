@@ -266,7 +266,7 @@ common-install-arch::
 	find $(DEB_DESTDIR)/opt/qtmoko/lib -type f -name '*.prl' \
 		-exec sed -i -e "/^QMAKE_PRL_BUILD_DIR/d;s/\(QMAKE_PRL_LIBS =\).*/\1/" {} \;
 
-install/libqtcore4::
+install/libqtecore4::
 	mkdir -p $(DEB_DESTDIR)/opt/qtmoko/share/qt4/translations
 	$(CURDIR)/bin/lrelease-qt4 debian/translations/qt_ca.ts \
 		-qm $(DEB_DESTDIR)/opt/qtmoko/share/qt4/translations/qt_ca.qm
@@ -301,15 +301,15 @@ install/qt4-qtconfig::
 	uudecode -o debian/$(cdbs_curpkg)/opt/qtmoko/share/pixmaps/qtconfig.png \
 		debian/desktop/qtconfig.png.uu
 
-binary-install/libqt4-dbg::
+binary-install/libqte4-dbg::
 # Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files
 	dh_install -plibqt4-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
 
-binary-install/libqt4-webkit-dbg::
+binary-install/libqte4-webkit-dbg::
 # Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files
 	dh_install -plibqt4-webkit-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
 
-binary-install/libqt4-xmlpatterns-dbg::
+binary-install/libqte4-xmlpatterns-dbg::
 # Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files
 	dh_install -plibqt4-xmlpatterns-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
 
@@ -321,7 +321,7 @@ binary-install/qt4-demos-dbg::
 # Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files
 	dh_install -pqt4-demos-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
 
-binary-post-install/libqt4-dev::
+binary-post-install/libqte4-dev::
 	install -D -p -m0644 doc/html/qt.tags \
 		$(DEB_DESTDIR)/opt/qtmoko/share/qt4/doc/html/qt.tags
 
