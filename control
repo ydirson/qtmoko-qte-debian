@@ -56,8 +56,7 @@ Description: Qt 4 GUI module
 Package: libqte4-gui
 Architecture: any
 Section: libs
-Depends: ${misc:Depends}, libqtegui4 (= ${binary:Version}), libqte4-svg (= ${binary:Version}),
- libqte4-designer (= ${binary:Version}), libqte4-assistant (= ${binary:Version})
+Depends: ${misc:Depends}, libqtegui4 (= ${binary:Version}), libqte4-svg (= ${binary:Version})
 Description: transitional package for Qt 4 GUI runtime libraries
  Qt is a cross-platform C++ application framework.  Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -184,20 +183,6 @@ Description: Qt 4 D-Bus module
  applications by exporting objects, as well as use services exported by those
  applications by placing calls and accessing properties.
 
-Package: libqte4-designer
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: libqte4-gui (<< 4.4.0~beta1-1)
-Replaces: libqte4-gui (<< 4.4.0~beta1-1)
-Description: Qt 4 designer module
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- The QtDesigner module provides classes that allow you to create your own
- custom widget plugins for Qt Designer, and classes that enable you to access
- Qt Designer's components.
-
 Package: libqte4-help
 Architecture: any
 Section: libs
@@ -208,19 +193,6 @@ Description: Qt 4 help module
  .
  The QtHelp module provides classes for integrating online documentation in
  applications.
-
-Package: libqte4-assistant
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: libqte4-gui (<< 4.4.0~beta1-1)
-Replaces: libqte4-gui (<< 4.4.0~beta1-1)
-Description: Qt 4 assistant module
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- The QtAssistant module provides a means of launching Qt Assistant to provide
- online help.
 
 Package: libqte4-test
 Architecture: any
@@ -254,8 +226,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, libqtecore4 (= ${binary:Version}),
  libqtegui4 (= ${binary:Version}), libqte4-svg (= ${binary:Version}),
  libqte4-webkit (= ${binary:Version}), libqte4-xml (= ${binary:Version}),
  libqte4-sql (= ${binary:Version}), libqte4-script (= ${binary:Version}),
- libqte4-scripttools (= ${binary:Version}), libqte4-designer (= ${binary:Version}),
- libqte4-help (= ${binary:Version}), libqte4-assistant (= ${binary:Version}),
+ libqte4-scripttools (= ${binary:Version}),
+ libqte4-help (= ${binary:Version}),
  libqte4-test (= ${binary:Version}), libphonon4 (= ${binary:Version}),
  qt4-qmake (= ${binary:Version})
 Conflicts: qt3-dev-tools (<= 3:3.3.4-7), libqtewebkit-dev
@@ -318,20 +290,6 @@ Description: Qt 4 Phonon library debugging symbols
  .
  This package contains the debugging symbols for the Qt 4 Phonon library.
 
-Package: qt4-designer
-Architecture: any
-Section: devel
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: libqte4-designer (<< 4.4.0~beta1-1)
-Replaces: qt4-dev-tools (<= 4.0.1-2), libqte4-designer (<< 4.4.0~beta1-1), libqte4-core (<< 4.4.0~beta1-1)
-Recommends: libqte4-dev
-Description: graphical designer for Qt 4 applications
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- Qt Designer is a tool for designing and building graphical user interfaces
- (GUIs) from Qt components.
-
 Package: qt4-dev-tools
 Architecture: any
 Section: devel
@@ -365,19 +323,6 @@ Description: Qt 4 qmake Makefile generator tool
  many default values used to generate appropriate Makefiles.
  .
  This package contains also these platform specifications.
-
-Package: qt4-qtconfig
-Architecture: any
-Section: x11
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: qt3-qtconfig (<= 3:3.3.4-7)
-Replaces: libqte4-gui (<< 4.1.0), libqte4-core (<< 4.4.0~beta1-1)
-Description: Qt 4 configuration tool
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- The Qt Configuration program allows end users to configure the look and
- behavior of any Qt 4 application.
 
 Package: phonon
 Architecture: all
