@@ -8,7 +8,6 @@ opt/qtmoko/lib/libQtHelp.so.*.debug
 opt/qtmoko/lib/libQtNetwork.so.*.debug
 opt/qtmoko/lib/libQtOpenGL.so.*.debug
 opt/qtmoko/lib/libQtScript.so.*.debug
-opt/qtmoko/lib/libQtScriptTools.so.*.debug
 opt/qtmoko/lib/libQtSql.so.*.debug
 opt/qtmoko/lib/libQtSvg.so.*.debug
 opt/qtmoko/lib/libQtTest.so.*.debug

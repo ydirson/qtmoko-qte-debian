@@ -2314,8 +2314,6 @@ opt/qtmoko/lib/libQtNetwork.prl
 opt/qtmoko/lib/libQtNetwork.so
 opt/qtmoko/lib/libQtScript.prl
 opt/qtmoko/lib/libQtScript.so
-opt/qtmoko/lib/libQtScriptTools.prl
-opt/qtmoko/lib/libQtScriptTools.so
 opt/qtmoko/lib/libQtSql.prl
 opt/qtmoko/lib/libQtSql.so
 opt/qtmoko/lib/libQtSvg.prl

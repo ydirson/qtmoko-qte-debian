@@ -88,20 +88,6 @@ Description: Qt 4 script module
  .
  The QtScript module provides classes for making Qt applications scriptable.
 
-Package: libqte4-scripttools
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Qt 4 script tools module
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- The QtScriptTools module provides additional components for applications that
- use Qt Script.
- .
- This package contains the Qt Script debugger, a tool for debugging script
- execution in Qt applications that use Qt Script.
-
 Package: libqte4-sql
 Architecture: any
 Section: libs
@@ -226,7 +212,6 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, libqtecore4 (= ${binary:Version}),
  libqtegui4 (= ${binary:Version}), libqte4-svg (= ${binary:Version}),
  libqte4-webkit (= ${binary:Version}), libqte4-xml (= ${binary:Version}),
  libqte4-sql (= ${binary:Version}), libqte4-script (= ${binary:Version}),
- libqte4-scripttools (= ${binary:Version}),
  libqte4-help (= ${binary:Version}),
  libqte4-test (= ${binary:Version}), libphonon4 (= ${binary:Version}),
  qt4-qmake (= ${binary:Version})
