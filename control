@@ -169,17 +169,6 @@ Description: Qt 4 D-Bus module
  applications by exporting objects, as well as use services exported by those
  applications by placing calls and accessing properties.
 
-Package: libqte4-help
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Qt 4 help module
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- The QtHelp module provides classes for integrating online documentation in
- applications.
-
 Package: libqte4-test
 Architecture: any
 Section: libs
@@ -212,7 +201,6 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, libqtecore4 (= ${binary:Version}),
  libqtegui4 (= ${binary:Version}), libqte4-svg (= ${binary:Version}),
  libqte4-webkit (= ${binary:Version}), libqte4-xml (= ${binary:Version}),
  libqte4-sql (= ${binary:Version}), libqte4-script (= ${binary:Version}),
- libqte4-help (= ${binary:Version}),
  libqte4-test (= ${binary:Version}), libphonon4 (= ${binary:Version}),
  qt4-qmake (= ${binary:Version})
 Conflicts: qt3-dev-tools (<= 3:3.3.4-7), libqtewebkit-dev

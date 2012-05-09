@@ -4,7 +4,6 @@ opt/qtmoko/lib/libQtDBus.so.*.debug
 opt/qtmoko/lib/libQtDesigner.so.*.debug
 opt/qtmoko/lib/libQtDesignerComponents.so.*.debug
 opt/qtmoko/lib/libQtGui.so.*.debug
-opt/qtmoko/lib/libQtHelp.so.*.debug
 opt/qtmoko/lib/libQtNetwork.so.*.debug
 opt/qtmoko/lib/libQtOpenGL.so.*.debug
 opt/qtmoko/lib/libQtScript.so.*.debug

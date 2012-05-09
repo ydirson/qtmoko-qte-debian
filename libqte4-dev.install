@@ -2308,8 +2308,6 @@ opt/qtmoko/lib/libQtDesignerComponents.prl
 opt/qtmoko/lib/libQtDesignerComponents.so
 opt/qtmoko/lib/libQtGui.prl
 opt/qtmoko/lib/libQtGui.so
-opt/qtmoko/lib/libQtHelp.prl
-opt/qtmoko/lib/libQtHelp.so
 opt/qtmoko/lib/libQtNetwork.prl
 opt/qtmoko/lib/libQtNetwork.so
 opt/qtmoko/lib/libQtScript.prl
