@@ -325,9 +325,6 @@ binary-post-install/libqt4-dev::
 	install -D -p -m0644 doc/html/qt.tags \
 		$(DEB_DESTDIR)/opt/qtmoko/share/qt4/doc/html/qt.tags
 
-binary-strip/libphonon4::
-	pkgkde-symbolshelper symbolfile -p libphonon4 -o debian/libphonon4.symbols
-
 # Automatically install lintian overrides, stolen from debian-qt-kde.mk
 $(patsubst %,binary-install/%,$(DEB_PACKAGES)) :: binary-install/%:
 	if test -e debian/$(cdbs_curpkg).lintian; then \
