@@ -263,40 +263,6 @@ Description: Qt 4 Phonon library debugging symbols
  .
  This package contains the debugging symbols for the Qt 4 Phonon library.
 
-Package: qt4-dev-tools
-Architecture: any
-Section: devel
-Depends: ${shlibs:Depends}, ${misc:Depends}, libqte4-sql-sqlite
-Conflicts: qt3-assistant (<= 3:3.3.4-7), qt3-designer (<= 3:3.3.4-7), qt3-linguist (<= 3:3.3.4-7)
-Replaces: libqte4-core (<< 4.4.0~beta1-1)
-Recommends: libqte4-dev, qt4-doc, qt4-designer
-Description: Qt 4 development tools
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- This package contains tools used to assist in Qt 4 development, including
- the Qt Assistant, Linguist, D-Bus Viewer and Pixel Tool applications.
-
-Package: qt4-qmake
-Architecture: any
-Section: devel
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: libqte4-dev (<< 4.5.0~beta1+snapshot20090114-1)
-Description: Qt 4 qmake Makefile generator tool
- Qt is a cross-platform C++ application framework. Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- This package contains Qt 4 qmake (qmake-qt4), a tool that helps simplify
- the build process for development project across different platforms.
- qmake automates the generation of Makefiles so that only a few lines of
- information are needed to create each Makefile. qmake can be used for any
- software project, whether it is written using Qt or not.
- .
- Qt 4 qmake requires a platform and compiler description file which contains
- many default values used to generate appropriate Makefiles.
- .
- This package contains also these platform specifications.
-
 Package: phonon
 Architecture: all
 Depends: ${misc:Depends}, libphonon4 (>= ${source:Version}),
