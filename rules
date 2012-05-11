@@ -251,9 +251,9 @@ clean::
 	-delete
 
 	# Any remaining executables
-	#find $(CURDIR) -type f -exec file -i '{}' \; | grep \
-	#  -e application/x-executable \
-	#| cut -d ':' -f 1 | xargs rm -f
+	find bin/ -type f -exec file -i '{}' \; | grep \
+	  -e application/x-executable \
+	| cut -d ':' -f 1 | xargs rm -f
 
 	# Generated on build
 	rm -f debian/libphonon4.symbols
