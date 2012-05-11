@@ -43,3 +43,4 @@
 91_s390_-gstabs.diff
 950_config_h.diff
 951_test_dbus.diff
+952_fix_equal_flags.diff
