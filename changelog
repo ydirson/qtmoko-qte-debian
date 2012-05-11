@@ -1,8 +1,8 @@
-qt4-x11 (4:4.5.3-5yd0) unstable; urgency=low
+qt4-embedded (4:4.5.3-5yd0) unstable; urgency=low
 
   * First stake at a Qt embedded build.
 
- -- Yann Dirson <dirson@debian.org>  Tue, 01 May 2012 16:15:52 +0200
+ -- Yann Dirson <dirson@debian.org>  Fri, 11 May 2012 22:02:28 +0200
 
 qt4-x11 (4:4.5.3-5) UNRELEASED; urgency=low
 

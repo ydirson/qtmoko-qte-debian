@@ -1,4 +1,4 @@
-Source: qt4-x11
+Source: qt4-embedded
 Section: libs
 Priority: optional
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
