@@ -2,6 +2,3 @@
 
 * use system qmake (beware deprecation warnings...) ("-nomake qmake"
   is commented out ?)
-
-* use available system tools but still build embedded-specific ones
-  and still use translations
