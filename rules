@@ -186,7 +186,9 @@ endif
 	            -I/usr/include/freetype2 \
 	            $(EXTRA_CONFIGURE_OPTS)
 	mkdir -p bin
-	ln -s /usr/bin/lupdate-qt4 /usr/bin/lrelease-qt4 bin/
+	chmod +x debian/wrapper
+	ln -s ../debian/wrapper bin/lupdate-qt4
+	ln -s ../debian/wrapper bin/lrelease-qt4
 
 DEB_CLEAN_EXCLUDE=*.bak
 clean::

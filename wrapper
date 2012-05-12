@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+# wrapper to call an /usr/bin binary without the just-built libraries
+# shadowing the system ones
+
+unset LD_LIBRARY_PATH
+exec /usr/bin/$(basename $0) "$@"
