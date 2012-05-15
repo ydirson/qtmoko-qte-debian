@@ -28,20 +28,6 @@ Description: Qt 4 core module
  .
  The QtCore module contains core non-GUI functionality.
 
-Package: libqte4-core
-Architecture: any
-Section: libs
-Depends: ${misc:Depends}, libqtecore4 (= ${binary:Version}), libqte4-network (= ${binary:Version}),
- libqte4-script (= ${binary:Version}), libqte4-xml (= ${binary:Version}),
- libqte4-dbus (= ${binary:Version}), libqte4-test (= ${binary:Version})
-Description: transitional package for Qt 4 core non-GUI runtime libraries
- Qt is a cross-platform C++ application framework.  Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- This is a dummy transitional package to enable installation of other Debian
- packages linked against Qt 4.3 or earlier Qt 4 releases previously shipped
- in Debian.
-
 Package: libqtegui4
 Architecture: any
 Section: libs
@@ -54,18 +40,6 @@ Description: Qt 4 GUI module
  is its rich set of widgets that provide standard GUI functionality.
  .
  The QtGui module extends QtCore with GUI functionality.
-
-Package: libqte4-gui
-Architecture: any
-Section: libs
-Depends: ${misc:Depends}, libqtegui4 (= ${binary:Version}), libqte4-svg (= ${binary:Version})
-Description: transitional package for Qt 4 GUI runtime libraries
- Qt is a cross-platform C++ application framework.  Qt's primary feature
- is its rich set of widgets that provide standard GUI functionality.
- .
- This is a dummy transitional package depending on the Qt 4 GUI library
- packages which the package of the same name used to provide in Qt 4.3.4
- and earlier Debian packages of Qt 4.
 
 Package: libqte4-network
 Architecture: any
@@ -105,17 +79,6 @@ Description: Qt 4 SQL module
  .
  If you wish to use the SQL module for development, you should install the
  libqte4-dev package.
-
-Package: libqte4-sql-sqlite
-Architecture: any
-Section: libs
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: libqte4-dev
-Description: Qt 4 SQLite 3 database driver
- This package contains the SQLite 3 plugin for Qt 4.
- .
- Install it if you intend to use or write Qt programs that are to access an
- SQLite 3 DB.
 
 Package: libqte4-svg
 Architecture: any
