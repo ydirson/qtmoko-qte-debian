@@ -67,7 +67,7 @@ $(foreach libpkg,$(filter-out %-dev %-dbg,$(filter lib%,$(DEB_ARCH_PACKAGES))),$
 DEB_DH_STRIP_ARGS_libqt4-dbg := --exclude=.debug
 DEB_DH_STRIP_ARGS_libqt4-webkit-dbg := --exclude=.debug
 DEB_DH_STRIP_ARGS_libqt4-xmlpatterns-dbg := --exclude=.debug
-DEB_DH_STRIP_ARGS_phonon-dbg := --exclude=.debug
+DEB_DH_STRIP_ARGS_phononqte-dbg := --exclude=.debug
 DEB_DH_STRIP_ARGS_qt4-demos-dbg := --exclude=.debug
 
 DEB_DH_SHLIBDEPS_ARGS_ALL := --exclude=.debug
@@ -258,7 +258,7 @@ clean::
 	| cut -d ':' -f 1 | xargs rm -f
 
 	# Generated on build
-	rm -f debian/libphonon4.symbols
+	rm -f debian/libphononqte4.symbols
 	rm -f debian/shlibs.local
 	rm -f debian/stamp-makefile-build-tools
 
@@ -317,9 +317,9 @@ binary-install/libqte4-xmlpatterns-dbg::
 # Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files
 	dh_install -plibqt4-xmlpatterns-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
 
-binary-install/phonon-dbg::
+binary-install/phononqte-dbg::
 # Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files
-	dh_install -pphonon-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
+	dh_install -pphononqte-dbg --sourcedir=$(DEB_DH_INSTALL_SOURCEDIR)
 
 binary-install/qt4-demos-dbg::
 # Run dh_install without the default DEB_DH_INSTALL_ARGS to install the *.debug files

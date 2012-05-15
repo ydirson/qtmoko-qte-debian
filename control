@@ -146,12 +146,12 @@ Description: Qt 4 test module
  The QtTest module provides classes for unit testing Qt applications and
  libraries.
 
-Package: libphonon4
+Package: libphononqte4
 Architecture: any
 Section: libs
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Replaces: kdelibs5 (<= 4:4.0.80)
-Description: Qt 4 Phonon module
+Description: QtE 4 Phonon module
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
@@ -166,7 +166,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, libqtecore4 (= ${binary:Version}),
  libqtegui4 (= ${binary:Version}), libqte4-svg (= ${binary:Version}),
  libqte4-webkit (= ${binary:Version}), libqte4-xml (= ${binary:Version}),
  libqte4-sql (= ${binary:Version}), libqte4-script (= ${binary:Version}),
- libqte4-test (= ${binary:Version}), libphonon4 (= ${binary:Version}),
+ libqte4-test (= ${binary:Version}), libphononqte4 (= ${binary:Version}),
  qt4-qmake (= ${binary:Version})
 Conflicts: qt3-dev-tools (<= 3:3.3.4-7), libqtewebkit-dev
 Replaces: libqtewebkit-dev
@@ -178,13 +178,13 @@ Description: Qt 4 development files
  This package contains the header development files and development programs
  used for building Qt 4 applications.
 
-Package: libphonon-dev
+Package: libphononqte-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends}, ${misc:Depends},
- libphonon4 (= ${binary:Version})
+ libphononqte4 (= ${binary:Version})
 Replaces: kdelibs5-dev (<< 4:4.0.81)
-Description: Qt 4 Phonon library development files
+Description: QtE 4 Phonon library development files
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
  .
@@ -216,7 +216,7 @@ Description: Qt 4 WebKit library debugging symbols
  .
  This package contains the debugging symbols for the Qt 4 WebKit library.
 
-Package: phonon-dbg
+Package: phononqte-dbg
 Priority: extra
 Architecture: any
 Section: debug
