@@ -1,3 +1,9 @@
+qt4-embedded (4:4.5.3-5yd0.1) unstable; urgency=low
+
+  * get rid of /usr material conflicting with qt4-x11
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 15 May 2012 21:43:26 +0200
+
 qt4-embedded (4:4.5.3-5yd0) unstable; urgency=low
 
   * First stake at a Qt embedded build.
