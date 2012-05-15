@@ -4,8 +4,9 @@ qt4-embedded (4:4.5.3-5yd0.1) unstable; urgency=low
   * get rid of transitional packages not useful for qt4-embedded, and of
     libqte4-sql-sqlite which is useless (builtin driver ?).
   * Rename phonon packages to avoid clash with those from qt4-x11
+  * Fix debian/rules for wrong package names for debug symbols.
 
- -- Yann Dirson <dirson@debian.org>  Tue, 15 May 2012 21:43:26 +0200
+ -- Yann Dirson <dirson@debian.org>  Tue, 15 May 2012 21:59:58 +0200
 
 qt4-embedded (4:4.5.3-5yd0) unstable; urgency=low
 
