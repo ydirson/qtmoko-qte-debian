@@ -167,7 +167,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, libqtecore4 (= ${binary:Version}),
  libqte4-webkit (= ${binary:Version}), libqte4-xml (= ${binary:Version}),
  libqte4-sql (= ${binary:Version}), libqte4-script (= ${binary:Version}),
  libqte4-test (= ${binary:Version}), libphononqte4 (= ${binary:Version}),
- qt4-qmake (= ${binary:Version})
+ qt4-qmake (>= ${binary:Version})
 Conflicts: qt3-dev-tools (<= 3:3.3.4-7), libqtewebkit-dev
 Replaces: libqtewebkit-dev
 Suggests: qt4-dev-tools, qt4-doc, libmysqlclient-dev, libsqlite0-dev, libsqlite3-dev, libpq-dev, unixodbc-dev, firebird2.0-dev
@@ -221,7 +221,7 @@ Priority: extra
 Architecture: any
 Section: debug
 Depends: ${shlibs:Depends}, ${misc:Depends},
- libphonon4 (= ${binary:Version})
+ libphononqte4 (= ${binary:Version})
 Description: Qt 4 Phonon library debugging symbols
  Qt is a cross-platform C++ application framework. Qt's primary feature
  is its rich set of widgets that provide standard GUI functionality.
@@ -230,7 +230,7 @@ Description: Qt 4 Phonon library debugging symbols
 
 Package: phonon
 Architecture: all
-Depends: ${misc:Depends}, libphonon4 (>= ${source:Version}),
+Depends: ${misc:Depends}, libphononqte4 (>= ${source:Version}),
  phonon-backend-xine | phonon-backend
 Suggests: phonon-backend-gstreamer, phonon-backend-vlc, phonon-backend-mplayer
 Description: Qt 4 Phonon module metapackage

@@ -1,3 +1,10 @@
+qt4-embedded (4:4.5.3-5yd0.2) unstable; urgency=low
+
+  * Relax dependency on qt4-qmake.
+  * Fix dependencies to mention libphononqte4, not libphonon4?
+
+ -- Yann Dirson <dirson@debian.org>  Wed, 16 May 2012 23:10:36 +0200
+
 qt4-embedded (4:4.5.3-5yd0.1) unstable; urgency=low
 
   * get rid of /usr material conflicting with qt4-x11
